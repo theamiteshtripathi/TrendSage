@@ -1,0 +1,11 @@
+analyze_trends_task:
+  description: "Analyze collected news articles to identify trends, determine age groups, and assess popularity scores."
+  expected_output: "A list of identified trends with age groups and popularity scores."
+  tools: [analyze_trends]
+  agent: trend_analyzer
+
+write_blog_post_task:
+  description: "Write a blog post based on identified trends. Include age groups, popularity scores, and other relevant details."
+  expected_output: "A blog post formatted in markdown."
+  tools: []
+  agent: blog_writer

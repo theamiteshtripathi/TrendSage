@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "mpcrew"
+version = "0.1.0"
+description = "MPCrew using crewAI"
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<=3.13"
+crewai = { extras = ["tools"], version = "^0.36.1" }
+
+[tool.poetry.scripts]
+mpcrew = "mpcrew.main:run"
+train = "mpcrew.main:train"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
