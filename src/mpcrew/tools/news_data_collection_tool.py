@@ -16,7 +16,7 @@ def fetch_news(topic: str, language: str = 'en', max_results: int = 10) -> dict:
         dict: A dictionary containing the fetched news articles.
     """
     api_key = os.getenv('NEWS_API_KEY')
-    url = f"https://newsapi.org/v2/everything?q={topic}&language={language}&apiKey={api_key}&pageSize={max_results}"
+    url = f"https://newsapi.org/v2/everything?q={topic}&language={language}&pageSize={max_results}&apiKey={api_key}"
     response = requests.get(url)
     print(f"Fetched {len(response.json().get('articles', []))} articles")
     return response.json()
