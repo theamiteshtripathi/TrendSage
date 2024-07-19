@@ -1,20 +1,25 @@
+# crew.py
 import os
 import time
-import openai
-from openai import APIError
+import openai  # Ensure openai is imported
+from openai import APIError  # Correctly import APIError
 from crewai import Agent, Task, Crew, Process
 from tools.news_data_collection_tool import fetch_news
 from tools.trend_analyzer_tool import analyze_trends
-from tools.blog_storage_tool import store_blog  # Ensure to import the new tool
+from tools.save_blog_post_tool import save_blog_post
 
 # Load environment variables
 from dotenv import load_dotenv
 load_dotenv()
 
+# Set OpenAI API Key and Model
+openai.api_key = os.getenv('OPENAI_API_KEY')
+openai_model = os.getenv('OPENAI_MODEL', 'gpt-3.5-turbo')  # Default to gpt-3.5-turbo
+
 # Initialize tools
 fetch_news_tool = fetch_news
 analyze_trends_tool = analyze_trends
-store_blog_tool = store_blog  # Initialize the new tool
+save_blog_post_tool = save_blog_post
 
 # Define agents
 trend_analyzer = Agent(
@@ -28,7 +33,7 @@ blog_writer = Agent(
     role='Blog Writer',
     goal='Write compelling blog posts based on identified trends',
     backstory='You have a knack for writing engaging and informative blog posts that captivate readers.',
-    tools=[store_blog_tool]  # Add the new tool to the agent
+    tools=[save_blog_post_tool]
 )
 
 # Define tasks
@@ -53,9 +58,9 @@ analyze_trends_task = Task(
 write_blog_post_task = Task(
     description='Write a blog post based on identified trends. Include age groups, popularity scores, and other relevant details.',
     expected_output='A blog post formatted in markdown.',
-    tools=[store_blog_tool],  # Use the new tool to store blogs
+    tools=[save_blog_post_tool],
     agent=blog_writer,
-    input_vars=['trends']
+    input_vars=['trends', 'topic']
 )
 
 # Define crew
@@ -66,7 +71,7 @@ crew = Crew(
 )
 
 # Retry mechanism for crew kickoff
-def retry_kickoff(crew, inputs, retries=3):
+def retry_kickoff(crew, inputs, retries=1):
     for attempt in range(retries):
         try:
             result = crew.kickoff(inputs=inputs)
@@ -77,7 +82,7 @@ def retry_kickoff(crew, inputs, retries=3):
             time.sleep(2)  # Wait before retrying
         except Exception as e:
             print(f"Attempt {attempt + 1} failed due to a different error: {e}")
-            time.sleep(2)  # Wait before retrying
+            break  # If it's a different error, break the loop and do not retry
     raise Exception("All retry attempts failed")
 
 # Execute crew process with retries
