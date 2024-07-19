@@ -1,5 +1,7 @@
 from crewai_tools import tool
 from typing import List
+import mysql.connector
+import os
 
 @tool
 def analyze_trends(news_data: dict) -> List[dict]:
@@ -12,7 +14,19 @@ def analyze_trends(news_data: dict) -> List[dict]:
     Returns:
         List[dict]: A list of identified trends with age groups and popularity scores.
     """
-    articles = news_data.get('articles', [])
+    # Connect to MySQL database
+    conn = mysql.connector.connect(
+        host=os.getenv('DB_HOST'),
+        user=os.getenv('DB_USER'),
+        password=os.getenv('DB_PASS'),
+        database=os.getenv('DB_NAME')
+    )
+    cursor = conn.cursor(dictionary=True)
+    cursor.execute("SELECT description, title, content FROM news_articles")
+    articles = cursor.fetchall()
+    cursor.close()
+    conn.close()
+
     if not articles:
         raise ValueError("No articles found in news data")
     

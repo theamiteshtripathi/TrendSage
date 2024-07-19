@@ -1,10 +1,11 @@
 import os
 import time
-import openai  # Ensure openai is imported
-from openai import APIError  # Correctly import APIError
+import openai
+from openai import APIError
 from crewai import Agent, Task, Crew, Process
 from tools.news_data_collection_tool import fetch_news
 from tools.trend_analyzer_tool import analyze_trends
+from tools.blog_storage_tool import store_blog  # Ensure to import the new tool
 
 # Load environment variables
 from dotenv import load_dotenv
@@ -13,6 +14,7 @@ load_dotenv()
 # Initialize tools
 fetch_news_tool = fetch_news
 analyze_trends_tool = analyze_trends
+store_blog_tool = store_blog  # Initialize the new tool
 
 # Define agents
 trend_analyzer = Agent(
@@ -25,7 +27,8 @@ trend_analyzer = Agent(
 blog_writer = Agent(
     role='Blog Writer',
     goal='Write compelling blog posts based on identified trends',
-    backstory='You have a knack for writing engaging and informative blog posts that captivate readers.'
+    backstory='You have a knack for writing engaging and informative blog posts that captivate readers.',
+    tools=[store_blog_tool]  # Add the new tool to the agent
 )
 
 # Define tasks
@@ -50,7 +53,7 @@ analyze_trends_task = Task(
 write_blog_post_task = Task(
     description='Write a blog post based on identified trends. Include age groups, popularity scores, and other relevant details.',
     expected_output='A blog post formatted in markdown.',
-    tools=[],
+    tools=[store_blog_tool],  # Use the new tool to store blogs
     agent=blog_writer,
     input_vars=['trends']
 )
@@ -74,7 +77,7 @@ def retry_kickoff(crew, inputs, retries=3):
             time.sleep(2)  # Wait before retrying
         except Exception as e:
             print(f"Attempt {attempt + 1} failed due to a different error: {e}")
-            break  # If it's a different error, break the loop and do not retry
+            time.sleep(2)  # Wait before retrying
     raise Exception("All retry attempts failed")
 
 # Execute crew process with retries
