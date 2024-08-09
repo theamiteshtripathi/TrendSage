@@ -13,5 +13,5 @@ analyze_trends_task:
 write_blog_post_task:
   description: "Write a blog post based on identified trends. Include age groups, popularity scores, and other relevant details."
   expected_output: "A blog post formatted in markdown."
-  tools: []
+  tools: [save_blog_post]
   agent: blog_writer

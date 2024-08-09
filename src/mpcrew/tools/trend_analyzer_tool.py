@@ -1,7 +1,10 @@
+import os
 from crewai_tools import tool
 from typing import List
 import mysql.connector
-import os
+from tools.connect_db import connect_to_db
+from collections import Counter
+import re
 
 @tool
 def analyze_trends(news_data: dict) -> List[dict]:
@@ -14,13 +17,8 @@ def analyze_trends(news_data: dict) -> List[dict]:
     Returns:
         List[dict]: A list of identified trends with age groups and popularity scores.
     """
-    # Connect to MySQL database
-    conn = mysql.connector.connect(
-        host=os.getenv('DB_HOST'),
-        user=os.getenv('DB_USER'),
-        password=os.getenv('DB_PASS'),
-        database=os.getenv('DB_NAME')
-    )
+    import os
+    conn = connect_to_db()
     cursor = conn.cursor(dictionary=True)
     cursor.execute("SELECT description, title, content FROM news_articles")
     articles = cursor.fetchall()
@@ -30,7 +28,12 @@ def analyze_trends(news_data: dict) -> List[dict]:
     if not articles:
         raise ValueError("No articles found in news data")
     
-    # Dummy implementation - replace with actual trend analysis logic
-    trends = [{"trend": "AI", "age_group": "18-25", "popularity_score": 85}]
+    # Analyze the text to extract trends
+    text_data = " ".join([article['description'] + " " + article['title'] + " " + article['content'] for article in articles])
+    words = re.findall(r'\b\w+\b', text_data.lower())
+    common_words = Counter(words).most_common(10)
+    
+    trends = [{"trend": word, "age_group": "18-25", "popularity_score": score} for word, score in common_words]
+    
     print(f"Analyzed {len(articles)} articles and found trends: {trends}")
     return trends

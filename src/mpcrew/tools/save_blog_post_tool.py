@@ -1,7 +1,7 @@
-# tools/save_blog_post_tool.py
+import os
 import mysql.connector
 from crewai_tools import tool
-import os
+from tools.connect_db import connect_to_db
 
 def connect_to_db():
     try:

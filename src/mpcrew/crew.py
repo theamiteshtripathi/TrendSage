@@ -1,12 +1,13 @@
 # crew.py
 import os
 import time
-import openai  # Ensure openai is imported
-from openai import APIError  # Correctly import APIError
+import openai 
+from openai import APIError 
 from crewai import Agent, Task, Crew, Process
 from tools.news_data_collection_tool import fetch_news
 from tools.trend_analyzer_tool import analyze_trends
 from tools.save_blog_post_tool import save_blog_post
+from tools.connect_db import connect_to_db
 
 # Load environment variables
 from dotenv import load_dotenv
@@ -14,9 +15,10 @@ load_dotenv()
 
 # Set OpenAI API Key and Model
 openai.api_key = os.getenv('OPENAI_API_KEY')
-openai_model = os.getenv('OPENAI_MODEL', 'gpt-3.5-turbo')  # Default to gpt-3.5-turbo
+openai_model = os.getenv('OPENAI_MODEL_NAME', 'gpt-3.5-turbo')  # Default to gpt-3.5-turbo
 
 # Initialize tools
+sql_connected = connect_to_db
 fetch_news_tool = fetch_news
 analyze_trends_tool = analyze_trends
 save_blog_post_tool = save_blog_post
@@ -26,14 +28,16 @@ trend_analyzer = Agent(
     role='Trend Analyzer',
     goal='Identify trends from collected news articles',
     backstory='You are an expert in identifying trends from large datasets and making sense of data.',
-    tools=[fetch_news_tool, analyze_trends_tool]
+    tools=[fetch_news_tool, analyze_trends_tool],
+    verbose=True
 )
 
 blog_writer = Agent(
     role='Blog Writer',
     goal='Write compelling blog posts based on identified trends',
     backstory='You have a knack for writing engaging and informative blog posts that captivate readers.',
-    tools=[save_blog_post_tool]
+    tools=[save_blog_post_tool],
+    verbose=True
 )
 
 # Define tasks
@@ -89,7 +93,6 @@ def retry_kickoff(crew, inputs, retries=1):
 print("Starting crew process")
 try:
     result = retry_kickoff(crew, inputs={'topic': 'AI'})
-    print("Crew process finished")
     print(result)
 except Exception as e:
     print(f"Error during crew process: {e}")
