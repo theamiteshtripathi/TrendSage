@@ -1,10 +1,10 @@
-import os
+#import os
+import re
 from crewai_tools import tool
 from typing import List
 import mysql.connector
 from tools.connect_db import connect_to_db
 from collections import Counter
-import re
 
 @tool
 def analyze_trends(news_data: dict) -> List[dict]:
@@ -17,7 +17,6 @@ def analyze_trends(news_data: dict) -> List[dict]:
     Returns:
         List[dict]: A list of identified trends with age groups and popularity scores.
     """
-    import os
     conn = connect_to_db()
     cursor = conn.cursor(dictionary=True)
     cursor.execute("SELECT description, title, content FROM news_articles")

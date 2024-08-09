@@ -29,6 +29,7 @@ trend_analyzer = Agent(
     goal='Identify trends from collected news articles',
     backstory='You are an expert in identifying trends from large datasets and making sense of data.',
     tools=[fetch_news_tool, analyze_trends_tool],
+    allow_delegation=False,
     verbose=True
 )
 
@@ -37,6 +38,7 @@ blog_writer = Agent(
     goal='Write compelling blog posts based on identified trends',
     backstory='You have a knack for writing engaging and informative blog posts that captivate readers.',
     tools=[save_blog_post_tool],
+    allow_delegation=False,
     verbose=True
 )
 
