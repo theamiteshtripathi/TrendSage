@@ -55,8 +55,8 @@ def fetch_news(topic: str, language: str = 'en', max_results: int = 5) -> dict:
             published_at = parser.parse(article['publishedAt']).strftime('%Y-%m-%d %H:%M:%S')
             
             cursor.execute("""
-                INSERT INTO news_articles (source, author, title, description, url, url_to_image, published_at, content)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+                INSERT INTO news_articles (source, author, title, description, url, url_to_image, published_at, content, analyzed)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, False)
             """, (
                 article['source']['name'], 
                 article['author'], 

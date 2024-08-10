@@ -12,7 +12,27 @@ import tiktoken
 @tool
 def analyze_trends(news_data: dict) -> List[dict]:
     """
-    Analyzes news data using GPT-4o-mini to identify AI-related trends.
+     "Analyze collected news articles to identify trends using LLM. Focus on: "
+        "1. Frequency of Mentions, "
+        "2. Sentiment Analysis, "
+        "3. Key Entities, "
+        "4. Geographical Distribution, "
+        "5. Publication Date Range, "
+        "6. Source Diversity, "
+        "7. Emerging Keywords, "
+        "8. Author Expertise, "
+        "9. Industry Impact, "
+        "10. Public Opinion, "
+        "11. Historical Context, "
+        "12. Influencer Involvement, "
+        "13. Regulatory Aspects, "
+        "14. Technological Implications, "
+        "15. Economic Indicators, "
+        "16. Visual Data, "
+        "17. Quotes, "
+        "18. Trend Velocity, "
+        "19. Cross-Domain Connections, and "
+        "20. Potential Future Developments."
 
     Args:
         news_data (dict): The collected news articles.
@@ -23,13 +43,13 @@ def analyze_trends(news_data: dict) -> List[dict]:
     try:
         conn = connect_to_db()
         cursor = conn.cursor(dictionary=True)
-        cursor.execute("SELECT description, title, content FROM news_articles")
+
+        # Fetch only unanalyzed articles
+        cursor.execute("SELECT id, description, title, content FROM news_articles WHERE analyzed = False")
         articles = cursor.fetchall()
-        cursor.close()
-        conn.close()
 
         if not articles:
-            raise ValueError("No articles found in news data")
+            raise ValueError("No new articles to analyze")
 
         # Combine the text data from description, title, and content fields
         combined_text = " ".join([article['description'] + " " + article['title'] + " " + article['content'] for article in articles])
@@ -77,6 +97,14 @@ def analyze_trends(news_data: dict) -> List[dict]:
             # Assuming the response is structured, parse it into a list of trends
             chunk_trends = [{"trend": trend.strip()} for trend in gpt_response.split("\n") if trend.strip()]
             trends.extend(chunk_trends)
+
+        # Mark articles as analyzed
+        for article in articles:
+            cursor.execute("UPDATE news_articles SET analyzed = True WHERE id = %s", (article['id'],))
+
+        conn.commit()
+        cursor.close()
+        conn.close()
 
         print(f"Analyzed {len(articles)} articles and found trends: {trends}")
         return trends

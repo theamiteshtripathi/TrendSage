@@ -43,6 +43,15 @@ blog_writer = Agent(
 )
 
 # Define tasks
+fetch_news_task = Task(
+    description='Fetch news articles based on the given topic.',
+    expected_output='A dictionary of news articles.',
+    tools=[fetch_news_tool],
+    agent=trend_analyzer,
+    input_vars=['topic'],
+    output_vars=['news_data']
+)
+
 analyze_trends_task = Task(
     description=(
         "Analyze collected news articles to identify trends using LLM. Focus on: "
@@ -70,24 +79,17 @@ analyze_trends_task = Task(
     expected_output='A list of identified trends with relevant details.',
     tools=[analyze_trends_tool],
     agent=trend_analyzer,
+    context=[fetch_news_task],
     input_vars=['news_data'],
     output_vars=['trends']
 )
 
-
-analyze_trends_task = Task(
-    description='Analyze collected news articles to identify trends using LLM. The analysis should focus on key AI-related trends such as Frequency of Mentions, Sentiment Analysis, Topic Modeling, and more.',
-    expected_output='A list of identified trends with relevant details.',
-    tools=[analyze_trends_tool],
-    agent=trend_analyzer,
-    input_vars=['news_data'],
-    output_vars=['trends']
-)
 
 write_blog_post_task = Task(
     description='Write a blog post based on identified trends. Include age groups, popularity scores, and other relevant details.',
     expected_output='A blog post formatted in markdown.',
     tools=[save_blog_post_tool],
+    context=[analyze_trends_task],
     agent=blog_writer,
     input_vars=['trends', 'topic']
 )
