@@ -1,8 +1,8 @@
-# crew.py
 import os
 import time
-import openai 
-from openai import APIError 
+import openai
+import traceback
+from openai import APIError
 from crewai import Agent, Task, Crew, Process
 from tools.news_data_collection_tool import fetch_news
 from tools.trend_analyzer_tool import analyze_trends
@@ -15,7 +15,7 @@ load_dotenv()
 
 # Set OpenAI API Key and Model
 openai.api_key = os.getenv('OPENAI_API_KEY')
-openai_model = os.getenv('OPENAI_MODEL_NAME', 'gpt-3.5-turbo')  # Default to gpt-3.5-turbo
+openai_model = os.getenv('OPENAI_MODEL_NAME', 'gpt-4o-mini')  # Default to gpt-4o-mini
 
 # Initialize tools
 sql_connected = connect_to_db
@@ -26,8 +26,8 @@ save_blog_post_tool = save_blog_post
 # Define agents
 trend_analyzer = Agent(
     role='Trend Analyzer',
-    goal='Identify trends from collected news articles',
-    backstory='You are an expert in identifying trends from large datasets and making sense of data.',
+    goal='Identify trends from collected news articles using LLM',
+    backstory='You are an expert in identifying trends from large datasets using the latest AI models. You utilize advanced LLMs to understand and extract meaningful insights from text data.',
     tools=[fetch_news_tool, analyze_trends_tool],
     allow_delegation=False,
     verbose=True
@@ -43,18 +43,41 @@ blog_writer = Agent(
 )
 
 # Define tasks
-fetch_news_task = Task(
-    description='Fetch news articles based on the given topic.',
-    expected_output='A dictionary of news articles.',
-    tools=[fetch_news_tool],
+analyze_trends_task = Task(
+    description=(
+        "Analyze collected news articles to identify trends using LLM. Focus on: "
+        "1. Frequency of Mentions, "
+        "2. Sentiment Analysis, "
+        "3. Key Entities, "
+        "4. Geographical Distribution, "
+        "5. Publication Date Range, "
+        "6. Source Diversity, "
+        "7. Emerging Keywords, "
+        "8. Author Expertise, "
+        "9. Industry Impact, "
+        "10. Public Opinion, "
+        "11. Historical Context, "
+        "12. Influencer Involvement, "
+        "13. Regulatory Aspects, "
+        "14. Technological Implications, "
+        "15. Economic Indicators, "
+        "16. Visual Data, "
+        "17. Quotes, "
+        "18. Trend Velocity, "
+        "19. Cross-Domain Connections, and "
+        "20. Potential Future Developments."
+    ),
+    expected_output='A list of identified trends with relevant details.',
+    tools=[analyze_trends_tool],
     agent=trend_analyzer,
-    input_vars=['topic'],
-    output_vars=['news_data']
+    input_vars=['news_data'],
+    output_vars=['trends']
 )
 
+
 analyze_trends_task = Task(
-    description='Analyze collected news articles to identify trends, determine age groups, and assess popularity scores.',
-    expected_output='A list of identified trends with age groups and popularity scores.',
+    description='Analyze collected news articles to identify trends using LLM. The analysis should focus on key AI-related trends such as Frequency of Mentions, Sentiment Analysis, Topic Modeling, and more.',
+    expected_output='A list of identified trends with relevant details.',
     tools=[analyze_trends_tool],
     agent=trend_analyzer,
     input_vars=['news_data'],
@@ -88,13 +111,15 @@ def retry_kickoff(crew, inputs, retries=1):
             time.sleep(2)  # Wait before retrying
         except Exception as e:
             print(f"Attempt {attempt + 1} failed due to a different error: {e}")
+            traceback.print_exc()  # This will print the full traceback
             break  # If it's a different error, break the loop and do not retry
     raise Exception("All retry attempts failed")
 
 # Execute crew process with retries
 print("Starting crew process")
 try:
-    result = retry_kickoff(crew, inputs={'topic': 'AI'})
+    result = retry_kickoff(crew, inputs={'topic': 'Artificial Intelligence'})
     print(result)
 except Exception as e:
     print(f"Error during crew process: {e}")
+

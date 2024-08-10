@@ -3,19 +3,6 @@ import mysql.connector
 from crewai_tools import tool
 from tools.connect_db import connect_to_db
 
-def connect_to_db():
-    try:
-        conn = mysql.connector.connect(
-            host=os.getenv('DB_HOST'),
-            user=os.getenv('DB_USER'),
-            password=os.getenv('DB_PASS'),
-            database=os.getenv('DB_NAME')
-        )
-        return conn
-    except Error as err:
-        print(f"Error connecting to database: {err}")
-        raise
-
 @tool
 def save_blog_post(blog_content: str, title: str):
     """

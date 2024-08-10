@@ -5,8 +5,8 @@ fetch_news_task:
   agent: trend_analyzer
 
 analyze_trends_task:
-  description: "Analyze collected news articles to identify trends, determine age groups, and assess popularity scores."
-  expected_output: "A list of identified trends with age groups and popularity scores."
+  description: "Analyze collected news articles to identify trends using LLM. The analysis should focus on key AI-related trends such as Frequency of Mentions, Sentiment Analysis, Topic Modeling, and more."
+  expected_output: "A list of identified trends with relevant details."
   tools: [analyze_trends]
   agent: trend_analyzer
 

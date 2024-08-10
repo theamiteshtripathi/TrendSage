@@ -2,22 +2,17 @@ import os
 import requests
 import mysql.connector
 from mysql.connector import Error
-from crewai_tools import tool, ScrapeWebsiteTool
+from crewai_tools import tool
 from dateutil import parser
+from bs4 import BeautifulSoup
 from tools.connect_db import connect_to_db
 
-def connect_to_db():
-    try:
-        conn = mysql.connector.connect(
-            host=os.getenv('DB_HOST'),
-            user=os.getenv('DB_USER'),
-            password=os.getenv('DB_PASS'),
-            database=os.getenv('DB_NAME')
-        )
-        return conn
-    except Error as err:
-        print(f"Error connecting to database: {err}")
-        raise
+def scrape_full_content(url):
+    response = requests.get(url)
+    soup = BeautifulSoup(response.content, 'html.parser')
+    paragraphs = soup.find_all('p')
+    full_content = ' '.join([p.get_text() for p in paragraphs])
+    return full_content
 
 @tool
 def fetch_news(topic: str, language: str = 'en', max_results: int = 5) -> dict:
@@ -41,7 +36,6 @@ def fetch_news(topic: str, language: str = 'en', max_results: int = 5) -> dict:
     cursor = conn.cursor()
 
     new_articles = []
-    scrape_tool = ScrapeWebsiteTool()
 
     for article in articles:
         # Check if the article already exists in the database
@@ -50,11 +44,9 @@ def fetch_news(topic: str, language: str = 'en', max_results: int = 5) -> dict:
         
         if count == 0:  # Only insert if the article does not exist
             try:
-                # Using ScrapeWebsiteTool to scrape paragraphs ('p') from the article's URL
-                scrape_tool.url = article['url']
-                scrape_tool.elements = ['p']  # Targeting paragraph elements for text content
-                scraped_content = scrape_tool.run()
-                full_content = ' '.join([element['text'] for element in scraped_content])
+                # Scrape the full content from the article's URL
+                full_content = scrape_full_content(article['url'])
+                #print(f"Scraped content for {article['url']}:\n{full_content}\n")  # Debugging print statement
 
             except Exception as e:
                 full_content = article['content']  # Fall back to partial content if scraping fails
