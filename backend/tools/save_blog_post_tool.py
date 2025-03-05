@@ -1,45 +1,39 @@
-import os
-from crewai.tools import tool
-from supabase import create_client, Client
-from datetime import datetime
+from typing import Dict, Any
+from langchain.tools import tool
+from tools.supabase_client import supabase
+from config.logging_config import setup_logging
 
-@tool("Save Blog Post Tool")
-async def save_blog_post(title: str, content: str, topic: str) -> dict:
-    """Saves a generated blog post to the database."""
-    supabase = create_client(
-        os.getenv('SUPABASE_URL'),
-        os.getenv('SUPABASE_KEY')
-    )
-    
+logger = setup_logging()
+
+@tool
+def save_blog_post(trend_analysis: Dict[str, Any]) -> Dict[str, Any]:
+    """Create and save a blog post based on trend analysis"""
     try:
-        # Prepare blog post data
-        data = {
-            'title': title,
-            'content': content,
-            'topic': topic,
-            'published_at': datetime.utcnow().isoformat(),
-            'status': 'published'
+        # Extract data from trend analysis
+        articles = trend_analysis.get('analyzed_articles', [])
+        summary = trend_analysis.get('trend_summary', '')
+        
+        if not articles:
+            raise ValueError("No analyzed articles provided")
+
+        # Create blog post
+        blog_post = {
+            'title': f"Trend Analysis: {articles[0]['category']}",
+            'content': summary,
+            'category': articles[0]['category'],
+            'trend_score': max(article['trend_score'] for article in articles),
+            'source_articles': articles,
+            'status': 'published',
+            'author': 'AI Agent',
+            'published_at': 'now()'
         }
+
+        # Save to Supabase
+        result = supabase.table('blogs').insert(blog_post).execute()
+        logger.info("Blog post saved successfully")
         
-        # Insert into Supabase
-        result = supabase.table('blogs').insert(data).execute()
-        
-        if result.data:
-            return {
-                'status': 'success',
-                'message': 'Blog post saved successfully',
-                'post_id': result.data[0]['id']
-            }
-        else:
-            return {
-                'status': 'error',
-                'message': 'Failed to save blog post',
-                'post_id': None
-            }
-            
+        return result.data[0]
+
     except Exception as e:
-        return {
-            'status': 'error',
-            'message': str(e),
-            'post_id': None
-        }
+        logger.error(f"Error in save_blog_post: {str(e)}")
+        raise

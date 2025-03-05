@@ -1,82 +1,60 @@
 import os
-from crewai.tools import tool
-from supabase import create_client, Client
+from typing import List, Dict, Any
+from langchain.tools import tool
+from tools.supabase_client import supabase
+from config.logging_config import setup_logging
 from langchain_openai import ChatOpenAI
 
-@tool("Trend Analyzer Tool")
-async def analyze_trends(topic: str) -> dict:
-    """Analyzes trends from collected news articles using LLM."""
-    supabase = create_client(
-        os.getenv('SUPABASE_URL'),
-        os.getenv('SUPABASE_KEY')
-    )
-    
-    llm = ChatOpenAI(
-        model=os.getenv('OPENAI_MODEL_NAME', 'gpt-4'),
-        temperature=0.7,
-        api_key=os.getenv('OPENAI_API_KEY')
-    )
-    
+logger = setup_logging()
+
+@tool
+def analyze_trends(articles: List[Dict[Any, Any]]) -> Dict[str, Any]:
+    """Analyze trends from the collected news articles and update their scores"""
     try:
-        # Fetch articles from Supabase
-        response = supabase.table('news_articles')\
-            .select('*')\
-            .eq('analyzed', False)\
-            .execute()
-        
-        articles = response.data
-        
         if not articles:
+            logger.warning("No articles provided for analysis")
             return {
-                'status': 'error',
-                'message': 'No new articles to analyze',
-                'trends': []
+                'analyzed_articles': [],
+                'trend_summary': 'No articles available for analysis',
+                'category': 'Miscellaneous',
+                'trend_score': 0.0
             }
 
-        # Prepare articles for analysis
-        article_texts = []
+        # Calculate trend scores (simplified example)
+        analyzed_articles = []
         for article in articles:
-            text = f"Title: {article['title']}\n"
-            text += f"Description: {article['description']}\n"
-            text += f"Content: {article['content']}\n"
-            article_texts.append(text)
-
-        # Analyze trends using LLM
-        prompt = f"""
-        Analyze the following news articles about {topic} and identify key trends.
-        Focus on:
-        1. Common themes and patterns
-        2. Sentiment analysis
-        3. Key stakeholders and entities
-        4. Geographic distribution of news
-        5. Emerging technologies or innovations
-        6. Market impacts and business implications
-
-        Articles:
-        {'\n\n'.join(article_texts)}
-
-        Please provide a structured analysis with specific examples and data points.
-        """
-
-        response = llm.invoke(prompt)
-        analysis = response.content
-
-        # Mark articles as analyzed
-        for article in articles:
-            supabase.table('news_articles')\
-                .update({'analyzed': True})\
-                .eq('id', article['id'])\
-                .execute()
-
+            try:
+                # Update article with trend score and mark as analyzed
+                updated = supabase.table('news_articles')\
+                    .update({
+                        'trend_score': 1.0,  # Replace with actual scoring logic
+                        'analyzed': True
+                    })\
+                    .eq('id', article['id'])\
+                    .execute()
+                
+                if updated.data:
+                    analyzed_articles.extend(updated.data)
+            except Exception as article_error:
+                logger.error(f"Error updating article {article.get('id', 'unknown')}: {str(article_error)}")
+                continue
+        
+        # Create meaningful summary
+        summary = f"Analyzed {len(analyzed_articles)} articles about {articles[0].get('category', 'various topics')}"
+        
+        logger.info(f"Analyzed {len(analyzed_articles)} articles")
         return {
-            'status': 'success',
-            'message': 'Trends analyzed successfully',
-            'trends': analysis
+            'analyzed_articles': analyzed_articles,
+            'trend_summary': summary,
+            'category': articles[0].get('category', 'Miscellaneous'),
+            'trend_score': max((article.get('trend_score', 0.0) for article in analyzed_articles), default=0.0)
         }
 
     except Exception as e:
+        logger.error(f"Error in analyze_trends: {str(e)}")
         return {
-            'status': 'error',
-            'message': str(e),
-            'trends': []
+            'analyzed_articles': [],
+            'trend_summary': f'Error during analysis: {str(e)}',
+            'category': 'Miscellaneous',
+            'trend_score': 0.0
         }

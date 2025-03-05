@@ -10,6 +10,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert"
 import Image from "next/image"
 import AuthComponent from "@/components/auth"
 import { supabase } from "@/lib/supabase"
+import { apiClient } from "@/lib/api"
 
 // Types
 interface Headline {
@@ -17,6 +18,15 @@ interface Headline {
   description: string
   url: string
   image?: string
+}
+
+interface NewsArticle {
+  title: string
+  description: string
+  url: string
+  image_url?: string
+  category: string
+  analyzed: boolean
 }
 
 // Sample categories for the navigation bar
@@ -55,21 +65,26 @@ export default function NewsTracker() {
     setBlogPostUrl("")
 
     try {
-      const response = await axios.post("https://example.com/fetchNews", {
-        topic: topic,
-        count: 10,
-      })
-
-      if (response.data && response.data.headlines) {
-        setHeadlines(response.data.headlines)
+      // First analyze trends
+      const trendAnalysis = await apiClient.analyzeTrends(topic, activeCategory !== "All" ? activeCategory : undefined)
+      
+      // Then fetch the latest trends
+      const trendsResponse = await apiClient.getTrends(activeCategory !== "All" ? activeCategory : undefined)
+      
+      if (trendsResponse) {
+        setHeadlines(trendsResponse.map((article: NewsArticle) => ({
+          title: article.title,
+          description: article.description,
+          url: article.url,
+          image: article.image_url
+        })))
       }
 
-      if (response.data && response.data.blogPost) {
-        if (typeof response.data.blogPost === "string") {
-          setBlogPost(response.data.blogPost)
-        } else if (response.data.blogPost.url) {
-          setBlogPostUrl(response.data.blogPost.url)
-        }
+      // Get related blog posts
+      const blogsResponse = await apiClient.getBlogs(activeCategory !== "All" ? activeCategory : undefined)
+      if (blogsResponse && blogsResponse.length > 0) {
+        setBlogPost(blogsResponse[0].content)
+        setBlogPostUrl(blogsResponse[0].url)
       }
     } catch (err) {
       setError("Failed to fetch news. Please try again.")

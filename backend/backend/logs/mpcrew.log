@@ -11,3 +11,243 @@
 2025-03-05T04:57:28.342172 | [92mINFO[0m | main:<module>:35 | FastAPI application initialized
 2025-03-05T04:57:28.343605 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
 2025-03-05T04:57:37.679225 | [92mINFO[0m | main:root:40 | Root endpoint accessed
+2025-03-05T05:14:19.865889 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-05T05:14:19.894100 | [92mINFO[0m | main:<module>:58 | FastAPI application initialized
+2025-03-05T05:14:19.895269 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T05:14:34.945714 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-05T05:14:34.974827 | [92mINFO[0m | main:<module>:58 | FastAPI application initialized
+2025-03-05T05:14:34.975984 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T05:17:13.399492 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-05T05:17:13.427499 | [92mINFO[0m | main:<module>:58 | FastAPI application initialized
+2025-03-05T05:17:13.428604 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T05:17:26.577696 | [92mINFO[0m | run:<module>:11 | Application shutdown
+2025-03-05T05:18:07.046702 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-05T05:18:07.083614 | [92mINFO[0m | main:<module>:58 | FastAPI application initialized
+2025-03-05T05:18:12.633387 | [92mINFO[0m | main:get_categories:77 | Categories endpoint accessed
+2025-03-05T05:18:45.958233 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-05T05:18:45.988022 | [92mINFO[0m | main:<module>:58 | FastAPI application initialized
+2025-03-05T05:19:11.686351 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-05T05:19:11.720457 | [92mINFO[0m | main:<module>:58 | FastAPI application initialized
+2025-03-05T05:20:02.994953 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-05T05:20:03.025725 | [92mINFO[0m | main:<module>:58 | FastAPI application initialized
+2025-03-05T05:20:03.026846 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T05:20:04.470257 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-05T05:20:04.508808 | [92mINFO[0m | main:<module>:58 | FastAPI application initialized
+2025-03-05T05:20:04.510028 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T05:21:16.184972 | [92mINFO[0m | run:<module>:11 | Application shutdown
+2025-03-05T05:25:21.955619 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-05T05:25:21.987546 | [92mINFO[0m | main:<module>:58 | FastAPI application initialized
+2025-03-05T05:25:21.988700 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T05:25:23.752989 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-05T05:25:23.783204 | [92mINFO[0m | main:<module>:58 | FastAPI application initialized
+2025-03-05T05:25:23.784663 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T05:25:46.528945 | [92mINFO[0m | main:analyze_trends:83 | Analyzing trends for topic: Technology
+2025-03-05T05:25:46.531326 | [91mERROR[0m | main:analyze_trends:106 | Error analyzing trends: 'Agent' object has no attribute 'analyze'
+2025-03-05T05:28:04.873932 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-05T05:28:04.904190 | [92mINFO[0m | main:<module>:58 | FastAPI application initialized
+2025-03-05T05:28:04.905343 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T05:28:15.877277 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-05T05:28:15.907087 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T05:28:15.908196 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T05:28:30.507745 | [92mINFO[0m | run:<module>:11 | Application shutdown
+2025-03-05T05:28:41.058088 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-05T05:28:41.085813 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T05:28:41.086873 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T05:28:43.827750 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-05T05:28:43.853988 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T05:28:43.855075 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T05:28:44.445885 | [92mINFO[0m | main:analyze_trends:82 | Analyzing trends for topic: Technology
+2025-03-05T05:28:44.446429 | [92mINFO[0m | crew:retry_kickoff:115 | Starting crew execution
+2025-03-05T05:30:11.394533 | [92mINFO[0m | crew:retry_kickoff:117 | Crew execution completed successfully
+2025-03-05T05:30:11.395770 | [91mERROR[0m | main:analyze_trends:108 | Error analyzing trends: 'CrewOutput' object has no attribute 'get'
+2025-03-05T05:31:24.032951 | [92mINFO[0m | run:<module>:11 | Application shutdown
+2025-03-05T05:32:49.215049 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-05T05:32:49.247686 | [92mINFO[0m | main:<module>:58 | FastAPI application initialized
+2025-03-05T05:32:49.248764 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T05:32:50.969423 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-05T05:32:50.996254 | [92mINFO[0m | main:<module>:58 | FastAPI application initialized
+2025-03-05T05:32:50.997297 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T05:32:57.015336 | [92mINFO[0m | main:analyze_trends:83 | Analyzing trends for topic: Elon Musk
+2025-03-05T05:32:57.016231 | [92mINFO[0m | crew:retry_kickoff:115 | Starting crew execution
+2025-03-05T05:34:33.846883 | [92mINFO[0m | crew:retry_kickoff:117 | Crew execution completed successfully
+2025-03-05T05:34:33.847921 | [91mERROR[0m | main:analyze_trends:129 | Error analyzing trends: 'CrewOutput' object has no attribute 'raw_output'
+2025-03-05T05:34:35.982438 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-05T05:34:36.011406 | [92mINFO[0m | main:<module>:58 | FastAPI application initialized
+2025-03-05T05:34:36.012459 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T05:34:41.311971 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-05T05:34:41.351116 | [92mINFO[0m | main:<module>:58 | FastAPI application initialized
+2025-03-05T05:34:41.355553 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T05:36:31.627365 | [92mINFO[0m | run:<module>:11 | Application shutdown
+2025-03-05T05:40:04.357854 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-05T05:41:39.432709 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-05T05:42:59.964095 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-05T05:43:00.003681 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T05:43:00.005038 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T05:43:02.492201 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-05T05:43:02.517639 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T05:43:02.518719 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T05:43:12.669461 | [92mINFO[0m | run:<module>:11 | Application shutdown
+2025-03-05T05:43:32.191882 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-05T05:43:32.228603 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T05:43:32.229731 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T05:43:33.665274 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-05T05:43:33.692043 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T05:43:33.693163 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T05:44:18.845756 | [92mINFO[0m | main:analyze_trends:82 | Analyzing trends for topic: Technology
+2025-03-05T05:44:18.847864 | [92mINFO[0m | crew:retry_kickoff:131 | Starting crew execution
+2025-03-05T05:48:42.173142 | [92mINFO[0m | crew:retry_kickoff:133 | Crew execution completed successfully
+2025-03-05T05:48:42.497708 | [91mERROR[0m | main:analyze_trends:132 | Error analyzing trends: {'code': 'PGRST204', 'details': None, 'hint': None, 'message': "Could not find the 'category' column of 'news_articles' in the schema cache"}
+2025-03-05T05:48:42.629410 | [92mINFO[0m | run:<module>:11 | Application shutdown
+2025-03-05T05:56:51.313887 | [92mINFO[0m | crew:<module>:24 | Initializing CrewAI components
+2025-03-05T05:56:51.349921 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T05:56:51.351019 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T05:56:52.894265 | [92mINFO[0m | crew:<module>:24 | Initializing CrewAI components
+2025-03-05T05:56:52.926447 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T05:56:52.928369 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T05:57:21.481355 | [92mINFO[0m | crew:<module>:24 | Initializing CrewAI components
+2025-03-05T05:57:21.514612 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T05:57:21.515784 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T05:58:15.080907 | [92mINFO[0m | main:analyze_trends:82 | Analyzing trends for topic: Technology
+2025-03-05T05:58:15.520084 | [92mINFO[0m | crew:retry_kickoff:175 | Starting crew execution (attempt 1)
+2025-03-05T06:00:36.708134 | [92mINFO[0m | crew:retry_kickoff:179 | Crew execution completed successfully
+2025-03-05T06:00:36.884760 | [91mERROR[0m | main:analyze_trends:132 | Error analyzing trends: {'code': 'PGRST204', 'details': None, 'hint': None, 'message': "Could not find the 'category' column of 'news_articles' in the schema cache"}
+2025-03-05T06:04:30.516556 | [92mINFO[0m | run:<module>:11 | Application shutdown
+2025-03-05T06:05:19.404891 | [92mINFO[0m | crew:<module>:24 | Initializing CrewAI components
+2025-03-05T06:05:19.440018 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T06:05:19.441632 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T06:05:20.937489 | [92mINFO[0m | crew:<module>:24 | Initializing CrewAI components
+2025-03-05T06:05:20.981843 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T06:05:20.983188 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T06:06:00.297132 | [92mINFO[0m | run:<module>:11 | Application shutdown
+2025-03-05T06:06:50.622250 | [92mINFO[0m | crew:<module>:24 | Initializing CrewAI components
+2025-03-05T06:06:50.659230 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T06:06:50.660325 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T06:06:52.138096 | [92mINFO[0m | crew:<module>:24 | Initializing CrewAI components
+2025-03-05T06:06:52.165921 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T06:06:52.167035 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T06:07:10.720935 | [92mINFO[0m | main:analyze_trends:82 | Analyzing trends for topic: Technology
+2025-03-05T06:07:11.122301 | [92mINFO[0m | crew:retry_kickoff:175 | Starting crew execution (attempt 1)
+2025-03-05T06:10:07.227868 | [92mINFO[0m | crew:retry_kickoff:179 | Crew execution completed successfully
+2025-03-05T06:10:07.407798 | [91mERROR[0m | main:analyze_trends:132 | Error analyzing trends: {'code': 'PGRST204', 'details': None, 'hint': None, 'message': "Could not find the 'image_url' column of 'news_articles' in the schema cache"}
+2025-03-05T06:19:45.612906 | [92mINFO[0m | run:<module>:11 | Application shutdown
+2025-03-05T06:23:01.594693 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T06:27:06.863805 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T06:27:32.511910 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T06:27:32.554255 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T06:27:32.555334 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T06:27:34.027937 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T06:27:34.063912 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T06:27:34.064978 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T06:27:57.666826 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T06:27:57.692553 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T06:27:57.693683 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T06:28:30.745044 | [92mINFO[0m | run:<module>:11 | Application shutdown
+2025-03-05T06:29:01.984236 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T06:29:02.020972 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T06:29:02.022045 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T06:29:03.510087 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T06:29:03.536226 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T06:29:03.537281 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T06:29:09.025596 | [92mINFO[0m | main:analyze_trends:82 | Analyzing trends for topic: Technology
+2025-03-05T06:29:09.211747 | [91mERROR[0m | crew:execute_workflow:220 | Workflow execution failed: Error interpolating expected_output: Invalid value for key 'topic': Unsupported type Crew in inputs. Only str, int, float, bool, dict, and list are allowed.
+2025-03-05T06:29:09.211883 | [91mERROR[0m | main:analyze_trends:132 | Error analyzing trends: Error interpolating expected_output: Invalid value for key 'topic': Unsupported type Crew in inputs. Only str, int, float, bool, dict, and list are allowed.
+2025-03-05T06:29:19.374915 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T06:29:19.401475 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T06:29:19.402580 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T06:29:19.454612 | [92mINFO[0m | main:analyze_trends:82 | Analyzing trends for topic: Technology
+2025-03-05T06:29:19.617215 | [91mERROR[0m | crew:execute_workflow:220 | Workflow execution failed: Error interpolating expected_output: Invalid value for key 'topic': Unsupported type Crew in inputs. Only str, int, float, bool, dict, and list are allowed.
+2025-03-05T06:29:19.617334 | [91mERROR[0m | main:analyze_trends:132 | Error analyzing trends: Error interpolating expected_output: Invalid value for key 'topic': Unsupported type Crew in inputs. Only str, int, float, bool, dict, and list are allowed.
+2025-03-05T06:30:22.351351 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T06:30:22.378719 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T06:30:22.379928 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T06:30:42.587597 | [92mINFO[0m | run:<module>:11 | Application shutdown
+2025-03-05T06:30:59.538972 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T06:30:59.575136 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T06:30:59.576396 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T06:31:01.064858 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T06:31:01.097090 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T06:31:01.098170 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T06:31:06.022329 | [92mINFO[0m | run:<module>:11 | Application shutdown
+2025-03-05T06:31:24.299765 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T06:31:24.329229 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T06:31:24.330264 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T06:31:26.078422 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T06:31:26.105017 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T06:31:26.106095 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T06:31:26.171969 | [92mINFO[0m | main:analyze_trends:82 | Analyzing trends for topic: Technology
+2025-03-05T06:31:28.227548 | [91mERROR[0m | news_data_collection_tool:fetch_news:75 | Error in fetch_news: {'code': '42501', 'details': None, 'hint': None, 'message': 'new row violates row-level security policy for table "news_articles"'}
+2025-03-05T06:31:28.368555 | [91mERROR[0m | news_data_collection_tool:fetch_news:75 | Error in fetch_news: {'code': '42501', 'details': None, 'hint': None, 'message': 'new row violates row-level security policy for table "news_articles"'}
+2025-03-05T06:31:28.479915 | [91mERROR[0m | news_data_collection_tool:fetch_news:75 | Error in fetch_news: {'code': '42501', 'details': None, 'hint': None, 'message': 'new row violates row-level security policy for table "news_articles"'}
+2025-03-05T06:31:28.590120 | [91mERROR[0m | news_data_collection_tool:fetch_news:75 | Error in fetch_news: {'code': '42501', 'details': None, 'hint': None, 'message': 'new row violates row-level security policy for table "news_articles"'}
+2025-03-05T06:31:28.739646 | [91mERROR[0m | news_data_collection_tool:fetch_news:75 | Error in fetch_news: {'code': '42501', 'details': None, 'hint': None, 'message': 'new row violates row-level security policy for table "news_articles"'}
+2025-03-05T06:31:28.855677 | [91mERROR[0m | news_data_collection_tool:fetch_news:75 | Error in fetch_news: {'code': '42501', 'details': None, 'hint': None, 'message': 'new row violates row-level security policy for table "news_articles"'}
+2025-03-05T06:31:38.930918 | [91mERROR[0m | trend_analyzer_tool:analyze_trends:41 | Error in analyze_trends: {'code': '22P02', 'details': None, 'hint': None, 'message': 'invalid input syntax for type uuid: "1"'}
+2025-03-05T06:31:38.981500 | [91mERROR[0m | trend_analyzer_tool:analyze_trends:41 | Error in analyze_trends: {'code': '22P02', 'details': None, 'hint': None, 'message': 'invalid input syntax for type uuid: "1"'}
+2025-03-05T06:31:39.042343 | [91mERROR[0m | trend_analyzer_tool:analyze_trends:41 | Error in analyze_trends: {'code': '22P02', 'details': None, 'hint': None, 'message': 'invalid input syntax for type uuid: "1"'}
+2025-03-05T06:31:39.096322 | [91mERROR[0m | trend_analyzer_tool:analyze_trends:41 | Error in analyze_trends: {'code': '22P02', 'details': None, 'hint': None, 'message': 'invalid input syntax for type uuid: "1"'}
+2025-03-05T06:31:39.145225 | [91mERROR[0m | trend_analyzer_tool:analyze_trends:41 | Error in analyze_trends: {'code': '22P02', 'details': None, 'hint': None, 'message': 'invalid input syntax for type uuid: "1"'}
+2025-03-05T06:31:39.197593 | [91mERROR[0m | trend_analyzer_tool:analyze_trends:41 | Error in analyze_trends: {'code': '22P02', 'details': None, 'hint': None, 'message': 'invalid input syntax for type uuid: "1"'}
+2025-03-05T06:31:42.683489 | [92mINFO[0m | trend_analyzer_tool:analyze_trends:34 | Analyzed 3 articles
+2025-03-05T06:31:47.969301 | [91mERROR[0m | save_blog_post_tool:save_blog_post:38 | Error in save_blog_post: No analyzed articles provided
+2025-03-05T06:31:47.969542 | [91mERROR[0m | save_blog_post_tool:save_blog_post:38 | Error in save_blog_post: No analyzed articles provided
+2025-03-05T06:31:47.969795 | [91mERROR[0m | save_blog_post_tool:save_blog_post:38 | Error in save_blog_post: No analyzed articles provided
+2025-03-05T06:31:47.969840 | [91mERROR[0m | save_blog_post_tool:save_blog_post:38 | Error in save_blog_post: No analyzed articles provided
+2025-03-05T06:31:47.970075 | [91mERROR[0m | save_blog_post_tool:save_blog_post:38 | Error in save_blog_post: No analyzed articles provided
+2025-03-05T06:31:47.970138 | [91mERROR[0m | save_blog_post_tool:save_blog_post:38 | Error in save_blog_post: No analyzed articles provided
+2025-03-05T06:31:51.558398 | [91mERROR[0m | save_blog_post_tool:save_blog_post:38 | Error in save_blog_post: No analyzed articles provided
+2025-03-05T06:31:51.559087 | [91mERROR[0m | save_blog_post_tool:save_blog_post:38 | Error in save_blog_post: No analyzed articles provided
+2025-03-05T06:31:51.559563 | [91mERROR[0m | save_blog_post_tool:save_blog_post:38 | Error in save_blog_post: No analyzed articles provided
+2025-03-05T06:31:51.559636 | [91mERROR[0m | save_blog_post_tool:save_blog_post:38 | Error in save_blog_post: No analyzed articles provided
+2025-03-05T06:31:51.559918 | [91mERROR[0m | save_blog_post_tool:save_blog_post:38 | Error in save_blog_post: No analyzed articles provided
+2025-03-05T06:31:51.559980 | [91mERROR[0m | save_blog_post_tool:save_blog_post:38 | Error in save_blog_post: No analyzed articles provided
+2025-03-05T06:31:54.528560 | [92mINFO[0m | run:<module>:11 | Application shutdown
+2025-03-05T06:34:07.179256 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T06:34:07.212842 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T06:34:07.213927 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T06:34:08.680907 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T06:34:08.709196 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T06:34:08.710527 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T06:34:13.398319 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T06:34:13.432571 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T06:34:13.433729 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T06:34:19.264463 | [92mINFO[0m | run:<module>:11 | Application shutdown
+2025-03-05T06:35:47.932630 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T06:35:48.006126 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T06:35:48.010566 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T06:35:49.931169 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T06:35:49.958804 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T06:35:49.959901 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T06:36:26.314685 | [92mINFO[0m | main:analyze_trends:82 | Analyzing trends for topic: Technology
+2025-03-05T06:36:28.955626 | [92mINFO[0m | news_data_collection_tool:fetch_news:67 | Saved new article to database
+2025-03-05T06:36:31.903619 | [91mERROR[0m | trend_analyzer_tool:analyze_trends:39 | Error updating article unknown: 'id'
+2025-03-05T06:36:31.903874 | [92mINFO[0m | trend_analyzer_tool:analyze_trends:45 | Analyzed 0 articles
+2025-03-05T06:36:41.372961 | [91mERROR[0m | save_blog_post_tool:save_blog_post:38 | Error in save_blog_post: No analyzed articles provided
+2025-03-05T06:36:41.374148 | [91mERROR[0m | save_blog_post_tool:save_blog_post:38 | Error in save_blog_post: No analyzed articles provided
+2025-03-05T06:36:41.374545 | [91mERROR[0m | save_blog_post_tool:save_blog_post:38 | Error in save_blog_post: No analyzed articles provided
+2025-03-05T06:36:41.374606 | [91mERROR[0m | save_blog_post_tool:save_blog_post:38 | Error in save_blog_post: No analyzed articles provided
+2025-03-05T06:36:41.374865 | [91mERROR[0m | save_blog_post_tool:save_blog_post:38 | Error in save_blog_post: No analyzed articles provided
+2025-03-05T06:36:41.374918 | [91mERROR[0m | save_blog_post_tool:save_blog_post:38 | Error in save_blog_post: No analyzed articles provided
+2025-03-05T06:36:47.113918 | [91mERROR[0m | save_blog_post_tool:save_blog_post:38 | Error in save_blog_post: No analyzed articles provided
+2025-03-05T06:36:47.114256 | [91mERROR[0m | save_blog_post_tool:save_blog_post:38 | Error in save_blog_post: No analyzed articles provided
+2025-03-05T06:36:47.116015 | [91mERROR[0m | save_blog_post_tool:save_blog_post:38 | Error in save_blog_post: No analyzed articles provided
+2025-03-05T06:36:47.116083 | [91mERROR[0m | save_blog_post_tool:save_blog_post:38 | Error in save_blog_post: No analyzed articles provided
+2025-03-05T06:36:47.120459 | [91mERROR[0m | save_blog_post_tool:save_blog_post:38 | Error in save_blog_post: No analyzed articles provided
+2025-03-05T06:36:47.120558 | [91mERROR[0m | save_blog_post_tool:save_blog_post:38 | Error in save_blog_post: No analyzed articles provided
+2025-03-05T06:36:53.220714 | [92mINFO[0m | main:get_trends:130 | Fetching trends
+2025-03-05T06:36:53.349934 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-05T06:37:42.700780 | [92mINFO[0m | main:analyze_trends:82 | Analyzing trends for topic: Technology
+2025-03-05T06:37:52.309187 | [91mERROR[0m | save_blog_post_tool:save_blog_post:38 | Error in save_blog_post: No analyzed articles provided
+2025-03-05T06:37:52.311023 | [91mERROR[0m | save_blog_post_tool:save_blog_post:38 | Error in save_blog_post: No analyzed articles provided
+2025-03-05T06:37:52.311456 | [91mERROR[0m | save_blog_post_tool:save_blog_post:38 | Error in save_blog_post: No analyzed articles provided
+2025-03-05T06:37:52.311529 | [91mERROR[0m | save_blog_post_tool:save_blog_post:38 | Error in save_blog_post: No analyzed articles provided
+2025-03-05T06:37:52.311810 | [91mERROR[0m | save_blog_post_tool:save_blog_post:38 | Error in save_blog_post: No analyzed articles provided
+2025-03-05T06:37:52.311871 | [91mERROR[0m | save_blog_post_tool:save_blog_post:38 | Error in save_blog_post: No analyzed articles provided
+2025-03-05T06:37:56.405049 | [91mERROR[0m | save_blog_post_tool:save_blog_post:38 | Error in save_blog_post: No analyzed articles provided
+2025-03-05T06:37:56.405392 | [91mERROR[0m | save_blog_post_tool:save_blog_post:38 | Error in save_blog_post: No analyzed articles provided
+2025-03-05T06:37:56.405828 | [91mERROR[0m | save_blog_post_tool:save_blog_post:38 | Error in save_blog_post: No analyzed articles provided
+2025-03-05T06:37:56.405906 | [91mERROR[0m | save_blog_post_tool:save_blog_post:38 | Error in save_blog_post: No analyzed articles provided
+2025-03-05T06:37:56.406233 | [91mERROR[0m | save_blog_post_tool:save_blog_post:38 | Error in save_blog_post: No analyzed articles provided
+2025-03-05T06:37:56.406307 | [91mERROR[0m | save_blog_post_tool:save_blog_post:38 | Error in save_blog_post: No analyzed articles provided
+2025-03-05T06:38:02.150413 | [92mINFO[0m | main:get_trends:130 | Fetching trends
+2025-03-05T06:38:02.280877 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-05T06:38:33.851032 | [92mINFO[0m | run:<module>:11 | Application shutdown

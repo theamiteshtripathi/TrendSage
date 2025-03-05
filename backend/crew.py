@@ -8,17 +8,14 @@ from tools.news_data_collection_tool import fetch_news
 from tools.trend_analyzer_tool import analyze_trends
 from tools.save_blog_post_tool import save_blog_post
 from config.logging_config import setup_logging
+from tools.supabase_client import supabase
 
-# Initialize logger
+# Initialize logger and environment
 logger = setup_logging()
-
-# Load environment variables
 from dotenv import load_dotenv
 load_dotenv()
-
-# Set OpenAI API Key and Model
 openai.api_key = os.getenv('OPENAI_API_KEY')
-openai_model = os.getenv('OPENAI_MODEL_NAME', 'gpt-4')
+openai_model = os.getenv('OPENAI_MODEL_NAME', 'gpt-4o')
 
 logger.info("Initializing CrewAI components", extra={'extra_data': {'model': openai_model}})
 
@@ -29,112 +26,205 @@ llm = ChatOpenAI(
     api_key=os.getenv('OPENAI_API_KEY')
 )
 
-# Define agents with tools
-trend_analyzer = Agent(
-    role='Trend Analyzer',
-    goal='Identify trends from collected news articles using LLM',
-    backstory='You are an expert in identifying trends from large datasets using the latest AI models.',
-    tools=[fetch_news, analyze_trends],
+def check_existing_analysis(topic: str, category: str = None) -> bool:
+    """Check if we already have analysis for this topic"""
+    try:
+        query = supabase.table('news_articles').select('*').eq('analyzed', True)
+        if category:
+            query = query.eq('category', category)
+        query = query.ilike('title', f'%{topic}%')
+        response = query.execute()
+        return len(response.data) > 0
+    except Exception as e:
+        logger.error(f"Error checking existing analysis: {str(e)}")
+        return False
+
+def get_cached_results(topic: str, category: str = None):
+    """Get cached analysis results"""
+    try:
+        # Get related news articles
+        news_query = supabase.table('news_articles').select('*').eq('analyzed', True)
+        if category:
+            news_query = news_query.eq('category', category)
+        news_query = news_query.ilike('title', f'%{topic}%')
+        news = news_query.execute()
+
+        # Get related blog posts
+        blog_query = supabase.table('blogs').select('*')
+        if category:
+            blog_query = blog_query.eq('category', category)
+        blog_query = blog_query.ilike('title', f'%{topic}%')
+        blogs = blog_query.execute()
+
+        return {
+            'news_articles': news.data,
+            'blogs': blogs.data
+        }
+    except Exception as e:
+        logger.error(f"Error fetching cached results: {str(e)}")
+        raise
+
+# Specialized Agents with Clear Roles
+news_collector = Agent(
+    role='News Research Specialist',
+    goal='Collect and validate relevant news articles',
+    backstory="""Expert at finding and validating news from reliable sources.
+    Specializes in categorizing content and ensuring data quality.""",
+    tools=[fetch_news],
     llm=llm,
-    verbose=True
+    verbose=True,
+    allow_delegation=False  # This agent works independently
 )
 
-blog_writer = Agent(
-    role='Blog Writer',
-    goal='Write compelling blog posts based on identified trends',
-    backstory='You have a knack for writing engaging and informative blog posts that captivate readers.',
+trend_analyzer = Agent(
+    role='Trend Analysis Expert',
+    goal='Analyze news data for emerging trends and patterns',
+    backstory="""Data scientist specialized in identifying trends and patterns.
+    Expert at scoring trend relevance and impact.""",
+    tools=[analyze_trends],
+    llm=llm,
+    verbose=True,
+    allow_delegation=False  # This agent works independently
+)
+
+content_creator = Agent(
+    role='Content Creation Specialist',
+    goal='Create engaging content from analyzed trends',
+    backstory="""Professional content creator with expertise in tech writing.
+    Specializes in creating engaging blog posts from trend analysis.""",
     tools=[save_blog_post],
     llm=llm,
-    verbose=True
+    verbose=True,
+    allow_delegation=False  # This agent works independently
 )
 
-# Define tasks with expected outputs
-fetch_news_task = Task(
+# Task Definitions with Expected Outputs
+collect_news_task = Task(
     description="""
-        Fetch news articles based on the given topic.
-        Make sure to collect relevant and recent articles.
+    Research and collect news articles about {topic} in {category}.
+    1. Check for existing articles first
+    2. Collect new articles if needed
+    3. Validate and categorize content
+    4. Save to database with proper metadata
     """,
     expected_output="""
-        A list of news articles with their titles, descriptions, and content.
-        Each article should be relevant to the given topic.
+    A list of collected news articles with the following structure:
+    {
+        'articles': [
+            {
+                'title': str,
+                'description': str,
+                'url': str,
+                'category': str,
+                'source': str,
+                'published_at': str
+            }
+        ]
+    }
     """,
-    agent=trend_analyzer
+    agent=news_collector
 )
 
 analyze_trends_task = Task(
     description="""
-        Analyze collected news articles to identify trends using LLM. Focus on:
-        1. Frequency of Mentions
-        2. Sentiment Analysis
-        3. Key Entities
-        4. Geographical Distribution
-        5. Emerging Technologies
-        6. Market Impacts
+    Analyze collected news to identify and score trends.
+    1. Process news articles
+    2. Identify key trends and patterns
+    3. Calculate trend scores
+    4. Update database with analysis results
     """,
     expected_output="""
-        A structured analysis of trends including:
-        - Common themes and patterns
-        - Overall sentiment
-        - Key stakeholders and entities
-        - Geographic distribution of news
-        - Emerging technologies or innovations
-        - Market impacts and business implications
+    A dictionary containing analyzed articles and trend summary:
+    {
+        'analyzed_articles': [
+            {
+                'id': str,
+                'title': str,
+                'trend_score': float,
+                'category': str
+            }
+        ],
+        'trend_summary': str
+    }
     """,
     agent=trend_analyzer,
-    context=[fetch_news_task]
+    context=[collect_news_task]
 )
 
-write_blog_post_task = Task(
+create_content_task = Task(
     description="""
-        Write a comprehensive blog post based on the identified trends.
-        The post should be engaging, informative, and well-structured.
+    Create blog post from trend analysis.
+    1. Use trend analysis results
+    2. Write engaging content
+    3. Format with proper markdown
+    4. Save to database with metadata
     """,
     expected_output="""
-        A well-written blog post that includes:
-        - Engaging introduction
-        - Clear analysis of trends
-        - Supporting evidence and examples
-        - Actionable insights
-        - Proper formatting in markdown
+    A dictionary containing the created blog post:
+    {
+        'title': str,
+        'content': str,
+        'category': str,
+        'trend_score': float,
+        'source_articles': list,
+        'status': str
+    }
     """,
-    agent=blog_writer,
+    agent=content_creator,
     context=[analyze_trends_task]
 )
 
-# Define crew
+# Optimized Crew Configuration
 crew = Crew(
-    agents=[trend_analyzer, blog_writer],
-    tasks=[fetch_news_task, analyze_trends_task, write_blog_post_task],
-    process=Process.sequential,
-    verbose=True
+    agents=[news_collector, trend_analyzer, content_creator],
+    tasks=[collect_news_task, analyze_trends_task, create_content_task],
+    process=Process.sequential,  # Tasks must be executed in order
+    verbose=True,
+    max_iterations=3,
+    task_timeout=600
 )
 
-# Retry mechanism for crew kickoff
-def retry_kickoff(crew, inputs, retries=1):
+def execute_workflow(topic: str, category: str = None):
+    """Execute the complete workflow with proper error handling"""
     try:
-        logger.info("Starting crew execution", extra={'extra_data': {'inputs': inputs, 'retry_attempt': retries}})
-        result = crew.kickoff(inputs)
-        logger.info("Crew execution completed successfully")
+        # Check cache first
+        if check_existing_analysis(topic, category):
+            logger.info(f"Using cached analysis for {topic}")
+            return get_cached_results(topic, category)
+        
+        # Execute crew tasks
+        result = crew.kickoff({
+            'topic': topic,
+            'category': category or 'Miscellaneous'
+        })
+        
+        # Ensure the result is saved to Supabase
+        if isinstance(result, dict) and 'content' in result:
+            try:
+                # Save final blog post if not already saved
+                supabase.table('blogs').insert({
+                    'title': result.get('title', f"Analysis: {topic}"),
+                    'content': result['content'],
+                    'category': category or 'Miscellaneous',
+                    'trend_score': result.get('trend_score', 1.0),
+                    'status': 'published',
+                    'author': 'AI Agent',
+                    'published_at': 'now()'
+                }).execute()
+                logger.info("Final blog post saved to Supabase")
+            except Exception as e:
+                logger.error(f"Error saving final blog post: {str(e)}")
+        
         return result
     except Exception as e:
-        logger.error(f"Error during crew execution: {str(e)}", 
-                    extra={'extra_data': {
-                        'error_type': type(e).__name__,
-                        'traceback': traceback.format_exc()
-                    }})
-        if retries > 0:
-            logger.info(f"Retrying... {retries} attempts remaining")
-            time.sleep(2)  # Add a small delay before retrying
-            return retry_kickoff(crew, inputs, retries - 1)
-        else:
-            logger.critical("Max retries reached, operation failed")
-            raise e
+        logger.error(f"Workflow execution failed: {str(e)}")
+        raise
 
 if __name__ == "__main__":
-    # Execute crew process with retries
+    # Test the crew
     print("Starting crew process")
     try:
-        result = retry_kickoff(crew, inputs={'topic': 'Artificial Intelligence'})
+        result = execute_workflow('Artificial Intelligence', 'Technology')
         print(result)
     except Exception as e:
         print(f"Error during crew process: {e}")

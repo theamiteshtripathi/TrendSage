@@ -12,6 +12,8 @@ CREATE TABLE IF NOT EXISTS public.news_articles (
     url_to_image TEXT,
     published_at TIMESTAMP WITH TIME ZONE NOT NULL,
     content TEXT,
+    category TEXT DEFAULT 'Miscellaneous',
+    trend_score FLOAT DEFAULT 1.0,
     analyzed BOOLEAN DEFAULT FALSE,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE('utc'::text, NOW()),
     user_id UUID REFERENCES auth.users(id)
@@ -22,6 +24,8 @@ CREATE TABLE IF NOT EXISTS public.blogs (
     id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
     title TEXT NOT NULL,
     content TEXT NOT NULL,
+    category TEXT DEFAULT 'Miscellaneous',
+    trend_score FLOAT DEFAULT 1.0,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE('utc'::text, NOW()),
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE('utc'::text, NOW()),
     user_id UUID REFERENCES auth.users(id)
@@ -43,21 +47,24 @@ ALTER TABLE public.blogs ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.user_preferences ENABLE ROW LEVEL SECURITY;
 
 -- Create policies for news_articles
-CREATE POLICY "Enable read access for authenticated users" ON public.news_articles
-    FOR SELECT USING (auth.role() = 'authenticated');
+CREATE POLICY "Enable read access for all users" ON public.news_articles
+    FOR SELECT USING (true);
 
-CREATE POLICY "Enable insert for authenticated users" ON public.news_articles
-    FOR INSERT WITH CHECK (auth.role() = 'authenticated');
+CREATE POLICY "Enable insert for service role" ON public.news_articles
+    FOR INSERT WITH CHECK (true);
+
+CREATE POLICY "Enable update for service role" ON public.news_articles
+    FOR UPDATE USING (true);
 
 -- Create policies for blogs
 CREATE POLICY "Public read access for blogs" ON public.blogs
     FOR SELECT USING (true);
 
-CREATE POLICY "Enable insert for authenticated users" ON public.blogs
-    FOR INSERT WITH CHECK (auth.role() = 'authenticated');
+CREATE POLICY "Enable insert for service role" ON public.blogs
+    FOR INSERT WITH CHECK (true);
 
-CREATE POLICY "Enable update for owners" ON public.blogs
-    FOR UPDATE USING (auth.uid() = user_id);
+CREATE POLICY "Enable update for service role" ON public.blogs
+    FOR UPDATE USING (true);
 
 -- Create policies for user_preferences
 CREATE POLICY "Enable read for users" ON public.user_preferences
@@ -73,6 +80,10 @@ CREATE POLICY "Enable update for users" ON public.user_preferences
 CREATE INDEX IF NOT EXISTS idx_news_articles_analyzed ON public.news_articles(analyzed);
 CREATE INDEX IF NOT EXISTS idx_news_articles_published_at ON public.news_articles(published_at);
 CREATE INDEX IF NOT EXISTS idx_blogs_created_at ON public.blogs(created_at);
+CREATE INDEX IF NOT EXISTS idx_news_articles_category ON public.news_articles(category);
+CREATE INDEX IF NOT EXISTS idx_blogs_category ON public.blogs(category);
+CREATE INDEX IF NOT EXISTS idx_news_articles_trend_score ON public.news_articles(trend_score);
+CREATE INDEX IF NOT EXISTS idx_blogs_trend_score ON public.blogs(trend_score);
 
 -- Create function to update updated_at timestamp
 CREATE OR REPLACE FUNCTION public.handle_updated_at()
@@ -92,4 +103,7 @@ CREATE TRIGGER set_updated_at
 CREATE TRIGGER set_updated_at
     BEFORE UPDATE ON public.user_preferences
     FOR EACH ROW
-    EXECUTE FUNCTION public.handle_updated_at(); 
+    EXECUTE FUNCTION public.handle_updated_at();
+
+-- Refresh the schema cache
+NOTIFY pgrst, 'reload schema'; 

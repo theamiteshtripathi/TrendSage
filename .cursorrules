@@ -2,28 +2,112 @@
 
 ## Project Structure
 1. Backend (Python with CrewAI)
-   - Migrate from MySQL to Supabase database
-   - Implement Supabase authentication
-   - Update tools to use Supabase client
-   - Keep CrewAI framework integration
+   - Supabase database integration
+   - CrewAI framework for trend analysis
+   - FastAPI endpoints for news fetching and analysis
+   - Category-based trend analysis
+   - Automatic blog generation
 
-2. Frontend (React)
-   - Use existing React starter in frontend folder
-   - Integrate Supabase client for auth and data
-   - Create dashboard for viewing trends and blog posts
-   - Add authentication UI components
+2. Frontend (Next.js)
+   - Supabase client integration
+   - Authentication UI (completed)
+   - News trend dashboard
+   - Category-based content organization
+   - Real-time trend updates
 
-3. Database (Supabase)
-   - Tables needed:
-     - news_articles
-     - blogs
-     - users
-     - user_preferences
+3. Database Schema (Supabase)
+   - blogs
+     - id
+     - title
+     - content
+     - category
+     - created_at
+     - image_url
+     - trend_score
+   - news_articles
+     - id
+     - title
+     - description
+     - url
+     - category
+     - created_at
+     - analyzed
+   - user_preferences
+     - user_id
+     - preferred_categories
+     - notification_settings
 
-4. Authentication (Supabase)
-   - Email/password authentication
-   - Social auth providers (optional)
-   - Role-based access control
+## Implementation Plan
+
+### Phase 1: Backend API Setup
+1. Configure FastAPI endpoints:
+   - /api/analyze-trends (POST)
+   - /api/blogs (GET)
+   - /api/trends (GET)
+   - /api/categories (GET)
+
+2. CrewAI Integration:
+   - News fetching agent
+   - Trend analysis agent
+   - Blog generation agent
+   - Category classification agent
+
+3. Database Operations:
+   - Initialize tables
+   - Create seed data for categories
+   - Implement CRUD operations
+
+### Phase 2: Frontend Integration
+1. API Integration:
+   - Connect frontend with backend endpoints
+   - Implement error handling
+   - Add loading states
+
+2. Category Management:
+   - Implement category filtering
+   - Add miscellaneous bucket for unclassified trends
+   - Show trending topics per category
+
+3. Content Display:
+   - Implement trend visualization
+   - Add blog post cards
+   - Category-based content organization
+
+### Phase 3: Testing & Optimization
+1. Test Cases:
+   - API endpoint testing
+   - CrewAI agent testing
+   - Frontend integration testing
+
+2. Performance:
+   - Optimize database queries
+   - Implement caching
+   - Add pagination
+
+## Current Focus
+1. Optimize backend API usage and database operations
+   - Implement caching for existing analysis
+   - Add proper category handling
+   - Ensure proper data saving to Supabase
+   - Implement exponential backoff for retries
+
+2. Improve CrewAI Task Management
+   - Enhance task descriptions with database operations
+   - Add category classification
+   - Include trend scoring
+   - Optimize API calls
+
+3. Database Schema Updates
+   - Add category column to tables
+   - Add trend_score column
+   - Ensure proper indexing
+   - Implement caching strategy
+
+## Next Steps
+1. Test optimized backend with sample queries
+2. Monitor API usage and database operations
+3. Implement frontend updates to match new backend capabilities
+4. Add error handling and recovery mechanisms
 
 ## Migration Steps
 1. Setup Supabase project and get credentials

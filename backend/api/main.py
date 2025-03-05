@@ -8,6 +8,8 @@ import sys
 from pathlib import Path
 from tools.supabase_client import supabase
 from config.logging_config import setup_logging
+from crew import trend_analyzer, content_creator, crew, execute_workflow
+from datetime import datetime
 
 # Initialize logger
 logger = setup_logging()
@@ -15,7 +17,27 @@ logger = setup_logging()
 # Add the project root to Python path
 sys.path.append(str(Path(__file__).parent.parent))
 
-from crew import trend_analyzer, blog_writer, crew
+# Pydantic models
+class TrendAnalysisRequest(BaseModel):
+    topic: str
+    category: Optional[str] = None
+    max_results: Optional[int] = 10
+
+class BlogPost(BaseModel):
+    title: str
+    content: str
+    category: str
+    image_url: Optional[str] = None
+
+class NewsArticle(BaseModel):
+    title: str
+    description: str
+    url: str
+    category: str
+    image_url: Optional[str] = None
+
+# Predefined categories
+CATEGORIES = ["All", "Tech", "Culture", "Business", "Fashion", "Sports", "Politics", "Health", "Miscellaneous"]
 
 app = FastAPI(
     title="MPCrew API",
@@ -26,15 +48,14 @@ app = FastAPI(
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["http://localhost:3000"],  # Add your frontend URL here
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["GET", "POST", "PUT", "DELETE"],
     allow_headers=["*"],
 )
 
 logger.info("FastAPI application initialized")
 
-# Root endpoint
 @app.get("/")
 async def root():
     logger.info("Root endpoint accessed")
@@ -44,72 +65,77 @@ async def root():
         "endpoints": {
             "analyze_trends": "/api/analyze-trends",
             "blogs": "/api/blogs",
-            "trends": "/api/trends"
+            "trends": "/api/trends",
+            "categories": "/api/categories"
         }
     }
 
-# Error handler for 404
-@app.exception_handler(404)
-async def not_found_handler(request, exc):
-    logger.warning(f"Not found error for path: {request.url.path}")
-    return JSONResponse(
-        status_code=404,
-        content={
-            "message": f"Path {request.url.path} not found",
-            "available_endpoints": {
-                "root": "/",
-                "docs": "/docs",
-                "analyze_trends": "/api/analyze-trends",
-                "blogs": "/api/blogs",
-                "trends": "/api/trends"
-            }
-        }
-    )
-
-class TrendAnalysisRequest(BaseModel):
-    topic: str
-    language: str = "en"
-    max_results: int = 5
-
-class BlogPostResponse(BaseModel):
-    id: str
-    title: str
-    content: str
-    created_at: str
+@app.get("/api/categories")
+async def get_categories():
+    """Get all available categories"""
+    logger.info("Categories endpoint accessed")
+    return {"categories": CATEGORIES}
 
 @app.post("/api/analyze-trends")
 async def analyze_trends(request: TrendAnalysisRequest):
+    """Analyze trends for a given topic"""
+    logger.info(f"Analyzing trends for topic: {request.topic}", 
+               extra={'category': request.category})
+    
     try:
-        logger.info("Starting trend analysis", 
-                   extra={'extra_data': {
-                       'topic': request.topic,
-                       'language': request.language
-                   }})
-        result = trend_analyzer.analyze(request.topic, request.language, request.max_results)
-        logger.info("Trend analysis completed successfully")
+        # Use CrewAI crew to analyze trends
+        crew_result = execute_workflow(
+            topic=request.topic,
+            category=request.category
+        )
+        
+        # Extract content from the crew result
+        if isinstance(crew_result, dict):
+            result = crew_result  # Use the result directly if it's already structured
+        else:
+            # Create structured result from string output
+            content = str(crew_result)
+            result = {
+                'title': f"Trends in {request.topic}",
+                'summary': content[:500],
+                'content': content,
+                'category': request.category or 'Miscellaneous',
+                'analyzed': True
+            }
+        
         return result
     except Exception as e:
-        logger.error(f"Error in trend analysis: {str(e)}")
+        logger.error(f"Error analyzing trends: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/api/blogs")
-async def get_blogs():
+async def get_blogs(category: Optional[str] = None):
+    """Get all blog posts, optionally filtered by category"""
+    logger.info("Fetching blog posts", extra={'category': category})
+    
     try:
-        logger.info("Fetching blog posts")
-        blogs = supabase.table("blogs").select("*").execute()
-        logger.info(f"Successfully retrieved {len(blogs.data)} blog posts")
-        return blogs.data
+        query = supabase.table('blogs').select('*')
+        if category and category.lower() != 'all':
+            query = query.eq('category', category)
+        
+        response = query.execute()
+        return response.data
     except Exception as e:
         logger.error(f"Error fetching blogs: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/api/trends")
-async def get_trends():
+async def get_trends(category: Optional[str] = None):
+    """Get all trends, optionally filtered by category"""
+    logger.info("Fetching trends", extra={'category': category})
+    
     try:
-        logger.info("Fetching trends")
-        trends = supabase.table("trends").select("*").execute()
-        logger.info(f"Successfully retrieved {len(trends.data)} trends")
-        return trends.data
+        query = supabase.table('news_articles').select('*').eq('analyzed', True)
+        if category and category.lower() != 'all':
+            query = query.eq('category', category)
+        
+        response = query.execute()
+        return response.data
     except Exception as e:
         logger.error(f"Error fetching trends: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
