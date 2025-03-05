@@ -1,115 +1,82 @@
-import traceback
-import os  # Ensure os is imported here
-import openai  # Ensure the latest OpenAI library is imported
-from crewai_tools import tool
-from typing import List
-import mysql.connector
-from collections import Counter
-import re
-from tools.connect_db import connect_to_db
-import tiktoken
+import os
+from crewai.tools import tool
+from supabase import create_client, Client
+from langchain_openai import ChatOpenAI
 
-@tool
-def analyze_trends(news_data: dict) -> List[dict]:
-    """
-     "Analyze collected news articles to identify trends using LLM. Focus on: "
-        "1. Frequency of Mentions, "
-        "2. Sentiment Analysis, "
-        "3. Key Entities, "
-        "4. Geographical Distribution, "
-        "5. Publication Date Range, "
-        "6. Source Diversity, "
-        "7. Emerging Keywords, "
-        "8. Author Expertise, "
-        "9. Industry Impact, "
-        "10. Public Opinion, "
-        "11. Historical Context, "
-        "12. Influencer Involvement, "
-        "13. Regulatory Aspects, "
-        "14. Technological Implications, "
-        "15. Economic Indicators, "
-        "16. Visual Data, "
-        "17. Quotes, "
-        "18. Trend Velocity, "
-        "19. Cross-Domain Connections, and "
-        "20. Potential Future Developments."
-
-    Args:
-        news_data (dict): The collected news articles.
-
-    Returns:
-        List[dict]: A list of identified trends with age groups and popularity scores.
-    """
+@tool("Trend Analyzer Tool")
+async def analyze_trends(topic: str) -> dict:
+    """Analyzes trends from collected news articles using LLM."""
+    supabase = create_client(
+        os.getenv('SUPABASE_URL'),
+        os.getenv('SUPABASE_KEY')
+    )
+    
+    llm = ChatOpenAI(
+        model=os.getenv('OPENAI_MODEL_NAME', 'gpt-4'),
+        temperature=0.7,
+        api_key=os.getenv('OPENAI_API_KEY')
+    )
+    
     try:
-        conn = connect_to_db()
-        cursor = conn.cursor(dictionary=True)
-
-        # Fetch only unanalyzed articles
-        cursor.execute("SELECT id, description, title, content FROM news_articles WHERE analyzed = False")
-        articles = cursor.fetchall()
-
+        # Fetch articles from Supabase
+        response = supabase.table('news_articles')\
+            .select('*')\
+            .eq('analyzed', False)\
+            .execute()
+        
+        articles = response.data
+        
         if not articles:
-            raise ValueError("No new articles to analyze")
+            return {
+                'status': 'error',
+                'message': 'No new articles to analyze',
+                'trends': []
+            }
 
-        # Combine the text data from description, title, and content fields
-        combined_text = " ".join([article['description'] + " " + article['title'] + " " + article['content'] for article in articles])
+        # Prepare articles for analysis
+        article_texts = []
+        for article in articles:
+            text = f"Title: {article['title']}\n"
+            text += f"Description: {article['description']}\n"
+            text += f"Content: {article['content']}\n"
+            article_texts.append(text)
 
-        # Tokenize the text to handle the token limit
-        encoding = tiktoken.get_encoding("cl100k_base")
-        tokens = encoding.encode(combined_text)
+        # Analyze trends using LLM
+        prompt = f"""
+        Analyze the following news articles about {topic} and identify key trends.
+        Focus on:
+        1. Common themes and patterns
+        2. Sentiment analysis
+        3. Key stakeholders and entities
+        4. Geographic distribution of news
+        5. Emerging technologies or innovations
+        6. Market impacts and business implications
 
-        # Split the tokens into chunks that fit within the model's context window
-        max_tokens_per_chunk = 4096  # Adjust based on your model's context window
-        chunks = [tokens[i:i + max_tokens_per_chunk] for i in range(0, len(tokens), max_tokens_per_chunk)]
+        Articles:
+        {'\n\n'.join(article_texts)}
 
-        # Use the GPT-4o-mini model to analyze the trends
-        openai.api_key = os.getenv('OPENAI_API_KEY')
-        client = openai.Client()  # Initialize the OpenAI client
+        Please provide a structured analysis with specific examples and data points.
+        """
 
-        trends = []
-        for chunk in chunks:
-            chunk_text = encoding.decode(chunk)
-            response = client.chat.completions.create(
-                model="gpt-4o-mini",
-                messages=[
-                    {
-                        "role": "system",
-                        "content": (
-                            "You are a trend analysis expert. Analyze the following text data and identify trends "
-                            "related to AI based on the following parameters: Frequency of Mentions, Sentiment Analysis, "
-                            "Topic Modeling, Geographical Distribution, Industry Impact, Corporate Activity, "
-                            "Regulatory and Ethical Issues, Research and Development, Public Figures & Thought Leaders, "
-                            "Market Trends, Challenges and Risks, Public Opinion, Funding and Investments, Global Competitiveness, "
-                            "and Patent Activity. Provide the analysis in a structured format."
-                        )
-                    },
-                    {
-                        "role": "user",
-                        "content": chunk_text
-                    }
-                ]
-            )
-
-            # Correctly access the response content
-            gpt_response = response.choices[0].message.content
-            #print(f"LLM Response: {gpt_response}")  # For debugging
-
-            # Assuming the response is structured, parse it into a list of trends
-            chunk_trends = [{"trend": trend.strip()} for trend in gpt_response.split("\n") if trend.strip()]
-            trends.extend(chunk_trends)
+        response = llm.invoke(prompt)
+        analysis = response.content
 
         # Mark articles as analyzed
         for article in articles:
-            cursor.execute("UPDATE news_articles SET analyzed = True WHERE id = %s", (article['id'],))
+            supabase.table('news_articles')\
+                .update({'analyzed': True})\
+                .eq('id', article['id'])\
+                .execute()
 
-        conn.commit()
-        cursor.close()
-        conn.close()
-
-        print(f"Analyzed {len(articles)} articles and found trends: {trends}")
-        return trends
+        return {
+            'status': 'success',
+            'message': 'Trends analyzed successfully',
+            'trends': analysis
+        }
 
     except Exception as e:
-        print(f"Error occurred: {e}")
-        traceback.print_exc()
-        raise
+        return {
+            'status': 'error',
+            'message': str(e),
+            'trends': []
+        }

@@ -2,12 +2,11 @@ import os
 import time
 import openai
 import traceback
-from openai import APIError
 from crewai import Agent, Task, Crew, Process
+from langchain_openai import ChatOpenAI
 from tools.news_data_collection_tool import fetch_news
 from tools.trend_analyzer_tool import analyze_trends
 from tools.save_blog_post_tool import save_blog_post
-from tools.connect_db import connect_to_db
 
 # Load environment variables
 from dotenv import load_dotenv
@@ -15,21 +14,22 @@ load_dotenv()
 
 # Set OpenAI API Key and Model
 openai.api_key = os.getenv('OPENAI_API_KEY')
-openai_model = os.getenv('OPENAI_MODEL_NAME', 'gpt-4o-mini')  # Default to gpt-4o-mini
+openai_model = os.getenv('OPENAI_MODEL_NAME', 'gpt-4')
 
-# Initialize tools
-sql_connected = connect_to_db
-fetch_news_tool = fetch_news
-analyze_trends_tool = analyze_trends
-save_blog_post_tool = save_blog_post
+# Initialize the language model
+llm = ChatOpenAI(
+    model=openai_model,
+    temperature=0.7,
+    api_key=os.getenv('OPENAI_API_KEY')
+)
 
-# Define agents
+# Define agents with tools
 trend_analyzer = Agent(
     role='Trend Analyzer',
     goal='Identify trends from collected news articles using LLM',
-    backstory='You are an expert in identifying trends from large datasets using the latest AI models. You utilize advanced LLMs to understand and extract meaningful insights from text data.',
-    tools=[fetch_news_tool, analyze_trends_tool],
-    allow_delegation=False,
+    backstory='You are an expert in identifying trends from large datasets using the latest AI models.',
+    tools=[fetch_news, analyze_trends],
+    llm=llm,
     verbose=True
 )
 
@@ -37,68 +37,70 @@ blog_writer = Agent(
     role='Blog Writer',
     goal='Write compelling blog posts based on identified trends',
     backstory='You have a knack for writing engaging and informative blog posts that captivate readers.',
-    tools=[save_blog_post_tool],
-    allow_delegation=False,
+    tools=[save_blog_post],
+    llm=llm,
     verbose=True
 )
 
-# Define tasks
+# Define tasks with expected outputs
 fetch_news_task = Task(
-    description='Fetch news articles based on the given topic.',
-    expected_output='A dictionary of news articles.',
-    tools=[fetch_news_tool],
-    agent=trend_analyzer,
-    input_vars=['topic'],
-    output_vars=['news_data']
+    description="""
+        Fetch news articles based on the given topic.
+        Make sure to collect relevant and recent articles.
+    """,
+    expected_output="""
+        A list of news articles with their titles, descriptions, and content.
+        Each article should be relevant to the given topic.
+    """,
+    agent=trend_analyzer
 )
 
 analyze_trends_task = Task(
-    description=(
-        "Analyze collected news articles to identify trends using LLM. Focus on: "
-        "1. Frequency of Mentions, "
-        "2. Sentiment Analysis, "
-        "3. Key Entities, "
-        "4. Geographical Distribution, "
-        "5. Publication Date Range, "
-        "6. Source Diversity, "
-        "7. Emerging Keywords, "
-        "8. Author Expertise, "
-        "9. Industry Impact, "
-        "10. Public Opinion, "
-        "11. Historical Context, "
-        "12. Influencer Involvement, "
-        "13. Regulatory Aspects, "
-        "14. Technological Implications, "
-        "15. Economic Indicators, "
-        "16. Visual Data, "
-        "17. Quotes, "
-        "18. Trend Velocity, "
-        "19. Cross-Domain Connections, and "
-        "20. Potential Future Developments."
-    ),
-    expected_output='A list of identified trends with relevant details.',
-    tools=[analyze_trends_tool],
+    description="""
+        Analyze collected news articles to identify trends using LLM. Focus on:
+        1. Frequency of Mentions
+        2. Sentiment Analysis
+        3. Key Entities
+        4. Geographical Distribution
+        5. Emerging Technologies
+        6. Market Impacts
+    """,
+    expected_output="""
+        A structured analysis of trends including:
+        - Common themes and patterns
+        - Overall sentiment
+        - Key stakeholders and entities
+        - Geographic distribution of news
+        - Emerging technologies or innovations
+        - Market impacts and business implications
+    """,
     agent=trend_analyzer,
-    context=[fetch_news_task],
-    input_vars=['news_data'],
-    output_vars=['trends']
+    context=[fetch_news_task]
 )
 
-
 write_blog_post_task = Task(
-    description='Write a blog post based on identified trends. Include age groups, popularity scores, and other relevant details.',
-    expected_output='A blog post formatted in markdown.',
-    tools=[save_blog_post_tool],
-    context=[analyze_trends_task],
+    description="""
+        Write a comprehensive blog post based on the identified trends.
+        The post should be engaging, informative, and well-structured.
+    """,
+    expected_output="""
+        A well-written blog post that includes:
+        - Engaging introduction
+        - Clear analysis of trends
+        - Supporting evidence and examples
+        - Actionable insights
+        - Proper formatting in markdown
+    """,
     agent=blog_writer,
-    input_vars=['trends', 'topic']
+    context=[analyze_trends_task]
 )
 
 # Define crew
 crew = Crew(
     agents=[trend_analyzer, blog_writer],
     tasks=[fetch_news_task, analyze_trends_task, write_blog_post_task],
-    process=Process.sequential
+    process=Process.sequential,
+    verbose=True
 )
 
 # Retry mechanism for crew kickoff
@@ -108,20 +110,20 @@ def retry_kickoff(crew, inputs, retries=1):
             result = crew.kickoff(inputs=inputs)
             print("Crew process finished successfully")
             return result
-        except APIError as e:
-            print(f"Attempt {attempt + 1} failed due to OpenAI API error: {e}")
-            time.sleep(2)  # Wait before retrying
         except Exception as e:
-            print(f"Attempt {attempt + 1} failed due to a different error: {e}")
-            traceback.print_exc()  # This will print the full traceback
-            break  # If it's a different error, break the loop and do not retry
-    raise Exception("All retry attempts failed")
+            print(f"Attempt {attempt + 1} failed: {e}")
+            traceback.print_exc()
+            if attempt < retries - 1:
+                time.sleep(2)
+            else:
+                raise Exception("All retry attempts failed")
 
-# Execute crew process with retries
-print("Starting crew process")
-try:
-    result = retry_kickoff(crew, inputs={'topic': 'Artificial Intelligence'})
-    print(result)
-except Exception as e:
-    print(f"Error during crew process: {e}")
+if __name__ == "__main__":
+    # Execute crew process with retries
+    print("Starting crew process")
+    try:
+        result = retry_kickoff(crew, inputs={'topic': 'Artificial Intelligence'})
+        print(result)
+    except Exception as e:
+        print(f"Error during crew process: {e}")
 

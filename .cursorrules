@@ -1,0 +1,50 @@
+# MPCrew Project Rules
+
+## Project Structure
+1. Backend (Python with CrewAI)
+   - Migrate from MySQL to Supabase database
+   - Implement Supabase authentication
+   - Update tools to use Supabase client
+   - Keep CrewAI framework integration
+
+2. Frontend (React)
+   - Use existing React starter in frontend folder
+   - Integrate Supabase client for auth and data
+   - Create dashboard for viewing trends and blog posts
+   - Add authentication UI components
+
+3. Database (Supabase)
+   - Tables needed:
+     - news_articles
+     - blogs
+     - users
+     - user_preferences
+
+4. Authentication (Supabase)
+   - Email/password authentication
+   - Social auth providers (optional)
+   - Role-based access control
+
+## Migration Steps
+1. Setup Supabase project and get credentials
+2. Create database schema in Supabase
+3. Update Python tools to use Supabase client
+4. Implement authentication in frontend
+5. Connect CrewAI agents with Supabase
+
+## Required Supabase Setup
+1. Supabase Project URL
+2. Supabase Anon Key
+3. Supabase Service Role Key
+4. Database connection string
+
+## Dependencies to Add
+1. Backend:
+   - supabase-py
+   - python-jose[cryptography]
+   - fastapi (for API endpoints)
+
+2. Frontend:
+   - @supabase/supabase-js
+   - @supabase/auth-ui-react
+   - @supabase/auth-ui-shared 
