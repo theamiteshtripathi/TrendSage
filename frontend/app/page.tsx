@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import axios from "axios"
 import { Search, Loader2, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -8,18 +8,39 @@ import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import Image from "next/image"
+import AuthComponent from "@/components/auth"
+import { supabase } from "@/lib/supabase"
+
+// Types
+interface Headline {
+  title: string
+  description: string
+  url: string
+  image?: string
+}
 
 // Sample categories for the navigation bar
 const categories = ["All", "Tech", "Culture", "Business", "Fashion", "Sports", "Politics", "Health"]
 
 export default function NewsTracker() {
   const [searchQuery, setSearchQuery] = useState("")
-  const [headlines, setHeadlines] = useState([])
+  const [headlines, setHeadlines] = useState<Headline[]>([])
   const [blogPost, setBlogPost] = useState("")
   const [blogPostUrl, setBlogPostUrl] = useState("")
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState("")
   const [activeCategory, setActiveCategory] = useState("All")
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+
+  useEffect(() => {
+    const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
+      setIsAuthenticated(!!session)
+    })
+
+    return () => {
+      authListener?.subscription.unsubscribe()
+    }
+  }, [])
 
   const fetchNews = async (topic = searchQuery) => {
     if (!topic.trim()) {
@@ -48,84 +69,100 @@ export default function NewsTracker() {
           setBlogPost(response.data.blogPost)
         } else if (response.data.blogPost.url) {
           setBlogPostUrl(response.data.blogPost.url)
-        } else if (response.data.blogPost.content) {
-          setBlogPost(response.data.blogPost.content)
         }
       }
     } catch (err) {
-      setError("Failed to fetch news. Please try again later.")
-      console.error("Error fetching news:", err)
+      setError("Failed to fetch news. Please try again.")
+      console.error(err)
     } finally {
       setIsLoading(false)
     }
   }
 
-  const handleKeyPress = (e) => {
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       fetchNews()
     }
   }
 
-  const handleCategoryClick = (category) => {
+  const handleCategoryClick = (category: string) => {
     setActiveCategory(category)
     if (category !== "All") {
       fetchNews(category)
     }
   }
 
-  // Truncate text to a specific length
-  const truncateText = (text, maxLength = 100) => {
-    if (!text) return ""
-    return text.length > maxLength ? text.substring(0, maxLength) + "..." : text
+  const truncateText = (text: string, maxLength = 100) => {
+    return text.length > maxLength ? text.slice(0, maxLength) + "..." : text
   }
 
-  // Generate a placeholder image URL based on the headline index
-  const getPlaceholderImage = (index) => {
-    return `/placeholder.svg?height=200&width=400&text=News+${index + 1}`
+  const getPlaceholderImage = (index: number) => {
+    return `/placeholder-${(index % 3) + 1}.jpg`
+  }
+
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <AuthComponent />
+      </div>
+    )
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white">
+    <div className="min-h-screen bg-background">
       {/* Navigation Bar */}
-      <header className="sticky top-0 z-10 bg-gray-800 shadow-md">
-        <div className="container mx-auto">
-          <div className="flex h-16 items-center justify-between">
-            <h1 className="text-2xl font-bold tracking-tight text-blue-400">News Tracker</h1>
-            <nav className="hidden md:block">
-              <ul className="flex space-x-6">
-                {categories.map((category) => (
-                  <li key={category}>
-                    <button
-                      onClick={() => handleCategoryClick(category)}
-                      className={`relative px-1 py-2 text-sm font-medium transition-colors hover:text-blue-400 ${
-                        activeCategory === category
-                          ? "text-blue-400 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:bg-blue-400"
-                          : "text-gray-300"
-                      }`}
-                    >
-                      {category}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-            <div className="block md:hidden">
-              <Button variant="ghost" size="sm" className="text-gray-300 hover:text-blue-400">
-                <span className="sr-only">Open menu</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
+      <nav className="border-b border-border">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between md:space-y-0">
+            <div className="flex items-center space-x-4">
+              <h1 className="text-2xl font-bold text-foreground">News Tracker</h1>
+            </div>
+            <div className="flex items-center space-x-4">
+              {categories.map((category) => (
+                <Button
+                  key={category}
+                  variant={activeCategory === category ? "default" : "ghost"}
+                  onClick={() => handleCategoryClick(category)}
+                  className="px-3 py-2 text-sm"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              </Button>
+                  {category}
+                </Button>
+              ))}
             </div>
           </div>
         </div>
-      </header>
+      </nav>
+
+      {/* Search Section */}
+      <section className="container mx-auto px-4 py-8">
+        <div className="flex flex-col space-y-4 md:flex-row md:items-center md:space-x-4 md:space-y-0">
+          <div className="relative flex-1">
+            <Input
+              type="text"
+              placeholder="Enter a topic..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              onKeyPress={handleKeyPress}
+              className="w-full pl-10 pr-4"
+            />
+            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 transform text-muted-foreground" />
+          </div>
+          <Button
+            onClick={() => fetchNews()}
+            disabled={isLoading}
+            className="w-full md:w-auto"
+          >
+            {isLoading ? (
+              <>
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                Searching...
+              </>
+            ) : (
+              "Search"
+            )}
+          </Button>
+        </div>
+      </section>
 
       <main>
         {/* Hero Section */}

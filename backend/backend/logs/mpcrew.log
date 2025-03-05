@@ -1,0 +1,13 @@
+2025-03-05T04:56:53.203881 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-05T04:56:53.230729 | [92mINFO[0m | main:<module>:35 | FastAPI application initialized
+2025-03-05T04:56:53.231805 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T04:57:04.240679 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-05T04:57:04.267839 | [92mINFO[0m | main:<module>:35 | FastAPI application initialized
+2025-03-05T04:57:04.268991 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T04:57:26.850191 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-05T04:57:26.882164 | [92mINFO[0m | main:<module>:35 | FastAPI application initialized
+2025-03-05T04:57:26.883484 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T04:57:28.311402 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-05T04:57:28.342172 | [92mINFO[0m | main:<module>:35 | FastAPI application initialized
+2025-03-05T04:57:28.343605 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T04:57:37.679225 | [92mINFO[0m | main:root:40 | Root endpoint accessed

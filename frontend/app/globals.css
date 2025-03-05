@@ -58,6 +58,19 @@
   }
 }
 
+/* Auth UI Styles */
+.auth-container {
+  @apply w-full max-w-md mx-auto p-6 space-y-6;
+}
+
+.auth-button {
+  @apply w-full px-4 py-2 text-sm font-medium text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary rounded-md;
+}
+
+.auth-input {
+  @apply w-full px-3 py-2 text-sm border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary;
+}
+
 /* Animation for card loading */
 @keyframes fadeIn {
   from {

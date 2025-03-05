@@ -7,6 +7,10 @@ from langchain_openai import ChatOpenAI
 from tools.news_data_collection_tool import fetch_news
 from tools.trend_analyzer_tool import analyze_trends
 from tools.save_blog_post_tool import save_blog_post
+from config.logging_config import setup_logging
+
+# Initialize logger
+logger = setup_logging()
 
 # Load environment variables
 from dotenv import load_dotenv
@@ -15,6 +19,8 @@ load_dotenv()
 # Set OpenAI API Key and Model
 openai.api_key = os.getenv('OPENAI_API_KEY')
 openai_model = os.getenv('OPENAI_MODEL_NAME', 'gpt-4')
+
+logger.info("Initializing CrewAI components", extra={'extra_data': {'model': openai_model}})
 
 # Initialize the language model
 llm = ChatOpenAI(
@@ -105,18 +111,24 @@ crew = Crew(
 
 # Retry mechanism for crew kickoff
 def retry_kickoff(crew, inputs, retries=1):
-    for attempt in range(retries):
-        try:
-            result = crew.kickoff(inputs=inputs)
-            print("Crew process finished successfully")
-            return result
-        except Exception as e:
-            print(f"Attempt {attempt + 1} failed: {e}")
-            traceback.print_exc()
-            if attempt < retries - 1:
-                time.sleep(2)
-            else:
-                raise Exception("All retry attempts failed")
+    try:
+        logger.info("Starting crew execution", extra={'extra_data': {'inputs': inputs, 'retry_attempt': retries}})
+        result = crew.kickoff(inputs)
+        logger.info("Crew execution completed successfully")
+        return result
+    except Exception as e:
+        logger.error(f"Error during crew execution: {str(e)}", 
+                    extra={'extra_data': {
+                        'error_type': type(e).__name__,
+                        'traceback': traceback.format_exc()
+                    }})
+        if retries > 0:
+            logger.info(f"Retrying... {retries} attempts remaining")
+            time.sleep(2)  # Add a small delay before retrying
+            return retry_kickoff(crew, inputs, retries - 1)
+        else:
+            logger.critical("Max retries reached, operation failed")
+            raise e
 
 if __name__ == "__main__":
     # Execute crew process with retries
