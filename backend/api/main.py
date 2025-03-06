@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 from tools.supabase_client import supabase
 from config.logging_config import setup_logging
-from crew import trend_analyzer, content_creator, crew, execute_workflow
+from crew import execute_workflow  # Only import what we need
 from datetime import datetime
 
 # Initialize logger

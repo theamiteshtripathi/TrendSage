@@ -85,19 +85,25 @@
    - Add pagination
 
 ## Current Focus
-1. Optimize backend API usage and database operations
+1. Fix CrewAI Task Context Issues
+   - Update task context to use list of Task objects instead of dictionary
+   - Modify task creation to use previous tasks as context
+   - Simplify inputs passed to crew.kickoff()
+   - Ensure proper data flow between tasks
+
+2. Optimize backend API usage and database operations
    - Implement caching for existing analysis
    - Add proper category handling
    - Ensure proper data saving to Supabase
    - Implement exponential backoff for retries
 
-2. Improve CrewAI Task Management
+3. Improve CrewAI Task Management
    - Enhance task descriptions with database operations
    - Add category classification
    - Include trend scoring
    - Optimize API calls
 
-3. Database Schema Updates
+4. Database Schema Updates
    - Add category column to tables
    - Add trend_score column
    - Ensure proper indexing

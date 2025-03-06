@@ -251,3 +251,158 @@
 2025-03-05T06:38:02.150413 | [92mINFO[0m | main:get_trends:130 | Fetching trends
 2025-03-05T06:38:02.280877 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
 2025-03-05T06:38:33.851032 | [92mINFO[0m | run:<module>:11 | Application shutdown
+2025-03-05T06:57:07.788928 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T07:00:46.912474 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T07:08:25.426571 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T07:08:25.452722 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T07:08:25.453792 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T07:08:27.157798 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T07:08:27.181605 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T07:08:27.208099 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T07:08:34.203668 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T07:08:34.227302 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T07:08:34.228417 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T07:08:54.573171 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T07:08:54.596499 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T07:08:54.597913 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T07:08:58.879032 | [92mINFO[0m | run:<module>:11 | Application shutdown
+2025-03-05T07:09:07.831118 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T07:09:07.867723 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T07:09:07.868932 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T07:09:09.478600 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T07:09:09.504596 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T07:09:09.505748 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T07:09:44.900703 | [92mINFO[0m | main:analyze_trends:82 | Analyzing trends for topic: Technology
+2025-03-05T07:09:44.901446 | [92mINFO[0m | crew:execute_workflow:120 | Starting workflow for topic: Technology, category: None
+2025-03-05T07:09:45.189095 | [91mERROR[0m | crew:execute_workflow:148 | Error in workflow execution: 1 validation error for Task
+context
+  Input should be a valid list [type=list_type, input_value={'topic': 'Technology', 'category': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/list_type
+2025-03-05T07:09:45.202001 | [92mINFO[0m | main:get_trends:130 | Fetching trends
+2025-03-05T07:09:45.263614 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-05T07:10:35.805454 | [92mINFO[0m | main:analyze_trends:82 | Analyzing trends for topic: Technology
+2025-03-05T07:10:35.806231 | [92mINFO[0m | crew:execute_workflow:120 | Starting workflow for topic: Technology, category: None
+2025-03-05T07:10:35.974261 | [91mERROR[0m | crew:execute_workflow:148 | Error in workflow execution: 1 validation error for Task
+context
+  Input should be a valid list [type=list_type, input_value={'topic': 'Technology', 'category': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/list_type
+2025-03-05T07:10:35.982267 | [92mINFO[0m | main:get_trends:130 | Fetching trends
+2025-03-05T07:10:36.065161 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-05T07:10:55.513084 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T07:10:55.537036 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T07:10:55.538202 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T07:11:07.794923 | [92mINFO[0m | run:<module>:11 | Application shutdown
+2025-03-05T07:11:12.238242 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T07:11:12.266961 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T07:11:12.268508 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T07:11:13.881539 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T07:11:13.905412 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T07:11:13.906522 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T07:11:15.966798 | [92mINFO[0m | run:<module>:11 | Application shutdown
+2025-03-05T07:11:31.239675 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T07:11:31.265014 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T07:11:31.266102 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T07:11:33.541101 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T07:11:33.613379 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T07:11:33.615032 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T07:11:38.677987 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T07:11:38.705412 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T07:11:38.706598 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T07:11:47.766788 | [92mINFO[0m | main:analyze_trends:82 | Analyzing trends for topic: technology
+2025-03-05T07:11:47.768279 | [92mINFO[0m | crew:execute_workflow:126 | Starting workflow for topic: technology, category: None
+2025-03-05T07:11:47.993684 | [91mERROR[0m | crew:execute_workflow:155 | Error in workflow execution: 'str' object has no attribute 'get'
+2025-03-05T07:11:47.998255 | [92mINFO[0m | main:get_trends:130 | Fetching trends
+2025-03-05T07:11:48.051987 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-05T07:11:52.519796 | [92mINFO[0m | main:analyze_trends:82 | Analyzing trends for topic: technology
+2025-03-05T07:11:52.520484 | [92mINFO[0m | crew:execute_workflow:126 | Starting workflow for topic: technology, category: None
+2025-03-05T07:11:52.583323 | [91mERROR[0m | crew:execute_workflow:155 | Error in workflow execution: 'str' object has no attribute 'get'
+2025-03-05T07:11:52.585192 | [92mINFO[0m | main:get_trends:130 | Fetching trends
+2025-03-05T07:11:52.643890 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-05T07:12:45.315749 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T07:12:45.341206 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T07:12:45.342291 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T07:13:00.096201 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T07:13:00.120545 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T07:13:00.121646 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T07:13:01.909508 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T07:13:01.933550 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T07:13:01.934771 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T07:13:15.701627 | [92mINFO[0m | run:<module>:11 | Application shutdown
+2025-03-05T07:13:18.807242 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T07:13:18.832122 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T07:13:18.833429 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T07:13:20.458804 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T07:13:20.482828 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T07:13:20.484067 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T07:13:23.234762 | [92mINFO[0m | run:<module>:11 | Application shutdown
+2025-03-05T07:13:41.332014 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T07:13:41.356037 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T07:13:41.357162 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T07:13:43.381279 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T07:13:43.405917 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T07:13:43.406985 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T07:13:51.537185 | [92mINFO[0m | main:analyze_trends:82 | Analyzing trends for topic: Technology
+2025-03-05T07:13:51.538437 | [92mINFO[0m | crew:execute_workflow:126 | Starting workflow for topic: Technology, category: None
+2025-03-05T07:13:51.832384 | [91mERROR[0m | crew:execute_workflow:155 | Error in workflow execution: 'str' object has no attribute 'get'
+2025-03-05T07:13:51.839899 | [92mINFO[0m | main:get_trends:130 | Fetching trends
+2025-03-05T07:13:51.910538 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-05T07:14:21.909752 | [92mINFO[0m | main:analyze_trends:82 | Analyzing trends for topic: Technology
+2025-03-05T07:14:21.911099 | [92mINFO[0m | crew:execute_workflow:126 | Starting workflow for topic: Technology, category: None
+2025-03-05T07:14:22.028985 | [91mERROR[0m | crew:execute_workflow:155 | Error in workflow execution: 'str' object has no attribute 'get'
+2025-03-05T07:14:22.034877 | [92mINFO[0m | main:get_trends:130 | Fetching trends
+2025-03-05T07:14:22.108618 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-05T07:14:25.231359 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T07:14:25.255579 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T07:14:25.256623 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T07:14:37.329607 | [92mINFO[0m | main:analyze_trends:82 | Analyzing trends for topic: Technology
+2025-03-05T07:14:37.331638 | [92mINFO[0m | crew:execute_workflow:126 | Starting workflow for topic: Technology, category: None
+2025-03-05T07:14:37.491401 | [91mERROR[0m | crew:execute_workflow:155 | Error in workflow execution: 'str' object has no attribute 'get'
+2025-03-05T07:14:37.494416 | [92mINFO[0m | main:get_trends:130 | Fetching trends
+2025-03-05T07:14:37.568783 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-05T07:17:08.681109 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T07:17:08.704886 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T07:17:08.706003 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T07:17:18.073938 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T07:17:18.097550 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T07:17:18.098858 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T07:17:31.889531 | [92mINFO[0m | run:<module>:11 | Application shutdown
+2025-03-05T07:17:35.418114 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T07:17:35.443467 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T07:17:35.444569 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T07:17:37.039532 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T07:17:37.064314 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T07:17:37.065950 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T07:17:40.627190 | [92mINFO[0m | run:<module>:11 | Application shutdown
+2025-03-05T07:17:51.543234 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T07:17:51.567922 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T07:17:51.569054 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T07:17:53.365970 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T07:17:53.390940 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T07:17:53.392067 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T07:17:57.441517 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-05T07:17:57.465591 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-05T07:17:57.466842 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-05T07:18:04.461609 | [92mINFO[0m | main:analyze_trends:82 | Analyzing trends for topic: Technology
+2025-03-05T07:18:04.462430 | [92mINFO[0m | crew:execute_workflow:126 | Starting workflow for topic: Technology, category: None
+2025-03-05T07:18:04.744162 | [91mERROR[0m | crew:execute_workflow:155 | Error in workflow execution: 'str' object has no attribute 'get'
+2025-03-05T07:18:04.752006 | [92mINFO[0m | main:get_trends:130 | Fetching trends
+2025-03-05T07:18:04.821700 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-05T07:18:06.556504 | [92mINFO[0m | main:analyze_trends:82 | Analyzing trends for topic: Technology
+2025-03-05T07:18:06.557003 | [92mINFO[0m | crew:execute_workflow:126 | Starting workflow for topic: Technology, category: None
+2025-03-05T07:18:06.625524 | [91mERROR[0m | crew:execute_workflow:155 | Error in workflow execution: 'str' object has no attribute 'get'
+2025-03-05T07:18:06.628431 | [92mINFO[0m | main:get_trends:130 | Fetching trends
+2025-03-05T07:18:06.685872 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-05T16:14:10.943209 | [92mINFO[0m | run:<module>:11 | Application shutdown
+2025-03-06T17:50:00.851404 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-06T17:50:00.880929 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T17:50:00.882073 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-06T17:50:02.522437 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-06T17:50:02.549935 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T17:50:02.551682 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-06T18:02:14.585003 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-06T18:02:14.610149 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T18:02:14.611209 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-06T18:02:16.398360 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-06T18:02:16.421184 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T18:02:16.422435 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-06T18:13:42.121517 | [92mINFO[0m | run:<module>:11 | Application shutdown
