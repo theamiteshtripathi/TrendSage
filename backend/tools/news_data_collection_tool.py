@@ -73,21 +73,49 @@ def scrape_full_content(url: str) -> str:
 @tool
 def fetch_news(inputs) -> List[Dict[Any, Any]]:
     """Fetch news articles about a specific topic and save them to Supabase"""
-    # Handle both string and dictionary inputs
-    if isinstance(inputs, dict):
+    logger.info(f"fetch_news received inputs: {inputs}")
+    
+    # Handle different input formats
+    topic = None
+    category = None
+    
+    # Case 1: inputs is a string (direct topic)
+    if isinstance(inputs, str):
+        topic = inputs
+    
+    # Case 2: inputs is a dict with 'topic' key
+    elif isinstance(inputs, dict) and 'topic' in inputs:
         topic = inputs.get('topic')
         category = inputs.get('category')
-    else:
-        topic = inputs
-        category = None
+    
+    # Case 3: inputs is a dict with 'description' key (from CrewAI)
+    elif isinstance(inputs, dict) and 'description' in inputs:
+        topic = inputs.get('description')
+    
+    # Case 4: inputs is a dict with nested 'inputs' dict (from CrewAI)
+    elif isinstance(inputs, dict) and 'inputs' in inputs and isinstance(inputs['inputs'], dict):
+        if 'description' in inputs['inputs']:
+            topic = inputs['inputs'].get('description')
+        elif 'topic' in inputs['inputs']:
+            topic = inputs['inputs'].get('topic')
+            category = inputs['inputs'].get('category')
+    
+    # If we still don't have a topic, try to extract it from any string in the inputs
+    if not topic and isinstance(inputs, dict):
+        for key, value in inputs.items():
+            if isinstance(value, str) and len(value) > 3:
+                topic = value
+                break
     
     if not topic:
         logger.error("No topic provided to fetch_news")
         return []
         
+    logger.info(f"Processing fetch_news for topic: {topic}, category: {category}")
+    
     try:
         # Determine category
-        if not category or category.lower() not in VALID_CATEGORIES:
+        if not category or category not in VALID_CATEGORIES:
             category = classify_category(topic)
         
         logger.info(f"Fetching news for topic: {topic}, category: {category}")

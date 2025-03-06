@@ -15,13 +15,33 @@ memory_store = MemoryStore()
 def calculate_trend_score(article_data: Dict[str, Any]) -> float:
     """Calculate trend score based on various factors"""
     base_score = 1.0
-    now = datetime.now()
+    now = datetime.now().replace(tzinfo=None)  # Ensure timezone-naive
     
     # Time decay factor (newer articles score higher)
     if 'published_at' in article_data:
-        pub_date = datetime.fromisoformat(article_data['published_at'].replace('Z', '+00:00'))
-        hours_old = (now - pub_date).total_seconds() / 3600
-        time_factor = np.exp(-hours_old / 24)  # Exponential decay over 24 hours
+        try:
+            # Handle ISO format with timezone
+            if isinstance(article_data['published_at'], str):
+                if 'Z' in article_data['published_at']:
+                    # Convert to timezone-naive by removing the Z and timezone info
+                    pub_date_str = article_data['published_at'].replace('Z', '')
+                    pub_date = datetime.fromisoformat(pub_date_str)
+                else:
+                    # Already timezone-naive
+                    pub_date = datetime.fromisoformat(article_data['published_at'])
+            else:
+                # If it's already a datetime object
+                pub_date = article_data['published_at']
+                
+            # Ensure timezone-naive for comparison
+            if pub_date.tzinfo is not None:
+                pub_date = pub_date.replace(tzinfo=None)
+                
+            hours_old = (now - pub_date).total_seconds() / 3600
+            time_factor = np.exp(-hours_old / 24)  # Exponential decay over 24 hours
+        except Exception as e:
+            logger.error(f"Error parsing published_at date: {e}")
+            time_factor = 0.5
     else:
         time_factor = 0.5
 
@@ -43,34 +63,89 @@ def calculate_trend_score(article_data: Dict[str, Any]) -> float:
 def analyze_trends(inputs) -> Dict[str, Any]:
     """Analyze trends in collected news articles"""
     try:
+        logger.info(f"analyze_trends received inputs: {inputs}")
+        
         # Handle different input formats
-        if isinstance(inputs, dict):
+        topic = None
+        category = None
+        articles = []
+        
+        # Case 1: inputs is a list (direct articles)
+        if isinstance(inputs, list):
+            articles = inputs
+        
+        # Case 2: inputs is a dict with 'topic' key
+        elif isinstance(inputs, dict) and 'topic' in inputs:
             topic = inputs.get('topic')
             category = inputs.get('category')
             articles = inputs.get('articles', [])
-        else:
-            # Legacy format
-            articles = inputs
-            topic = None
-            category = None
+        
+        # Case 3: inputs is a dict with 'description' key (from CrewAI)
+        elif isinstance(inputs, dict) and 'description' in inputs:
+            # The description might be the result from previous task
+            description = inputs.get('description')
+            if isinstance(description, str):
+                topic = description
+            elif isinstance(description, list):
+                articles = description
+            elif isinstance(description, dict):
+                articles = [description]
+        
+        # Case 4: inputs is a dict with nested 'inputs' dict (from CrewAI)
+        elif isinstance(inputs, dict) and 'inputs' in inputs and isinstance(inputs['inputs'], dict):
+            if 'description' in inputs['inputs']:
+                description = inputs['inputs'].get('description')
+                if isinstance(description, str):
+                    topic = description
+                elif isinstance(description, list):
+                    articles = description
+                elif isinstance(description, dict):
+                    articles = [description]
+            elif 'topic' in inputs['inputs']:
+                topic = inputs['inputs'].get('topic')
+                category = inputs['inputs'].get('category')
+                articles = inputs['inputs'].get('articles', [])
+            elif 'articles' in inputs['inputs']:
+                articles = inputs['inputs'].get('articles', [])
+        
+        # If we still don't have articles or topic, try to extract from any key
+        if not articles and not topic and isinstance(inputs, dict):
+            for key, value in inputs.items():
+                if isinstance(value, list) and len(value) > 0:
+                    articles = value
+                    break
+                elif isinstance(value, str) and len(value) > 3:
+                    topic = value
+                    break
             
         logger.info(f"Analyzing trends for topic: {topic}, category: {category}")
         
         if not articles:
             # Fetch articles from Supabase if not provided
-            query = supabase.table('news_articles').select('*').eq('analyzed', False)
+            logger.info("No articles provided, fetching from Supabase")
+            
+            query = supabase.table('news_articles').select('*')
+            
             if topic:
                 query = query.ilike('title', f'%{topic}%')
+            
             if category:
                 query = query.eq('category', category)
+                
+            # Order by created_at instead of updated_at
+            result = query.order('created_at', desc=True).limit(20).execute()
             
-            response = query.execute()
-            articles = response.data
-            logger.info(f"Fetched {len(articles)} articles from Supabase")
-            
-        if not articles:
-            logger.warning("No articles available for analysis")
-            return {"trends": [], "articles": [], "category": category or "miscellaneous"}
+            if result.data:
+                logger.info(f"Fetched {len(result.data)} articles from Supabase")
+                articles = result.data
+            else:
+                logger.warning("No articles found in Supabase")
+                return {
+                    "trends": [],
+                    "articles": [],
+                    "category": category if category else 'miscellaneous',
+                    "error": "No articles found for analysis"
+                }
 
         # Process articles and calculate trend scores
         article_summaries = []

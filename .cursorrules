@@ -91,19 +91,27 @@
    - Simplify inputs passed to crew.kickoff()
    - Ensure proper data flow between tasks
 
-2. Optimize backend API usage and database operations
+2. Fix Tool Function Input Handling
+   - Update fetch_news to handle various input formats from CrewAI
+   - Update analyze_trends to handle various input formats from CrewAI
+   - Update create_blog_post to handle various input formats from CrewAI
+   - Fix datetime handling in trend_analyzer_tool.py
+   - Add fallback extraction for inputs when standard formats are not provided
+   - Fix database queries to use created_at instead of updated_at
+
+3. Optimize backend API usage and database operations
    - Implement caching for existing analysis
    - Add proper category handling
    - Ensure proper data saving to Supabase
    - Implement exponential backoff for retries
 
-3. Improve CrewAI Task Management
+4. Improve CrewAI Task Management
    - Enhance task descriptions with database operations
    - Add category classification
    - Include trend scoring
    - Optimize API calls
 
-4. Database Schema Updates
+5. Database Schema Updates
    - Add category column to tables
    - Add trend_score column
    - Ensure proper indexing

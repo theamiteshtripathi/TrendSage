@@ -406,3 +406,23 @@ context
 2025-03-06T18:02:16.421184 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
 2025-03-06T18:02:16.422435 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
 2025-03-06T18:13:42.121517 | [92mINFO[0m | run:<module>:11 | Application shutdown
+2025-03-06T18:21:17.346494 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-06T18:21:17.373201 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T18:21:17.374293 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-06T18:21:19.132356 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-06T18:21:19.155799 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T18:21:19.156966 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-06T18:22:56.618427 | [92mINFO[0m | run:<module>:11 | Application shutdown
+2025-03-06T18:41:30.887088 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-06T18:41:30.931759 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T18:41:30.932836 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-06T18:42:39.128689 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-06T18:42:39.160835 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T18:42:39.161949 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-06T18:42:40.771779 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-06T18:42:40.795279 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T18:42:40.796820 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-06T18:43:44.390987 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-06T18:43:44.418283 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T18:43:44.419494 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-06T18:43:45.161224 | [92mINFO[0m | run:<module>:11 | Application shutdown

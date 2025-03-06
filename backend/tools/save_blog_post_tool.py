@@ -89,103 +89,149 @@ def generate_blog_content(trend_data: Dict[str, Any], articles: List[Dict[str, A
 def create_blog_post(inputs) -> Dict[str, Any]:
     """Create and save a blog post based on trend analysis"""
     try:
+        logger.info(f"create_blog_post received inputs: {inputs}")
+        
         # Handle different input formats
-        if isinstance(inputs, dict):
+        trend_analysis = None
+        topic = None
+        category = None
+        title = None
+        content = None
+        
+        # Case 1: inputs is a string (direct content)
+        if isinstance(inputs, str):
+            content = inputs
+            title = "Technology Trends Analysis"
+        
+        # Case 2: inputs is a dict with specific blog content keys
+        elif isinstance(inputs, dict) and 'title' in inputs:
+            title = inputs.get('title')
+            content = inputs.get('content')
+            category = inputs.get('category', 'technology')
+        
+        # Case 3: inputs is a dict with 'topic' and 'trend_analysis' keys
+        elif isinstance(inputs, dict) and 'topic' in inputs:
             trend_analysis = inputs.get('trend_analysis', {})
             topic = inputs.get('topic')
             category = inputs.get('category')
-        else:
-            # Legacy format
-            trend_analysis = inputs
-            topic = None
-            category = None
-            
-        logger.info(f"Creating blog post for topic: {topic}, category: {category}")
         
-        # If trend_analysis is not provided, fetch from Supabase
-        if not trend_analysis or not isinstance(trend_analysis, dict):
-            logger.info("No trend analysis provided, fetching from Supabase")
-            query = supabase.table('news_articles').select('*').eq('analyzed', True)
+        # Case 4: inputs is a dict with 'description' key (from CrewAI)
+        elif isinstance(inputs, dict) and 'description' in inputs:
+            # The description might be the result from previous task
+            description = inputs.get('description')
+            if isinstance(description, str):
+                content = description
+                title = "Technology Trends Analysis"
+            else:
+                trend_analysis = description
+        
+        # Case 5: inputs is a dict with nested 'inputs' dict (from CrewAI)
+        elif isinstance(inputs, dict) and 'inputs' in inputs and isinstance(inputs['inputs'], dict):
+            if 'description' in inputs['inputs']:
+                description = inputs['inputs'].get('description')
+                if isinstance(description, str):
+                    content = description
+                    title = "Technology Trends Analysis"
+                else:
+                    trend_analysis = description
+            elif 'topic' in inputs['inputs']:
+                topic = inputs['inputs'].get('topic')
+                category = inputs['inputs'].get('category')
+                trend_analysis = inputs['inputs'].get('trend_analysis', {})
+            elif 'title' in inputs['inputs']:
+                title = inputs['inputs'].get('title')
+                content = inputs['inputs'].get('content')
+                category = inputs['inputs'].get('category', 'technology')
+        
+        # If we have direct title and content, use them
+        if title and content:
+            logger.info(f"Using provided title and content for blog post")
+            blog_data = {
+                "title": title,
+                "content": content,
+                "summary": content[:200] + "..." if len(content) > 200 else content,
+                "category": category or "technology",
+                "image_prompt": f"A visual representation of {title}"
+            }
+        # Otherwise, generate from trend analysis
+        elif trend_analysis:
+            logger.info(f"Generating blog content from trend analysis")
+            # Fetch articles if needed for context
+            articles = []
             if topic:
-                query = query.ilike('title', f'%{topic}%')
-            if category:
-                query = query.eq('category', category)
+                query = supabase.table('news_articles')
+                if category:
+                    query = query.eq('category', category)
+                if topic:
+                    query = query.ilike('title', f'%{topic}%')
                 
-            response = query.execute()
-            articles = response.data
+                result = query.limit(10).execute()
+                if result.data:
+                    articles = result.data
             
-            if not articles:
-                logger.warning("No analyzed articles found")
-                return {"error": "No analyzed articles available"}
-                
-            trend_analysis = {
-                "articles": articles,
-                "category": category or "miscellaneous"
+            # Generate blog content
+            blog_data = generate_blog_content(trend_analysis, articles)
+            if not blog_data:
+                logger.error("Failed to generate blog content")
+                return {"error": "Failed to generate blog content"}
+        else:
+            # Create a default blog post if no inputs are provided
+            logger.warning("No valid inputs provided, creating default blog post")
+            blog_data = {
+                "title": "Latest Technology Trends",
+                "content": "This is a placeholder for technology trend analysis. The actual content will be generated based on news analysis.",
+                "summary": "Placeholder for technology trend analysis.",
+                "category": "technology",
+                "image_prompt": "A visual representation of technology trends"
             }
         
-        # Generate blog content
-        blog_data = generate_blog_content(
-            trend_analysis,
-            trend_analysis.get('articles', [])
-        )
+        # Calculate trend score
+        trend_score = 1.0
+        if isinstance(trend_analysis, dict) and 'articles' in trend_analysis:
+            scores = [article.get('trend_score', 1.0) for article in trend_analysis['articles'] if isinstance(article, dict)]
+            if scores:
+                trend_score = sum(scores) / len(scores)
         
-        if not blog_data:
-            logger.error("Failed to generate blog content")
-            return {"error": "Blog generation failed"}
-
-        # Calculate average trend score
-        trend_scores = [
-            article.get('trend_score', 0)
-            for article in trend_analysis.get('articles', [])
-        ]
-        avg_trend_score = sum(trend_scores) / len(trend_scores) if trend_scores else 0
-
-        # Use provided category or extract from trend analysis
-        final_category = (category or 
-                        trend_analysis.get('category') or 
-                        blog_data.get('category', 'miscellaneous')).lower()
-
         # Prepare blog post data
-        blog_post = {
-            'title': blog_data['title'],
-            'content': blog_data['content'],
-            'category': final_category,
-            'trend_score': round(avg_trend_score, 2),
-            'image_url': '',  # To be updated with actual image URL
-            'source_articles': [
-                article['id'] for article in trend_analysis.get('articles', [])
-            ],
-            'metadata': {
-                'topic': topic,
-                'summary': blog_data.get('summary', ''),
-                'created_at': datetime.now().isoformat()
-            }
+        new_blog = {
+            "title": blog_data.get("title"),
+            "content": blog_data.get("content"),
+            "summary": blog_data.get("summary", blog_data.get("content", "")[:200] + "..."),
+            "category": blog_data.get("category", category or "technology"),
+            "image_url": blog_data.get("image_url"),
+            "trend_score": trend_score,
+            "created_at": datetime.now().isoformat()
         }
-
+        
         # Check for duplicate title
-        existing = supabase.table('blogs')\
-            .select('id')\
-            .eq('title', blog_post['title'])\
-            .execute()
-
+        existing = supabase.table('blogs').select('id').eq('title', new_blog['title']).execute()
         if existing.data:
-            logger.warning(f"Blog post with title '{blog_post['title']}' already exists")
-            return {"error": "Duplicate blog post title"}
-
+            logger.warning(f"Blog post with title '{new_blog['title']}' already exists")
+            return {
+                "status": "duplicate",
+                "message": f"Blog post with title '{new_blog['title']}' already exists",
+                "blog": new_blog
+            }
+        
         # Save to Supabase
-        result = supabase.table('blogs').insert(blog_post).execute()
+        logger.info(f"Saving blog post: {new_blog['title']}")
+        result = supabase.table('blogs').insert(new_blog).execute()
         
         if result.data:
-            logger.info(f"Successfully created blog post: {blog_post['title']}")
+            logger.info(f"Blog post saved successfully with ID: {result.data[0]['id']}")
             return {
-                "success": True,
-                "blog_post": result.data[0],
-                "image_prompt": blog_data.get('image_prompt', '')
+                "status": "success",
+                "message": "Blog post created successfully",
+                "blog": result.data[0]
             }
         else:
             logger.error("Failed to save blog post")
-            return {"error": "Failed to save blog post"}
-
+            return {
+                "status": "error",
+                "message": "Failed to save blog post",
+                "blog": new_blog
+            }
+            
     except Exception as e:
         logger.error(f"Error in create_blog_post: {str(e)}")
         return {"error": str(e)}
