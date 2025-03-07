@@ -24,16 +24,16 @@ export function HeroSection({ searchQuery, setSearchQuery, onSearch, isLoading }
 
   return (
     <section className="hero-bg w-full overflow-hidden py-20 md:py-32">
-      {/* Background elements */}
-      <div className="absolute inset-0 backdrop-blur-sm dark:bg-black/40 light:bg-white/40" />
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent dark:to-black/60 light:to-white/60" />
+      {/* Background elements - Make these full-width */}
+      <div className="absolute inset-0 w-screen backdrop-blur-sm dark:bg-black/40 light:bg-white/40" />
+      <div className="absolute inset-0 w-screen bg-gradient-to-br from-primary/10 via-transparent dark:to-black/60 light:to-white/60" />
       
       {/* Animated circles */}
       <div className="absolute -left-20 -top-20 h-80 w-80 rounded-full bg-primary/10 blur-3xl animate-pulse" />
       <div className="absolute -right-20 -bottom-20 h-80 w-80 rounded-full bg-primary/10 blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
       
       {/* Content */}
-      <div className="container relative mx-auto px-4 text-center z-10">
+      <div className="container-full relative mx-auto px-4 text-center z-10">
         <motion.h1 
           className="mb-6 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl"
           initial={{ opacity: 0, y: 20 }}
@@ -130,12 +130,12 @@ export function HeroSection({ searchQuery, setSearchQuery, onSearch, isLoading }
         </motion.div>
         
         <motion.div 
-          className="text-sm text-white/60 dark:text-white/60 light:text-gray-700"
+          className="text-sm mt-4 dark:text-white/60 light:text-gray-600 font-medium"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          Try searching for: <span className="font-medium text-primary/80">AI, Crypto, Climate Change, Space Exploration</span>
+          Try searching for: <span className="font-semibold text-primary">AI, Crypto, Climate Change, Space Exploration</span>
         </motion.div>
       </div>
     </section>

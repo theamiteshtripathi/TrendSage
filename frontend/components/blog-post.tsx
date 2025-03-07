@@ -1,6 +1,6 @@
 "use client"
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { MessageSquare, BookOpen } from 'lucide-react';
 
@@ -173,6 +173,50 @@ const formatContent = (content: string): string => {
   return content.replace(/###\s+(.*?)(?:\n|$)/g, '<h3 class="text-xl font-bold text-primary mt-6 mb-3">$1</h3>');
 };
 
+// Function to get a reliable fallback image based on category
+const getFallbackImage = (category: string): string => {
+  const fallbackImages: Record<string, string> = {
+    'Tech': '/placeholder-tech.jpg',
+    'Business': '/placeholder-business.jpg',
+    'Health': '/placeholder-health.jpg',
+    'Science': '/placeholder-science.jpg',
+    'Sports': '/placeholder-sports.jpg',
+    'Entertainment': '/placeholder-entertainment.jpg',
+    'Politics': '/placeholder-politics.jpg',
+    'Miscellaneous': '/placeholder.jpg',
+    'Finance & Technology': '/placeholder-tech.jpg',
+    'default': '/placeholder.jpg'
+  };
+  
+  return fallbackImages[category] || fallbackImages['default'];
+};
+
+// Function to validate image URL
+const isValidImageUrl = (url: string): boolean => {
+  if (!url) return false;
+  
+  // Check if URL is from a reliable source
+  const reliableDomains = [
+    'unsplash.com',
+    'images.unsplash.com',
+    'pexels.com',
+    'images.pexels.com',
+    'pixabay.com',
+    'cdn.pixabay.com',
+    'githubusercontent.com',
+    'raw.githubusercontent.com',
+    'cloudinary.com',
+    'res.cloudinary.com'
+  ];
+  
+  try {
+    const url_obj = new URL(url);
+    return reliableDomains.some(domain => url_obj.hostname.includes(domain));
+  } catch (e) {
+    return false;
+  }
+};
+
 export function BlogPost({ title, content, category, image_url, onChatClick, onReadClick }: BlogPostProps) {
   // Safely truncate content to avoid rendering issues
   const truncatedContent = content && content.length > 200 
@@ -183,7 +227,16 @@ export function BlogPost({ title, content, category, image_url, onChatClick, onR
   const description = truncatedContent.split('\n')[0];
   
   // Get a category-specific image if no image_url is provided
-  const displayImageUrl = image_url || getCategoryImage(category, title, content);
+  const [imageError, setImageError] = useState(false);
+  const fallbackImage = getFallbackImage(category);
+  
+  // Determine the image to display with validation
+  let displayImageUrl = fallbackImage;
+  if (!imageError && image_url && isValidImageUrl(image_url)) {
+    displayImageUrl = image_url;
+  } else if (!imageError && !image_url) {
+    displayImageUrl = getCategoryImage(category, title, content);
+  }
 
   // Handle click on the card (excluding the chat button)
   const handleCardClick = (e: React.MouseEvent) => {
@@ -205,8 +258,11 @@ export function BlogPost({ title, content, category, image_url, onChatClick, onR
           alt={title}
           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
           onError={(e) => {
-            // Fallback to a reliable placeholder if image fails to load
-            (e.target as HTMLImageElement).src = '/placeholder.jpg';
+            // If the image fails to load, try the category-specific image
+            if (!imageError) {
+              setImageError(true);
+              (e.target as HTMLImageElement).src = fallbackImage;
+            }
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-70"></div>
