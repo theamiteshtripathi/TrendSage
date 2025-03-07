@@ -2459,3 +2459,124 @@ postgrest.exceptions.APIError: {'code': '22P02', 'details': None, 'hint': None, 
 2025-03-07T04:13:41.601574 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
 2025-03-07T04:13:41.900392 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
 2025-03-07T04:14:06.203854 | [92mINFO[0m | run:main:55 | Application shutdown
+2025-03-07T04:23:54.457113 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-07T04:23:54.460133 | [92mINFO[0m | image_fetcher:<module>:22 | Using fallback images only (Unsplash API not configured)
+2025-03-07T04:23:54.506044 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-07T04:23:54.572664 | [92mINFO[0m | main:<module>:61 | FastAPI application initialized
+2025-03-07T04:23:54.574422 | [92mINFO[0m | run:main:13 | Starting MPCrew application
+2025-03-07T04:23:54.843749 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: news_articles exists
+2025-03-07T04:23:54.891301 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: blogs exists
+2025-03-07T04:23:55.008681 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: user_preferences exists
+2025-03-07T04:23:55.062814 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: workflow_cache exists
+2025-03-07T04:23:55.062909 | [92mINFO[0m | init_db:initialize_database:34 | Database schema validation: All required tables exist
+2025-03-07T04:23:55.062934 | [92mINFO[0m | run:main:22 | Database initialization successful
+2025-03-07T04:23:55.115721 | [92mINFO[0m | init_db:get_table_counts:55 | Table news_articles has 72 records
+2025-03-07T04:23:55.166268 | [92mINFO[0m | init_db:get_table_counts:55 | Table blogs has 18 records
+2025-03-07T04:23:55.216886 | [92mINFO[0m | init_db:get_table_counts:55 | Table user_preferences has 0 records
+2025-03-07T04:23:55.268842 | [92mINFO[0m | init_db:get_table_counts:55 | Table workflow_cache has 6 records
+2025-03-07T04:23:55.268939 | [92mINFO[0m | run:main:26 | Table news_articles has 72 records
+2025-03-07T04:23:55.268968 | [92mINFO[0m | run:main:26 | Table blogs has 18 records
+2025-03-07T04:23:55.268989 | [92mINFO[0m | run:main:26 | Table user_preferences has 0 records
+2025-03-07T04:23:55.269007 | [92mINFO[0m | run:main:26 | Table workflow_cache has 6 records
+2025-03-07T04:23:55.269025 | [92mINFO[0m | run:main:49 | Starting FastAPI server
+2025-03-07T04:23:57.379295 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-07T04:23:57.380847 | [92mINFO[0m | image_fetcher:<module>:22 | Using fallback images only (Unsplash API not configured)
+2025-03-07T04:23:57.429440 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-07T04:23:57.502320 | [92mINFO[0m | main:<module>:61 | FastAPI application initialized
+2025-03-07T04:28:12.198783 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:28:12.458414 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:28:12.550891 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:28:12.752266 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:28:13.461167 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:28:13.521283 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:28:13.591694 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:28:13.644384 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:28:14.237079 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:28:14.305159 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:28:27.025835 | [92mINFO[0m | main:analyze_trends:86 | Analyzing trends for topic: iPhone
+2025-03-07T04:28:27.027332 | [92mINFO[0m | crew:execute_workflow:204 | Starting workflow for topic: iPhone, category: None
+2025-03-07T04:28:27.262997 | [92mINFO[0m | crew:create_tasks:102 | Creating tasks for topic: iPhone, category: miscellaneous
+2025-03-07T04:28:27.266325 | [92mINFO[0m | crew:create_tasks:159 | Created tasks for topic: iPhone, category: miscellaneous
+2025-03-07T04:28:27.280014 | [92mINFO[0m | crew:execute_workflow:230 | Kicking off crew with inputs: {'topic': 'iPhone', 'category': 'miscellaneous'}
+2025-03-07T04:28:28.903544 | [92mINFO[0m | news_data_collection_tool:_run:83 | fetch_news received inputs - topic: iPhone, category: any
+2025-03-07T04:28:28.904062 | [92mINFO[0m | news_data_collection_tool:_run:89 | Processing fetch_news for topic: iPhone, category: any
+2025-03-07T04:28:28.904235 | [92mINFO[0m | news_data_collection_tool:_run:96 | Fetching news for topic: iPhone, category: miscellaneous
+2025-03-07T04:28:28.950295 | [92mINFO[0m | news_data_collection_tool:_run:121 | Fetching from NewsAPI (attempt 1/3)
+2025-03-07T04:28:33.404339 | [92mINFO[0m | memory_store:add_article:41 | Added article https://www.wired.com/story/apple-iphone-16e-news/ to memory
+2025-03-07T04:28:33.460977 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: Apple iPhone 16e (2025): Specs, Price, Release Date
+2025-03-07T04:28:37.178143 | [92mINFO[0m | memory_store:add_article:41 | Added article https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_0d4db412-7d06-4fe2-af41-57d3c38d613e to memory
+2025-03-07T04:28:37.276574 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: iPhone 16e review: What's your acceptable compromise?
+2025-03-07T04:28:40.747430 | [92mINFO[0m | memory_store:add_article:41 | Added article https://www.theverge.com/news/609204/apple-iphone-16e-price-release-date-specs-a18-notch-face-id to memory
+2025-03-07T04:28:40.801283 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: Apple launches the iPhone 16E
+2025-03-07T04:28:44.442334 | [92mINFO[0m | memory_store:add_article:41 | Added article https://www.wired.com/review/apple-iphone-16e/ to memory
+2025-03-07T04:28:44.499938 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: Apple iPhone 16e Review: Questionable Value
+2025-03-07T04:28:47.888451 | [92mINFO[0m | memory_store:add_article:41 | Added article https://www.theverge.com/news/614746/apple-iphone-16e-se-comparison to memory
+2025-03-07T04:28:47.940556 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: How the new iPhone 16E compares to the rest of Apple’s iPhone 16 lineup
+2025-03-07T04:28:47.940915 | [92mINFO[0m | news_data_collection_tool:_run:199 | Saved 5 new articles
+2025-03-07T04:29:09.651334 | [92mINFO[0m | trend_analyzer_tool:_run:72 | analyze_trends running with topic: iPhone, category: technology
+2025-03-07T04:29:30.047719 | [92mINFO[0m | save_blog_post_tool:_run:141 | create_blog_post running with topic: The Rise of the iPhone 16E: Bridging Affordability and Modern Innovation, category: Technology
+2025-03-07T04:29:30.048245 | [92mINFO[0m | save_blog_post_tool:_run:145 | Using final_answer as blog content
+2025-03-07T04:29:30.048349 | [92mINFO[0m | image_fetcher:get_image_for_blog:156 | Using fallback image for category: Technology
+2025-03-07T04:29:30.048395 | [92mINFO[0m | save_blog_post_tool:_run:154 | Generated image URL: https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800
+2025-03-07T04:29:30.048431 | [92mINFO[0m | save_blog_post_tool:_run:169 | Saving blog post from final answer: The Rise of the iPhone 16E: Bridging Affordability and Modern Innovation Trends Analysis
+2025-03-07T04:29:30.221891 | [92mINFO[0m | save_blog_post_tool:_run:184 | Blog post saved successfully with ID: 97b93a24-7bc1-4257-a4a5-a8f86f0d44b6
+2025-03-07T04:29:30.835507 | [92mINFO[0m | vector_embedding_tool:_create_embeddings:73 | Created embedding for blog ID: 97b93a24-7bc1-4257-a4a5-a8f86f0d44b6
+2025-03-07T04:29:30.835863 | [92mINFO[0m | save_blog_post_tool:_run:199 | Created embeddings for blog post: 97b93a24-7bc1-4257-a4a5-a8f86f0d44b6
+2025-03-07T04:29:37.083153 | [92mINFO[0m | crew:save_blog_callback:107 | Blog post creation task completed, saving to database
+2025-03-07T04:29:37.083580 | [92mINFO[0m | save_blog_post_tool:_parse_input:382 | create_blog_post received inputs type: <class 'dict'>
+2025-03-07T04:29:37.083626 | [92mINFO[0m | save_blog_post_tool:_parse_input:398 | Input keys: ['final_answer', 'topic', 'category']
+2025-03-07T04:29:37.083654 | [92mINFO[0m | save_blog_post_tool:_parse_input:405 | Found final_answer with topic: iPhone
+2025-03-07T04:29:37.083688 | [92mINFO[0m | save_blog_post_tool:_run:141 | create_blog_post running with topic: iPhone, category: technology
+2025-03-07T04:29:37.083712 | [92mINFO[0m | save_blog_post_tool:_run:145 | Using final_answer as blog content
+2025-03-07T04:29:37.083779 | [92mINFO[0m | image_fetcher:get_image_for_blog:160 | Using miscellaneous fallback image
+2025-03-07T04:29:37.083817 | [92mINFO[0m | save_blog_post_tool:_run:154 | Generated image URL: https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800
+2025-03-07T04:29:37.083844 | [92mINFO[0m | save_blog_post_tool:_run:169 | Saving blog post from final answer: iPhone Trends Analysis
+2025-03-07T04:29:37.233173 | [92mINFO[0m | save_blog_post_tool:_run:184 | Blog post saved successfully with ID: 21d72364-c693-44c2-bea8-9c1900f44156
+2025-03-07T04:29:38.202978 | [92mINFO[0m | vector_embedding_tool:_create_embeddings:73 | Created embedding for blog ID: 21d72364-c693-44c2-bea8-9c1900f44156
+2025-03-07T04:29:38.203331 | [92mINFO[0m | save_blog_post_tool:_run:199 | Created embeddings for blog post: 21d72364-c693-44c2-bea8-9c1900f44156
+2025-03-07T04:29:38.203601 | [92mINFO[0m | crew:save_blog_callback:125 | Blog post save result: {'status': 'success', 'message': 'Blog post created successfully from final answer', 'blog': {'id': '21d72364-c693-44c2-bea8-9c1900f44156', 'title': 'iPhone Trends Analysis', 'content': "---\n\n**The Rise of the iPhone 16E: Bridging Affordability and Modern Innovation**\n\n**Introduction**\n\nAs Apple continues to redefine its technological identity, the launch of the iPhone 16E marks a pivotal shift in its smartphone lineup. Designed as a bridge between legacy models and contemporary innovation, the iPhone 16E encapsulates current technological trends and consumer expectations. This blog explores the intricate details of the 16E, offering insights into its position within Apple's broader strategy.\n\n**Emerging Themes**\n\n1. **Apple iPhone 16E Launch**  \n   In a bid to streamline its offerings, Apple introduces the iPhone 16E, a new line signaling the end of the SE series while phasing out older models like the iPhone 14. This strategic move appeals to users longing for an upgrade from devices such as the iPhone 8 Plus or X.\n\n2. **Comparison with Other iPhone Models**  \n   While positioned as a budget-friendly option, the 16E does not shy away from competing on value, offering a blend of necessary features at a competitive price point within the iPhone 16 lineup.\n\n3. **Features and Specifications**  \n   Highlighted by its adoption of USB-C and Face ID, the iPhone 16E aligns with Apple’s modern design philosophies. Notably, it sacrifices the home button and Touch ID, reinforcing a transition towards facial recognition technology. However, its lack of MagSafe compatibility tempers enthusiasm, impacting accessory usage.\n\n4. **Value and Affordability**  \n   Priced at $599, the iPhone 16E targets a cost-conscious demographic. Critics question its balance between cost and capability, though it remains an attractive model for those valuing affordability over premium features.\n\n**Key Developments**\n\nA shift in Apple's security paradigm is evident with the prioritization of Face ID over Touch ID, underscoring the company's focus on advanced security mechanisms. The move to USB-C is a notable regulatory alignment, addressing increasing global pressure and consumer demand for standardized technology. Despite the exclusion of MagSafe, Apple ensures the 16E remains appealing through essential updates.\n\n**Significant Trends**\n\nFacial recognition emerges as a new industry norm, reducing reliance on physical inputs and paving the way for seamless integration and security. By embracing USB-C, Apple steps closer to uniformity, fostering compatibility across product lines. With the introduction of a budget-conscious model like the 16E, Apple is poised to capture a vast consumer segment seeking up-to-date technology without a hefty price tag.\n\n**Insights**\n\nThe iPhone 16E's design resonates with users seeking moderate economic commitment, reflective of wider market trends towards accessible technology. While missing some premium features like MagSafe, the focus on substantive technological updates denotes a calculated approach to meeting core consumer needs. The iPhone 16E is not just another entry; it's Apple’s strategic gambit to modernize affordability within its product ecosystem.\n\n**Conclusion**\n\nIn an ever-evolving smartphone market, the iPhone 16E exemplifies Apple's deft navigation of regulatory environments and consumer preferences, blending affordability with innovation. As one of the most strategically significant additions to Apple’s lineup, the 16E sets a precedent for future iterations and influences market expectations regarding budget offerings.\n\n---\n\nThe blog post about the iPhone 16E has been published successfully.\n```", 'created_at': '2025-03-07T04:29:37.083839+00:00', 'updated_at': '2025-03-07T09:29:37.311939+00:00', 'user_id': None, 'category': 'technology', 'trend_score': 1, 'image_url': 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800', 'source_articles': [], 'author': None, 'published_at': '2025-03-07T09:29:37.311939+00:00', 'status': 'draft', 'metadata': {}}}
+2025-03-07T04:29:38.267208 | [92mINFO[0m | crew:cache_result:351 | Cached workflow result for topic: iPhone
+2025-03-07T04:29:38.267723 | [92mINFO[0m | crew:execute_workflow:251 | Workflow completed successfully
+2025-03-07T04:29:38.271762 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:29:38.411784 | [92mINFO[0m | main:get_trends:134 | Fetching trends
+2025-03-07T04:29:38.471456 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:29:38.541947 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:29:41.277201 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:29:44.222784 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:29:48.962813 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:29:49.051320 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:29:54.510729 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:29:54.671849 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:29:57.486180 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:29:57.556149 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:30:00.941126 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:30:01.014219 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:30:04.911707 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:30:05.345643 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:30:07.656203 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:30:07.829992 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:30:11.095900 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:30:11.159968 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:30:13.737517 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:30:13.807179 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:30:27.663063 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:30:27.798326 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:30:29.865321 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:30:29.950921 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:30:32.126441 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:30:32.197836 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:30:35.293814 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:30:35.366236 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:31:05.281874 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:31:35.277564 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:32:05.276322 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:32:13.509144 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:32:13.717189 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:32:16.319254 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:32:16.403697 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:32:46.317281 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:33:16.324400 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:33:46.332053 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:34:17.333197 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:34:46.335635 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:34:54.490119 | [92mINFO[0m | run:main:55 | Application shutdown
