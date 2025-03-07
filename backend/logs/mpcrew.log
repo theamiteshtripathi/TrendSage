@@ -490,3 +490,133 @@ TypeError: Object of type CrewOutput is not JSON serializable
 2025-03-06T19:55:59.636825 | [92mINFO[0m | main:get_trends:130 | Fetching trends
 2025-03-06T19:55:59.770704 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
 2025-03-06T19:56:11.628446 | [92mINFO[0m | run:<module>:11 | Application shutdown
+2025-03-06T20:30:21.841673 | [92mINFO[0m | crew:<module>:21 | Initializing CrewAI components
+2025-03-06T20:30:21.912258 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T20:30:21.913863 | [92mINFO[0m | run:main:13 | Starting MPCrew application
+2025-03-06T20:30:22.032531 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: news_articles exists
+2025-03-06T20:30:22.089466 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: blogs exists
+2025-03-06T20:30:22.148567 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: user_preferences exists
+2025-03-06T20:30:22.210027 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: workflow_cache exists
+2025-03-06T20:30:22.210230 | [92mINFO[0m | init_db:initialize_database:34 | Database schema validation: All required tables exist
+2025-03-06T20:30:22.210291 | [92mINFO[0m | run:main:22 | Database initialization successful
+2025-03-06T20:30:22.273530 | [92mINFO[0m | init_db:get_table_counts:55 | Table news_articles has 36 records
+2025-03-06T20:30:22.337668 | [92mINFO[0m | init_db:get_table_counts:55 | Table blogs has 0 records
+2025-03-06T20:30:22.484999 | [92mINFO[0m | init_db:get_table_counts:55 | Table user_preferences has 0 records
+2025-03-06T20:30:22.546840 | [92mINFO[0m | init_db:get_table_counts:55 | Table workflow_cache has 0 records
+2025-03-06T20:30:22.547199 | [92mINFO[0m | run:main:26 | Table news_articles has 36 records
+2025-03-06T20:30:22.547306 | [92mINFO[0m | run:main:26 | Table blogs has 0 records
+2025-03-06T20:30:22.547376 | [92mINFO[0m | run:main:26 | Table user_preferences has 0 records
+2025-03-06T20:30:22.547432 | [92mINFO[0m | run:main:26 | Table workflow_cache has 0 records
+2025-03-06T20:30:22.547486 | [92mINFO[0m | run:main:49 | Starting FastAPI server
+2025-03-06T20:30:22.549125 | [92mINFO[0m | run:main:55 | Application shutdown
+2025-03-06T20:31:14.299929 | [92mINFO[0m | crew:<module>:21 | Initializing CrewAI components
+2025-03-06T20:31:14.373594 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T20:31:14.375623 | [92mINFO[0m | run:main:13 | Starting MPCrew application
+2025-03-06T20:31:14.569278 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: news_articles exists
+2025-03-06T20:31:14.631837 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: blogs exists
+2025-03-06T20:31:14.690134 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: user_preferences exists
+2025-03-06T20:31:14.758381 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: workflow_cache exists
+2025-03-06T20:31:14.758640 | [92mINFO[0m | init_db:initialize_database:34 | Database schema validation: All required tables exist
+2025-03-06T20:31:14.758706 | [92mINFO[0m | run:main:22 | Database initialization successful
+2025-03-06T20:31:14.863975 | [92mINFO[0m | init_db:get_table_counts:55 | Table news_articles has 36 records
+2025-03-06T20:31:14.919820 | [92mINFO[0m | init_db:get_table_counts:55 | Table blogs has 0 records
+2025-03-06T20:31:14.987898 | [92mINFO[0m | init_db:get_table_counts:55 | Table user_preferences has 0 records
+2025-03-06T20:31:15.041725 | [92mINFO[0m | init_db:get_table_counts:55 | Table workflow_cache has 0 records
+2025-03-06T20:31:15.041967 | [92mINFO[0m | run:main:26 | Table news_articles has 36 records
+2025-03-06T20:31:15.042023 | [92mINFO[0m | run:main:26 | Table blogs has 0 records
+2025-03-06T20:31:15.042068 | [92mINFO[0m | run:main:26 | Table user_preferences has 0 records
+2025-03-06T20:31:15.042110 | [92mINFO[0m | run:main:26 | Table workflow_cache has 0 records
+2025-03-06T20:31:15.042150 | [92mINFO[0m | run:main:49 | Starting FastAPI server
+2025-03-06T20:31:16.704798 | [92mINFO[0m | crew:<module>:21 | Initializing CrewAI components
+2025-03-06T20:31:16.767083 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T20:31:35.160292 | [92mINFO[0m | main:analyze_trends:82 | Analyzing trends for topic: Cryptocurrency
+2025-03-06T20:31:35.162176 | [92mINFO[0m | crew:execute_workflow:163 | Starting workflow for topic: Cryptocurrency, category: None
+2025-03-06T20:31:35.482527 | [92mINFO[0m | crew:create_tasks:100 | Creating tasks for topic: Cryptocurrency, category: miscellaneous
+2025-03-06T20:31:35.485124 | [92mINFO[0m | crew:create_tasks:157 | Created tasks for topic: Cryptocurrency, category: miscellaneous
+2025-03-06T20:31:35.493924 | [92mINFO[0m | crew:execute_workflow:189 | Kicking off crew with inputs: {'topic': 'Cryptocurrency', 'category': 'miscellaneous'}
+2025-03-06T20:31:37.018081 | [92mINFO[0m | news_data_collection_tool:_run:83 | fetch_news received inputs - topic: Cryptocurrency, category: any
+2025-03-06T20:31:37.018507 | [92mINFO[0m | news_data_collection_tool:_run:89 | Processing fetch_news for topic: Cryptocurrency, category: any
+2025-03-06T20:31:37.018674 | [92mINFO[0m | news_data_collection_tool:_run:96 | Fetching news for topic: Cryptocurrency, category: miscellaneous
+2025-03-06T20:31:37.092842 | [92mINFO[0m | news_data_collection_tool:_run:109 | Found 3 cached articles
+2025-03-06T20:32:01.055829 | [92mINFO[0m | trend_analyzer_tool:_run:72 | analyze_trends running with topic: Cryptocurrency, category: Finance
+2025-03-06T20:32:21.760095 | [92mINFO[0m | save_blog_post_tool:_run:81 | create_blog_post running with topic: Cryptocurrency Trend Analysis, category: Finance
+2025-03-06T20:32:21.760262 | [92mINFO[0m | save_blog_post_tool:_run:85 | Using final_answer as blog content
+2025-03-06T20:32:21.760302 | [92mINFO[0m | save_blog_post_tool:_run:101 | Saving blog post from final answer: Cryptocurrency Trend Analysis Trends Analysis
+2025-03-06T20:32:22.063510 | [91mERROR[0m | save_blog_post_tool:_run:130 | Database error saving blog post: {'code': 'PGRST204', 'details': None, 'hint': None, 'message': "Could not find the 'summary' column of 'blogs' in the schema cache"}
+2025-03-06T20:32:22.067216 | [91mERROR[0m | save_blog_post_tool:_run:131 | Traceback (most recent call last):
+  File "/Users/amiteshtripathi/Library/Mobile Documents/com~apple~CloudDocs/Documents/My Projects/mpcrew/backend/tools/save_blog_post_tool.py", line 113, in _run
+    result = supabase.table('blogs').insert(new_blog).execute()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/site-packages/postgrest/_sync/request_builder.py", line 78, in execute
+    raise APIError(r.json())
+postgrest.exceptions.APIError: {'code': 'PGRST204', 'details': None, 'hint': None, 'message': "Could not find the 'summary' column of 'blogs' in the schema cache"}
+
+2025-03-06T20:32:30.013313 | [92mINFO[0m | save_blog_post_tool:_run:81 | create_blog_post running with topic: Cryptocurrency Trend Analysis, category: Finance
+2025-03-06T20:32:30.013521 | [92mINFO[0m | save_blog_post_tool:_run:85 | Using final_answer as blog content
+2025-03-06T20:32:30.013563 | [92mINFO[0m | save_blog_post_tool:_run:101 | Saving blog post from final answer: Cryptocurrency Trend Analysis Trends Analysis
+2025-03-06T20:32:30.231520 | [91mERROR[0m | save_blog_post_tool:_run:130 | Database error saving blog post: {'code': 'PGRST204', 'details': None, 'hint': None, 'message': "Could not find the 'summary' column of 'blogs' in the schema cache"}
+2025-03-06T20:32:30.231913 | [91mERROR[0m | save_blog_post_tool:_run:131 | Traceback (most recent call last):
+  File "/Users/amiteshtripathi/Library/Mobile Documents/com~apple~CloudDocs/Documents/My Projects/mpcrew/backend/tools/save_blog_post_tool.py", line 113, in _run
+    result = supabase.table('blogs').insert(new_blog).execute()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/site-packages/postgrest/_sync/request_builder.py", line 78, in execute
+    raise APIError(r.json())
+postgrest.exceptions.APIError: {'code': 'PGRST204', 'details': None, 'hint': None, 'message': "Could not find the 'summary' column of 'blogs' in the schema cache"}
+
+2025-03-06T20:32:33.188994 | [92mINFO[0m | crew:save_blog_callback:105 | Blog post creation task completed, saving to database
+2025-03-06T20:32:33.190582 | [92mINFO[0m | save_blog_post_tool:_parse_input:268 | create_blog_post received inputs type: <class 'dict'>
+2025-03-06T20:32:33.190666 | [92mINFO[0m | save_blog_post_tool:_parse_input:284 | Input keys: ['final_answer', 'topic', 'category']
+2025-03-06T20:32:33.190720 | [92mINFO[0m | save_blog_post_tool:_parse_input:291 | Found final_answer with topic: Cryptocurrency
+2025-03-06T20:32:33.190771 | [92mINFO[0m | save_blog_post_tool:_run:81 | create_blog_post running with topic: Cryptocurrency, category: technology
+2025-03-06T20:32:33.190817 | [92mINFO[0m | save_blog_post_tool:_run:85 | Using final_answer as blog content
+2025-03-06T20:32:33.190864 | [92mINFO[0m | save_blog_post_tool:_run:101 | Saving blog post from final answer: Cryptocurrency Trends Analysis
+2025-03-06T20:32:33.343081 | [91mERROR[0m | save_blog_post_tool:_run:130 | Database error saving blog post: {'code': 'PGRST204', 'details': None, 'hint': None, 'message': "Could not find the 'summary' column of 'blogs' in the schema cache"}
+2025-03-06T20:32:33.344639 | [91mERROR[0m | save_blog_post_tool:_run:131 | Traceback (most recent call last):
+  File "/Users/amiteshtripathi/Library/Mobile Documents/com~apple~CloudDocs/Documents/My Projects/mpcrew/backend/tools/save_blog_post_tool.py", line 113, in _run
+    result = supabase.table('blogs').insert(new_blog).execute()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/site-packages/postgrest/_sync/request_builder.py", line 78, in execute
+    raise APIError(r.json())
+postgrest.exceptions.APIError: {'code': 'PGRST204', 'details': None, 'hint': None, 'message': "Could not find the 'summary' column of 'blogs' in the schema cache"}
+
+2025-03-06T20:32:33.344933 | [92mINFO[0m | crew:save_blog_callback:123 | Blog post save result: {'status': 'error', 'message': 'Database error: {\'code\': \'PGRST204\', \'details\': None, \'hint\': None, \'message\': "Could not find the \'summary\' column of \'blogs\' in the schema cache"}', 'blog': {'title': 'Cryptocurrency Trends Analysis', 'content': "Title: Navigating the Dynamic World of Cryptocurrency: Trends and Insights\n\nContent: The cryptocurrency landscape is shifting, influenced by powerful individuals, investment risks, and cybersecurity threats. As wealthy individuals like former President Trump engage with initiatives such as the 'U.S. crypto reserve', this involvement highlights a trend towards political influence in the sector. Meanwhile, challenges such as significant investment risks, volatility, and fraud continue to plague the market, deterring potential investors. \n\nThe recent record-breaking theft at Bybit underscores the urgent need for enhanced cybersecurity measures in safeguarding digital assets. Looking forward, these dynamics suggest a burgeoning need for regulatory frameworks to protect consumers and stabilize the market. For investors and stakeholders, staying informed of these trends and adapting to the evolving landscape is essential for success in this volatile sector.\n\nConclusion: The cryptocurrency industry is at a pivotal moment where influence from wealthy individuals, the risks associated with investments, and security challenges intersect to shape its future landscape. Monitoring these trends is essential for stakeholders aiming to navigate and succeed in this volatile market.\n\nCategory: Finance\n```", 'summary': 'Title: Navigating the Dynamic World of Cryptocurrency: Trends and Insights\n\nContent: The cryptocurrency landscape is shifting, influenced by powerful individuals, investment risks, and cybersecurity t...', 'category': 'technology', 'image_url': None, 'trend_score': 1.0, 'created_at': '2025-03-06T20:32:33.190857'}}
+2025-03-06T20:32:33.348822 | [91mERROR[0m | crew:cache_result:295 | Error saving to workflow_cache: Object of type CrewOutput is not JSON serializable
+2025-03-06T20:32:33.354864 | [91mERROR[0m | crew:cache_result:296 | Traceback (most recent call last):
+  File "/Users/amiteshtripathi/Library/Mobile Documents/com~apple~CloudDocs/Documents/My Projects/mpcrew/backend/crew.py", line 292, in cache_result
+    supabase.table('workflow_cache').insert(cache_entry).execute()
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/site-packages/postgrest/_sync/request_builder.py", line 58, in execute
+    r = self.session.request(
+        ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/site-packages/httpx/_client.py", line 824, in request
+    request = self.build_request(
+              ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/site-packages/httpx/_client.py", line 358, in build_request
+    return Request(
+           ^^^^^^^^
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/site-packages/httpx/_models.py", line 342, in __init__
+    headers, stream = encode_request(
+                      ^^^^^^^^^^^^^^^
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/site-packages/httpx/_content.py", line 214, in encode_request
+    return encode_json(json)
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/site-packages/httpx/_content.py", line 177, in encode_json
+    body = json_dumps(json).encode("utf-8")
+           ^^^^^^^^^^^^^^^^
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type CrewOutput is not JSON serializable
+
+2025-03-06T20:32:33.355522 | [93mWARNING[0m | crew:cache_result:299 | Skipping workflow caching due to error
+2025-03-06T20:32:33.355640 | [92mINFO[0m | crew:execute_workflow:199 | Workflow completed successfully
+2025-03-06T20:32:33.365840 | [92mINFO[0m | main:get_trends:130 | Fetching trends
+2025-03-06T20:32:33.525891 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T20:33:38.629861 | [92mINFO[0m | run:main:55 | Application shutdown

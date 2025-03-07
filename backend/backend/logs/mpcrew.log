@@ -450,3 +450,41 @@ context
 2025-03-06T19:54:47.264074 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
 2025-03-06T19:54:47.265242 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
 2025-03-06T19:54:50.539490 | [92mINFO[0m | run:<module>:11 | Application shutdown
+2025-03-06T20:29:39.793634 | [92mINFO[0m | test_db:test_database_connection:16 | Testing database connection and schema
+2025-03-06T20:29:40.141799 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: news_articles exists
+2025-03-06T20:29:40.195310 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: blogs exists
+2025-03-06T20:29:40.294148 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: user_preferences exists
+2025-03-06T20:29:40.357020 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: workflow_cache exists
+2025-03-06T20:29:40.357160 | [92mINFO[0m | init_db:initialize_database:34 | Database schema validation: All required tables exist
+2025-03-06T20:29:40.357203 | [92mINFO[0m | test_db:test_database_connection:20 | ✅ Database schema validation successful
+2025-03-06T20:29:40.473918 | [92mINFO[0m | init_db:get_table_counts:55 | Table news_articles has 36 records
+2025-03-06T20:29:40.521804 | [92mINFO[0m | init_db:get_table_counts:55 | Table blogs has 0 records
+2025-03-06T20:29:40.585080 | [92mINFO[0m | init_db:get_table_counts:55 | Table user_preferences has 0 records
+2025-03-06T20:29:40.670471 | [92mINFO[0m | init_db:get_table_counts:55 | Table workflow_cache has 0 records
+2025-03-06T20:29:40.670626 | [92mINFO[0m | test_db:test_database_connection:25 | Table record counts: {
+  "news_articles": 36,
+  "blogs": 0,
+  "user_preferences": 0,
+  "workflow_cache": 0
+}
+2025-03-06T20:29:52.756167 | [92mINFO[0m | crew:<module>:21 | Initializing CrewAI components
+2025-03-06T20:29:52.816306 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T20:29:52.817909 | [92mINFO[0m | run:main:13 | Starting MPCrew application
+2025-03-06T20:29:52.937342 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: news_articles exists
+2025-03-06T20:29:53.063851 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: blogs exists
+2025-03-06T20:29:53.118221 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: user_preferences exists
+2025-03-06T20:29:53.184369 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: workflow_cache exists
+2025-03-06T20:29:53.184558 | [92mINFO[0m | init_db:initialize_database:34 | Database schema validation: All required tables exist
+2025-03-06T20:29:53.184597 | [92mINFO[0m | run:main:22 | Database initialization successful
+2025-03-06T20:29:53.238532 | [92mINFO[0m | init_db:get_table_counts:55 | Table news_articles has 36 records
+2025-03-06T20:29:53.292589 | [92mINFO[0m | init_db:get_table_counts:55 | Table blogs has 0 records
+2025-03-06T20:29:53.342844 | [92mINFO[0m | init_db:get_table_counts:55 | Table user_preferences has 0 records
+2025-03-06T20:29:53.403213 | [92mINFO[0m | init_db:get_table_counts:55 | Table workflow_cache has 0 records
+2025-03-06T20:29:53.403333 | [92mINFO[0m | run:main:26 | Table news_articles has 36 records
+2025-03-06T20:29:53.403368 | [92mINFO[0m | run:main:26 | Table blogs has 0 records
+2025-03-06T20:29:53.403394 | [92mINFO[0m | run:main:26 | Table user_preferences has 0 records
+2025-03-06T20:29:53.403419 | [92mINFO[0m | run:main:26 | Table workflow_cache has 0 records
+2025-03-06T20:29:53.403443 | [92mINFO[0m | run:main:49 | Starting FastAPI server
+2025-03-06T20:29:56.088424 | [92mINFO[0m | crew:<module>:21 | Initializing CrewAI components
+2025-03-06T20:29:56.176773 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T20:30:33.027741 | [92mINFO[0m | run:main:55 | Application shutdown

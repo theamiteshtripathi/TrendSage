@@ -41,10 +41,21 @@ CREATE TABLE IF NOT EXISTS public.user_preferences (
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE('utc'::text, NOW())
 );
 
+-- Create workflow_cache table
+CREATE TABLE IF NOT EXISTS public.workflow_cache (
+    id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+    topic TEXT NOT NULL,
+    category TEXT NOT NULL,
+    result JSONB NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE('utc'::text, NOW()),
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE('utc'::text, NOW())
+);
+
 -- Enable Row Level Security on all tables
 ALTER TABLE public.news_articles ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.blogs ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.user_preferences ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.workflow_cache ENABLE ROW LEVEL SECURITY;
 
 -- Create policies for news_articles
 CREATE POLICY "Enable read access for all users" ON public.news_articles
@@ -76,6 +87,16 @@ CREATE POLICY "Enable insert for authenticated users" ON public.user_preferences
 CREATE POLICY "Enable update for users" ON public.user_preferences
     FOR UPDATE USING (auth.uid() = user_id);
 
+-- Create policies for workflow_cache
+CREATE POLICY "Public read access for workflow_cache" ON public.workflow_cache
+    FOR SELECT USING (true);
+
+CREATE POLICY "Enable insert for service role" ON public.workflow_cache
+    FOR INSERT WITH CHECK (true);
+
+CREATE POLICY "Enable update for service role" ON public.workflow_cache
+    FOR UPDATE USING (true);
+
 -- Create indexes
 CREATE INDEX IF NOT EXISTS idx_news_articles_analyzed ON public.news_articles(analyzed);
 CREATE INDEX IF NOT EXISTS idx_news_articles_published_at ON public.news_articles(published_at);
@@ -84,6 +105,9 @@ CREATE INDEX IF NOT EXISTS idx_news_articles_category ON public.news_articles(ca
 CREATE INDEX IF NOT EXISTS idx_blogs_category ON public.blogs(category);
 CREATE INDEX IF NOT EXISTS idx_news_articles_trend_score ON public.news_articles(trend_score);
 CREATE INDEX IF NOT EXISTS idx_blogs_trend_score ON public.blogs(trend_score);
+CREATE INDEX IF NOT EXISTS idx_workflow_cache_topic ON public.workflow_cache(topic);
+CREATE INDEX IF NOT EXISTS idx_workflow_cache_category ON public.workflow_cache(category);
+CREATE INDEX IF NOT EXISTS idx_workflow_cache_created_at ON public.workflow_cache(created_at);
 
 -- Create function to update updated_at timestamp
 CREATE OR REPLACE FUNCTION public.handle_updated_at()
@@ -105,5 +129,11 @@ CREATE TRIGGER set_updated_at
     FOR EACH ROW
     EXECUTE FUNCTION public.handle_updated_at();
 
+CREATE TRIGGER set_updated_at
+    BEFORE UPDATE ON public.workflow_cache
+    FOR EACH ROW
+    EXECUTE FUNCTION public.handle_updated_at();
+
 -- Refresh the schema cache
 NOTIFY pgrst, 'reload schema'; 
+
