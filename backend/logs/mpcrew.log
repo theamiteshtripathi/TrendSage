@@ -620,3 +620,296 @@ TypeError: Object of type CrewOutput is not JSON serializable
 2025-03-06T20:32:33.365840 | [92mINFO[0m | main:get_trends:130 | Fetching trends
 2025-03-06T20:32:33.525891 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
 2025-03-06T20:33:38.629861 | [92mINFO[0m | run:main:55 | Application shutdown
+2025-03-06T20:38:52.037324 | [92mINFO[0m | crew:<module>:21 | Initializing CrewAI components
+2025-03-06T20:38:52.115227 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T20:38:52.116780 | [92mINFO[0m | run:main:13 | Starting MPCrew application
+2025-03-06T20:38:53.338045 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: news_articles exists
+2025-03-06T20:38:53.402111 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: blogs exists
+2025-03-06T20:38:53.457939 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: user_preferences exists
+2025-03-06T20:38:53.533370 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: workflow_cache exists
+2025-03-06T20:38:53.533550 | [92mINFO[0m | init_db:initialize_database:34 | Database schema validation: All required tables exist
+2025-03-06T20:38:53.533614 | [92mINFO[0m | run:main:22 | Database initialization successful
+2025-03-06T20:38:53.657212 | [92mINFO[0m | init_db:get_table_counts:55 | Table news_articles has 36 records
+2025-03-06T20:38:53.714654 | [92mINFO[0m | init_db:get_table_counts:55 | Table blogs has 0 records
+2025-03-06T20:38:53.785039 | [92mINFO[0m | init_db:get_table_counts:55 | Table user_preferences has 0 records
+2025-03-06T20:38:53.842800 | [92mINFO[0m | init_db:get_table_counts:55 | Table workflow_cache has 0 records
+2025-03-06T20:38:53.843176 | [92mINFO[0m | run:main:26 | Table news_articles has 36 records
+2025-03-06T20:38:53.843331 | [92mINFO[0m | run:main:26 | Table blogs has 0 records
+2025-03-06T20:38:53.843405 | [92mINFO[0m | run:main:26 | Table user_preferences has 0 records
+2025-03-06T20:38:53.843464 | [92mINFO[0m | run:main:26 | Table workflow_cache has 0 records
+2025-03-06T20:38:53.843523 | [92mINFO[0m | run:main:49 | Starting FastAPI server
+2025-03-06T20:38:56.121982 | [92mINFO[0m | crew:<module>:21 | Initializing CrewAI components
+2025-03-06T20:38:56.255667 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T20:39:10.015897 | [92mINFO[0m | main:analyze_trends:82 | Analyzing trends for topic: Cryptocurrency
+2025-03-06T20:39:10.017584 | [92mINFO[0m | crew:execute_workflow:163 | Starting workflow for topic: Cryptocurrency, category: None
+2025-03-06T20:39:10.842686 | [92mINFO[0m | crew:create_tasks:100 | Creating tasks for topic: Cryptocurrency, category: miscellaneous
+2025-03-06T20:39:10.845983 | [92mINFO[0m | crew:create_tasks:157 | Created tasks for topic: Cryptocurrency, category: miscellaneous
+2025-03-06T20:39:10.861021 | [92mINFO[0m | crew:execute_workflow:189 | Kicking off crew with inputs: {'topic': 'Cryptocurrency', 'category': 'miscellaneous'}
+2025-03-06T20:39:12.599322 | [92mINFO[0m | news_data_collection_tool:_run:83 | fetch_news received inputs - topic: Cryptocurrency, category: any
+2025-03-06T20:39:12.599675 | [92mINFO[0m | news_data_collection_tool:_run:89 | Processing fetch_news for topic: Cryptocurrency, category: any
+2025-03-06T20:39:12.599834 | [92mINFO[0m | news_data_collection_tool:_run:96 | Fetching news for topic: Cryptocurrency, category: miscellaneous
+2025-03-06T20:39:12.674155 | [92mINFO[0m | news_data_collection_tool:_run:109 | Found 3 cached articles
+2025-03-06T20:39:31.845464 | [92mINFO[0m | trend_analyzer_tool:_run:72 | analyze_trends running with topic: Cryptocurrency, category: Cryptocurrency News
+2025-03-06T20:39:48.132389 | [92mINFO[0m | save_blog_post_tool:_run:81 | create_blog_post running with topic: Cryptocurrency Trends, category: Finance & Technology
+2025-03-06T20:39:48.132652 | [92mINFO[0m | save_blog_post_tool:_run:85 | Using final_answer as blog content
+2025-03-06T20:39:48.132695 | [92mINFO[0m | save_blog_post_tool:_run:100 | Saving blog post from final answer: Cryptocurrency Trends Trends Analysis
+2025-03-06T20:39:48.742359 | [92mINFO[0m | save_blog_post_tool:_run:115 | Blog post saved successfully with ID: 5d8fb205-b623-4793-8131-90eb38d1af69
+2025-03-06T20:39:55.248227 | [92mINFO[0m | crew:save_blog_callback:105 | Blog post creation task completed, saving to database
+2025-03-06T20:39:55.248508 | [92mINFO[0m | save_blog_post_tool:_parse_input:266 | create_blog_post received inputs type: <class 'dict'>
+2025-03-06T20:39:55.248559 | [92mINFO[0m | save_blog_post_tool:_parse_input:282 | Input keys: ['final_answer', 'topic', 'category']
+2025-03-06T20:39:55.248591 | [92mINFO[0m | save_blog_post_tool:_parse_input:289 | Found final_answer with topic: Cryptocurrency
+2025-03-06T20:39:55.248627 | [92mINFO[0m | save_blog_post_tool:_run:81 | create_blog_post running with topic: Cryptocurrency, category: technology
+2025-03-06T20:39:55.248655 | [92mINFO[0m | save_blog_post_tool:_run:85 | Using final_answer as blog content
+2025-03-06T20:39:55.248683 | [92mINFO[0m | save_blog_post_tool:_run:100 | Saving blog post from final answer: Cryptocurrency Trends Analysis
+2025-03-06T20:39:55.532765 | [92mINFO[0m | save_blog_post_tool:_run:115 | Blog post saved successfully with ID: 232fd4e5-c47d-41ca-8538-c11359b32773
+2025-03-06T20:39:55.532972 | [92mINFO[0m | crew:save_blog_callback:123 | Blog post save result: {'status': 'success', 'message': 'Blog post created successfully from final answer', 'blog': {'id': '232fd4e5-c47d-41ca-8538-c11359b32773', 'title': 'Cryptocurrency Trends Analysis', 'content': "In an era where digital transformation is reshaping industries, the world of cryptocurrency remains one of the most dynamic yet precarious territories. Emerging patterns signal that the cryptocurrency market, while exuberantly promising, is mired with significant challenges that threaten its very foundation. Let's delve into the burgeoning trends and what they mean for the future of digital currencies.\n\n### Security Concerns: The Achilles Heel of Cryptocurrencies\n\nThe most glaring issue plaguing the cryptocurrency space remains its susceptibility to security breaches. Recent instances of hacking have sent shockwaves through the industry, with one of the largest heists recorded at the cryptocurrency exchange, Bybit. This breach resulted in a colossal $1.5 billion being stolen, underscoring the vulnerabilities that exist within these digital platforms. The magnitude of this theft necessitates a re-examination of security frameworks and protocols to safeguard investor assets.\n\nThe response from Bybit, promising reimbursement to the victims, reflects an industry grappling with trust issues. It highlights a burgeoning need for cryptocurrency companies to prioritize robust security measures or face erosion of user confidence and potential market exits.\n\n### Government Intervention: The Rise of the 'U.S. Crypto Reserve'\n\nAs cryptocurrencies continue to captivate both the imagination and portfolios of investors, governments worldwide are starting to take notice. A noteworthy development is the potential establishment of a 'U.S. crypto reserve,' a concept that flared during Trump's administration, aimed at stabilizing and safeguarding the interests of affluent crypto investors. This could mark a foundational shift in regulatory approaches.\n\nGovernment intervention could serve as a double-edged sword. On the one hand, it could bring about much-needed regulation and stability; on the other, it might stifle innovation and decentralization, which are core principles of the cryptocurrency ethos.\n\n### Public Perception and Risk: Navigating the Volatility\n\nParallel to technological concerns, public perception around cryptocurrencies is increasingly tinged with skepticism, particularly regarding their security and volatility. As more incidents of theft and hacking surface, potential investors are becoming hesitantly cautious.\n\nThe ongoing discourse around these risks inevitably influences how cryptocurrencies are perceived as investment avenues. Until these security issues are decisively addressed, the shadow of doubt will likely linger over their viability as a 'safe' investment.\n\n### Future Implications: Navigating a Path Forward\n\nThe current state of the cryptocurrency market serves as a bellwether for its future trajectory. The need for stringent security enhancements cannot be overstated if digital currencies are to command broader acceptance and integrate into conventional financial systems. Concurrently, potential increased government regulation could redefine global perceptions and the operational landscape of cryptocurrencies.\n\nUnderstanding these trends and implications is crucial for investors, policymakers, and technology developers alike to navigate the complex yet promising future of cryptocurrencies. As this market continues to evolve, staying informed and adaptable will be key to leveraging its potential while mitigating inherent risks. The cryptocurrency saga is far from over, and its next chapter is poised to be as riveting as its inception.\n\nAs we move forward, the balance between innovation, security, and regulation will be the fulcrum upon which the success of cryptocurrencies will pivot.\n```", 'created_at': '2025-03-06T20:39:55.24868+00:00', 'updated_at': '2025-03-07T01:39:55.4905+00:00', 'user_id': None, 'category': 'technology', 'trend_score': 1, 'image_url': None, 'source_articles': [], 'author': None, 'published_at': '2025-03-07T01:39:55.4905+00:00', 'status': 'draft', 'metadata': {}}}
+2025-03-06T20:39:55.535668 | [91mERROR[0m | crew:cache_result:295 | Error saving to workflow_cache: Object of type CrewOutput is not JSON serializable
+2025-03-06T20:39:55.546571 | [91mERROR[0m | crew:cache_result:296 | Traceback (most recent call last):
+  File "/Users/amiteshtripathi/Library/Mobile Documents/com~apple~CloudDocs/Documents/My Projects/mpcrew/backend/crew.py", line 292, in cache_result
+    supabase.table('workflow_cache').insert(cache_entry).execute()
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/site-packages/postgrest/_sync/request_builder.py", line 58, in execute
+    r = self.session.request(
+        ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/site-packages/httpx/_client.py", line 824, in request
+    request = self.build_request(
+              ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/site-packages/httpx/_client.py", line 358, in build_request
+    return Request(
+           ^^^^^^^^
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/site-packages/httpx/_models.py", line 342, in __init__
+    headers, stream = encode_request(
+                      ^^^^^^^^^^^^^^^
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/site-packages/httpx/_content.py", line 214, in encode_request
+    return encode_json(json)
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/site-packages/httpx/_content.py", line 177, in encode_json
+    body = json_dumps(json).encode("utf-8")
+           ^^^^^^^^^^^^^^^^
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type CrewOutput is not JSON serializable
+
+2025-03-06T20:39:55.546807 | [93mWARNING[0m | crew:cache_result:299 | Skipping workflow caching due to error
+2025-03-06T20:39:55.546853 | [92mINFO[0m | crew:execute_workflow:199 | Workflow completed successfully
+2025-03-06T20:39:55.553793 | [92mINFO[0m | main:get_trends:130 | Fetching trends
+2025-03-06T20:39:55.623395 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T20:40:29.294149 | [92mINFO[0m | run:main:55 | Application shutdown
+2025-03-06T20:44:57.779520 | [92mINFO[0m | crew:<module>:22 | Initializing CrewAI components
+2025-03-06T20:44:57.847909 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T20:44:57.849569 | [92mINFO[0m | run:main:13 | Starting MPCrew application
+2025-03-06T20:44:58.033850 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: news_articles exists
+2025-03-06T20:44:58.098408 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: blogs exists
+2025-03-06T20:44:58.159861 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: user_preferences exists
+2025-03-06T20:44:58.225847 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: workflow_cache exists
+2025-03-06T20:44:58.226058 | [92mINFO[0m | init_db:initialize_database:34 | Database schema validation: All required tables exist
+2025-03-06T20:44:58.226119 | [92mINFO[0m | run:main:22 | Database initialization successful
+2025-03-06T20:44:58.287131 | [92mINFO[0m | init_db:get_table_counts:55 | Table news_articles has 36 records
+2025-03-06T20:44:58.373793 | [92mINFO[0m | init_db:get_table_counts:55 | Table blogs has 2 records
+2025-03-06T20:44:58.435098 | [92mINFO[0m | init_db:get_table_counts:55 | Table user_preferences has 0 records
+2025-03-06T20:44:58.559618 | [92mINFO[0m | init_db:get_table_counts:55 | Table workflow_cache has 0 records
+2025-03-06T20:44:58.559815 | [92mINFO[0m | run:main:26 | Table news_articles has 36 records
+2025-03-06T20:44:58.559882 | [92mINFO[0m | run:main:26 | Table blogs has 2 records
+2025-03-06T20:44:58.559933 | [92mINFO[0m | run:main:26 | Table user_preferences has 0 records
+2025-03-06T20:44:58.559979 | [92mINFO[0m | run:main:26 | Table workflow_cache has 0 records
+2025-03-06T20:44:58.560023 | [92mINFO[0m | run:main:49 | Starting FastAPI server
+2025-03-06T20:45:00.226329 | [92mINFO[0m | crew:<module>:22 | Initializing CrewAI components
+2025-03-06T20:45:00.304118 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T20:47:21.766393 | [92mINFO[0m | main:analyze_trends:82 | Analyzing trends for topic: Artificial Intelligence Trump
+2025-03-06T20:47:21.768003 | [92mINFO[0m | crew:execute_workflow:203 | Starting workflow for topic: Artificial Intelligence Trump, category: None
+2025-03-06T20:47:22.118889 | [92mINFO[0m | crew:create_tasks:101 | Creating tasks for topic: Artificial Intelligence Trump, category: miscellaneous
+2025-03-06T20:47:22.121895 | [92mINFO[0m | crew:create_tasks:158 | Created tasks for topic: Artificial Intelligence Trump, category: miscellaneous
+2025-03-06T20:47:22.132166 | [92mINFO[0m | crew:execute_workflow:229 | Kicking off crew with inputs: {'topic': 'Artificial Intelligence Trump', 'category': 'miscellaneous'}
+2025-03-06T20:47:23.485413 | [92mINFO[0m | news_data_collection_tool:_run:83 | fetch_news received inputs - topic: Artificial Intelligence Trump, category: any
+2025-03-06T20:47:23.485650 | [92mINFO[0m | news_data_collection_tool:_run:89 | Processing fetch_news for topic: Artificial Intelligence Trump, category: any
+2025-03-06T20:47:23.485773 | [92mINFO[0m | news_data_collection_tool:_run:96 | Fetching news for topic: Artificial Intelligence Trump, category: technology
+2025-03-06T20:47:23.545369 | [92mINFO[0m | news_data_collection_tool:_run:121 | Fetching from NewsAPI (attempt 1/3)
+2025-03-06T20:47:23.848623 | [92mINFO[0m | news_data_collection_tool:_run:154 | Skipping duplicate article: Elon Musk: agent of chaos
+2025-03-06T20:47:28.065172 | [92mINFO[0m | memory_store:add_article:41 | Added article https://www.bbc.com/news/articles/cpdx75zgg88o to memory
+2025-03-06T20:47:28.141699 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: Musk-led group makes $97.4bn bid for ChatGPT maker OpenAI
+2025-03-06T20:47:32.987005 | [92mINFO[0m | memory_store:add_article:41 | Added article https://www.wired.com/story/usaid-famine-system-dismantled/ to memory
+2025-03-06T20:47:33.054832 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: This USAID Program Made Food Aid More Efficient for Decades. DOGE Gutted It Anyways
+2025-03-06T20:47:40.968505 | [92mINFO[0m | memory_store:add_article:41 | Added article https://www.bbc.com/news/articles/c5ymvjjqzmeo to memory
+2025-03-06T20:47:41.168303 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: Apple AI tool transcribed the word 'racist' as 'Trump'
+2025-03-06T20:47:45.882695 | [92mINFO[0m | memory_store:add_article:41 | Added article https://www.bbc.com/news/articles/c5ymvygpj7go to memory
+2025-03-06T20:47:45.945664 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: Ukraine needs US security guarantee to deter Putin - PM
+2025-03-06T20:47:45.945951 | [92mINFO[0m | news_data_collection_tool:_run:199 | Saved 4 new articles
+2025-03-06T20:48:06.597313 | [92mINFO[0m | trend_analyzer_tool:_run:72 | analyze_trends running with topic: Artificial Intelligence Trump, category: Technology and Politics
+2025-03-06T20:48:19.766851 | [92mINFO[0m | save_blog_post_tool:_run:81 | create_blog_post running with topic: Artificial Intelligence and Trump, category: Technology and Politics
+2025-03-06T20:48:23.772980 | [91mERROR[0m | save_blog_post_tool:generate_blog_content:60 | Failed to parse LLM response as JSON
+2025-03-06T20:48:23.932780 | [92mINFO[0m | save_blog_post_tool:_run:225 | Saving blog post: Analysis Report
+2025-03-06T20:48:24.089139 | [92mINFO[0m | save_blog_post_tool:_run:230 | Blog post saved successfully with ID: 32e09ee2-a7a3-45b6-9884-10a5eb783040
+2025-03-06T20:48:29.644615 | [92mINFO[0m | crew:save_blog_callback:106 | Blog post creation task completed, saving to database
+2025-03-06T20:48:29.645009 | [92mINFO[0m | save_blog_post_tool:_parse_input:266 | create_blog_post received inputs type: <class 'dict'>
+2025-03-06T20:48:29.645060 | [92mINFO[0m | save_blog_post_tool:_parse_input:282 | Input keys: ['final_answer', 'topic', 'category']
+2025-03-06T20:48:29.645090 | [92mINFO[0m | save_blog_post_tool:_parse_input:289 | Found final_answer with topic: Artificial Intelligence Trump
+2025-03-06T20:48:29.645119 | [92mINFO[0m | save_blog_post_tool:_run:81 | create_blog_post running with topic: Artificial Intelligence Trump, category: technology
+2025-03-06T20:48:29.645145 | [92mINFO[0m | save_blog_post_tool:_run:85 | Using final_answer as blog content
+2025-03-06T20:48:29.645171 | [92mINFO[0m | save_blog_post_tool:_run:100 | Saving blog post from final answer: Artificial Intelligence Trump Trends Analysis
+2025-03-06T20:48:30.115693 | [92mINFO[0m | save_blog_post_tool:_run:115 | Blog post saved successfully with ID: cd4f3b1f-e48e-43ef-8ca6-faf4c40e4f2f
+2025-03-06T20:48:30.116072 | [92mINFO[0m | crew:save_blog_callback:124 | Blog post save result: {'status': 'success', 'message': 'Blog post created successfully from final answer', 'blog': {'id': 'cd4f3b1f-e48e-43ef-8ca6-faf4c40e4f2f', 'title': 'Artificial Intelligence Trump Trends Analysis', 'content': 'Title: The Interplay of AI Advancements and Political Dynamics: Unveiling the Future\n\nIntroduction:\nArtificial intelligence (AI) is reshaping the world, finding its influence in technology and intertwining with political narratives. This blog post dives into the symbiotic relationship between AI\'s rapid evolution and political maneuvers, focusing on high-profile interventions by figures such as Elon Musk and Donald Trump.\n\nEmerging Themes:\n1. **AI and Technology**: With AI becoming instrumental in corporate strategies, the sector witnesses aggressive advancements and controversies, exposing public reactions and acquisition attempts like Elon Musk\'s $97.4 billion bid for OpenAI.\n2. **International Relations**: The global political landscape is being stirred, evident in US-Ukraine relations, where AI seems to intersect with diplomatic strategies.\n3. **Government Efficiency**: Prominent figures push for restructuring government assistance, impacting international aid programs and up-scaling efficiency.\n\nKey Developments:\nMusk\'s interest in acquiring OpenAI signifies heightened competition and strategic investments in AI. Simultaneously, the DOGE-induced USAID cuts signal potential reshuffles in international aid due to technological interventions.\n\nAnother fascinating facet is Apple\'s AI speech-to-text tool controversy. A technical glitch that misheard "racist" as "Trump" unraveled societal challenges in AI systems, emphasizing the crucial need for refining technology to handle biases.\n\nIn a politically charged environment, US-Ukraine security talks underscore the importance of tactical maneuvering in defense strategies. These discussions are influenced by legacy leaders like Trump and emerging strategies proposed by other global actors.\n\nEmerging Trends:\nThe consistent growth of AI suggests a transition in how corporations and individuals engage with technology, altering business landscapes and operational norms.\n\nHowever, challenges persist. Apple\'s transcription failure mirrors larger systemic issues within AI\'s speech recognition capabilities. These hurdles demand urgent attention to avoid ingraining societal biases further into machine learning systems.\n\nSignificant Insights:\nAI\'s competitive dynamics are red-hot, compelling major players to make substantial bids and investments, emphasizing the strategic chessboard of the tech world.\n\nDecisions made within government corridors resonate globally, as seen with DOGE\'s policy adjustments, affecting international initiatives profoundly.\n\nLastly, the need to correct technological bias is recognized as indispensable. Apple’s situation highlights the importance of ethical AI development, which avoids replicating harmful societal stereotypes.\n\nConclusion:\nThe intricate dance of AI progress and political strategies presents a dual-edged sword of opportunities and challenges. While AI paves the path for innovative growth, it also demands careful navigation of its social and political implications. As we advance into this intertwined future, continuous improvement of AI technologies is paramount to foster an equitable global impact.\n```', 'created_at': '2025-03-06T20:48:29.645168+00:00', 'updated_at': '2025-03-07T01:48:30.164037+00:00', 'user_id': None, 'category': 'technology', 'trend_score': 1, 'image_url': None, 'source_articles': [], 'author': None, 'published_at': '2025-03-07T01:48:30.164037+00:00', 'status': 'draft', 'metadata': {}}}
+2025-03-06T20:48:30.570563 | [91mERROR[0m | crew:cache_result:350 | Error saving to workflow_cache: {'code': '42501', 'details': None, 'hint': None, 'message': 'new row violates row-level security policy for table "workflow_cache"'}
+2025-03-06T20:48:30.572195 | [91mERROR[0m | crew:cache_result:351 | Traceback (most recent call last):
+  File "/Users/amiteshtripathi/Library/Mobile Documents/com~apple~CloudDocs/Documents/My Projects/mpcrew/backend/crew.py", line 347, in cache_result
+    supabase.table('workflow_cache').insert(cache_entry).execute()
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/site-packages/postgrest/_sync/request_builder.py", line 78, in execute
+    raise APIError(r.json())
+postgrest.exceptions.APIError: {'code': '42501', 'details': None, 'hint': None, 'message': 'new row violates row-level security policy for table "workflow_cache"'}
+
+2025-03-06T20:48:30.572268 | [93mWARNING[0m | crew:cache_result:354 | Skipping workflow caching due to error
+2025-03-06T20:48:30.572351 | [92mINFO[0m | crew:execute_workflow:250 | Workflow completed successfully
+2025-03-06T20:48:30.586660 | [92mINFO[0m | main:get_trends:130 | Fetching trends
+2025-03-06T20:48:30.654308 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T20:55:00.998969 | [92mINFO[0m | crew:<module>:22 | Initializing CrewAI components
+2025-03-06T20:55:01.064734 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T20:55:04.102448 | [92mINFO[0m | crew:<module>:22 | Initializing CrewAI components
+2025-03-06T20:55:04.170404 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T20:55:23.483724 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-06T20:55:23.544709 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T20:55:31.207692 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-06T20:55:33.251898 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-06T20:55:33.323480 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T20:55:34.643434 | [92mINFO[0m | run:main:55 | Application shutdown
+2025-03-06T21:01:22.376200 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-06T21:01:22.450304 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T21:01:22.452021 | [92mINFO[0m | run:main:13 | Starting MPCrew application
+2025-03-06T21:01:22.705761 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: news_articles exists
+2025-03-06T21:01:22.765622 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: blogs exists
+2025-03-06T21:01:22.827103 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: user_preferences exists
+2025-03-06T21:01:22.880037 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: workflow_cache exists
+2025-03-06T21:01:22.880335 | [92mINFO[0m | init_db:initialize_database:34 | Database schema validation: All required tables exist
+2025-03-06T21:01:22.880401 | [92mINFO[0m | run:main:22 | Database initialization successful
+2025-03-06T21:01:22.934918 | [92mINFO[0m | init_db:get_table_counts:55 | Table news_articles has 40 records
+2025-03-06T21:01:22.990995 | [92mINFO[0m | init_db:get_table_counts:55 | Table blogs has 4 records
+2025-03-06T21:01:23.054447 | [92mINFO[0m | init_db:get_table_counts:55 | Table user_preferences has 0 records
+2025-03-06T21:01:23.109594 | [92mINFO[0m | init_db:get_table_counts:55 | Table workflow_cache has 0 records
+2025-03-06T21:01:23.110431 | [92mINFO[0m | run:main:26 | Table news_articles has 40 records
+2025-03-06T21:01:23.110506 | [92mINFO[0m | run:main:26 | Table blogs has 4 records
+2025-03-06T21:01:23.110555 | [92mINFO[0m | run:main:26 | Table user_preferences has 0 records
+2025-03-06T21:01:23.110609 | [92mINFO[0m | run:main:26 | Table workflow_cache has 0 records
+2025-03-06T21:01:23.110659 | [92mINFO[0m | run:main:49 | Starting FastAPI server
+2025-03-06T21:01:24.714487 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-06T21:01:24.785457 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T21:01:59.281083 | [92mINFO[0m | main:analyze_trends:82 | Analyzing trends for topic: Boston Celtics
+2025-03-06T21:01:59.282785 | [92mINFO[0m | crew:execute_workflow:204 | Starting workflow for topic: Boston Celtics, category: None
+2025-03-06T21:01:59.607800 | [92mINFO[0m | crew:create_tasks:102 | Creating tasks for topic: Boston Celtics, category: miscellaneous
+2025-03-06T21:01:59.610779 | [92mINFO[0m | crew:create_tasks:159 | Created tasks for topic: Boston Celtics, category: miscellaneous
+2025-03-06T21:01:59.619719 | [92mINFO[0m | crew:execute_workflow:230 | Kicking off crew with inputs: {'topic': 'Boston Celtics', 'category': 'miscellaneous'}
+2025-03-06T21:02:00.783427 | [92mINFO[0m | news_data_collection_tool:_run:83 | fetch_news received inputs - topic: Boston Celtics, category: any
+2025-03-06T21:02:00.783740 | [92mINFO[0m | news_data_collection_tool:_run:89 | Processing fetch_news for topic: Boston Celtics, category: any
+2025-03-06T21:02:00.783924 | [92mINFO[0m | news_data_collection_tool:_run:96 | Fetching news for topic: Boston Celtics, category: miscellaneous
+2025-03-06T21:02:00.844577 | [92mINFO[0m | news_data_collection_tool:_run:121 | Fetching from NewsAPI (attempt 1/3)
+2025-03-06T21:02:06.046419 | [92mINFO[0m | memory_store:add_article:41 | Added article https://www.espn.com/nba/story/_/id/43921763/boston-historic-3-point-performance-continues-better-worse to memory
+2025-03-06T21:02:06.120938 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: Boston's historic 3-point performance continues -- for better or worse
+2025-03-06T21:02:10.143509 | [92mINFO[0m | memory_store:add_article:41 | Added article https://www.espn.com/nba/story/_/id/43728244/mavs-expecting-weird-scene-first-home-game-post-trade to memory
+2025-03-06T21:02:10.230589 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: Mavs prepare for 'weird' scene in return home
+2025-03-06T21:02:13.664639 | [92mINFO[0m | memory_store:add_article:41 | Added article https://www.espn.com/nba/story/_/page/nbapowerrankings44096091/answering-biggest-questions-nba-playoff-races to memory
+2025-03-06T21:02:13.726519 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: From playoff pushes to Durant's future, the 19 biggest questions for the rest of the NBA season
+2025-03-06T21:02:18.130522 | [92mINFO[0m | memory_store:add_article:41 | Added article https://www.npr.org/2025/03/05/nx-s1-5319081/lebron-james-record-goat-debate to memory
+2025-03-06T21:02:18.276168 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: By the numbers: Does LeBron James' new points record shake up the GOAT debate?
+2025-03-06T21:02:22.739942 | [92mINFO[0m | memory_store:add_article:41 | Added article https://www.bbc.com/sport/basketball/articles/c9815wrj05do to memory
+2025-03-06T21:02:22.824981 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: Cavs recover from slow start to beat Celtics
+2025-03-06T21:02:22.825096 | [92mINFO[0m | news_data_collection_tool:_run:199 | Saved 5 new articles
+2025-03-06T21:02:33.677064 | [92mINFO[0m | trend_analyzer_tool:_run:72 | analyze_trends running with topic: Boston Celtics, category: NBA
+2025-03-06T21:02:56.770549 | [92mINFO[0m | save_blog_post_tool:_run:115 | create_blog_post running with topic: Boston Celtics Trend Analysis, category: Sports
+2025-03-06T21:03:01.363582 | [91mERROR[0m | save_blog_post_tool:generate_blog_content:66 | Failed to parse LLM response as JSON, attempting to extract JSON
+2025-03-06T21:03:01.365291 | [91mERROR[0m | save_blog_post_tool:generate_blog_content:80 | Failed to parse extracted JSON
+2025-03-06T21:03:01.365563 | [93mWARNING[0m | save_blog_post_tool:generate_blog_content:83 | Creating structured blog post from raw response
+2025-03-06T21:03:01.543697 | [92mINFO[0m | save_blog_post_tool:_run:259 | Saving blog post: Introduction
+2025-03-06T21:03:01.644593 | [92mINFO[0m | save_blog_post_tool:_run:264 | Blog post saved successfully with ID: 3087f7fd-04d8-4205-95a5-9f8c9039d7a7
+2025-03-06T21:03:09.288878 | [92mINFO[0m | crew:save_blog_callback:107 | Blog post creation task completed, saving to database
+2025-03-06T21:03:09.289768 | [92mINFO[0m | save_blog_post_tool:_parse_input:300 | create_blog_post received inputs type: <class 'dict'>
+2025-03-06T21:03:09.289818 | [92mINFO[0m | save_blog_post_tool:_parse_input:316 | Input keys: ['final_answer', 'topic', 'category']
+2025-03-06T21:03:09.289849 | [92mINFO[0m | save_blog_post_tool:_parse_input:323 | Found final_answer with topic: Boston Celtics
+2025-03-06T21:03:09.289877 | [92mINFO[0m | save_blog_post_tool:_run:115 | create_blog_post running with topic: Boston Celtics, category: technology
+2025-03-06T21:03:09.289903 | [92mINFO[0m | save_blog_post_tool:_run:119 | Using final_answer as blog content
+2025-03-06T21:03:09.289929 | [92mINFO[0m | save_blog_post_tool:_run:134 | Saving blog post from final answer: Boston Celtics Trends Analysis
+2025-03-06T21:03:09.532042 | [92mINFO[0m | save_blog_post_tool:_run:149 | Blog post saved successfully with ID: 66e5223b-c8c8-44d8-98a3-f9f28dcf41ac
+2025-03-06T21:03:09.532589 | [92mINFO[0m | crew:save_blog_callback:125 | Blog post save result: {'status': 'success', 'message': 'Blog post created successfully from final answer', 'blog': {'id': '66e5223b-c8c8-44d8-98a3-f9f28dcf41ac', 'title': 'Boston Celtics Trends Analysis', 'content': "**Title: Shooting for Success: Analyzing the Boston Celtics' Current Trends and Future Path**\n\n**Introduction:**\nAs the NBA season progresses, the Boston Celtics find themselves under the microscope of basketball enthusiasts and analysts alike. With a recent series of games that display both the strength and challenges faced by this historic team, a detailed trend analysis provides valuable insights into their gameplay and competitive dynamics.\n\n**Overview:**\nThe Celtics have long been trailblazers in the art of 3-point shooting, setting unparalleled records within the league. However, recent games, especially against rivals like the Cleveland Cavaliers, underscore a need for strategic evolution. This blog post explores the Celtics’ current trends on the court, key performances, and future prospects within the fiercely competitive Eastern Conference.\n\n**Key Trends and Themes:**\n\n1. **Historic 3-Point Shooting Prowess:**\n   The Boston Celtics are known for their remarkable 3-point shooting capability. Statistically outpacing any other team in the NBA, their reliance on this strategy is a primary facet of their game plan. The efficacy of this approach has kept them at the top of their game, although a greater diversity in offensive strategies could prove beneficial for sustaining success.\n\n2. **Rivalry with the Cleveland Cavaliers:**\n   The Celtics’ position as a formidable team has not gone unchallenged. The Cavaliers, with a league-best record and a recent comeback victory against the Celtics, exemplify the intense rivalry and competition in the Eastern Conference. The success and dominance of the Cavaliers highlight areas where the Celtics can refine their tactics.\n\n3. **Impact of Individual Player Performances:**\n   In the spotlight of their recent games are standout performances from players like Donovan Mitchell from the Cavaliers, who scored a staggering 41 points. Such exhibitions of individual brilliance suggest that the Celtics must develop robust strategies to counteract high-performing opponents effectively.\n\n**Significant Developments:**\n\n1. **Acknowledging Cavaliers’ Dominance:**\n   With a string of consecutive wins, the Cavaliers have posed serious challenges to the Celtics’ campaign. Understanding and responding to this dominance is critical for Boston as they plan for upcoming matchups.\n\n2. **Review of Tactical Execution:**\n   The Celtics' recent games suggest a focus on maintaining dominance throughout matches, ensuring that early leads are not squandered. By refining tactical elements and maintaining consistency, they can improve outcomes in high-pressure situations.\n\n**Insights and Future Implications:**\n\n1. **Strategic Diversification:**\n   Dependence on the 3-point game could lead to predictable patterns susceptible to counterstrategies by opponents. Developing a more varied offensive and defensive approach can keep the team’s playbook dynamic and unpredictable.\n\n2. **Counteracting Standout Opponents:**\n   Crafting strategies to limit the impact of opponents' key players, like ensuring better defensive matchups against star players, will be crucial in crucial fixtures.\n\n**Conclusion:**\nThe Boston Celtics continue to be a team of strategic focus and raw talent in the NBA. By learning from recent experiences against the Cavaliers and other competitors in the Eastern Conference, they have the opportunity to refine and bolster their gameplay. Moving forward, focusing on player development, strategic diversity, and tactical consistency will be key to reclaiming the top spot and aspiring to NBA championship glory.\n```", 'created_at': '2025-03-06T21:03:09.289926+00:00', 'updated_at': '2025-03-07T02:03:09.563983+00:00', 'user_id': None, 'category': 'technology', 'trend_score': 1, 'image_url': None, 'source_articles': [], 'author': None, 'published_at': '2025-03-07T02:03:09.563983+00:00', 'status': 'draft', 'metadata': {}}}
+2025-03-06T21:03:09.661936 | [91mERROR[0m | crew:cache_result:378 | Error saving to workflow_cache: {'code': '42501', 'details': None, 'hint': None, 'message': 'new row violates row-level security policy for table "workflow_cache"'}
+2025-03-06T21:03:09.665597 | [91mERROR[0m | crew:cache_result:379 | Traceback (most recent call last):
+  File "/Users/amiteshtripathi/Library/Mobile Documents/com~apple~CloudDocs/Documents/My Projects/mpcrew/backend/crew.py", line 350, in cache_result
+    supabase.table('workflow_cache').insert(cache_entry).execute()
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/site-packages/postgrest/_sync/request_builder.py", line 78, in execute
+    raise APIError(r.json())
+postgrest.exceptions.APIError: {'code': '42501', 'details': None, 'hint': None, 'message': 'new row violates row-level security policy for table "workflow_cache"'}
+
+2025-03-06T21:03:09.666711 | [92mINFO[0m | crew:cache_result:392 | Saved workflow result to local file: /Users/amiteshtripathi/Library/Mobile Documents/com~apple~CloudDocs/Documents/My Projects/mpcrew/backend/cache/Boston_Celtics_20250306210309.json
+2025-03-06T21:03:09.666841 | [92mINFO[0m | crew:execute_workflow:251 | Workflow completed successfully
+2025-03-06T21:03:09.697554 | [92mINFO[0m | main:get_trends:130 | Fetching trends
+2025-03-06T21:03:09.768761 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T21:03:37.772669 | [92mINFO[0m | run:main:55 | Application shutdown
+2025-03-06T22:04:08.113448 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-06T22:04:08.178957 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T22:04:08.180728 | [92mINFO[0m | run:main:13 | Starting MPCrew application
+2025-03-06T22:04:08.394352 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: news_articles exists
+2025-03-06T22:04:08.499676 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: blogs exists
+2025-03-06T22:04:08.709470 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: user_preferences exists
+2025-03-06T22:04:08.776385 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: workflow_cache exists
+2025-03-06T22:04:08.776514 | [92mINFO[0m | init_db:initialize_database:34 | Database schema validation: All required tables exist
+2025-03-06T22:04:08.776547 | [92mINFO[0m | run:main:22 | Database initialization successful
+2025-03-06T22:04:08.833731 | [92mINFO[0m | init_db:get_table_counts:55 | Table news_articles has 45 records
+2025-03-06T22:04:08.906536 | [92mINFO[0m | init_db:get_table_counts:55 | Table blogs has 6 records
+2025-03-06T22:04:08.973428 | [92mINFO[0m | init_db:get_table_counts:55 | Table user_preferences has 0 records
+2025-03-06T22:04:09.063101 | [92mINFO[0m | init_db:get_table_counts:55 | Table workflow_cache has 0 records
+2025-03-06T22:04:09.063540 | [92mINFO[0m | run:main:26 | Table news_articles has 45 records
+2025-03-06T22:04:09.063653 | [92mINFO[0m | run:main:26 | Table blogs has 6 records
+2025-03-06T22:04:09.063734 | [92mINFO[0m | run:main:26 | Table user_preferences has 0 records
+2025-03-06T22:04:09.063800 | [92mINFO[0m | run:main:26 | Table workflow_cache has 0 records
+2025-03-06T22:04:09.063863 | [92mINFO[0m | run:main:49 | Starting FastAPI server
+2025-03-06T22:04:10.790646 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-06T22:04:10.883157 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T22:04:52.613845 | [92mINFO[0m | main:analyze_trends:82 | Analyzing trends for topic: Nvidia H100s
+2025-03-06T22:04:52.616835 | [92mINFO[0m | crew:execute_workflow:204 | Starting workflow for topic: Nvidia H100s, category: None
+2025-03-06T22:04:52.954487 | [92mINFO[0m | crew:create_tasks:102 | Creating tasks for topic: Nvidia H100s, category: miscellaneous
+2025-03-06T22:04:52.957674 | [92mINFO[0m | crew:create_tasks:159 | Created tasks for topic: Nvidia H100s, category: miscellaneous
+2025-03-06T22:04:52.966604 | [92mINFO[0m | crew:execute_workflow:230 | Kicking off crew with inputs: {'topic': 'Nvidia H100s', 'category': 'miscellaneous'}
+2025-03-06T22:04:54.801102 | [92mINFO[0m | news_data_collection_tool:_run:83 | fetch_news received inputs - topic: Nvidia H100s, category: any
+2025-03-06T22:04:54.801461 | [92mINFO[0m | news_data_collection_tool:_run:89 | Processing fetch_news for topic: Nvidia H100s, category: any
+2025-03-06T22:04:54.801638 | [92mINFO[0m | news_data_collection_tool:_run:96 | Fetching news for topic: Nvidia H100s, category: miscellaneous
+2025-03-06T22:04:54.895872 | [92mINFO[0m | news_data_collection_tool:_run:121 | Fetching from NewsAPI (attempt 1/3)
+2025-03-06T22:05:00.300745 | [92mINFO[0m | memory_store:add_article:41 | Added article https://www.nextbigfuture.com/2025/02/on-the-event-horizon-of-the-singularity.html to memory
+2025-03-06T22:05:00.376122 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: On the Event Horizon of the Singularity
+2025-03-06T22:05:05.585202 | [92mINFO[0m | memory_store:add_article:41 | Added article https://www.nextbigfuture.com/2025/02/now-is-the-artificial-intelligence-singularity.html to memory
+2025-03-06T22:05:05.773825 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: Now is the Artificial Intelligence Singularity
+2025-03-06T22:05:11.594017 | [92mINFO[0m | memory_store:add_article:41 | Added article https://www.nextbigfuture.com/2025/02/path-to-1000-iq-superintelligence-by-2030-using-better-chips-and-gigawatts-of-power.html to memory
+2025-03-06T22:05:11.726613 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: Path to 1000 IQ SuperIntelligence by 2030 Using Better Chips and Gigawatts of Power
+2025-03-06T22:05:16.148030 | [92mINFO[0m | memory_store:add_article:41 | Added article https://mjtsai.com/blog/2025/02/10/deepseeks-true-training-cost/ to memory
+2025-03-06T22:05:16.321293 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: DeepSeek’s True Training Cost
+2025-03-06T22:05:22.838542 | [92mINFO[0m | memory_store:add_article:41 | Added article https://www.nextbigfuture.com/2025/02/what-comes-after-xai-grok-3.html to memory
+2025-03-06T22:05:23.843276 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: What Comes After XAI GROK 3?
+2025-03-06T22:05:23.844200 | [92mINFO[0m | news_data_collection_tool:_run:199 | Saved 5 new articles
+2025-03-06T22:05:47.257873 | [92mINFO[0m | trend_analyzer_tool:_run:72 | analyze_trends running with topic: Nvidia H100, category: Technology
+2025-03-06T22:06:02.604965 | [92mINFO[0m | save_blog_post_tool:_run:125 | create_blog_post running with topic: Nvidia H100 and AI Developments, category: Technology
+2025-03-06T22:06:02.606382 | [92mINFO[0m | save_blog_post_tool:_run:129 | Using final_answer as blog content
+2025-03-06T22:06:02.606448 | [92mINFO[0m | save_blog_post_tool:_run:144 | Saving blog post from final answer: Nvidia H100 and AI Developments Trends Analysis
+2025-03-06T22:06:03.003508 | [92mINFO[0m | save_blog_post_tool:_run:159 | Blog post saved successfully with ID: 5cb5a2e5-6ec0-4295-8123-bd85d89dfae8
+2025-03-06T22:06:09.393025 | [92mINFO[0m | crew:save_blog_callback:107 | Blog post creation task completed, saving to database
+2025-03-06T22:06:09.393373 | [92mINFO[0m | save_blog_post_tool:_parse_input:310 | create_blog_post received inputs type: <class 'dict'>
+2025-03-06T22:06:09.393425 | [92mINFO[0m | save_blog_post_tool:_parse_input:326 | Input keys: ['final_answer', 'topic', 'category']
+2025-03-06T22:06:09.393463 | [92mINFO[0m | save_blog_post_tool:_parse_input:333 | Found final_answer with topic: Nvidia H100s
+2025-03-06T22:06:09.393496 | [92mINFO[0m | save_blog_post_tool:_run:125 | create_blog_post running with topic: Nvidia H100s, category: technology
+2025-03-06T22:06:09.393529 | [92mINFO[0m | save_blog_post_tool:_run:129 | Using final_answer as blog content
+2025-03-06T22:06:09.393563 | [92mINFO[0m | save_blog_post_tool:_run:144 | Saving blog post from final answer: Nvidia H100s Trends Analysis
+2025-03-06T22:06:09.741846 | [92mINFO[0m | save_blog_post_tool:_run:159 | Blog post saved successfully with ID: 3c2e7971-cec4-410b-a041-395e195d29b7
+2025-03-06T22:06:09.742632 | [92mINFO[0m | crew:save_blog_callback:125 | Blog post save result: {'status': 'success', 'message': 'Blog post created successfully from final answer', 'blog': {'id': '3c2e7971-cec4-410b-a041-395e195d29b7', 'title': 'Nvidia H100s Trends Analysis', 'content': "Title: Nvidia H100 and AI Developments Trends Analysis\n\n---\n\n**Artificial Intelligence Singularity:**  \nThe emergence of the Singularity in AI is becoming increasingly prominent, driven by technological visionaries like Elon Musk. This milestone marks a transformative phase, where AI could evolve beyond current human intelligence, challenging our understanding of technological capabilities. Musk's visions highlight rapid advancements, emphasizing the critical role of data centers in realizing these potentials.\n\n**AI Training Compute and Data Centers:**  \nA substantial trend is the remarkable enhancement in AI training compute power. Annually, a 5X increase is observed, supported by groundbreaking hardware like Nvidia Hopper GPUs. These developments promise to elevate AI's capabilities, ensuring data centers become powerhouses in driving AI advancements.\n\n**Deep Learning and Computational Power:**  \nDeep learning systems are becoming increasingly dependent on high-performance computational resources. Noteworthy is DeepSeek's monumental $1.6 billion investment in 50,000 Nvidia Hopper GPUs, underscoring the necessity of robust infrastructure as AI models demand exceptional computational strength.\n\n**Evolution Towards Superintelligence:**  \nBy 2030, experts envisage reaching a superintelligence benchmark. This goal becomes attainable through potent chips and data centers, underlining the indispensable role of infrastructure in advancing AI to unparalleled heights.\n\n**Key Developments:**\n\n- **Elon Musk's Engagement:**  \nMusk’s initiatives in deploying xAI AI data centers exhibit a strategic alignment with cutting-edge AI infrastructure, spotlighting the Singularity’s imminence as AI approaches human-level intelligence.\n\n- **Significant Hardware Investments:**  \nNvidia Hopper GPUs’ procurement by DeepSeek signals an industry-wide recognition of GPU technology's criticality in maintaining AI’s advancement curve.\n\n- **Grok Series Evolution:**  \nThe Grok 2’s launch, followed by Grok 3, demonstrates a significant leap in AI training capabilities, enhancing efficiency and capability by 15X, setting new benchmarks in the AI landscape.\n\n**Insights:**\n\nThe acceleration towards Singularity embodies colossal computational prowess and scalability in AI training. These advances are not only historically unmatched but fuelled by immense financial commitments and cutting-edge hardware like Nvidia H100.\n\nAs the industry braces for challenges in achieving superintelligence, Nvidia's sophisticated GPUs emerge as vital assets. Furthermore, the shift towards explainable AI (xAI) promises to influence ethical considerations and the practical application of AI, shaping its societal roles.\n\nIn conclusion, Nvidia's advanced GPUs significantly contribute to the AI industry's robust growth trajectory, fueling investment and interest. The trajectory reaffirms recognition of AI as a domain poised for revolutionary growth and innovation.\n```", 'created_at': '2025-03-06T22:06:09.393554+00:00', 'updated_at': '2025-03-07T03:06:09.635078+00:00', 'user_id': None, 'category': 'technology', 'trend_score': 1, 'image_url': None, 'source_articles': [], 'author': None, 'published_at': '2025-03-07T03:06:09.635078+00:00', 'status': 'draft', 'metadata': {}}}
+2025-03-06T22:06:09.857601 | [91mERROR[0m | crew:cache_result:378 | Error saving to workflow_cache: {'code': '42501', 'details': None, 'hint': None, 'message': 'new row violates row-level security policy for table "workflow_cache"'}
+2025-03-06T22:06:09.861004 | [91mERROR[0m | crew:cache_result:379 | Traceback (most recent call last):
+  File "/Users/amiteshtripathi/Library/Mobile Documents/com~apple~CloudDocs/Documents/My Projects/mpcrew/backend/crew.py", line 350, in cache_result
+    supabase.table('workflow_cache').insert(cache_entry).execute()
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/site-packages/postgrest/_sync/request_builder.py", line 78, in execute
+    raise APIError(r.json())
+postgrest.exceptions.APIError: {'code': '42501', 'details': None, 'hint': None, 'message': 'new row violates row-level security policy for table "workflow_cache"'}
+
+2025-03-06T22:06:09.861993 | [92mINFO[0m | crew:cache_result:392 | Saved workflow result to local file: /Users/amiteshtripathi/Library/Mobile Documents/com~apple~CloudDocs/Documents/My Projects/mpcrew/backend/cache/Nvidia_H100s_20250306220609.json
+2025-03-06T22:06:09.862154 | [92mINFO[0m | crew:execute_workflow:251 | Workflow completed successfully
+2025-03-06T22:06:09.874637 | [92mINFO[0m | main:get_trends:130 | Fetching trends
+2025-03-06T22:06:09.946549 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts

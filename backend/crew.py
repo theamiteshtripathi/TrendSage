@@ -10,6 +10,8 @@ from tools.save_blog_post_tool import create_blog_post
 from config.logging_config import setup_logging
 from tools.supabase_client import supabase
 from datetime import datetime
+import json
+import postgrest
 
 # Initialize logger and environment
 logger = setup_logging()
@@ -157,6 +159,45 @@ def create_tasks(topic: str, category: str = None) -> list[Task]:
     logger.info(f"Created tasks for topic: {topic}, category: {category if category else 'miscellaneous'}")
     return [collect_news, analyze_trends, create_blog]
 
+def serialize_crew_output(crew_output):
+    """Convert CrewAI output to a JSON-serializable format"""
+    try:
+        if hasattr(crew_output, 'raw'):
+            # If it's a TaskOutput object
+            return {
+                "raw": crew_output.raw,
+                "description": crew_output.description if hasattr(crew_output, 'description') else None,
+                "task_id": str(crew_output.task_id) if hasattr(crew_output, 'task_id') else None
+            }
+        elif isinstance(crew_output, dict):
+            # If it's already a dictionary, make sure all values are serializable
+            serialized_dict = {}
+            for key, value in crew_output.items():
+                if hasattr(value, 'raw'):
+                    # Handle TaskOutput objects within the dictionary
+                    serialized_dict[key] = {
+                        "raw": value.raw,
+                        "description": value.description if hasattr(value, 'description') else None,
+                        "task_id": str(value.task_id) if hasattr(value, 'task_id') else None
+                    }
+                elif isinstance(value, (str, int, float, bool, type(None))):
+                    # Primitive types are already serializable
+                    serialized_dict[key] = value
+                else:
+                    # Try to convert to string for other types
+                    try:
+                        serialized_dict[key] = str(value)
+                    except:
+                        serialized_dict[key] = "Unserializable object"
+            return serialized_dict
+        else:
+            # For other types, convert to string
+            return {"result": str(crew_output)}
+    except Exception as e:
+        logger.error(f"Error serializing crew output: {str(e)}")
+        logger.error(traceback.format_exc())
+        return {"error": "Failed to serialize crew output", "message": str(e)}
+
 def execute_workflow(topic: str, category: str = None) -> dict:
     """Execute the news analysis and blog creation workflow"""
     try:
@@ -189,15 +230,26 @@ def execute_workflow(topic: str, category: str = None) -> dict:
         logger.info(f"Kicking off crew with inputs: {inputs}")
         result = crew.kickoff(inputs=inputs)
         
+        # Serialize the result before caching
+        serialized_result = serialize_crew_output(result)
+        
+        # Add metadata to the result
+        final_result = {
+            "topic": topic,
+            "category": category if category else 'miscellaneous',
+            "timestamp": datetime.now().isoformat(),
+            "result": serialized_result
+        }
+        
         # Save the result to cache
         try:
-            cache_result(topic, category, result)
+            cache_result(topic, category, final_result)
         except Exception as cache_error:
             logger.error(f"Error caching result: {str(cache_error)}")
             logger.error(traceback.format_exc())
         
         logger.info("Workflow completed successfully")
-        return result
+        return final_result
 
     except Exception as e:
         logger.error(f"Error in workflow execution: {str(e)}")
@@ -280,23 +332,64 @@ def cache_result(topic: str, category: str, result: dict):
     try:
         # Check if workflow_cache table exists
         try:
+            # Ensure the result is JSON serializable
+            serialized_result = json.dumps(result)
+            json_result = json.loads(serialized_result)
+            
             # Create a cache entry
             cache_entry = {
                 "topic": topic,
                 "category": category if category else 'miscellaneous',
-                "result": result,
+                "result": json_result,
                 "created_at": datetime.now().isoformat()
             }
             
-            # Save to Supabase
-            supabase.table('workflow_cache').insert(cache_entry).execute()
-            logger.info(f"Cached workflow result for topic: {topic}")
+            # Try to save to Supabase
+            try:
+                # First attempt - standard insert
+                supabase.table('workflow_cache').insert(cache_entry).execute()
+                logger.info(f"Cached workflow result for topic: {topic}")
+            except postgrest.exceptions.APIError as api_error:
+                # Check if it's an RLS policy error
+                error_data = getattr(api_error, 'args', [{}])[0]
+                error_code = error_data.get('code') if isinstance(error_data, dict) else None
+                
+                if error_code == '42501':  # RLS policy violation
+                    logger.warning("RLS policy violation, attempting to use service role")
+                    
+                    # Try to use service role client if available
+                    try:
+                        from tools.supabase_admin_client import admin_supabase
+                        admin_supabase.table('workflow_cache').insert(cache_entry).execute()
+                        logger.info(f"Cached workflow result using admin client for topic: {topic}")
+                    except ImportError:
+                        logger.error("Admin Supabase client not available")
+                        # Save to local file as last resort
+                        cache_dir = os.path.join(os.path.dirname(__file__), 'cache')
+                        os.makedirs(cache_dir, exist_ok=True)
+                        cache_file = os.path.join(cache_dir, f"{topic.replace(' ', '_')}_{datetime.now().strftime('%Y%m%d%H%M%S')}.json")
+                        with open(cache_file, 'w') as f:
+                            json.dump(cache_entry, f)
+                        logger.info(f"Saved workflow result to local file: {cache_file}")
+                else:
+                    # Re-raise if it's not an RLS error
+                    raise
         except Exception as e:
             logger.error(f"Error saving to workflow_cache: {str(e)}")
             logger.error(traceback.format_exc())
             
-            # If the table doesn't exist, we'll just skip caching
-            logger.warning("Skipping workflow caching due to error")
+            # If the table doesn't exist or other error, save to local file
+            cache_dir = os.path.join(os.path.dirname(__file__), 'cache')
+            os.makedirs(cache_dir, exist_ok=True)
+            cache_file = os.path.join(cache_dir, f"{topic.replace(' ', '_')}_{datetime.now().strftime('%Y%m%d%H%M%S')}.json")
+            with open(cache_file, 'w') as f:
+                json.dump({
+                    "topic": topic,
+                    "category": category if category else 'miscellaneous',
+                    "result": result,
+                    "created_at": datetime.now().isoformat()
+                }, f)
+            logger.info(f"Saved workflow result to local file: {cache_file}")
     except Exception as e:
         logger.error(f"Error in cache_result: {str(e)}")
         logger.error(traceback.format_exc())

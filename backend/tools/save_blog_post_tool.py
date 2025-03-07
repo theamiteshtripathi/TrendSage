@@ -24,7 +24,8 @@ def generate_blog_content(trend_data: Dict[str, Any], articles: List[Dict[str, A
         
         article_references = "\n".join(article_refs)
         
-        # Create prompt for blog generation
+        # Create prompt for blog generation with clearer JSON formatting instructions
+        # and without the summary field which is not in our database schema
         prompt = f"""Create a comprehensive blog post based on the following trend analysis and articles:
 
         Trend Analysis:
@@ -41,27 +42,65 @@ def generate_blog_content(trend_data: Dict[str, Any], articles: List[Dict[str, A
         2. Well-structured content with headings
         3. Key insights and analysis
         4. Future implications
-        5. A brief summary
 
-        Format your response as a JSON with these keys:
-        - title: The blog post title
-        - content: The full blog post content (in markdown format)
-        - summary: A brief summary (max 200 characters)
-        - category: The main category of the blog post
-        - image_prompt: A prompt for generating an image that represents the blog post
+        IMPORTANT: You must format your response as a valid JSON object with the following structure:
+        {{
+            "title": "Your blog post title here",
+            "content": "Your full blog post content here in markdown format",
+            "category": "The main category of the blog post",
+            "image_prompt": "A prompt for generating an image that represents the blog post"
+        }}
+
+        DO NOT include a 'summary' field in your JSON response as it's not supported by our database schema.
+        Ensure your response is properly formatted as JSON with quotes around keys and values.
         """
         
         response = llm.predict(prompt)
         
+        # Try to extract JSON from the response if it's not a clean JSON
         try:
+            # First attempt direct parsing
             blog_data = json.loads(response)
+            
+            # Remove summary field if it exists to avoid database errors
+            if 'summary' in blog_data:
+                logger.warning("Removing 'summary' field from blog data as it's not in our schema")
+                blog_data.pop('summary')
+                
             return blog_data
         except json.JSONDecodeError:
-            logger.error("Failed to parse LLM response as JSON")
+            logger.error("Failed to parse LLM response as JSON, attempting to extract JSON")
+            
+            # Try to extract JSON from the response using regex
+            import re
+            json_pattern = r'({[\s\S]*})'
+            match = re.search(json_pattern, response)
+            
+            if match:
+                try:
+                    extracted_json = match.group(1)
+                    blog_data = json.loads(extracted_json)
+                    
+                    # Remove summary field if it exists
+                    if 'summary' in blog_data:
+                        logger.warning("Removing 'summary' field from extracted blog data")
+                        blog_data.pop('summary')
+                        
+                    logger.info("Successfully extracted JSON from response")
+                    return blog_data
+                except json.JSONDecodeError:
+                    logger.error("Failed to parse extracted JSON")
+            
+            # If all parsing attempts fail, create a structured blog post from the raw response
+            logger.warning("Creating structured blog post from raw response")
+            
+            # Try to extract a title from the response
+            title_match = re.search(r'#\s*(.*?)[\n\r]', response)
+            title = title_match.group(1) if title_match else "Analysis Report"
+            
             return {
-                "title": "Analysis Report",
+                "title": title,
                 "content": response,
-                "summary": response[:200] + "...",
                 "category": "miscellaneous",
                 "image_prompt": "A visual representation of data analysis and insights"
             }
@@ -69,7 +108,12 @@ def generate_blog_content(trend_data: Dict[str, Any], articles: List[Dict[str, A
     except Exception as e:
         logger.error(f"Error generating blog content: {str(e)}")
         logger.error(traceback.format_exc())
-        return None
+        return {
+            "title": "Technology Trends Analysis",
+            "content": "An error occurred while generating the blog content. Please try again later.",
+            "category": "miscellaneous",
+            "image_prompt": "Error visualization"
+        }
 
 class CreateBlogPostTool(BaseTool):
     name: str = "create_blog_post"
@@ -86,11 +130,10 @@ class CreateBlogPostTool(BaseTool):
                 title = f"{topic if topic else 'Technology'} Trends Analysis"
                 content = final_answer
                 
-                # Create blog post directly from final answer
+                # Create blog post directly from final answer - without summary field
                 new_blog = {
                     "title": title,
                     "content": content,
-                    "summary": content[:200] + "..." if len(content) > 200 else content,
                     "category": category if category else "technology",
                     "image_url": None,
                     "trend_score": 1.0,
@@ -198,11 +241,10 @@ class CreateBlogPostTool(BaseTool):
                     if scores:
                         trend_score = sum(scores) / len(scores)
                 
-                # Prepare blog post data
+                # Prepare blog post data - without summary field
                 new_blog = {
                     "title": blog_data.get("title", f"{topic if topic else 'Technology'} Trends Analysis"),
                     "content": blog_data.get("content"),
-                    "summary": blog_data.get("summary", blog_data.get("content", "")[:200] + "..."),
                     "category": blog_data.get("category", category if category else "technology"),
                     "image_url": blog_data.get("image_url"),
                     "trend_score": trend_score,
