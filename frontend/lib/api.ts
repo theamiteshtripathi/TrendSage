@@ -15,6 +15,7 @@ export const endpoints = {
   blogs: '/api/blogs',
   trends: '/api/trends',
   categories: '/api/categories',
+  chat: '/api/chat',
 };
 
 // API functions
@@ -42,6 +43,16 @@ export const apiClient = {
   // Get all categories
   getCategories: async () => {
     const response = await api.get(endpoints.categories);
+    return response.data;
+  },
+  
+  // Chat with a blog post
+  chatWithBlog: async (blogId: string, query: string, chatHistory: any[] = []) => {
+    const response = await api.post(endpoints.chat, { 
+      blog_id: blogId, 
+      query, 
+      chat_history: chatHistory 
+    });
     return response.data;
   },
 }; 

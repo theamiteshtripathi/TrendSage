@@ -8,6 +8,14 @@ import json
 from datetime import datetime
 import traceback
 
+# Import the vector embedding tool
+try:
+    from tools.vector_embedding_tool import vector_embedding_tool
+except ImportError:
+    vector_embedding_tool = None
+    logger = setup_logging()
+    logger.warning("Vector embedding tool not available, embeddings will not be created")
+
 logger = setup_logging()
 llm = ChatOpenAI(temperature=0.7)
 memory_store = MemoryStore()
@@ -157,6 +165,25 @@ class CreateBlogPostTool(BaseTool):
                     
                     if result.data:
                         logger.info(f"Blog post saved successfully with ID: {result.data[0]['id']}")
+                        
+                        # Create vector embeddings for the blog post if the tool is available
+                        if vector_embedding_tool:
+                            try:
+                                embedding_result = vector_embedding_tool._run(
+                                    blog_id=result.data[0]['id'],
+                                    content=new_blog['content'],
+                                    title=new_blog['title'],
+                                    operation="create"
+                                )
+                                
+                                if isinstance(embedding_result, dict) and "error" in embedding_result:
+                                    logger.warning(f"Failed to create embeddings: {embedding_result['error']}")
+                                else:
+                                    logger.info(f"Created embeddings for blog post: {result.data[0]['id']}")
+                            except Exception as embedding_error:
+                                logger.error(f"Error creating embeddings: {str(embedding_error)}")
+                                logger.error(traceback.format_exc())
+                        
                         return {
                             "status": "success",
                             "message": "Blog post created successfully from final answer",
@@ -272,6 +299,25 @@ class CreateBlogPostTool(BaseTool):
                     
                     if result.data:
                         logger.info(f"Blog post saved successfully with ID: {result.data[0]['id']}")
+                        
+                        # Create vector embeddings for the blog post if the tool is available
+                        if vector_embedding_tool:
+                            try:
+                                embedding_result = vector_embedding_tool._run(
+                                    blog_id=result.data[0]['id'],
+                                    content=new_blog['content'],
+                                    title=new_blog['title'],
+                                    operation="create"
+                                )
+                                
+                                if isinstance(embedding_result, dict) and "error" in embedding_result:
+                                    logger.warning(f"Failed to create embeddings: {embedding_result['error']}")
+                                else:
+                                    logger.info(f"Created embeddings for blog post: {result.data[0]['id']}")
+                            except Exception as embedding_error:
+                                logger.error(f"Error creating embeddings: {str(embedding_error)}")
+                                logger.error(traceback.format_exc())
+                        
                         return {
                             "status": "success",
                             "message": "Blog post created successfully",

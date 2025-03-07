@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { useParams, useRouter } from "next/navigation"
-import { ArrowLeft, Loader2 } from "lucide-react"
+import { ArrowLeft, Loader2, MessageSquare } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { BlogPostFull } from "@/components/blog-post"
@@ -58,7 +58,17 @@ export default function BlogPostPage() {
 
   const handleCategoryClick = (category: string) => {
     setActiveCategory(category)
-    router.push("/")
+    if (category === "All") {
+      router.push("/")
+    } else {
+      router.push(`/category/${encodeURIComponent(category)}`)
+    }
+  }
+
+  const handleChatWithTrends = () => {
+    if (blogPost) {
+      router.push(`/chat/${blogPost.id}`);
+    }
   }
 
   return (
@@ -70,14 +80,27 @@ export default function BlogPostPage() {
       />
 
       <main className="container mx-auto px-4 py-8">
-        <Button
-          variant="ghost"
-          className="mb-6"
-          onClick={() => router.back()}
-        >
-          <ArrowLeft className="mr-2 h-4 w-4" />
-          Back
-        </Button>
+        <div className="flex justify-between items-center mb-6">
+          <Button
+            variant="ghost"
+            onClick={() => router.back()}
+            className="flex items-center"
+          >
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back
+          </Button>
+
+          {blogPost && (
+            <Button 
+              variant="outline" 
+              onClick={handleChatWithTrends}
+              className="flex items-center"
+            >
+              <MessageSquare className="mr-2 h-4 w-4" />
+              Chat with this analysis
+            </Button>
+          )}
+        </div>
 
         {isLoading && (
           <div className="flex justify-center py-12">
@@ -96,6 +119,7 @@ export default function BlogPostPage() {
             title={blogPost.title || "Untitled Post"}
             content={blogPost.content || "No content available"}
             category={blogPost.category || "Miscellaneous"}
+            image_url={blogPost.image_url}
           />
         )}
       </main>

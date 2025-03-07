@@ -152,10 +152,8 @@ export default function TrendSage() {
     fetchBlogPosts(category !== "All" ? category : undefined)
   }
 
-  const handleReadAnalysis = () => {
-    if (currentBlogPost) {
-      router.push(`/blog/${currentBlogPost.id}`)
-    }
+  const handleReadAnalysis = (id: string) => {
+    router.push(`/blog/${id}`);
   }
 
   const handleChatWithTrends = () => {
@@ -218,15 +216,15 @@ export default function TrendSage() {
               <p className="text-muted-foreground">AI-generated insights on trending topics</p>
             </div>
 
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-1">
-              {blogPosts.slice(0, 3).map((post) => (
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {blogPosts.slice(0, 6).map((post) => (
                 <BlogPost
                   key={post.id}
                   title={post.title || "Untitled Post"}
                   content={post.content || "No content available"}
                   category={post.category || "Miscellaneous"}
                   onChatClick={handleChatWithTrends}
-                  onReadClick={handleReadAnalysis}
+                  onReadClick={() => handleReadAnalysis(post.id)}
                 />
               ))}
             </div>

@@ -1030,3 +1030,53 @@ postgrest.exceptions.APIError: {'code': '42501', 'details': None, 'hint': None, 
 2025-03-06T22:57:53.223973 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
 2025-03-06T22:57:53.491903 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
 2025-03-06T23:00:35.058159 | [92mINFO[0m | run:main:55 | Application shutdown
+2025-03-06T23:18:41.443685 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-06T23:18:41.493128 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-06T23:18:41.551966 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T23:18:41.554351 | [92mINFO[0m | run:main:13 | Starting MPCrew application
+2025-03-06T23:18:41.807515 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: news_articles exists
+2025-03-06T23:18:41.890429 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: blogs exists
+2025-03-06T23:18:42.031826 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: user_preferences exists
+2025-03-06T23:18:42.132148 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: workflow_cache exists
+2025-03-06T23:18:42.132275 | [92mINFO[0m | init_db:initialize_database:34 | Database schema validation: All required tables exist
+2025-03-06T23:18:42.132311 | [92mINFO[0m | run:main:22 | Database initialization successful
+2025-03-06T23:18:42.244472 | [92mINFO[0m | init_db:get_table_counts:55 | Table news_articles has 50 records
+2025-03-06T23:18:42.313963 | [92mINFO[0m | init_db:get_table_counts:55 | Table blogs has 10 records
+2025-03-06T23:18:42.383696 | [92mINFO[0m | init_db:get_table_counts:55 | Table user_preferences has 0 records
+2025-03-06T23:18:42.465517 | [92mINFO[0m | init_db:get_table_counts:55 | Table workflow_cache has 1 records
+2025-03-06T23:18:42.465642 | [92mINFO[0m | run:main:26 | Table news_articles has 50 records
+2025-03-06T23:18:42.465672 | [92mINFO[0m | run:main:26 | Table blogs has 10 records
+2025-03-06T23:18:42.465695 | [92mINFO[0m | run:main:26 | Table user_preferences has 0 records
+2025-03-06T23:18:42.465716 | [92mINFO[0m | run:main:26 | Table workflow_cache has 1 records
+2025-03-06T23:18:42.465735 | [92mINFO[0m | run:main:49 | Starting FastAPI server
+2025-03-06T23:18:44.147591 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-06T23:18:44.193753 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-06T23:18:44.258295 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T23:18:54.892200 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T23:18:55.537603 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T23:18:55.670455 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T23:18:55.725559 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T23:18:58.981972 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T23:18:59.137785 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T23:19:05.244345 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T23:19:05.410175 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T23:19:05.466092 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T23:19:06.102510 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T23:19:06.195207 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T23:19:06.659274 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T23:19:06.722466 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T23:19:07.407734 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T23:19:07.458023 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T23:19:08.170888 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T23:19:08.306060 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T23:19:14.262337 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T23:19:14.427747 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T23:19:18.252820 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T23:19:18.343941 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T23:20:02.117959 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T23:20:02.477074 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T23:20:08.021059 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T23:20:08.217702 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T23:20:09.157026 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T23:20:09.241219 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T23:20:45.052125 | [92mINFO[0m | run:main:55 | Application shutdown
