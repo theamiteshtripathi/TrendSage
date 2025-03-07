@@ -260,9 +260,9 @@ export default function TrendSage() {
         {/* Blog Posts Section */}
         {blogPosts.length > 0 && (
           <section className="py-12">
-            <div className="mb-8">
-              <h2 className="text-3xl font-bold">Latest Trend Analysis</h2>
-              <p className="text-muted-foreground">AI-generated insights on trending topics</p>
+            <div className="mb-8 text-center">
+              <h2 className="text-3xl font-bold gradient-text">Latest Trend Analysis</h2>
+              <p className="text-muted-foreground mt-2">AI-generated insights on trending topics</p>
             </div>
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">

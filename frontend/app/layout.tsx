@@ -4,12 +4,15 @@ import { Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"], variable: '--font-inter' })
 
 export const metadata: Metadata = {
   title: "TrendSage - AI-Powered Trend Analysis",
   description: "Discover the latest trends with AI-generated analysis and insights",
-  generator: 'TrendSage'
+  generator: 'TrendSage',
+  icons: {
+    icon: '/tslogo.png',
+  },
 }
 
 export default function RootLayout({
@@ -19,11 +22,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={`${inter.className} ${inter.variable} font-sans`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="dark"
+          enableSystem={false}
           disableTransitionOnChange
         >
           {children}

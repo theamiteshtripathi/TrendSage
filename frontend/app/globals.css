@@ -10,7 +10,7 @@
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
+    --primary: 198 78% 44%; /* #1791c8 */
     --primary-foreground: 210 40% 98%;
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
@@ -22,30 +22,30 @@
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
+    --ring: 198 78% 44%; /* #1791c8 */
     --radius: 0.5rem;
   }
 
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
+    --card: 222.2 84% 4.9% / 0.7; /* Transparent card background */
     --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
+    --popover: 222.2 84% 4.9% / 0.9;
     --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
+    --primary: 198 78% 44%; /* #1791c8 */
+    --primary-foreground: 210 40% 98%;
+    --secondary: 217.2 32.6% 17.5% / 0.7; /* Transparent secondary */
     --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
+    --muted: 217.2 32.6% 17.5% / 0.7; /* Transparent muted */
     --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
+    --accent: 198 78% 44% / 0.2; /* Transparent accent based on primary */
     --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 48%;
+    --border: 217.2 32.6% 17.5% / 0.5; /* Semi-transparent border */
+    --input: 217.2 32.6% 17.5% / 0.7; /* Transparent input */
+    --ring: 198 78% 44%; /* #1791c8 */
   }
 }
 
@@ -54,13 +54,39 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-black text-foreground;
+    background-image: radial-gradient(circle at center, rgba(23, 145, 200, 0.15) 0%, rgba(0, 0, 0, 0.95) 70%);
+    background-attachment: fixed;
   }
+  
+  /* Improved typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans font-bold tracking-tight;
+    letter-spacing: -0.02em;
+  }
+  
+  h1 {
+    @apply text-4xl md:text-5xl;
+  }
+  
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+  
+  p {
+    @apply leading-relaxed;
+  }
+}
+
+/* Glass effect for cards and containers */
+.glass-effect {
+  @apply bg-card/70 backdrop-blur-md border border-white/10;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 /* Auth UI Styles */
 .auth-container {
-  @apply w-full max-w-md mx-auto p-6 space-y-6;
+  @apply w-full max-w-md mx-auto p-6 space-y-6 glass-effect rounded-xl;
 }
 
 .auth-button {
@@ -68,7 +94,7 @@
 }
 
 .auth-input {
-  @apply w-full px-3 py-2 text-sm border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary;
+  @apply w-full px-3 py-2 text-sm border border-border/50 rounded-md bg-background/50 text-foreground focus:outline-none focus:ring-2 focus:ring-primary;
 }
 
 /* Animation for card loading */
@@ -89,19 +115,53 @@
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #1f2937;
+  background: rgba(0, 0, 0, 0.2);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #4b5563;
+  background: rgba(23, 145, 200, 0.5);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #60a5fa;
+  background: rgba(23, 145, 200, 0.8);
+}
+
+/* Gradient text */
+.gradient-text {
+  @apply font-bold;
+  background: linear-gradient(90deg, #1791c8, #64b5f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Futuristic button styles */
+.btn-futuristic {
+  @apply relative overflow-hidden rounded-md transition-all duration-300 ease-in-out;
+  background: linear-gradient(45deg, #1791c8, #0d47a1);
+  box-shadow: 0 4px 15px rgba(23, 145, 200, 0.3);
+}
+
+.btn-futuristic:hover {
+  box-shadow: 0 6px 20px rgba(23, 145, 200, 0.5);
+  transform: translateY(-2px);
+}
+
+.btn-futuristic:before {
+  content: '';
+  @apply absolute inset-0 opacity-0 transition-opacity duration-300;
+  background: linear-gradient(45deg, #64b5f6, #1791c8);
+}
+
+.btn-futuristic:hover:before {
+  @apply opacity-100;
+}
+
+.btn-futuristic span {
+  @apply relative z-10;
 }
 
