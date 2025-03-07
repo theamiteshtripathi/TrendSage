@@ -913,3 +913,120 @@ postgrest.exceptions.APIError: {'code': '42501', 'details': None, 'hint': None, 
 2025-03-06T22:06:09.862154 | [92mINFO[0m | crew:execute_workflow:251 | Workflow completed successfully
 2025-03-06T22:06:09.874637 | [92mINFO[0m | main:get_trends:130 | Fetching trends
 2025-03-06T22:06:09.946549 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T22:09:31.908242 | [92mINFO[0m | run:main:55 | Application shutdown
+2025-03-06T22:38:46.269595 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-06T22:38:46.329926 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T22:38:46.331691 | [92mINFO[0m | run:main:13 | Starting MPCrew application
+2025-03-06T22:39:08.346738 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: news_articles exists
+2025-03-06T22:39:09.592079 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: blogs exists
+2025-03-06T22:39:11.352454 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: user_preferences exists
+2025-03-06T22:39:12.474763 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: workflow_cache exists
+2025-03-06T22:39:12.475040 | [92mINFO[0m | init_db:initialize_database:34 | Database schema validation: All required tables exist
+2025-03-06T22:39:12.475217 | [92mINFO[0m | run:main:22 | Database initialization successful
+2025-03-06T22:39:13.531764 | [92mINFO[0m | init_db:get_table_counts:55 | Table news_articles has 50 records
+2025-03-06T22:39:13.920120 | [92mINFO[0m | init_db:get_table_counts:55 | Table blogs has 8 records
+2025-03-06T22:39:14.024665 | [92mINFO[0m | init_db:get_table_counts:55 | Table user_preferences has 0 records
+2025-03-06T22:39:14.173897 | [92mINFO[0m | init_db:get_table_counts:55 | Table workflow_cache has 0 records
+2025-03-06T22:39:14.174410 | [92mINFO[0m | run:main:26 | Table news_articles has 50 records
+2025-03-06T22:39:14.174596 | [92mINFO[0m | run:main:26 | Table blogs has 8 records
+2025-03-06T22:39:14.174732 | [92mINFO[0m | run:main:26 | Table user_preferences has 0 records
+2025-03-06T22:39:14.174857 | [92mINFO[0m | run:main:26 | Table workflow_cache has 0 records
+2025-03-06T22:39:14.174993 | [92mINFO[0m | run:main:49 | Starting FastAPI server
+2025-03-06T22:39:20.453128 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-06T22:39:20.514426 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T22:43:37.570179 | [92mINFO[0m | run:main:55 | Application shutdown
+2025-03-06T22:45:06.163132 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-06T22:45:06.230886 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T22:45:06.232580 | [92mINFO[0m | run:main:13 | Starting MPCrew application
+2025-03-06T22:45:06.733621 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: news_articles exists
+2025-03-06T22:45:06.939417 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: blogs exists
+2025-03-06T22:45:07.151172 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: user_preferences exists
+2025-03-06T22:45:07.234625 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: workflow_cache exists
+2025-03-06T22:45:07.234760 | [92mINFO[0m | init_db:initialize_database:34 | Database schema validation: All required tables exist
+2025-03-06T22:45:07.234815 | [92mINFO[0m | run:main:22 | Database initialization successful
+2025-03-06T22:45:07.360825 | [92mINFO[0m | init_db:get_table_counts:55 | Table news_articles has 50 records
+2025-03-06T22:45:07.569182 | [92mINFO[0m | init_db:get_table_counts:55 | Table blogs has 8 records
+2025-03-06T22:45:07.656741 | [92mINFO[0m | init_db:get_table_counts:55 | Table user_preferences has 0 records
+2025-03-06T22:45:07.745743 | [92mINFO[0m | init_db:get_table_counts:55 | Table workflow_cache has 0 records
+2025-03-06T22:45:07.745944 | [92mINFO[0m | run:main:26 | Table news_articles has 50 records
+2025-03-06T22:45:07.746008 | [92mINFO[0m | run:main:26 | Table blogs has 8 records
+2025-03-06T22:45:07.746069 | [92mINFO[0m | run:main:26 | Table user_preferences has 0 records
+2025-03-06T22:45:07.746127 | [92mINFO[0m | run:main:26 | Table workflow_cache has 0 records
+2025-03-06T22:45:07.746178 | [92mINFO[0m | run:main:49 | Starting FastAPI server
+2025-03-06T22:45:10.812709 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-06T22:45:10.890034 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T22:51:34.555200 | [92mINFO[0m | run:main:55 | Application shutdown
+2025-03-06T22:52:01.074845 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-06T22:52:01.162635 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T22:52:01.164247 | [92mINFO[0m | run:main:13 | Starting MPCrew application
+2025-03-06T22:52:01.295696 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: news_articles exists
+2025-03-06T22:52:01.377552 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: blogs exists
+2025-03-06T22:52:01.436158 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: user_preferences exists
+2025-03-06T22:52:01.523893 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: workflow_cache exists
+2025-03-06T22:52:01.524184 | [92mINFO[0m | init_db:initialize_database:34 | Database schema validation: All required tables exist
+2025-03-06T22:52:01.524379 | [92mINFO[0m | run:main:22 | Database initialization successful
+2025-03-06T22:52:01.682842 | [92mINFO[0m | init_db:get_table_counts:55 | Table news_articles has 50 records
+2025-03-06T22:52:01.858519 | [92mINFO[0m | init_db:get_table_counts:55 | Table blogs has 8 records
+2025-03-06T22:52:02.314862 | [92mINFO[0m | init_db:get_table_counts:55 | Table user_preferences has 0 records
+2025-03-06T22:52:02.424588 | [92mINFO[0m | init_db:get_table_counts:55 | Table workflow_cache has 0 records
+2025-03-06T22:52:02.424871 | [92mINFO[0m | run:main:26 | Table news_articles has 50 records
+2025-03-06T22:52:02.425054 | [92mINFO[0m | run:main:26 | Table blogs has 8 records
+2025-03-06T22:52:02.425225 | [92mINFO[0m | run:main:26 | Table user_preferences has 0 records
+2025-03-06T22:52:02.425402 | [92mINFO[0m | run:main:26 | Table workflow_cache has 0 records
+2025-03-06T22:52:02.425557 | [92mINFO[0m | run:main:49 | Starting FastAPI server
+2025-03-06T22:52:04.182900 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-06T22:52:04.256956 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T22:52:46.777609 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T22:52:47.308325 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T22:52:47.402701 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T22:52:47.757727 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T22:53:23.013943 | [92mINFO[0m | main:analyze_trends:82 | Analyzing trends for topic: USAID
+2025-03-06T22:53:23.016046 | [92mINFO[0m | crew:execute_workflow:204 | Starting workflow for topic: USAID, category: None
+2025-03-06T22:53:23.358983 | [92mINFO[0m | crew:create_tasks:102 | Creating tasks for topic: USAID, category: miscellaneous
+2025-03-06T22:53:23.363305 | [92mINFO[0m | crew:create_tasks:159 | Created tasks for topic: USAID, category: miscellaneous
+2025-03-06T22:53:23.373197 | [92mINFO[0m | crew:execute_workflow:230 | Kicking off crew with inputs: {'topic': 'USAID', 'category': 'miscellaneous'}
+2025-03-06T22:53:26.019074 | [92mINFO[0m | news_data_collection_tool:_run:83 | fetch_news received inputs - topic: USAID, category: any
+2025-03-06T22:53:26.019444 | [92mINFO[0m | news_data_collection_tool:_run:89 | Processing fetch_news for topic: USAID, category: any
+2025-03-06T22:53:26.019635 | [92mINFO[0m | news_data_collection_tool:_run:96 | Fetching news for topic: USAID, category: technology
+2025-03-06T22:53:26.091793 | [92mINFO[0m | news_data_collection_tool:_run:109 | Found 1 cached articles
+2025-03-06T22:53:34.208585 | [92mINFO[0m | trend_analyzer_tool:_run:72 | analyze_trends running with topic: USAID, category: Government and Policy
+2025-03-06T22:53:42.817242 | [92mINFO[0m | save_blog_post_tool:_run:125 | create_blog_post running with topic: USAID and Government Efficiency: Navigating Budget Cuts and Implications for Global Aid, category: International Development
+2025-03-06T22:53:45.713058 | [92mINFO[0m | save_blog_post_tool:_run:269 | Saving blog post: Navigating the Ever-Changing Landscape of Technology Trends
+2025-03-06T22:53:45.800561 | [92mINFO[0m | save_blog_post_tool:_run:274 | Blog post saved successfully with ID: 9d95dba0-5753-4427-9244-6696d932ca55
+2025-03-06T22:53:51.545466 | [92mINFO[0m | crew:save_blog_callback:107 | Blog post creation task completed, saving to database
+2025-03-06T22:53:51.545875 | [92mINFO[0m | save_blog_post_tool:_parse_input:310 | create_blog_post received inputs type: <class 'dict'>
+2025-03-06T22:53:51.545923 | [92mINFO[0m | save_blog_post_tool:_parse_input:326 | Input keys: ['final_answer', 'topic', 'category']
+2025-03-06T22:53:51.545956 | [92mINFO[0m | save_blog_post_tool:_parse_input:333 | Found final_answer with topic: USAID
+2025-03-06T22:53:51.545986 | [92mINFO[0m | save_blog_post_tool:_run:125 | create_blog_post running with topic: USAID, category: technology
+2025-03-06T22:53:51.546013 | [92mINFO[0m | save_blog_post_tool:_run:129 | Using final_answer as blog content
+2025-03-06T22:53:51.546041 | [92mINFO[0m | save_blog_post_tool:_run:144 | Saving blog post from final answer: USAID Trends Analysis
+2025-03-06T22:53:51.814854 | [92mINFO[0m | save_blog_post_tool:_run:159 | Blog post saved successfully with ID: 9e4dfe15-aa6f-43d1-a52e-afaa27021f44
+2025-03-06T22:53:51.815449 | [92mINFO[0m | crew:save_blog_callback:125 | Blog post save result: {'status': 'success', 'message': 'Blog post created successfully from final answer', 'blog': {'id': '9e4dfe15-aa6f-43d1-a52e-afaa27021f44', 'title': 'USAID Trends Analysis', 'content': "Title: USAID and Government Efficiency: Navigating Budget Cuts and Implications for Global Aid\n\n**Recent Developments**\n\nThe Department of Government Efficiency (DOGE), under the leadership of Elon Musk, is spearheading a sweeping initiative aimed at enhancing fiscal prudence within federal agencies. A significant target of these budgetary cuts is the US Agency for International Development (USAID). Among the programs affected is the Famine Early Warning Systems Network (Fews Net), once heralded as an essential tool for data analysis and famine prevention strategies worldwide. The dismantling of such an established initiative marks a pivotal moment in international aid dynamics, raising questions about future preparedness for global crises.\n\n**Emerging Trends**\n\nA discernible trend is emerging from these developments: a pronounced shift in governmental strategy prioritizing cost-efficiency over the continuation of longstanding, reputed aid programs. Governments are increasingly leaning towards models that favor fiscal restraint, and this focus on budget trims, while achieving internal efficiency, could fundamentally alter the landscape of international aid.\n\nThe potential repercussions of these shifts are profound. The reduction in programs like Fews Net could disrupt international aid initiatives, adversely affecting food assistance projects and threatening global food security efforts. This change signals not merely a shift in funding but also a transformation in how priorities are set in addressing humanitarian challenges.\n\n**Key Insights**\n\nThe recent restructuring at USAID reflects a strategic pivot towards optimizing government spending, albeit at the cost of dismantling programs with previously proven track records. It reveals an underlying policy shift where the emphasis on fiscal efficiency potentially supersedes the longstanding goals of development aid — a move that carries significant implications for the agency’s international partnerships and operations.\n\nCritics argue that such changes may undermine USAID's capacity to respond effectively to emerging crises, particularly in regions where food insecurity and famine are recurrent threats. The risk is that vulnerable populations may face heightened exposure to risk, particularly in the absence of comprehensive early-warning systems.\n\n**Future Implications**\n\nAs we navigate this transformation in international aid facilitated by USAID, stakeholders must reckon with the new regime's broader implications. While the drive towards increased efficiency can yield significant economic benefits, the potential dismantling of critical aid infrastructures poses questions about the ethical and operational priorities of government departments.\n\nThis presents an urgent call to evaluate how changes can be implemented without compromising aid quality and accessibility for those most in need. The long-term ramifications on food security and global humanitarian efforts underscore the need for a nuanced balance between efficiency and effectiveness.\n\nIn conclusion, as USAID adapts to these budget-oriented reforms, there remains a critical need for dialogues around safeguarding essential services that underpin global aid efforts. Understanding and anticipating the future landscape of international development requires comprehensive analysis and strategic foresight, ensuring that the core mission of supporting vulnerable populations worldwide remains paramount.", 'created_at': '2025-03-06T22:53:51.546038+00:00', 'updated_at': '2025-03-07T03:53:51.942246+00:00', 'user_id': None, 'category': 'technology', 'trend_score': 1, 'image_url': None, 'source_articles': [], 'author': None, 'published_at': '2025-03-07T03:53:51.942246+00:00', 'status': 'draft', 'metadata': {}}}
+2025-03-06T22:53:51.897738 | [92mINFO[0m | crew:cache_result:351 | Cached workflow result for topic: USAID
+2025-03-06T22:53:51.898341 | [92mINFO[0m | crew:execute_workflow:251 | Workflow completed successfully
+2025-03-06T22:53:51.908928 | [92mINFO[0m | main:get_trends:130 | Fetching trends
+2025-03-06T22:53:54.909707 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T22:57:41.285845 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T22:57:41.690958 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T22:57:41.863729 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T22:57:41.943668 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T22:57:45.955356 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T22:57:46.921024 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T22:57:47.116479 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T22:57:48.898114 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T22:57:48.956569 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T22:57:49.473975 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T22:57:49.561978 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T22:57:50.196867 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T22:57:50.274548 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T22:57:50.541423 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T22:57:50.617138 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T22:57:51.009001 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T22:57:51.879076 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T22:57:51.967445 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T22:57:52.018037 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T22:57:52.467984 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T22:57:52.545219 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T22:57:53.223973 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T22:57:53.491903 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T23:00:35.058159 | [92mINFO[0m | run:main:55 | Application shutdown

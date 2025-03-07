@@ -534,3 +534,49 @@ context
 2025-03-06T20:57:28.280955 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
 2025-03-06T20:57:28.344965 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
 2025-03-06T20:57:57.001075 | [92mINFO[0m | run:main:55 | Application shutdown
+2025-03-06T22:31:35.892483 | [92mINFO[0m | run_fix_rls:run_sql_script:37 | Supabase client initialized with service role
+2025-03-06T22:31:36.443932 | [91mERROR[0m | run_fix_rls:run_sql_script:63 | Error executing SQL statement: {'code': 'PGRST202', 'details': 'Searched for the function public.exec_sql with parameter sql or with a single unnamed json/jsonb parameter, but no matches were found in the schema cache.', 'hint': None, 'message': 'Could not find the function public.exec_sql(sql) in the schema cache'}
+2025-03-06T22:31:36.690053 | [91mERROR[0m | run_fix_rls:run_sql_script:63 | Error executing SQL statement: {'code': 'PGRST202', 'details': 'Searched for the function public.exec_sql with parameter sql or with a single unnamed json/jsonb parameter, but no matches were found in the schema cache.', 'hint': None, 'message': 'Could not find the function public.exec_sql(sql) in the schema cache'}
+2025-03-06T22:31:36.821095 | [91mERROR[0m | run_fix_rls:run_sql_script:63 | Error executing SQL statement: {'code': 'PGRST202', 'details': 'Searched for the function public.exec_sql with parameter sql or with a single unnamed json/jsonb parameter, but no matches were found in the schema cache.', 'hint': None, 'message': 'Could not find the function public.exec_sql(sql) in the schema cache'}
+2025-03-06T22:31:36.975795 | [91mERROR[0m | run_fix_rls:run_sql_script:63 | Error executing SQL statement: {'code': 'PGRST202', 'details': 'Searched for the function public.exec_sql with parameter sql or with a single unnamed json/jsonb parameter, but no matches were found in the schema cache.', 'hint': None, 'message': 'Could not find the function public.exec_sql(sql) in the schema cache'}
+2025-03-06T22:31:37.107552 | [91mERROR[0m | run_fix_rls:run_sql_script:63 | Error executing SQL statement: {'code': 'PGRST202', 'details': 'Searched for the function public.exec_sql with parameter sql or with a single unnamed json/jsonb parameter, but no matches were found in the schema cache.', 'hint': None, 'message': 'Could not find the function public.exec_sql(sql) in the schema cache'}
+2025-03-06T22:31:37.171964 | [91mERROR[0m | run_fix_rls:run_sql_script:63 | Error executing SQL statement: {'code': 'PGRST202', 'details': 'Searched for the function public.exec_sql with parameter sql or with a single unnamed json/jsonb parameter, but no matches were found in the schema cache.', 'hint': None, 'message': 'Could not find the function public.exec_sql(sql) in the schema cache'}
+2025-03-06T22:31:37.249650 | [91mERROR[0m | run_fix_rls:run_sql_script:63 | Error executing SQL statement: {'code': 'PGRST202', 'details': 'Searched for the function public.exec_sql with parameter sql or with a single unnamed json/jsonb parameter, but no matches were found in the schema cache.', 'hint': None, 'message': 'Could not find the function public.exec_sql(sql) in the schema cache'}
+2025-03-06T22:31:37.325475 | [91mERROR[0m | run_fix_rls:run_sql_script:63 | Error executing SQL statement: {'code': 'PGRST202', 'details': 'Searched for the function public.exec_sql with parameter sql or with a single unnamed json/jsonb parameter, but no matches were found in the schema cache.', 'hint': None, 'message': 'Could not find the function public.exec_sql(sql) in the schema cache'}
+2025-03-06T22:31:37.507131 | [91mERROR[0m | run_fix_rls:run_sql_script:63 | Error executing SQL statement: {'code': 'PGRST202', 'details': 'Searched for the function public.exec_sql with parameter sql or with a single unnamed json/jsonb parameter, but no matches were found in the schema cache.', 'hint': None, 'message': 'Could not find the function public.exec_sql(sql) in the schema cache'}
+2025-03-06T22:31:38.290804 | [91mERROR[0m | run_fix_rls:run_sql_script:63 | Error executing SQL statement: {'code': 'PGRST202', 'details': 'Searched for the function public.exec_sql with parameter sql or with a single unnamed json/jsonb parameter, but no matches were found in the schema cache.', 'hint': None, 'message': 'Could not find the function public.exec_sql(sql) in the schema cache'}
+2025-03-06T22:31:39.855175 | [91mERROR[0m | run_fix_rls:run_sql_script:63 | Error executing SQL statement: {'code': 'PGRST202', 'details': 'Searched for the function public.exec_sql with parameter sql or with a single unnamed json/jsonb parameter, but no matches were found in the schema cache.', 'hint': None, 'message': 'Could not find the function public.exec_sql(sql) in the schema cache'}
+2025-03-06T22:31:43.070832 | [91mERROR[0m | run_fix_rls:run_sql_script:63 | Error executing SQL statement: {'code': 'PGRST202', 'details': 'Searched for the function public.exec_sql with parameter sql or with a single unnamed json/jsonb parameter, but no matches were found in the schema cache.', 'hint': None, 'message': 'Could not find the function public.exec_sql(sql) in the schema cache'}
+2025-03-06T22:31:43.176228 | [91mERROR[0m | run_fix_rls:run_sql_script:63 | Error executing SQL statement: {'code': 'PGRST202', 'details': 'Searched for the function public.exec_sql with parameter sql or with a single unnamed json/jsonb parameter, but no matches were found in the schema cache.', 'hint': None, 'message': 'Could not find the function public.exec_sql(sql) in the schema cache'}
+2025-03-06T22:31:43.350819 | [91mERROR[0m | run_fix_rls:run_sql_script:63 | Error executing SQL statement: {'code': 'PGRST202', 'details': 'Searched for the function public.exec_sql with parameter sql or with a single unnamed json/jsonb parameter, but no matches were found in the schema cache.', 'hint': None, 'message': 'Could not find the function public.exec_sql(sql) in the schema cache'}
+2025-03-06T22:31:43.441843 | [91mERROR[0m | run_fix_rls:run_sql_script:63 | Error executing SQL statement: {'code': 'PGRST202', 'details': 'Searched for the function public.exec_sql with parameter sql or with a single unnamed json/jsonb parameter, but no matches were found in the schema cache.', 'hint': None, 'message': 'Could not find the function public.exec_sql(sql) in the schema cache'}
+2025-03-06T22:31:43.682401 | [91mERROR[0m | run_fix_rls:run_sql_script:63 | Error executing SQL statement: {'code': 'PGRST202', 'details': 'Searched for the function public.exec_sql with parameter sql or with a single unnamed json/jsonb parameter, but no matches were found in the schema cache.', 'hint': None, 'message': 'Could not find the function public.exec_sql(sql) in the schema cache'}
+2025-03-06T22:31:43.682765 | [92mINFO[0m | run_fix_rls:run_sql_script:67 | SQL script execution completed: 0 successful, 16 failed
+2025-03-06T22:31:43.682940 | [91mERROR[0m | run_fix_rls:run_sql_script:86 | Error running SQL script: cannot access local variable 'e' where it is not associated with a value
+2025-03-06T22:31:43.684331 | [91mERROR[0m | run_fix_rls:run_sql_script:87 | Traceback (most recent call last):
+  File "/Users/amiteshtripathi/Library/Mobile Documents/com~apple~CloudDocs/Documents/My Projects/mpcrew/backend/scripts/run_fix_rls.py", line 71, in run_sql_script
+    if error_count > 0 and "function exec_sql does not exist" in str(e):
+                                                                     ^
+UnboundLocalError: cannot access local variable 'e' where it is not associated with a value
+
+2025-03-06T22:51:39.410776 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-06T22:51:39.480347 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T22:51:39.482178 | [92mINFO[0m | run:main:13 | Starting MPCrew application
+2025-03-06T22:51:39.781008 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: news_articles exists
+2025-03-06T22:51:39.844616 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: blogs exists
+2025-03-06T22:51:39.905605 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: user_preferences exists
+2025-03-06T22:51:39.964023 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: workflow_cache exists
+2025-03-06T22:51:39.964133 | [92mINFO[0m | init_db:initialize_database:34 | Database schema validation: All required tables exist
+2025-03-06T22:51:39.964165 | [92mINFO[0m | run:main:22 | Database initialization successful
+2025-03-06T22:51:40.101554 | [92mINFO[0m | init_db:get_table_counts:55 | Table news_articles has 50 records
+2025-03-06T22:51:40.156117 | [92mINFO[0m | init_db:get_table_counts:55 | Table blogs has 8 records
+2025-03-06T22:51:40.219559 | [92mINFO[0m | init_db:get_table_counts:55 | Table user_preferences has 0 records
+2025-03-06T22:51:40.290591 | [92mINFO[0m | init_db:get_table_counts:55 | Table workflow_cache has 0 records
+2025-03-06T22:51:40.290725 | [92mINFO[0m | run:main:26 | Table news_articles has 50 records
+2025-03-06T22:51:40.290769 | [92mINFO[0m | run:main:26 | Table blogs has 8 records
+2025-03-06T22:51:40.290796 | [92mINFO[0m | run:main:26 | Table user_preferences has 0 records
+2025-03-06T22:51:40.290819 | [92mINFO[0m | run:main:26 | Table workflow_cache has 0 records
+2025-03-06T22:51:40.290842 | [92mINFO[0m | run:main:49 | Starting FastAPI server
+2025-03-06T22:51:41.970247 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-06T22:51:42.031238 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T22:51:42.453792 | [92mINFO[0m | run:main:55 | Application shutdown
