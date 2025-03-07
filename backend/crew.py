@@ -9,6 +9,7 @@ from tools.trend_analyzer_tool import analyze_trends
 from tools.save_blog_post_tool import create_blog_post
 from config.logging_config import setup_logging
 from tools.supabase_client import supabase
+from datetime import datetime
 
 # Initialize logger and environment
 logger = setup_logging()
@@ -51,10 +52,10 @@ def get_trend_analyzer():
     if trend_analyzer is None:
         trend_analyzer = Agent(
             role='Trend Analyzer',
-            goal='Analyze news articles to identify emerging trends and patterns',
-            backstory="""You are a data analyst specializing in trend identification and
-            pattern recognition. Your expertise lies in discovering meaningful trends
-            and insights from news articles.""",
+            goal='Analyze news articles to identify trends and patterns',
+            backstory="""You are a skilled data analyst specializing in identifying trends
+            and patterns in news content. Your expertise lies in extracting meaningful
+            insights from large volumes of information.""",
             tools=[analyze_trends],
             allow_delegation=False,
             verbose=True
@@ -66,7 +67,7 @@ def get_content_creator():
     if content_creator is None:
         content_creator = Agent(
             role='Content Creator',
-            goal='Create engaging and informative blog posts based on trend analysis',
+            goal='Create engaging blog posts based on trend analysis',
             backstory="""You are a skilled content creator who excels at transforming
             complex trend analysis into engaging blog posts. You know how to structure
             content for maximum impact and readability.""",
@@ -98,12 +99,40 @@ def create_tasks(topic: str, category: str = None) -> list[Task]:
     # Log the task information
     logger.info(f"Creating tasks for topic: {topic}, category: {category if category else 'miscellaneous'}")
 
+    # Define a callback function to save the blog post
+    def save_blog_callback(output):
+        try:
+            logger.info("Blog post creation task completed, saving to database")
+            # Extract the content from the output
+            content = output.raw
+            
+            # Use the create_blog_post tool's _run method directly
+            # This avoids the 'Tool' object is not callable error
+            parsed_input = create_blog_post._parse_input({
+                'final_answer': content,
+                'topic': topic,
+                'category': category if category else 'technology'
+            })
+            
+            result = create_blog_post._run(
+                topic=parsed_input.get('topic'),
+                category=parsed_input.get('category'),
+                final_answer=parsed_input.get('final_answer')
+            )
+            
+            logger.info(f"Blog post save result: {result}")
+            return result
+        except Exception as e:
+            logger.error(f"Error in save_blog_callback: {str(e)}")
+            logger.error(traceback.format_exc())
+            return {"error": str(e)}
+
     # Create tasks with proper context (no context for first task, previous tasks as context for subsequent tasks)
     collect_news = Task(
         description=news_task_description,
         agent=news_collector,
-        expected_output="List of news articles with their content and metadata"
-        # First task has no context
+        expected_output="List of news articles with their content and metadata",
+        async_execution=False
     )
 
     analyze_trends = Task(
@@ -111,6 +140,7 @@ def create_tasks(topic: str, category: str = None) -> list[Task]:
         agent=trend_analyzer,
         expected_output="Trend analysis report with identified patterns and insights",
         context=[collect_news],  # Use the previous task as context
+        async_execution=False,
         output_required=True
     )
 
@@ -118,8 +148,10 @@ def create_tasks(topic: str, category: str = None) -> list[Task]:
         description=blog_task_description,
         agent=content_creator,
         expected_output="Published blog post with trend analysis and insights",
-        context=[collect_news, analyze_trends],  # Use both previous tasks as context
-        output_required=True
+        context=[analyze_trends],  # Only use the trend analysis task as context to avoid confusion
+        async_execution=False,
+        output_required=True,
+        callback=save_blog_callback  # Add the callback to save the blog post
     )
 
     logger.info(f"Created tasks for topic: {topic}, category: {category if category else 'miscellaneous'}")
@@ -131,9 +163,10 @@ def execute_workflow(topic: str, category: str = None) -> dict:
         logger.info(f"Starting workflow for topic: {topic}, category: {category}")
         
         # Check cache first
-        if check_existing_analysis(topic, category):
+        cached_result = get_cached_results(topic, category)
+        if cached_result:
             logger.info(f"Using cached analysis for {topic}")
-            return get_cached_results(topic, category)
+            return cached_result
         
         # Create and run the crew
         crew = Crew(
@@ -156,52 +189,117 @@ def execute_workflow(topic: str, category: str = None) -> dict:
         logger.info(f"Kicking off crew with inputs: {inputs}")
         result = crew.kickoff(inputs=inputs)
         
+        # Save the result to cache
+        try:
+            cache_result(topic, category, result)
+        except Exception as cache_error:
+            logger.error(f"Error caching result: {str(cache_error)}")
+            logger.error(traceback.format_exc())
+        
         logger.info("Workflow completed successfully")
         return result
 
     except Exception as e:
         logger.error(f"Error in workflow execution: {str(e)}")
-        logger.error(f"Traceback: {traceback.format_exc()}")
+        logger.error(traceback.format_exc())
         return {"error": str(e)}
 
-# Keep these helper functions
 def check_existing_analysis(topic: str, category: str = None) -> bool:
     """Check if we already have analysis for this topic"""
     try:
-        query = supabase.table('news_articles').select('*').eq('analyzed', True)
+        # Check for existing blog posts on this topic
+        query = supabase.table('blogs').select('id')
+        
+        if topic:
+            query = query.ilike('title', f'%{topic}%')
+        
         if category:
             query = query.eq('category', category)
-        query = query.ilike('title', f'%{topic}%')
-        response = query.execute()
-        return len(response.data) > 0
+            
+        # Only consider recent posts (last 24 hours)
+        yesterday = (datetime.now().isoformat().split('T')[0] + 'T00:00:00')
+        query = query.gte('created_at', yesterday)
+        
+        result = query.execute()
+        
+        return len(result.data) > 0
     except Exception as e:
         logger.error(f"Error checking existing analysis: {str(e)}")
+        logger.error(traceback.format_exc())
         return False
 
 def get_cached_results(topic: str, category: str = None):
-    """Get cached analysis results"""
+    """Get cached results for a topic"""
     try:
-        # Get related news articles
-        news_query = supabase.table('news_articles').select('*').eq('analyzed', True)
+        # First check the workflow_cache table
+        query = supabase.table('workflow_cache').select('*')
+        
+        if topic:
+            query = query.ilike('topic', f'%{topic}%')
+        
         if category:
-            news_query = news_query.eq('category', category)
-        news_query = news_query.ilike('title', f'%{topic}%')
-        news = news_query.execute()
-
-        # Get related blog posts
-        blog_query = supabase.table('blogs').select('*')
+            query = query.eq('category', category)
+            
+        cache_result = query.order('created_at', desc=True).limit(1).execute()
+        
+        if cache_result.data:
+            logger.info(f"Found cached workflow result for topic: {topic}")
+            return {
+                "cached": True,
+                "result": cache_result.data[0]['result'],
+                "timestamp": cache_result.data[0]['created_at']
+            }
+        
+        # If no workflow cache, check for blog posts
+        query = supabase.table('blogs').select('*')
+        
+        if topic:
+            query = query.ilike('title', f'%{topic}%')
+        
         if category:
-            blog_query = blog_query.eq('category', category)
-        blog_query = blog_query.ilike('title', f'%{topic}%')
-        blogs = blog_query.execute()
-
-        return {
-            'news_articles': news.data,
-            'blogs': blogs.data
-        }
+            query = query.eq('category', category)
+            
+        blog_result = query.order('created_at', desc=True).limit(1).execute()
+        
+        if blog_result.data:
+            logger.info(f"Found cached blog post for topic: {topic}")
+            return {
+                "blog": blog_result.data[0],
+                "cached": True,
+                "timestamp": blog_result.data[0]['created_at']
+            }
+        
+        return None
     except Exception as e:
-        logger.error(f"Error fetching cached results: {str(e)}")
-        raise
+        logger.error(f"Error getting cached results: {str(e)}")
+        logger.error(traceback.format_exc())
+        return None
+
+def cache_result(topic: str, category: str, result: dict):
+    """Cache the result of a workflow"""
+    try:
+        # Check if workflow_cache table exists
+        try:
+            # Create a cache entry
+            cache_entry = {
+                "topic": topic,
+                "category": category if category else 'miscellaneous',
+                "result": result,
+                "created_at": datetime.now().isoformat()
+            }
+            
+            # Save to Supabase
+            supabase.table('workflow_cache').insert(cache_entry).execute()
+            logger.info(f"Cached workflow result for topic: {topic}")
+        except Exception as e:
+            logger.error(f"Error saving to workflow_cache: {str(e)}")
+            logger.error(traceback.format_exc())
+            
+            # If the table doesn't exist, we'll just skip caching
+            logger.warning("Skipping workflow caching due to error")
+    except Exception as e:
+        logger.error(f"Error in cache_result: {str(e)}")
+        logger.error(traceback.format_exc())
 
 # Export only what's needed
 __all__ = ['execute_workflow']

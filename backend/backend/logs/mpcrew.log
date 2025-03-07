@@ -426,3 +426,27 @@ context
 2025-03-06T18:43:44.418283 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
 2025-03-06T18:43:44.419494 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
 2025-03-06T18:43:45.161224 | [92mINFO[0m | run:<module>:11 | Application shutdown
+2025-03-06T18:57:28.415344 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-06T18:57:28.443649 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T18:57:28.444796 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-06T18:57:30.292414 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-06T18:57:30.317017 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T18:57:30.318126 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-06T18:58:23.347394 | [92mINFO[0m | run:<module>:11 | Application shutdown
+2025-03-06T19:15:01.933517 | [92mINFO[0m | crew:<module>:21 | Initializing CrewAI components
+2025-03-06T19:15:01.959258 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T19:15:01.960310 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-06T19:15:03.926617 | [92mINFO[0m | crew:<module>:21 | Initializing CrewAI components
+2025-03-06T19:15:03.951033 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T19:15:03.952462 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-06T19:18:05.935886 | [92mINFO[0m | run:<module>:11 | Application shutdown
+2025-03-06T19:53:23.875045 | [92mINFO[0m | crew:<module>:21 | Initializing CrewAI components
+2025-03-06T19:53:23.935683 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T19:53:23.936819 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-06T19:53:25.738181 | [92mINFO[0m | crew:<module>:21 | Initializing CrewAI components
+2025-03-06T19:53:25.796775 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T19:53:25.798000 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-06T19:54:47.201689 | [92mINFO[0m | crew:<module>:21 | Initializing CrewAI components
+2025-03-06T19:54:47.264074 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T19:54:47.265242 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-06T19:54:50.539490 | [92mINFO[0m | run:<module>:11 | Application shutdown

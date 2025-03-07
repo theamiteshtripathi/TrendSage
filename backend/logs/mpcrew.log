@@ -293,3 +293,200 @@ context
 2025-03-06T18:45:52.196847 | [92mINFO[0m | main:get_trends:130 | Fetching trends
 2025-03-06T18:45:52.308060 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
 2025-03-06T18:48:40.289433 | [92mINFO[0m | run:<module>:11 | Application shutdown
+2025-03-06T18:58:35.839704 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-06T18:58:35.873602 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T18:58:35.874794 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-06T18:58:37.435731 | [92mINFO[0m | crew:<module>:20 | Initializing CrewAI components
+2025-03-06T18:58:37.459289 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T18:58:37.460408 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-06T18:58:49.411999 | [92mINFO[0m | main:analyze_trends:82 | Analyzing trends for topic: Cryptocurrency
+2025-03-06T18:58:49.414546 | [92mINFO[0m | crew:execute_workflow:152 | Starting workflow for topic: Cryptocurrency, category: None
+2025-03-06T18:58:49.772274 | [92mINFO[0m | crew:create_tasks:99 | Creating tasks for topic: Cryptocurrency, category: miscellaneous
+2025-03-06T18:58:49.775425 | [92mINFO[0m | crew:create_tasks:146 | Created tasks for topic: Cryptocurrency, category: miscellaneous
+2025-03-06T18:58:49.786955 | [92mINFO[0m | crew:execute_workflow:177 | Kicking off crew with inputs: {'topic': 'Cryptocurrency', 'category': 'miscellaneous'}
+2025-03-06T18:58:52.539888 | [92mINFO[0m | news_data_collection_tool:fetch_news:76 | fetch_news received inputs: {'description': 'Cryptocurrency', 'type': 'any'}
+2025-03-06T18:58:52.540410 | [92mINFO[0m | news_data_collection_tool:fetch_news:114 | Processing fetch_news for topic: Cryptocurrency, category: None
+2025-03-06T18:58:52.540683 | [92mINFO[0m | news_data_collection_tool:fetch_news:121 | Fetching news for topic: Cryptocurrency, category: miscellaneous
+2025-03-06T18:58:57.557033 | [92mINFO[0m | memory_store:add_article:41 | Added article https://www.bbc.com/news/articles/cx2844nvwx8o to memory
+2025-03-06T18:59:01.572652 | [92mINFO[0m | memory_store:add_article:41 | Added article https://gizmodo.com/north-korea-stole-1-4-billion-in-largest-crypto-heist-ever-researchers-say-2000567708 to memory
+2025-03-06T18:59:06.400041 | [92mINFO[0m | memory_store:add_article:41 | Added article https://www.wired.com/story/memecoin-scandal-threatens-argentine-president-javier-milei/ to memory
+2025-03-06T18:59:10.107674 | [92mINFO[0m | memory_store:add_article:41 | Added article https://gizmodo.com/musk-and-trumps-fort-knox-trip-is-about-bitcoin-2000569420 to memory
+2025-03-06T18:59:13.852248 | [92mINFO[0m | memory_store:add_article:41 | Added article https://gizmodo.com/microstrategy-says-drop-the-micro-its-cleaner-2000559905 to memory
+2025-03-06T18:59:17.084293 | [92mINFO[0m | memory_store:add_article:41 | Added article https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_ec5f1673-f689-475b-98c0-d1c991dc5830 to memory
+2025-03-06T18:59:21.738406 | [92mINFO[0m | memory_store:add_article:41 | Added article https://www.bbc.com/news/articles/czdl6er0369o to memory
+2025-03-06T18:59:25.792893 | [92mINFO[0m | memory_store:add_article:41 | Added article https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_71f5295b-a0ce-47d2-b1e2-d0ce67b7c3e0 to memory
+2025-03-06T18:59:29.298655 | [92mINFO[0m | memory_store:add_article:41 | Added article https://consent.yahoo.com/v2/collectConsent?sessionId=1_cc-session_aafa5b37-26b3-4d64-bece-549d393a84a7 to memory
+2025-03-06T18:59:33.798847 | [92mINFO[0m | memory_store:add_article:41 | Added article https://it.slashdot.org/story/25/02/26/0522234/north-koreas-unprecedented-15-billion-crypto-heist-exploited-human-element-not-code to memory
+2025-03-06T18:59:33.861022 | [92mINFO[0m | news_data_collection_tool:fetch_news:194 | Saved 10 new articles
+2025-03-06T18:59:57.980314 | [92mINFO[0m | trend_analyzer_tool:analyze_trends:66 | analyze_trends received inputs: {'articles': [{'title': 'Cryptocurrency theft of £1.1bn could be biggest ever', 'source': 'BBC News', 'published_at': '2025-02-22', 'content': "Cryptocurrency firm Bybit experienced a massive hack in which hackers stole $1.5 billion worth of digital currency, making it potentially the biggest crypto theft in history. Bybit's founder assured..."}, {'title': 'North Korea Stole $1.4 Billion in Largest Crypto Heist Ever, Researchers Say', 'source': 'Gizmodo.com', 'author': 'Thomas Maxwell', 'published_at': '2025-02-24', 'content': "North Korea has conducted its largest cryptocurrency heist yet, stealing $1.4 billion worth of Ethereum from the exchange ByBit. The company's CEO has stated that they have raised new funding to cover..."}, {'title': 'Memecoin Scandal Threatens Argentina’s Milei', 'source': 'Wired', 'author': 'Javier Carbajal', 'published_at': '2025-02-18', 'content': "Argentina's president, Javier Milei, is facing backlash and lawsuits for his involvement in the collapse of a cryptocurrency called $Libra, which he promoted on social media. The sudden surge in value..."}, {'title': 'Musk and Trump’s Fort Knox Trip Is About Bitcoin', 'source': 'Gizmodo.com', 'author': 'Matthew Gault', 'published_at': '2025-02-27', 'content': "The article discusses the possibility of President Donald Trump and Elon Musk visiting Fort Knox to check on America's gold reserves and potentially use it to create a Bitcoin reserve. The idea of mis..."}, {'title': 'MicroStrategy Says Drop the Micro, It’s Cleaner', 'source': 'Gizmodo.com', 'author': 'AJ Dellinger', 'published_at': '2025-02-06', 'content': 'Michael Saylor, CEO of MicroStrategy, has announced that the company will be changing its name to Strategy and incorporating a Bitcoin-themed logo. The company has heavily invested in Bitcoin, with Sa...'}, {'title': 'The SEC is dropping an investigation into Robinhood', 'source': 'Yahoo Entertainment', 'author': 'Kris Holt', 'published_at': '2025-02-24', 'content': 'The article discusses the benefits of practicing gratitude on a daily basis. Gratitude has been shown to have numerous positive effects on both the mind and body. It can improve mental health by incre...'}, {'title': "'This battle is my 9 to 5 - I won't stop until I have my £620m of Bitcoin back'", 'source': 'BBC News', 'published_at': '2025-02-15', 'content': 'James Howells is on a mission to retrieve a hard drive containing 8,000 bitcoins worth about £620m that he mistakenly threw away in 2013. Despite facing setbacks, including a High Court judge dismissi...'}, {'title': 'From Volatility to Fraud, Is Investing in Cryptocurrency Just Too Risky?', 'source': 'Yahoo Entertainment', 'published_at': '2025-02-26', 'content': 'The article discusses the impact of the COVID-19 pandemic on the mental health of adolescents. It highlights the challenges faced by teenagers during this time, including increased feelings of isolati...'}, {'title': "Trump attempts to bail out his wealthy cryptocurrency backers with 'U.S. crypto reserve'", 'source': 'Yahoo Entertainment', 'published_at': '2025-03-03', 'content': 'The article discusses the benefits of incorporating mindfulness practices into daily routines. Mindfulness involves paying attention to the present moment without judgment, which has been shown to red...'}, {'title': "North Korea's Unprecedented $1.5 Billion Crypto Heist Exploited Human Element, Not Code", 'source': 'Slashdot.org', 'author': 'msmash', 'published_at': '2025-02-26', 'content': 'The article discusses the benefits of implementing mindfulness practices in the workplace. It highlights how mindfulness can improve employee well-being, reduce stress levels, and increase overall pro...'}]}
+2025-03-06T18:59:57.981048 | [92mINFO[0m | trend_analyzer_tool:analyze_trends:121 | Analyzing trends for topic: None, category: None
+2025-03-06T18:59:57.981208 | [91mERROR[0m | trend_analyzer_tool:analyze_trends:228 | Error in analyze_trends: 'url'
+2025-03-06T18:59:59.481826 | [92mINFO[0m | trend_analyzer_tool:analyze_trends:66 | analyze_trends received inputs: {'description': 'Analyze the collected news articles about Cryptocurrency to identify trends, focusing on emerging patterns, key developments, and significant insights.'}
+2025-03-06T18:59:59.482686 | [92mINFO[0m | trend_analyzer_tool:analyze_trends:121 | Analyzing trends for topic: Analyze the collected news articles about Cryptocurrency to identify trends, focusing on emerging patterns, key developments, and significant insights., category: None
+2025-03-06T18:59:59.482784 | [92mINFO[0m | trend_analyzer_tool:analyze_trends:125 | No articles provided, fetching from Supabase
+2025-03-06T18:59:59.631115 | [93mWARNING[0m | trend_analyzer_tool:analyze_trends:143 | No articles found in Supabase
+2025-03-06T19:00:23.099610 | [92mINFO[0m | crew:save_blog_callback:104 | Blog post creation task completed, saving to database
+2025-03-06T19:00:23.100294 | [91mERROR[0m | crew:save_blog_callback:118 | Error in save_blog_callback: 'Tool' object is not callable
+2025-03-06T19:00:23.102665 | [92mINFO[0m | crew:execute_workflow:180 | Workflow completed successfully
+2025-03-06T19:00:23.115108 | [92mINFO[0m | main:get_trends:130 | Fetching trends
+2025-03-06T19:00:23.249517 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T19:00:46.829722 | [92mINFO[0m | run:<module>:11 | Application shutdown
+2025-03-06T19:18:24.528674 | [92mINFO[0m | crew:<module>:21 | Initializing CrewAI components
+2025-03-06T19:18:24.557645 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T19:18:24.558724 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-06T19:18:26.178081 | [92mINFO[0m | crew:<module>:21 | Initializing CrewAI components
+2025-03-06T19:18:26.201808 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T19:18:26.202976 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-06T19:18:29.882901 | [92mINFO[0m | run:<module>:11 | Application shutdown
+2025-03-06T19:18:34.276898 | [92mINFO[0m | crew:<module>:21 | Initializing CrewAI components
+2025-03-06T19:18:34.300880 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T19:18:34.301960 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-06T19:18:35.963211 | [92mINFO[0m | crew:<module>:21 | Initializing CrewAI components
+2025-03-06T19:18:35.986688 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T19:18:35.987740 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-06T19:18:39.990020 | [92mINFO[0m | crew:<module>:21 | Initializing CrewAI components
+2025-03-06T19:18:40.014267 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T19:18:40.015370 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-06T19:18:41.365338 | [92mINFO[0m | run:<module>:11 | Application shutdown
+2025-03-06T19:18:48.606887 | [92mINFO[0m | crew:<module>:21 | Initializing CrewAI components
+2025-03-06T19:18:48.630509 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T19:18:48.631595 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-06T19:18:50.890339 | [92mINFO[0m | crew:<module>:21 | Initializing CrewAI components
+2025-03-06T19:18:51.009848 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T19:18:51.017144 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-06T19:19:01.801853 | [92mINFO[0m | main:analyze_trends:82 | Analyzing trends for topic: Cryptocurrency
+2025-03-06T19:19:01.804473 | [92mINFO[0m | crew:execute_workflow:154 | Starting workflow for topic: Cryptocurrency, category: None
+2025-03-06T19:19:02.132918 | [92mINFO[0m | crew:create_tasks:100 | Creating tasks for topic: Cryptocurrency, category: miscellaneous
+2025-03-06T19:19:02.139300 | [92mINFO[0m | crew:create_tasks:148 | Created tasks for topic: Cryptocurrency, category: miscellaneous
+2025-03-06T19:19:02.148330 | [92mINFO[0m | crew:execute_workflow:179 | Kicking off crew with inputs: {'topic': 'Cryptocurrency', 'category': 'miscellaneous'}
+2025-03-06T19:19:16.116701 | [92mINFO[0m | trend_analyzer_tool:analyze_trends:69 | analyze_trends received inputs type: <class 'dict'>
+2025-03-06T19:19:16.117300 | [92mINFO[0m | trend_analyzer_tool:analyze_trends:94 | Extracted topic from description: Analyze the current trends and insights in the cryptocurrency news landscape, focusing on emerging patterns and key developments.
+2025-03-06T19:19:16.117440 | [92mINFO[0m | trend_analyzer_tool:analyze_trends:144 | Analyzing trends for topic: Analyze the current trends and insights in the cryptocurrency news landscape, focusing on emerging patterns and key developments., category: None
+2025-03-06T19:19:16.117528 | [92mINFO[0m | trend_analyzer_tool:analyze_trends:148 | No articles provided, fetching from Supabase
+2025-03-06T19:19:16.229527 | [93mWARNING[0m | trend_analyzer_tool:analyze_trends:166 | No articles found in Supabase
+2025-03-06T19:19:37.583998 | [92mINFO[0m | crew:save_blog_callback:105 | Blog post creation task completed, saving to database
+2025-03-06T19:19:37.584979 | [91mERROR[0m | crew:save_blog_callback:119 | Error in save_blog_callback: 'Tool' object is not callable
+2025-03-06T19:19:37.585447 | [91mERROR[0m | crew:save_blog_callback:120 | Traceback (most recent call last):
+  File "/Users/amiteshtripathi/Library/Mobile Documents/com~apple~CloudDocs/Documents/My Projects/mpcrew/backend/crew.py", line 110, in save_blog_callback
+    result = create_blog_post({
+             ^^^^^^^^^^^^^^^^^^
+TypeError: 'Tool' object is not callable
+
+2025-03-06T19:19:37.714523 | [91mERROR[0m | crew:cache_result:267 | Error caching result: {}
+2025-03-06T19:19:37.716038 | [91mERROR[0m | crew:cache_result:268 | Traceback (most recent call last):
+  File "/Users/amiteshtripathi/Library/Mobile Documents/com~apple~CloudDocs/Documents/My Projects/mpcrew/backend/crew.py", line 263, in cache_result
+    supabase.table('workflow_cache').insert(cache_entry).execute()
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/site-packages/postgrest/_sync/request_builder.py", line 78, in execute
+    raise APIError(r.json())
+postgrest.exceptions.APIError: {}
+
+2025-03-06T19:19:37.716127 | [92mINFO[0m | crew:execute_workflow:189 | Workflow completed successfully
+2025-03-06T19:19:37.722790 | [92mINFO[0m | main:get_trends:130 | Fetching trends
+2025-03-06T19:19:37.822770 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T19:27:38.620494 | [92mINFO[0m | run:<module>:11 | Application shutdown
+2025-03-06T19:55:00.023919 | [92mINFO[0m | crew:<module>:21 | Initializing CrewAI components
+2025-03-06T19:55:00.237296 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T19:55:00.238514 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-06T19:55:01.995352 | [92mINFO[0m | crew:<module>:21 | Initializing CrewAI components
+2025-03-06T19:55:02.064595 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
+2025-03-06T19:55:02.065743 | [92mINFO[0m | run:<module>:7 | Starting MPCrew application
+2025-03-06T19:55:02.329544 | [92mINFO[0m | main:analyze_trends:82 | Analyzing trends for topic: Cryptocurrency
+2025-03-06T19:55:02.329808 | [92mINFO[0m | crew:execute_workflow:163 | Starting workflow for topic: Cryptocurrency, category: None
+2025-03-06T19:55:02.630223 | [91mERROR[0m | crew:get_cached_results:274 | Error getting cached results: {'code': '42P01', 'details': None, 'hint': None, 'message': 'relation "public.workflow_cache" does not exist'}
+2025-03-06T19:55:02.630630 | [91mERROR[0m | crew:get_cached_results:275 | Traceback (most recent call last):
+  File "/Users/amiteshtripathi/Library/Mobile Documents/com~apple~CloudDocs/Documents/My Projects/mpcrew/backend/crew.py", line 243, in get_cached_results
+    cache_result = query.order('created_at', desc=True).limit(1).execute()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/site-packages/postgrest/_sync/request_builder.py", line 78, in execute
+    raise APIError(r.json())
+postgrest.exceptions.APIError: {'code': '42P01', 'details': None, 'hint': None, 'message': 'relation "public.workflow_cache" does not exist'}
+
+2025-03-06T19:55:02.631569 | [92mINFO[0m | crew:create_tasks:100 | Creating tasks for topic: Cryptocurrency, category: miscellaneous
+2025-03-06T19:55:02.632638 | [92mINFO[0m | crew:create_tasks:157 | Created tasks for topic: Cryptocurrency, category: miscellaneous
+2025-03-06T19:55:02.637564 | [92mINFO[0m | crew:execute_workflow:189 | Kicking off crew with inputs: {'topic': 'Cryptocurrency', 'category': 'miscellaneous'}
+2025-03-06T19:55:04.226241 | [92mINFO[0m | news_data_collection_tool:_run:83 | fetch_news received inputs - topic: Cryptocurrency, category: any
+2025-03-06T19:55:04.226529 | [92mINFO[0m | news_data_collection_tool:_run:89 | Processing fetch_news for topic: Cryptocurrency, category: any
+2025-03-06T19:55:04.226591 | [92mINFO[0m | news_data_collection_tool:_run:96 | Fetching news for topic: Cryptocurrency, category: miscellaneous
+2025-03-06T19:55:04.343366 | [92mINFO[0m | news_data_collection_tool:_run:109 | Found 3 cached articles
+2025-03-06T19:55:14.187064 | [92mINFO[0m | trend_analyzer_tool:_run:72 | analyze_trends running with topic: Cryptocurrency, category: Trends Analysis
+2025-03-06T19:55:36.243874 | [92mINFO[0m | save_blog_post_tool:_run:81 | create_blog_post running with topic: Cryptocurrency, category: Technology
+2025-03-06T19:55:40.479184 | [91mERROR[0m | save_blog_post_tool:generate_blog_content:60 | Failed to parse LLM response as JSON
+2025-03-06T19:55:40.618112 | [92mINFO[0m | save_blog_post_tool:_run:227 | Saving blog post: Analysis Report
+2025-03-06T19:55:40.713554 | [91mERROR[0m | save_blog_post_tool:_run:246 | Database error saving blog post: {'code': 'PGRST204', 'details': None, 'hint': None, 'message': "Could not find the 'summary' column of 'blogs' in the schema cache"}
+2025-03-06T19:55:40.716569 | [91mERROR[0m | save_blog_post_tool:_run:247 | Traceback (most recent call last):
+  File "/Users/amiteshtripathi/Library/Mobile Documents/com~apple~CloudDocs/Documents/My Projects/mpcrew/backend/tools/save_blog_post_tool.py", line 229, in _run
+    result = supabase.table('blogs').insert(new_blog).execute()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/site-packages/postgrest/_sync/request_builder.py", line 78, in execute
+    raise APIError(r.json())
+postgrest.exceptions.APIError: {'code': 'PGRST204', 'details': None, 'hint': None, 'message': "Could not find the 'summary' column of 'blogs' in the schema cache"}
+
+2025-03-06T19:55:44.737500 | [92mINFO[0m | save_blog_post_tool:_run:81 | create_blog_post running with topic: Cryptocurrency, category: Finance and Technology
+2025-03-06T19:55:49.135456 | [91mERROR[0m | save_blog_post_tool:generate_blog_content:60 | Failed to parse LLM response as JSON
+2025-03-06T19:55:49.286944 | [92mINFO[0m | save_blog_post_tool:_run:227 | Saving blog post: Analysis Report
+2025-03-06T19:55:49.377490 | [91mERROR[0m | save_blog_post_tool:_run:246 | Database error saving blog post: {'code': 'PGRST204', 'details': None, 'hint': None, 'message': "Could not find the 'summary' column of 'blogs' in the schema cache"}
+2025-03-06T19:55:49.378635 | [91mERROR[0m | save_blog_post_tool:_run:247 | Traceback (most recent call last):
+  File "/Users/amiteshtripathi/Library/Mobile Documents/com~apple~CloudDocs/Documents/My Projects/mpcrew/backend/tools/save_blog_post_tool.py", line 229, in _run
+    result = supabase.table('blogs').insert(new_blog).execute()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/site-packages/postgrest/_sync/request_builder.py", line 78, in execute
+    raise APIError(r.json())
+postgrest.exceptions.APIError: {'code': 'PGRST204', 'details': None, 'hint': None, 'message': "Could not find the 'summary' column of 'blogs' in the schema cache"}
+
+2025-03-06T19:55:59.439299 | [92mINFO[0m | crew:save_blog_callback:105 | Blog post creation task completed, saving to database
+2025-03-06T19:55:59.441311 | [92mINFO[0m | save_blog_post_tool:_parse_input:268 | create_blog_post received inputs type: <class 'dict'>
+2025-03-06T19:55:59.441358 | [92mINFO[0m | save_blog_post_tool:_parse_input:284 | Input keys: ['final_answer', 'topic', 'category']
+2025-03-06T19:55:59.441387 | [92mINFO[0m | save_blog_post_tool:_parse_input:291 | Found final_answer with topic: Cryptocurrency
+2025-03-06T19:55:59.441415 | [92mINFO[0m | save_blog_post_tool:_run:81 | create_blog_post running with topic: Cryptocurrency, category: technology
+2025-03-06T19:55:59.441441 | [92mINFO[0m | save_blog_post_tool:_run:85 | Using final_answer as blog content
+2025-03-06T19:55:59.441469 | [92mINFO[0m | save_blog_post_tool:_run:101 | Saving blog post from final answer: Cryptocurrency Trends Analysis
+2025-03-06T19:55:59.619684 | [91mERROR[0m | save_blog_post_tool:_run:130 | Database error saving blog post: {'code': 'PGRST204', 'details': None, 'hint': None, 'message': "Could not find the 'summary' column of 'blogs' in the schema cache"}
+2025-03-06T19:55:59.620190 | [91mERROR[0m | save_blog_post_tool:_run:131 | Traceback (most recent call last):
+  File "/Users/amiteshtripathi/Library/Mobile Documents/com~apple~CloudDocs/Documents/My Projects/mpcrew/backend/tools/save_blog_post_tool.py", line 113, in _run
+    result = supabase.table('blogs').insert(new_blog).execute()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/site-packages/postgrest/_sync/request_builder.py", line 78, in execute
+    raise APIError(r.json())
+postgrest.exceptions.APIError: {'code': 'PGRST204', 'details': None, 'hint': None, 'message': "Could not find the 'summary' column of 'blogs' in the schema cache"}
+
+2025-03-06T19:55:59.620301 | [92mINFO[0m | crew:save_blog_callback:123 | Blog post save result: {'status': 'error', 'message': 'Database error: {\'code\': \'PGRST204\', \'details\': None, \'hint\': None, \'message\': "Could not find the \'summary\' column of \'blogs\' in the schema cache"}', 'blog': {'title': 'Cryptocurrency Trends Analysis', 'content': "## Title: Navigating the Storm: Cryptocurrency, Cybersecurity, and the Future of Trust\n\n### Introduction\n\nThe world of cryptocurrency is as volatile as it is innovative. In recent months, tides have shifted, bringing to light pressing issues that impact not just the future of digital currencies, but the financial stability and security of global markets. Crypto enthusiasts and investors alike have been shaken by recent security breaches, highlighting the fragility and the potential monumental risks associated with these digital assets. \n\n### Recent Watershed Event\n\nA significant wake-up call came from Dubai-based cryptocurrency firm Bybit, which fell victim to one of the largest security breaches recorded in crypto history. This cyberattack led to the loss of $1.5 billion in digital currency, marking a turning point in both cryptocurrency theft and cybersecurity conversations. Despite the staggering scale of this theft, Bybit has assured its customers of reimbursement and is actively working to capture the culprits behind this audacious heist. You can explore more about this event in the detailed [BBC News Report](https://www.bbc.com/news/articles/cx2844nvwx8o).\n\n![Bybit Hack](https://ichef.bbci.co.uk/news/1024/branded_news/6955/live/3b7f8060-f0a0-11ef-aa8c-a70a49189dd9.jpg)\n\n### Emerging Trends in Cryptocurrency\n\n#### 1. Rising Instances of Cryptocurrency Theft\n\nWith the allure of anonymity and decentralization, cryptocurrency thefts are more frequent and widespread. As hackers become more sophisticated in their methods, the industry finds itself scrambling to keep pace with necessary security advancements.\n\n#### 2. Enhanced Cybersecurity Measures\n\nIn response to these threats, the need for robust cybersecurity protocols is not just urgent but paramount. The future of digital currency hinges on firms implementing advanced security frameworks capable of thwarting potential breaches before they jeopardize user assets and data.\n\n#### 3. Preserving User Trust and Confidence\n\nAs security concerns mount, users are rightfully more vigilant and concerned about the safety of their investments. Clear and effective reimbursement policies are becoming crucial. They aren’t merely damage control measures but an integral part of building and maintaining customer trust.\n\n### Key Insights and Future Implications\n\n1. **Cybersecurity as a Priority**: Firms operating within the cryptocurrency space need to prioritize developing and maintaining strong cybersecurity measures. This is no longer optional; it's a business imperative.\n\n2. **Reimbursement Policy Importance**: As theft and breaches challenge user confidence, robust reimbursement policies can help retain customer trust. They provide a safety net that is much needed in these uncertain times.\n\n3. **Adapting to Evolving Threats**: The constant evolution of hacking and cyber threats means that security tactics should be dynamic. Regular updates and innovations in technology will be crucial in defending against future threats.\n\n### Conclusion\n\nAs cryptocurrencies continue to revolutionize financial landscapes, their resilience will be measured by their ability to safeguard against threats while maintaining user trust. The road ahead must be paved with stronger, smarter security strategies, resting on the foundation of transparency and commitment to safeguarding assets. As these technologies mature, they will undoubtedly refine and redefine the future of money—creating a more secure digital frontier for all.\n\nBy embracing these necessary changes, the cryptocurrency industry can expect not only to survive these challenges but to emerge stronger and more secure than ever before.\n```", 'summary': '## Title: Navigating the Storm: Cryptocurrency, Cybersecurity, and the Future of Trust\n\n### Introduction\n\nThe world of cryptocurrency is as volatile as it is innovative. In recent months, tides have s...', 'category': 'technology', 'image_url': None, 'trend_score': 1.0, 'created_at': '2025-03-06T19:55:59.441464'}}
+2025-03-06T19:55:59.623378 | [91mERROR[0m | crew:cache_result:295 | Error saving to workflow_cache: Object of type CrewOutput is not JSON serializable
+2025-03-06T19:55:59.626758 | [91mERROR[0m | crew:cache_result:296 | Traceback (most recent call last):
+  File "/Users/amiteshtripathi/Library/Mobile Documents/com~apple~CloudDocs/Documents/My Projects/mpcrew/backend/crew.py", line 292, in cache_result
+    supabase.table('workflow_cache').insert(cache_entry).execute()
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/site-packages/postgrest/_sync/request_builder.py", line 58, in execute
+    r = self.session.request(
+        ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/site-packages/httpx/_client.py", line 824, in request
+    request = self.build_request(
+              ^^^^^^^^^^^^^^^^^^^
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/site-packages/httpx/_client.py", line 358, in build_request
+    return Request(
+           ^^^^^^^^
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/site-packages/httpx/_models.py", line 342, in __init__
+    headers, stream = encode_request(
+                      ^^^^^^^^^^^^^^^
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/site-packages/httpx/_content.py", line 214, in encode_request
+    return encode_json(json)
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/site-packages/httpx/_content.py", line 177, in encode_json
+    body = json_dumps(json).encode("utf-8")
+           ^^^^^^^^^^^^^^^^
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type CrewOutput is not JSON serializable
+
+2025-03-06T19:55:59.626863 | [93mWARNING[0m | crew:cache_result:299 | Skipping workflow caching due to error
+2025-03-06T19:55:59.626908 | [92mINFO[0m | crew:execute_workflow:199 | Workflow completed successfully
+2025-03-06T19:55:59.636825 | [92mINFO[0m | main:get_trends:130 | Fetching trends
+2025-03-06T19:55:59.770704 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
+2025-03-06T19:56:11.628446 | [92mINFO[0m | run:<module>:11 | Application shutdown
