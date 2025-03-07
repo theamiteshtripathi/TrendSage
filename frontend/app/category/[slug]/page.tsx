@@ -7,6 +7,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Header } from "@/components/header"
 import { BlogPost } from "@/components/blog-post"
 import { apiClient } from "@/lib/api"
+import { Button } from "@/components/ui/button"
 
 interface BlogPostType {
   id: string
@@ -80,7 +81,7 @@ export default function CategoryPage() {
 
       <main className="container mx-auto px-4 py-8">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold">{activeCategory} Trends</h1>
+          <h1 className="text-4xl font-bold gradient-text">{activeCategory} Trends</h1>
           <p className="text-muted-foreground mt-2">
             Discover the latest trends in {activeCategory.toLowerCase()}
           </p>
@@ -88,7 +89,7 @@ export default function CategoryPage() {
 
         {isLoading && (
           <div className="flex justify-center py-12">
-            <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
+            <Loader2 className="h-8 w-8 animate-spin text-primary" />
           </div>
         )}
 
@@ -99,22 +100,29 @@ export default function CategoryPage() {
         )}
 
         {!isLoading && blogPosts.length === 0 && !error && (
-          <div className="text-center py-12">
-            <h2 className="text-2xl font-semibold mb-2">No blog posts found</h2>
-            <p className="text-muted-foreground">
+          <div className="text-center py-12 glass-effect rounded-xl p-8">
+            <h2 className="text-2xl font-semibold mb-4">No blog posts found</h2>
+            <p className="text-muted-foreground mb-6">
               There are no blog posts in the {activeCategory} category yet.
             </p>
+            <Button 
+              onClick={() => router.push('/')}
+              className="btn-futuristic"
+            >
+              Explore All Categories
+            </Button>
           </div>
         )}
 
         {blogPosts.length > 0 && (
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-1">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {blogPosts.map((post) => (
               <BlogPost
                 key={post.id}
                 title={post.title || "Untitled Post"}
                 content={post.content || "No content available"}
                 category={post.category || "Miscellaneous"}
+                image_url={post.image_url}
                 onChatClick={() => handleChatWithTrends(post.id)}
                 onReadClick={() => handleReadAnalysis(post.id)}
               />

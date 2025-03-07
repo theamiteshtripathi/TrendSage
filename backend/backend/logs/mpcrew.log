@@ -700,3 +700,8 @@ UnboundLocalError: cannot access local variable 'e' where it is not associated w
 2025-03-07T01:34:53.354676 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
 2025-03-07T01:34:55.616990 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
 2025-03-07T01:34:55.704123 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:35:23.348224 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:35:53.349349 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:35:55.650540 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:35:55.728857 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:36:07.076607 | [92mINFO[0m | run:main:55 | Application shutdown

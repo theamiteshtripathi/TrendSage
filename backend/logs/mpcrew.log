@@ -1768,3 +1768,223 @@ postgrest.exceptions.APIError: {'code': '22P02', 'details': None, 'hint': None, 
 2025-03-07T01:33:55.669635 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
 2025-03-07T01:33:55.842122 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
 2025-03-07T01:34:12.645086 | [92mINFO[0m | run:main:55 | Application shutdown
+2025-03-07T01:36:02.519223 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-07T01:36:02.590879 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-07T01:36:02.685679 | [92mINFO[0m | main:<module>:61 | FastAPI application initialized
+2025-03-07T01:36:02.687378 | [92mINFO[0m | run:main:13 | Starting MPCrew application
+2025-03-07T01:36:02.802096 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: news_articles exists
+2025-03-07T01:36:02.859169 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: blogs exists
+2025-03-07T01:36:02.910668 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: user_preferences exists
+2025-03-07T01:36:02.964337 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: workflow_cache exists
+2025-03-07T01:36:02.964767 | [92mINFO[0m | init_db:initialize_database:34 | Database schema validation: All required tables exist
+2025-03-07T01:36:02.964834 | [92mINFO[0m | run:main:22 | Database initialization successful
+2025-03-07T01:36:03.014753 | [92mINFO[0m | init_db:get_table_counts:55 | Table news_articles has 65 records
+2025-03-07T01:36:03.066500 | [92mINFO[0m | init_db:get_table_counts:55 | Table blogs has 14 records
+2025-03-07T01:36:03.166440 | [92mINFO[0m | init_db:get_table_counts:55 | Table user_preferences has 0 records
+2025-03-07T01:36:03.214788 | [92mINFO[0m | init_db:get_table_counts:55 | Table workflow_cache has 4 records
+2025-03-07T01:36:03.215045 | [92mINFO[0m | run:main:26 | Table news_articles has 65 records
+2025-03-07T01:36:03.215118 | [92mINFO[0m | run:main:26 | Table blogs has 14 records
+2025-03-07T01:36:03.215145 | [92mINFO[0m | run:main:26 | Table user_preferences has 0 records
+2025-03-07T01:36:03.215166 | [92mINFO[0m | run:main:26 | Table workflow_cache has 4 records
+2025-03-07T01:36:03.215187 | [92mINFO[0m | run:main:49 | Starting FastAPI server
+2025-03-07T01:36:03.216166 | [92mINFO[0m | run:main:55 | Application shutdown
+2025-03-07T01:36:12.292169 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-07T01:36:12.341742 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-07T01:36:12.421591 | [92mINFO[0m | main:<module>:61 | FastAPI application initialized
+2025-03-07T01:36:12.422799 | [92mINFO[0m | run:main:13 | Starting MPCrew application
+2025-03-07T01:36:12.605571 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: news_articles exists
+2025-03-07T01:36:12.660552 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: blogs exists
+2025-03-07T01:36:12.717338 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: user_preferences exists
+2025-03-07T01:36:12.771177 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: workflow_cache exists
+2025-03-07T01:36:12.771337 | [92mINFO[0m | init_db:initialize_database:34 | Database schema validation: All required tables exist
+2025-03-07T01:36:12.771371 | [92mINFO[0m | run:main:22 | Database initialization successful
+2025-03-07T01:36:12.822429 | [92mINFO[0m | init_db:get_table_counts:55 | Table news_articles has 65 records
+2025-03-07T01:36:12.875082 | [92mINFO[0m | init_db:get_table_counts:55 | Table blogs has 14 records
+2025-03-07T01:36:12.939585 | [92mINFO[0m | init_db:get_table_counts:55 | Table user_preferences has 0 records
+2025-03-07T01:36:12.994258 | [92mINFO[0m | init_db:get_table_counts:55 | Table workflow_cache has 4 records
+2025-03-07T01:36:12.994378 | [92mINFO[0m | run:main:26 | Table news_articles has 65 records
+2025-03-07T01:36:12.994411 | [92mINFO[0m | run:main:26 | Table blogs has 14 records
+2025-03-07T01:36:12.994433 | [92mINFO[0m | run:main:26 | Table user_preferences has 0 records
+2025-03-07T01:36:12.994482 | [92mINFO[0m | run:main:26 | Table workflow_cache has 4 records
+2025-03-07T01:36:12.994503 | [92mINFO[0m | run:main:49 | Starting FastAPI server
+2025-03-07T01:36:14.769174 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-07T01:36:14.821719 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-07T01:36:14.890887 | [92mINFO[0m | main:<module>:61 | FastAPI application initialized
+2025-03-07T01:36:21.098990 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:36:21.250108 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:36:21.585614 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:36:21.650750 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:36:50.787210 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:36:55.655167 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:36:55.738728 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:37:20.793518 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:37:55.661209 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:37:55.893277 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:38:42.720501 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:38:42.951602 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:38:55.633506 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:38:55.945261 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:39:12.538628 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:39:17.645409 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:39:17.794662 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:39:19.330030 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:39:19.407873 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:39:49.330766 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:39:55.624788 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:39:55.810353 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:40:15.938964 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:40:16.071340 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:40:20.921656 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:40:22.347405 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:40:45.943429 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:41:15.944579 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:41:45.947629 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:42:15.948281 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:42:31.232022 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:42:32.203359 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:42:32.316345 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:42:32.640389 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:43:01.143106 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:43:31.146818 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:44:01.146447 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:44:12.915338 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:44:13.119613 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:44:14.874594 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:44:15.032765 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:44:44.879023 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:45:14.878225 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:45:44.878985 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:46:14.898248 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:46:44.885358 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:47:14.882397 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:47:44.883664 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:48:14.883983 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:48:44.877572 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:49:14.898832 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:49:44.882072 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:49:55.117861 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:49:55.765752 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:50:25.109807 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:50:28.572045 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:50:29.658154 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:50:30.141178 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:50:30.452728 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:50:31.228534 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:50:31.342013 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:50:33.274949 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:50:34.439419 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:50:40.590681 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:50:40.648516 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:50:40.834002 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:50:40.888263 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:50:45.270584 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:50:45.540442 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:51:15.260874 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:51:18.361776 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:51:18.631097 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:51:18.707840 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:51:18.767073 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:52:01.616778 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:52:01.891240 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:52:02.601851 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:52:02.705612 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:52:33.380065 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:53:03.382220 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:53:33.403164 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:54:03.384843 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:54:55.644982 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:55:55.705482 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:56:02.460771 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:56:03.690587 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:56:03.850471 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:56:03.920660 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:56:03.992348 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:56:33.576353 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:57:03.574057 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:57:33.571548 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:58:03.572516 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:58:33.574012 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:59:04.384002 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T01:59:34.385436 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:00:31.396702 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:00:55.720393 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:01:04.386483 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:01:40.325284 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:01:40.644431 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:02:10.386452 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:02:31.041813 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:02:31.228610 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:02:31.291521 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:02:31.357693 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:02:38.127114 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:02:38.257954 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:02:38.364925 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:02:38.594118 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:02:39.281718 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:02:39.333629 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:02:39.786793 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:02:39.832216 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:02:40.324188 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:02:40.392367 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:02:41.055542 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:02:41.179864 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:02:41.794913 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:02:41.860640 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:02:42.325002 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:02:42.381823 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:02:42.959314 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:02:43.027237 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:02:44.151189 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:02:44.226538 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:02:52.976250 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:02:53.140872 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:03:22.970247 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:03:52.971381 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:04:22.990582 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:04:52.970276 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:05:22.972211 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:06:13.534524 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:06:13.839980 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:06:15.420290 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:06:15.710478 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:06:45.405214 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:06:53.465700 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:06:54.041008 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:06:54.126651 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:06:54.178290 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:07:02.351281 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:07:02.577208 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:07:03.624865 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:07:03.673099 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:08:21.171723 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:08:22.751223 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:08:51.002579 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:09:21.002410 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:09:51.005102 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:10:19.492102 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:10:19.810545 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:10:20.462880 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:10:20.536622 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:10:21.087714 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:10:21.160215 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:10:21.656664 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:10:21.833592 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:10:58.865288 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-07T02:10:58.978797 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-07T02:10:59.148565 | [92mINFO[0m | main:<module>:61 | FastAPI application initialized
+2025-03-07T02:10:59.192332 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:11:21.712561 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:11:38.923005 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:11:39.467291 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:11:39.844202 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:11:39.978532 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:11:40.174119 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:11:40.225231 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:11:40.412726 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:11:40.471366 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:11:40.911014 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:11:40.972278 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:11:43.053822 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:11:43.200747 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:12:01.037404 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:12:02.434796 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts

@@ -185,14 +185,29 @@ export function BlogPost({ title, content, category, image_url, onChatClick, onR
   // Get a category-specific image if no image_url is provided
   const displayImageUrl = image_url || getCategoryImage(category, title, content);
 
+  // Handle click on the card (excluding the chat button)
+  const handleCardClick = (e: React.MouseEvent) => {
+    // Only trigger if the click is not on or inside the chat button
+    if (!e.defaultPrevented) {
+      onReadClick();
+    }
+  };
+
   return (
-    <div className="glass-effect rounded-xl overflow-hidden transform transition-all duration-300 hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full group">
+    <div 
+      className="glass-effect rounded-xl overflow-hidden transform transition-all duration-300 hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full group cursor-pointer"
+      onClick={handleCardClick}
+    >
       {/* Image Section */}
       <div className="aspect-video overflow-hidden relative">
         <img
           src={displayImageUrl}
           alt={title}
           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+          onError={(e) => {
+            // Fallback to a reliable placeholder if image fails to load
+            (e.target as HTMLImageElement).src = '/placeholder.jpg';
+          }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-70"></div>
         <span className="absolute bottom-3 left-3 inline-block px-3 py-1 text-xs font-semibold rounded-full bg-primary/80 text-white backdrop-blur-sm">
@@ -210,7 +225,10 @@ export function BlogPost({ title, content, category, image_url, onChatClick, onR
         
         <div className="mt-auto flex space-x-2">
           <Button 
-            onClick={onReadClick}
+            onClick={(e) => {
+              e.stopPropagation(); // Prevent card click
+              onReadClick();
+            }}
             className="flex-1 flex items-center justify-center space-x-1 btn-futuristic"
             size="sm"
           >
@@ -219,7 +237,11 @@ export function BlogPost({ title, content, category, image_url, onChatClick, onR
           </Button>
           
           <Button 
-            onClick={onChatClick}
+            onClick={(e) => {
+              e.preventDefault(); // Prevent card click
+              e.stopPropagation(); // Prevent card click
+              onChatClick();
+            }}
             variant="outline"
             className="flex-1 flex items-center justify-center space-x-1 border-primary/50 hover:bg-primary/20 transition-all duration-300"
             size="sm"

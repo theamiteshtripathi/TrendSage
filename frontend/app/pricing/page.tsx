@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Header } from "@/components/header";
 import { Button } from "@/components/ui/button";
-import { Check } from "lucide-react";
+import { Check, X, Zap } from "lucide-react";
 
 // Sample categories for the navigation bar
 const categories = ["All", "Tech", "Business", "Health", "Science", "Sports", "Entertainment", "Politics", "Miscellaneous"];
@@ -13,6 +13,11 @@ export default function PricingPage() {
   const router = useRouter();
   const [activeCategory, setActiveCategory] = useState("All");
   const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">("monthly");
+
+  // Calculate yearly prices with 20% discount
+  const getYearlyPrice = (monthlyPrice: number) => {
+    return Math.floor(monthlyPrice * 12 * 0.8);
+  };
 
   const handleCategoryClick = (category: string) => {
     setActiveCategory(category);
@@ -23,6 +28,70 @@ export default function PricingPage() {
     }
   };
 
+  const pricingPlans = [
+    {
+      name: "Free",
+      description: "Perfect for casual trend watchers",
+      price: 0,
+      features: [
+        "5 trend analyses per month",
+        "Basic chat with trends",
+        "Access to public trend library",
+        "Standard response time",
+        "Email support"
+      ],
+      limitations: [
+        "Limited to 5 analyses per month",
+        "No advanced AI insights",
+        "No custom categories",
+        "No priority updates"
+      ],
+      cta: "Get Started",
+      popular: false
+    },
+    {
+      name: "Pro",
+      description: "For serious trend analysts and content creators",
+      price: billingCycle === "monthly" ? 19 : getYearlyPrice(19),
+      features: [
+        "1,000 trend analyses per month",
+        "Unlimited chat with all trends",
+        "Full access to trend library",
+        "Priority response time",
+        "Priority email & chat support",
+        "Custom categories",
+        "Advanced AI insights",
+        "Trend alerts",
+        "Export to PDF/CSV"
+      ],
+      limitations: [],
+      cta: "Upgrade to Pro",
+      popular: true
+    },
+    {
+      name: "Business",
+      description: "Enterprise-grade trend intelligence",
+      price: billingCycle === "monthly" ? 49 : getYearlyPrice(49),
+      features: [
+        "Unlimited trend analyses",
+        "Unlimited chat with all trends",
+        "Full access to trend library",
+        "Fastest response time",
+        "24/7 priority support",
+        "Custom categories & tagging",
+        "Advanced AI insights & predictions",
+        "Real-time trend alerts",
+        "API access",
+        "Team collaboration",
+        "Custom integrations",
+        "Dedicated account manager"
+      ],
+      limitations: [],
+      cta: "Contact Sales",
+      popular: false
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <Header 
@@ -30,155 +99,109 @@ export default function PricingPage() {
         activeCategory={activeCategory} 
         onCategoryClick={handleCategoryClick} 
       />
-
+      
       <main className="container mx-auto px-4 py-16">
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Pricing</h1>
+          <h1 className="text-4xl font-bold gradient-text mb-4">Choose Your Plan</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Choose the plan that works for you
+            Get unlimited access to AI-powered trend analysis and insights with our flexible pricing plans
           </p>
-        </div>
-
-        {/* Billing Toggle */}
-        <div className="flex justify-center mb-12">
-          <div className="glass-effect inline-flex rounded-full p-1">
+          
+          {/* Billing toggle */}
+          <div className="mt-8 inline-flex items-center p-1 dark:bg-black/30 light:bg-white/60 backdrop-blur-md rounded-full dark:border-white/10 light:border-gray-200/50 border">
             <button
+              type="button"
               onClick={() => setBillingCycle("monthly")}
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
-                billingCycle === "monthly"
-                  ? "bg-primary text-white shadow-lg"
-                  : "text-muted-foreground hover:text-white"
+              className={`px-6 py-2 rounded-full transition-all ${
+                billingCycle === "monthly" 
+                  ? "bg-primary text-white shadow-lg" 
+                  : "dark:text-white/70 light:text-gray-700 hover:text-primary"
               }`}
             >
-              MONTHLY
+              Monthly
             </button>
             <button
+              type="button"
               onClick={() => setBillingCycle("yearly")}
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-all ${
-                billingCycle === "yearly"
-                  ? "bg-primary text-white shadow-lg"
-                  : "text-muted-foreground hover:text-white"
+              className={`px-6 py-2 rounded-full transition-all flex items-center ${
+                billingCycle === "yearly" 
+                  ? "bg-primary text-white shadow-lg" 
+                  : "dark:text-white/70 light:text-gray-700 hover:text-primary"
               }`}
             >
-              YEARLY (SAVE 20%)
+              Yearly <span className="ml-2 text-xs font-bold bg-green-500/80 text-white px-2 py-0.5 rounded-full">Save 20%</span>
             </button>
-          </div>
-        </div>
-
-        {/* Pricing Cards */}
-        <div className="grid gap-8 md:grid-cols-3">
-          {/* Free Plan */}
-          <div className="glass-effect rounded-2xl overflow-hidden border border-white/10 transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10">
-            <div className="p-8">
-              <h3 className="text-lg font-medium mb-2">Hobby</h3>
-              <div className="mb-6">
-                <span className="text-5xl font-bold">Free</span>
-              </div>
-              
-              <div className="border-t border-white/10 my-6"></div>
-              
-              <h4 className="font-medium mb-4">Includes</h4>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary mr-2 shrink-0" />
-                  <span>Pro two-week trial</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary mr-2 shrink-0" />
-                  <span>2000 completions</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary mr-2 shrink-0" />
-                  <span>50 slow premium requests</span>
-                </li>
-              </ul>
-              
-              <Button className="w-full btn-futuristic">
-                <span>Get Started</span>
-              </Button>
-            </div>
-          </div>
-          
-          {/* Pro Plan */}
-          <div className="glass-effect rounded-2xl overflow-hidden border border-primary/30 shadow-lg shadow-primary/10 relative">
-            {/* Gradient background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-purple-500/10 to-pink-500/20 opacity-30"></div>
-            
-            <div className="p-8 relative">
-              <h3 className="text-lg font-medium mb-2">Pro</h3>
-              <div className="mb-6">
-                <span className="text-5xl font-bold">${billingCycle === "monthly" ? "20" : "16"}</span>
-                <span className="text-muted-foreground ml-1">/month</span>
-              </div>
-              
-              <div className="border-t border-white/10 my-6"></div>
-              
-              <h4 className="font-medium mb-4">Everything in Hobby, plus</h4>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary mr-2 shrink-0" />
-                  <span>Unlimited completions</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary mr-2 shrink-0" />
-                  <span>500 fast premium requests per month</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary mr-2 shrink-0" />
-                  <span>Unlimited slow premium requests</span>
-                </li>
-              </ul>
-              
-              <Button className="w-full btn-futuristic">
-                <span>Get Started</span>
-              </Button>
-            </div>
-          </div>
-          
-          {/* Business Plan */}
-          <div className="glass-effect rounded-2xl overflow-hidden border border-white/10 transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10">
-            <div className="p-8">
-              <h3 className="text-lg font-medium mb-2">Business</h3>
-              <div className="mb-6">
-                <span className="text-5xl font-bold">${billingCycle === "monthly" ? "40" : "32"}</span>
-                <span className="text-muted-foreground ml-1">/user/month</span>
-              </div>
-              
-              <div className="border-t border-white/10 my-6"></div>
-              
-              <h4 className="font-medium mb-4">Everything in Pro, plus</h4>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary mr-2 shrink-0" />
-                  <span>Enforce privacy mode org-wide</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary mr-2 shrink-0" />
-                  <span>Centralized team billing</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary mr-2 shrink-0" />
-                  <span>Admin dashboard with usage stats</span>
-                </li>
-                <li className="flex items-start">
-                  <Check className="h-5 w-5 text-primary mr-2 shrink-0" />
-                  <span>SAML/OIDC SSO</span>
-                </li>
-              </ul>
-              
-              <Button className="w-full btn-futuristic">
-                <span>Get Started</span>
-              </Button>
-            </div>
           </div>
         </div>
         
-        {/* Enterprise Section */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {pricingPlans.map((plan) => (
+            <div 
+              key={plan.name}
+              className={`dark:bg-black/30 light:bg-white/60 backdrop-blur-md rounded-xl overflow-hidden transition-all duration-300 hover:translate-y-[-4px] relative ${
+                plan.popular ? 'border-2 border-primary/50 shadow-lg shadow-primary/20' : 'dark:border border-white/10 light:border border-gray-200/50'
+              }`}
+            >
+              {plan.popular && (
+                <div className="absolute top-0 right-0 bg-primary text-white px-4 py-1 text-sm font-bold rounded-bl-lg">
+                  Most Popular
+                </div>
+              )}
+              
+              <div className="p-6">
+                <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
+                <p className="text-muted-foreground mb-6">{plan.description}</p>
+                
+                <div className="mb-6">
+                  <span className="text-4xl font-bold">${plan.price}</span>
+                  <span className="text-muted-foreground">/{billingCycle === "monthly" ? "month" : "year"}</span>
+                </div>
+                
+                <Button 
+                  className={`w-full mb-6 ${plan.popular ? 'btn-futuristic' : ''}`}
+                  variant={plan.popular ? "default" : "outline"}
+                >
+                  {plan.popular && <Zap className="mr-2 h-4 w-4" />}
+                  {plan.cta}
+                </Button>
+                
+                <div className="space-y-4">
+                  <p className="font-semibold">What's included:</p>
+                  <ul className="space-y-2">
+                    {plan.features.map((feature) => (
+                      <li key={feature} className="flex items-start">
+                        <Check className="h-5 w-5 text-green-500 mr-2 shrink-0 mt-0.5" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  
+                  {plan.limitations.length > 0 && (
+                    <>
+                      <p className="font-semibold mt-4">Limitations:</p>
+                      <ul className="space-y-2">
+                        {plan.limitations.map((limitation) => (
+                          <li key={limitation} className="flex items-start">
+                            <X className="h-5 w-5 text-red-500 mr-2 shrink-0 mt-0.5" />
+                            <span className="text-muted-foreground">{limitation}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        
         <div className="mt-16 text-center">
-          <p className="text-lg mb-4">
-            Questions about enterprise security, procurement, or custom contracts?
+          <h2 className="text-2xl font-bold mb-4">Need a custom plan?</h2>
+          <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+            We offer custom enterprise solutions for organizations with specific needs.
+            Contact our sales team to discuss your requirements.
           </p>
-          <Button variant="outline" className="border-primary/50 hover:bg-primary/20 transition-all duration-300">
+          <Button size="lg" variant="outline" className="dark:border-primary/50 light:border-primary/50 hover:bg-primary/20">
             Contact Sales
           </Button>
         </div>

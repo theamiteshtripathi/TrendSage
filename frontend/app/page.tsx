@@ -39,7 +39,7 @@ interface BlogPostType {
   image_url?: string
 }
 
-// Sample categories for the navigation bar
+// Categories for navigation
 const categories = ["All", "Tech", "Business", "Health", "Science", "Sports", "Entertainment", "Politics", "Miscellaneous"]
 
 export default function TrendSage() {
@@ -80,6 +80,7 @@ export default function TrendSage() {
     try {
       const categoryParam = category && category !== "All" ? category : undefined
       const blogsResponse = await apiClient.getBlogs(categoryParam)
+      
       if (blogsResponse && blogsResponse.length > 0) {
         setBlogPosts(blogsResponse)
         setCurrentBlogPost(blogsResponse[0])
@@ -182,13 +183,10 @@ export default function TrendSage() {
     router.push(`/blog/${id}`);
   }
 
-  const handleChatWithTrends = () => {
-    if (currentBlogPost) {
-      router.push(`/chat/${currentBlogPost.id}`);
-    } else if (blogPosts.length > 0) {
-      router.push(`/chat/${blogPosts[0].id}`);
-    } else {
-      setError("No blog posts available to chat with. Please try analyzing a topic first.");
+  const handleChatWithTrends = (blogId?: string) => {
+    const id = blogId || currentBlogPost?.id
+    if (id) {
+      router.push(`/chat/${id}`)
     }
   }
 
@@ -202,149 +200,77 @@ export default function TrendSage() {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
       <Header 
         categories={categories} 
         activeCategory={activeCategory} 
         onCategoryClick={handleCategoryClick} 
       />
-
-      {/* Hero Section */}
-      <HeroSection
-        searchQuery={searchQuery}
-        setSearchQuery={setSearchQuery}
-        onSearch={() => analyzeTrends()}
-        isLoading={isLoading}
-      />
-
+      
       <main className="container mx-auto px-4 py-8">
+        <HeroSection 
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+          onSearch={() => analyzeTrends()}
+          isLoading={isLoading}
+        />
+        
         {/* Error Alert */}
         {error && (
           <Alert variant="destructive" className="mb-6">
             <AlertDescription>{error}</AlertDescription>
           </Alert>
         )}
-
-        {/* Loading Animation */}
-        {isAnalyzing && !analysisComplete && (
-          <div className="my-12">
-            <LoadingAnimation message={`Analyzing trends for "${searchQuery}"...`} />
+        
+        {isAnalyzing && (
+          <div className="mt-12">
+            {!analysisComplete ? (
+              <LoadingAnimation message={`Analyzing trends for "${searchQuery}"...`} />
+            ) : (
+              <div className="text-center mb-12">
+                <SuccessAnimation title={searchQuery} />
+                <div className="mt-6 flex justify-center space-x-4">
+                  <Button 
+                    onClick={() => handleReadAnalysis(currentBlogPost?.id || "")}
+                    className="btn-futuristic"
+                  >
+                    <BookOpen className="mr-2 h-5 w-5" />
+                    Read Analysis
+                  </Button>
+                  <Button 
+                    onClick={() => handleChatWithTrends()}
+                    variant="outline" 
+                    className="border-primary/50 hover:bg-primary/20"
+                  >
+                    <MessageSquare className="mr-2 h-5 w-5" />
+                    Chat with Trends
+                  </Button>
+                </div>
+              </div>
+            )}
           </div>
         )}
-
-        {/* Success Animation */}
-        {analysisComplete && currentBlogPost && (
-          <div className="my-12">
-            <SuccessAnimation title={searchQuery} />
-            <div className="flex justify-center mt-6 space-x-4">
-              <Button 
-                onClick={() => handleReadAnalysis(currentBlogPost.id)}
-                className="flex items-center justify-center space-x-1"
-              >
-                <BookOpen className="h-4 w-4 mr-2" />
-                <span>Read Analysis</span>
-              </Button>
-              
-              <Button 
-                onClick={() => router.push(`/chat/${currentBlogPost.id}`)}
-                variant="outline"
-                className="flex items-center justify-center space-x-1"
-              >
-                <MessageSquare className="h-4 w-4 mr-2" />
-                <span>Chat with Trends</span>
-              </Button>
-            </div>
-          </div>
-        )}
-
-        {/* Blog Posts Section */}
-        {blogPosts.length > 0 && (
-          <section className="py-12">
-            <div className="mb-8 text-center">
+        
+        {!isAnalyzing && blogPosts.length > 0 && (
+          <>
+            <div className="mt-16 mb-8 text-center">
               <h2 className="text-3xl font-bold gradient-text">Latest Trend Analysis</h2>
               <p className="text-muted-foreground mt-2">AI-generated insights on trending topics</p>
             </div>
-
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {blogPosts.map((post) => (
                 <BlogPost
                   key={post.id}
-                  title={post.title || "Untitled Post"}
-                  content={post.content || "No content available"}
-                  category={post.category || "Miscellaneous"}
-                  onChatClick={() => router.push(`/chat/${post.id}`)}
+                  title={post.title}
+                  content={post.content}
+                  category={post.category}
+                  image_url={post.image_url}
                   onReadClick={() => handleReadAnalysis(post.id)}
+                  onChatClick={() => handleChatWithTrends(post.id)}
                 />
               ))}
             </div>
-            
-            {/* Add pagination if needed in the future */}
-            {blogPosts.length > postsPerPage && (
-              <div className="flex justify-center mt-8">
-                <Button 
-                  variant="outline" 
-                  onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
-                  disabled={currentPage === 1}
-                  className="mr-2"
-                >
-                  Previous
-                </Button>
-                <span className="flex items-center mx-4">
-                  Page {currentPage} of {Math.ceil(blogPosts.length / postsPerPage)}
-                </span>
-                <Button 
-                  variant="outline" 
-                  onClick={() => setCurrentPage(prev => Math.min(prev + 1, Math.ceil(blogPosts.length / postsPerPage)))}
-                  disabled={currentPage === Math.ceil(blogPosts.length / postsPerPage)}
-                  className="ml-2"
-                >
-                  Next
-                </Button>
-              </div>
-            )}
-          </section>
-        )}
-
-        {/* Headlines Section */}
-        {headlines.length > 0 && (
-          <section className="py-12">
-            <div className="mb-8">
-              <h2 className="text-3xl font-bold">Related News</h2>
-              <p className="text-muted-foreground">Latest headlines on this topic</p>
-            </div>
-
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {headlines.map((headline, index) => (
-                <a
-                  key={index}
-                  href={headline.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group block overflow-hidden rounded-lg border bg-card transition-all hover:shadow-md"
-                >
-                  <div className="aspect-video overflow-hidden bg-muted">
-                    {headline.image ? (
-                      <img
-                        src={headline.image}
-                        alt={headline.title || "News headline"}
-                        className="h-full w-full object-cover transition-transform group-hover:scale-105"
-                      />
-                    ) : (
-                      <div className="flex h-full w-full items-center justify-center bg-muted">
-                        <span className="text-muted-foreground">No image</span>
-                      </div>
-                    )}
-                  </div>
-                  <div className="p-4">
-                    <h3 className="font-semibold line-clamp-2">{headline.title || "Untitled"}</h3>
-                    <p className="mt-2 text-sm text-muted-foreground line-clamp-3">
-                      {headline.description || "No description available"}
-                    </p>
-                  </div>
-                </a>
-              ))}
-            </div>
-          </section>
+          </>
         )}
       </main>
     </div>
