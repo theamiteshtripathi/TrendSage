@@ -2066,3 +2066,254 @@ postgrest.exceptions.APIError: {'code': '22P02', 'details': None, 'hint': None, 
 2025-03-07T02:22:43.901751 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
 2025-03-07T02:22:44.668870 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
 2025-03-07T02:23:13.892192 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:23:43.890008 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:24:13.897149 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:24:43.892140 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:25:13.897920 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:25:44.447316 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:26:14.406992 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:26:55.614952 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:27:21.053372 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:27:44.429504 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:28:14.415997 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:28:55.580474 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:29:55.599610 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:30:45.538821 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:30:47.970913 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:30:48.071447 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:30:48.147735 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:30:48.210129 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:31:04.567319 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:31:04.807977 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:31:07.024777 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:31:07.176590 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:31:23.900447 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:31:24.080071 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:31:24.161991 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:31:24.219400 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:31:25.195495 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:31:25.279890 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:31:55.570469 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:32:25.195506 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:32:55.199284 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:33:26.743861 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-07T02:33:26.793153 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-07T02:33:26.860553 | [92mINFO[0m | main:<module>:61 | FastAPI application initialized
+2025-03-07T02:33:26.876247 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:33:33.559922 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-07T02:33:33.606945 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-07T02:33:33.677005 | [92mINFO[0m | main:<module>:61 | FastAPI application initialized
+2025-03-07T02:33:53.177120 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-07T02:33:53.226433 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-07T02:33:54.933188 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-07T02:33:54.980213 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-07T02:33:55.050504 | [92mINFO[0m | main:<module>:61 | FastAPI application initialized
+2025-03-07T02:33:55.203946 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:34:25.192962 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:34:55.194468 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:35:14.656040 | [92mINFO[0m | run:main:55 | Application shutdown
+2025-03-07T02:46:35.457229 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-07T02:46:35.543928 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-07T02:46:35.659983 | [92mINFO[0m | main:<module>:61 | FastAPI application initialized
+2025-03-07T02:46:35.662489 | [92mINFO[0m | run:main:13 | Starting MPCrew application
+2025-03-07T02:46:35.849067 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: news_articles exists
+2025-03-07T02:46:35.896921 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: blogs exists
+2025-03-07T02:46:35.945448 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: user_preferences exists
+2025-03-07T02:46:35.995570 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: workflow_cache exists
+2025-03-07T02:46:35.995753 | [92mINFO[0m | init_db:initialize_database:34 | Database schema validation: All required tables exist
+2025-03-07T02:46:35.995800 | [92mINFO[0m | run:main:22 | Database initialization successful
+2025-03-07T02:46:36.047796 | [92mINFO[0m | init_db:get_table_counts:55 | Table news_articles has 65 records
+2025-03-07T02:46:36.170263 | [92mINFO[0m | init_db:get_table_counts:55 | Table blogs has 14 records
+2025-03-07T02:46:36.228205 | [92mINFO[0m | init_db:get_table_counts:55 | Table user_preferences has 0 records
+2025-03-07T02:46:36.279362 | [92mINFO[0m | init_db:get_table_counts:55 | Table workflow_cache has 4 records
+2025-03-07T02:46:36.279585 | [92mINFO[0m | run:main:26 | Table news_articles has 65 records
+2025-03-07T02:46:36.279720 | [92mINFO[0m | run:main:26 | Table blogs has 14 records
+2025-03-07T02:46:36.279769 | [92mINFO[0m | run:main:26 | Table user_preferences has 0 records
+2025-03-07T02:46:36.279799 | [92mINFO[0m | run:main:26 | Table workflow_cache has 4 records
+2025-03-07T02:46:36.279820 | [92mINFO[0m | run:main:49 | Starting FastAPI server
+2025-03-07T02:46:40.837061 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-07T02:46:40.930194 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-07T02:46:41.161738 | [92mINFO[0m | main:<module>:61 | FastAPI application initialized
+2025-03-07T02:46:55.914523 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:47:50.519004 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:47:53.728133 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:47:53.935802 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:47:54.009884 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:47:54.078462 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:48:06.512263 | [92mINFO[0m | main:analyze_trends:86 | Analyzing trends for topic: Olympics
+2025-03-07T02:48:06.513075 | [92mINFO[0m | crew:execute_workflow:204 | Starting workflow for topic: Olympics, category: None
+2025-03-07T02:48:06.682472 | [92mINFO[0m | crew:create_tasks:102 | Creating tasks for topic: Olympics, category: miscellaneous
+2025-03-07T02:48:06.687982 | [92mINFO[0m | crew:create_tasks:159 | Created tasks for topic: Olympics, category: miscellaneous
+2025-03-07T02:48:06.696988 | [92mINFO[0m | crew:execute_workflow:230 | Kicking off crew with inputs: {'topic': 'Olympics', 'category': 'miscellaneous'}
+2025-03-07T02:48:08.548498 | [92mINFO[0m | news_data_collection_tool:_run:83 | fetch_news received inputs - topic: Olympics, category: any
+2025-03-07T02:48:08.548756 | [92mINFO[0m | news_data_collection_tool:_run:89 | Processing fetch_news for topic: Olympics, category: any
+2025-03-07T02:48:08.549144 | [92mINFO[0m | news_data_collection_tool:_run:96 | Fetching news for topic: Olympics, category: sports
+2025-03-07T02:48:08.599160 | [92mINFO[0m | news_data_collection_tool:_run:121 | Fetching from NewsAPI (attempt 1/3)
+2025-03-07T02:48:13.440059 | [92mINFO[0m | memory_store:add_article:41 | Added article https://www.bbc.com/sport/athletics/articles/cq6gezz4v4lo to memory
+2025-03-07T02:48:13.511540 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: Gourley & Nielsen break British records at Keely Klassic
+2025-03-07T02:48:18.410069 | [92mINFO[0m | memory_store:add_article:41 | Added article https://www.bbc.com/news/articles/c1jpdn97xdgo to memory
+2025-03-07T02:48:18.485616 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: Gordon Ramsay restaurant sees 477 lucky cat thefts
+2025-03-07T02:48:22.451589 | [92mINFO[0m | memory_store:add_article:41 | Added article https://www.npr.org/2025/02/24/nx-s1-5306991/skier-mikaela-shiffrin-world-cup-wins to memory
+2025-03-07T02:48:22.508620 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: Mikaela Shiffrin seals legacy as one of skiing's greatest with historic 100 World Cup wins
+2025-03-07T02:48:25.790417 | [92mINFO[0m | memory_store:add_article:41 | Added article https://www.espn.com/olympics/skiing/story/_/id/43746325/breezy-johnson-wins-gold-women-downhill-alpine-worlds to memory
+2025-03-07T02:48:25.855087 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: Johnson wins gold at Alpine worlds; Vonn 15th
+2025-03-07T02:48:30.471159 | [92mINFO[0m | memory_store:add_article:41 | Added article https://www.cnet.com/tech/gaming/todays-nyt-mini-crossword-answers-for-sunday-march-2/ to memory
+2025-03-07T02:48:30.530597 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: Today's NYT Mini Crossword Answers for Sunday, March 2
+2025-03-07T02:48:30.530831 | [92mINFO[0m | news_data_collection_tool:_run:199 | Saved 5 new articles
+2025-03-07T02:48:42.673084 | [92mINFO[0m | trend_analyzer_tool:_run:72 | analyze_trends running with topic: Olympics, category: sports
+2025-03-07T02:48:54.611525 | [92mINFO[0m | save_blog_post_tool:_run:141 | create_blog_post running with topic: Olympics Trend Analysis, category: Sports
+2025-03-07T02:48:54.612340 | [92mINFO[0m | save_blog_post_tool:_run:145 | Using final_answer as blog content
+2025-03-07T02:48:54.779887 | [93mWARNING[0m | image_fetcher:fetch_image_from_unsplash:116 | Failed to fetch image from Unsplash: 401
+2025-03-07T02:48:54.900502 | [93mWARNING[0m | image_fetcher:fetch_image_from_unsplash:116 | Failed to fetch image from Unsplash: 401
+2025-03-07T02:48:55.009949 | [93mWARNING[0m | image_fetcher:fetch_image_from_unsplash:116 | Failed to fetch image from Unsplash: 401
+2025-03-07T02:48:55.194873 | [93mWARNING[0m | image_fetcher:fetch_image_from_unsplash:116 | Failed to fetch image from Unsplash: 401
+2025-03-07T02:48:55.303991 | [93mWARNING[0m | image_fetcher:fetch_image_from_unsplash:116 | Failed to fetch image from Unsplash: 401
+2025-03-07T02:48:55.423057 | [93mWARNING[0m | image_fetcher:fetch_image_from_unsplash:116 | Failed to fetch image from Unsplash: 401
+2025-03-07T02:48:55.451753 | [92mINFO[0m | image_fetcher:get_image_for_blog:143 | Using fallback image for category: Sports
+2025-03-07T02:48:55.485318 | [92mINFO[0m | save_blog_post_tool:_run:154 | Generated image URL: https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=800
+2025-03-07T02:48:55.486991 | [92mINFO[0m | save_blog_post_tool:_run:169 | Saving blog post from final answer: Olympics Trend Analysis Trends Analysis
+2025-03-07T02:48:55.745385 | [92mINFO[0m | save_blog_post_tool:_run:184 | Blog post saved successfully with ID: df342fa3-04c0-4b1c-9c88-24497bc73715
+2025-03-07T02:48:56.585865 | [92mINFO[0m | vector_embedding_tool:_create_embeddings:73 | Created embedding for blog ID: df342fa3-04c0-4b1c-9c88-24497bc73715
+2025-03-07T02:48:56.587252 | [92mINFO[0m | save_blog_post_tool:_run:199 | Created embeddings for blog post: df342fa3-04c0-4b1c-9c88-24497bc73715
+2025-03-07T02:49:01.614384 | [92mINFO[0m | crew:save_blog_callback:107 | Blog post creation task completed, saving to database
+2025-03-07T02:49:01.614703 | [92mINFO[0m | save_blog_post_tool:_parse_input:382 | create_blog_post received inputs type: <class 'dict'>
+2025-03-07T02:49:01.614760 | [92mINFO[0m | save_blog_post_tool:_parse_input:398 | Input keys: ['final_answer', 'topic', 'category']
+2025-03-07T02:49:01.614803 | [92mINFO[0m | save_blog_post_tool:_parse_input:405 | Found final_answer with topic: Olympics
+2025-03-07T02:49:01.614843 | [92mINFO[0m | save_blog_post_tool:_run:141 | create_blog_post running with topic: Olympics, category: technology
+2025-03-07T02:49:01.614875 | [92mINFO[0m | save_blog_post_tool:_run:145 | Using final_answer as blog content
+2025-03-07T02:49:01.726267 | [93mWARNING[0m | image_fetcher:fetch_image_from_unsplash:116 | Failed to fetch image from Unsplash: 401
+2025-03-07T02:49:01.922811 | [93mWARNING[0m | image_fetcher:fetch_image_from_unsplash:116 | Failed to fetch image from Unsplash: 401
+2025-03-07T02:49:02.039577 | [93mWARNING[0m | image_fetcher:fetch_image_from_unsplash:116 | Failed to fetch image from Unsplash: 401
+2025-03-07T02:49:02.179650 | [93mWARNING[0m | image_fetcher:fetch_image_from_unsplash:116 | Failed to fetch image from Unsplash: 401
+2025-03-07T02:49:02.289810 | [93mWARNING[0m | image_fetcher:fetch_image_from_unsplash:116 | Failed to fetch image from Unsplash: 401
+2025-03-07T02:49:02.451854 | [93mWARNING[0m | image_fetcher:fetch_image_from_unsplash:116 | Failed to fetch image from Unsplash: 401
+2025-03-07T02:49:02.452765 | [92mINFO[0m | image_fetcher:get_image_for_blog:147 | Using miscellaneous fallback image
+2025-03-07T02:49:02.453030 | [92mINFO[0m | save_blog_post_tool:_run:154 | Generated image URL: https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800
+2025-03-07T02:49:02.453199 | [92mINFO[0m | save_blog_post_tool:_run:169 | Saving blog post from final answer: Olympics Trends Analysis
+2025-03-07T02:49:02.622552 | [92mINFO[0m | save_blog_post_tool:_run:184 | Blog post saved successfully with ID: 195f547d-2223-44bb-a5c8-fa08c510b835
+2025-03-07T02:49:03.344979 | [92mINFO[0m | vector_embedding_tool:_create_embeddings:73 | Created embedding for blog ID: 195f547d-2223-44bb-a5c8-fa08c510b835
+2025-03-07T02:49:03.345242 | [92mINFO[0m | save_blog_post_tool:_run:199 | Created embeddings for blog post: 195f547d-2223-44bb-a5c8-fa08c510b835
+2025-03-07T02:49:03.345385 | [92mINFO[0m | crew:save_blog_callback:125 | Blog post save result: {'status': 'success', 'message': 'Blog post created successfully from final answer', 'blog': {'id': '195f547d-2223-44bb-a5c8-fa08c510b835', 'title': 'Olympics Trends Analysis', 'content': 'Title: "Olympic Excellence: A New Era of Record-Breaking Achievements in Track and Skiing"\n\nIn the competitive world of the Olympics, a striking narrative is unfolding—one of unparalleled achievements that redefine both track and skiing sports. Recent trend analysis reveals an exhilarating shift towards record-breaking performances, with athletes pushing the boundaries of what\'s possible.\n\n### Identified Themes and Patterns\n\nAs the world watches, athletes in track and skiing are setting new benchmarks. The spotlight is unwavering on their success and achievements, marking an era where progress in these sports is not just expected but surpassed.\n\n### Key Developments\n\nAmong the most notable events is the Keely Klassic meeting, where Neil Gourley and Lina Nielsen set new British indoor records. Their remarkable performances underscore a growing trend of extraordinary competitiveness in track events.\n\nIn skiing, Mikaela Shiffrin has firmly established her legacy as one of the sport\'s greats, reaching a historic milestone with her 100th World Cup win. This achievement signals a competitive zenith and opens the door to further historical feats.\n\nBreezy Johnson\'s gold medal at the Alpine skiing world championships is another testament to the readiness and excellence of modern athletes facing the mounting challenges of competitive events.\n\n### Emerging Trends\n\nThe realm of both track and skiing is witnessing a persistent rise in competitiveness and performance. Athletes, inspired by legendary figures like Mikaela Shiffrin and Breezy Johnson, are not only meeting the challenges of their sports but are continuously setting new records and inspiring future generations.\n\n### Significant Insights\n\nToday\'s athletes are showcasing a level of commitment and preparation that seems to exceed all previous standards. This heightened level of athleticism is inspiring not only to other competitors but also to enthusiasts worldwide, as audiences are captivated by this progression in sports.\n\nFigures like Mikaela Shiffrin are redefining success, motivating athletes everywhere to reach new heights. This pattern of record-breaking feats serves as a catalyst for increased interest and engagement in these evolving sports disciplines.\n\nIn summary, as we look towards future competitions, the narrative is clear: the Olympics today presents a thrilling saga of human potential and perseverance. With each milestone, athletes inspire their peers and fans alike, ensuring that each competition secures its own place in sports history. The only question that remains is: what records will be shattered next?\n\n---\n\nPublished blog post with trend analysis and insights.\n```', 'created_at': '2025-03-07T02:49:02.453173+00:00', 'updated_at': '2025-03-07T07:49:02.595501+00:00', 'user_id': None, 'category': 'technology', 'trend_score': 1, 'image_url': 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800', 'source_articles': [], 'author': None, 'published_at': '2025-03-07T07:49:02.595501+00:00', 'status': 'draft', 'metadata': {}}}
+2025-03-07T02:49:03.498482 | [92mINFO[0m | crew:cache_result:351 | Cached workflow result for topic: Olympics
+2025-03-07T02:49:03.499881 | [92mINFO[0m | crew:execute_workflow:251 | Workflow completed successfully
+2025-03-07T02:49:03.502911 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:49:03.577459 | [92mINFO[0m | main:get_trends:134 | Fetching trends
+2025-03-07T02:49:03.635327 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:49:03.720247 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:49:06.509684 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:49:23.748077 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:49:33.132171 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:49:33.382842 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:49:39.129810 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:49:39.352704 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:49:39.426576 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:49:39.503911 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:49:40.852455 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:49:40.926998 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:49:53.684881 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:49:53.961699 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:49:55.896825 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:49:56.191747 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:49:59.924880 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:50:00.009837 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:50:14.728574 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:50:14.917852 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:50:44.723282 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:50:48.613757 | [92mINFO[0m | run:main:55 | Application shutdown
+2025-03-07T03:00:46.861644 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-07T03:00:46.880409 | [92mINFO[0m | image_fetcher:<module>:22 | Using fallback images only (Unsplash API not configured)
+2025-03-07T03:00:46.931922 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-07T03:00:47.005990 | [92mINFO[0m | main:<module>:61 | FastAPI application initialized
+2025-03-07T03:00:47.007374 | [92mINFO[0m | run:main:13 | Starting MPCrew application
+2025-03-07T03:00:47.236856 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: news_articles exists
+2025-03-07T03:00:47.301271 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: blogs exists
+2025-03-07T03:00:47.349837 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: user_preferences exists
+2025-03-07T03:00:47.421468 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: workflow_cache exists
+2025-03-07T03:00:47.421700 | [92mINFO[0m | init_db:initialize_database:34 | Database schema validation: All required tables exist
+2025-03-07T03:00:47.421771 | [92mINFO[0m | run:main:22 | Database initialization successful
+2025-03-07T03:00:47.472021 | [92mINFO[0m | init_db:get_table_counts:55 | Table news_articles has 70 records
+2025-03-07T03:00:47.603795 | [92mINFO[0m | init_db:get_table_counts:55 | Table blogs has 16 records
+2025-03-07T03:00:47.645947 | [92mINFO[0m | init_db:get_table_counts:55 | Table user_preferences has 0 records
+2025-03-07T03:00:47.694021 | [92mINFO[0m | init_db:get_table_counts:55 | Table workflow_cache has 5 records
+2025-03-07T03:00:47.694133 | [92mINFO[0m | run:main:26 | Table news_articles has 70 records
+2025-03-07T03:00:47.694163 | [92mINFO[0m | run:main:26 | Table blogs has 16 records
+2025-03-07T03:00:47.694186 | [92mINFO[0m | run:main:26 | Table user_preferences has 0 records
+2025-03-07T03:00:47.694208 | [92mINFO[0m | run:main:26 | Table workflow_cache has 5 records
+2025-03-07T03:00:47.694229 | [92mINFO[0m | run:main:49 | Starting FastAPI server
+2025-03-07T03:00:49.670371 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-07T03:00:49.672749 | [92mINFO[0m | image_fetcher:<module>:22 | Using fallback images only (Unsplash API not configured)
+2025-03-07T03:00:49.731635 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-07T03:00:49.833685 | [92mINFO[0m | main:<module>:61 | FastAPI application initialized
+2025-03-07T03:00:53.878684 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:00:54.292054 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:00:54.433404 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:00:54.503912 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:01:10.372553 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:01:10.500438 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:01:10.723540 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:01:10.776281 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:01:11.220780 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:01:11.281382 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:01:12.463591 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:01:12.559349 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:01:22.707646 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:01:23.141856 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:01:24.621247 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:01:24.719810 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:01:35.284760 | [92mINFO[0m | chat:chat_with_blog:29 | Chat request for blog ID: 195f547d-2223-44bb-a5c8-fa08c510b835, query: Talk me about the buzz around olympics
+2025-03-07T03:03:06.121991 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:03:06.491048 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:03:36.101545 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:03:39.751984 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:03:40.880039 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:03:40.974608 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:03:41.148088 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:04:09.840629 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:04:39.811752 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:05:09.814621 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:05:39.815320 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:06:09.860730 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:06:39.821376 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:07:09.825534 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:07:39.820962 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:08:09.822515 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:08:33.686819 | [92mINFO[0m | run:main:55 | Application shutdown
+2025-03-07T03:09:30.307477 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-07T03:09:30.325821 | [92mINFO[0m | image_fetcher:<module>:22 | Using fallback images only (Unsplash API not configured)
+2025-03-07T03:09:30.380115 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-07T03:09:30.464864 | [92mINFO[0m | main:<module>:61 | FastAPI application initialized
+2025-03-07T03:09:30.466750 | [92mINFO[0m | run:main:13 | Starting MPCrew application
+2025-03-07T03:09:30.732434 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: news_articles exists
+2025-03-07T03:09:30.830130 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: blogs exists
+2025-03-07T03:09:30.883451 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: user_preferences exists
+2025-03-07T03:09:30.938342 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: workflow_cache exists
+2025-03-07T03:09:30.938594 | [92mINFO[0m | init_db:initialize_database:34 | Database schema validation: All required tables exist
+2025-03-07T03:09:30.938642 | [92mINFO[0m | run:main:22 | Database initialization successful
+2025-03-07T03:09:30.988876 | [92mINFO[0m | init_db:get_table_counts:55 | Table news_articles has 70 records
+2025-03-07T03:09:31.049970 | [92mINFO[0m | init_db:get_table_counts:55 | Table blogs has 16 records
+2025-03-07T03:09:31.095790 | [92mINFO[0m | init_db:get_table_counts:55 | Table user_preferences has 0 records
+2025-03-07T03:09:31.144195 | [92mINFO[0m | init_db:get_table_counts:55 | Table workflow_cache has 5 records
+2025-03-07T03:09:31.144422 | [92mINFO[0m | run:main:26 | Table news_articles has 70 records
+2025-03-07T03:09:31.144466 | [92mINFO[0m | run:main:26 | Table blogs has 16 records
+2025-03-07T03:09:31.144505 | [92mINFO[0m | run:main:26 | Table user_preferences has 0 records
+2025-03-07T03:09:31.144540 | [92mINFO[0m | run:main:26 | Table workflow_cache has 5 records
+2025-03-07T03:09:31.144574 | [92mINFO[0m | run:main:49 | Starting FastAPI server
+2025-03-07T03:09:32.738135 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-07T03:09:32.740302 | [92mINFO[0m | image_fetcher:<module>:22 | Using fallback images only (Unsplash API not configured)
+2025-03-07T03:09:32.792965 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-07T03:09:32.896303 | [92mINFO[0m | main:<module>:61 | FastAPI application initialized
+2025-03-07T03:09:39.825749 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:10:11.510884 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:10:11.723070 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:10:11.780819 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:10:11.855703 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:10:17.514205 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:10:17.905108 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:10:18.014632 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:10:18.086601 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:10:36.700684 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:10:36.888010 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:10:38.764817 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:10:38.899685 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:11:08.716858 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T03:11:24.181723 | [92mINFO[0m | run:main:55 | Application shutdown

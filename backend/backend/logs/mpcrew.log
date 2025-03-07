@@ -705,3 +705,84 @@ UnboundLocalError: cannot access local variable 'e' where it is not associated w
 2025-03-07T01:35:55.650540 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
 2025-03-07T01:35:55.728857 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
 2025-03-07T01:36:07.076607 | [92mINFO[0m | run:main:55 | Application shutdown
+2025-03-07T02:35:22.359532 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-07T02:35:22.444149 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-07T02:35:22.572785 | [92mINFO[0m | main:<module>:61 | FastAPI application initialized
+2025-03-07T02:35:22.575950 | [92mINFO[0m | run:main:13 | Starting MPCrew application
+2025-03-07T02:35:22.729732 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: news_articles exists
+2025-03-07T02:35:22.795534 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: blogs exists
+2025-03-07T02:35:22.847251 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: user_preferences exists
+2025-03-07T02:35:22.904494 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: workflow_cache exists
+2025-03-07T02:35:22.904597 | [92mINFO[0m | init_db:initialize_database:34 | Database schema validation: All required tables exist
+2025-03-07T02:35:22.904628 | [92mINFO[0m | run:main:22 | Database initialization successful
+2025-03-07T02:35:23.004995 | [92mINFO[0m | init_db:get_table_counts:55 | Table news_articles has 65 records
+2025-03-07T02:35:23.058074 | [92mINFO[0m | init_db:get_table_counts:55 | Table blogs has 14 records
+2025-03-07T02:35:23.109789 | [92mINFO[0m | init_db:get_table_counts:55 | Table user_preferences has 0 records
+2025-03-07T02:35:23.164886 | [92mINFO[0m | init_db:get_table_counts:55 | Table workflow_cache has 4 records
+2025-03-07T02:35:23.165035 | [92mINFO[0m | run:main:26 | Table news_articles has 65 records
+2025-03-07T02:35:23.165071 | [92mINFO[0m | run:main:26 | Table blogs has 14 records
+2025-03-07T02:35:23.165096 | [92mINFO[0m | run:main:26 | Table user_preferences has 0 records
+2025-03-07T02:35:23.165116 | [92mINFO[0m | run:main:26 | Table workflow_cache has 4 records
+2025-03-07T02:35:23.165134 | [92mINFO[0m | run:main:49 | Starting FastAPI server
+2025-03-07T02:35:26.860139 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-07T02:35:26.999510 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-07T02:35:27.178836 | [92mINFO[0m | main:<module>:61 | FastAPI application initialized
+2025-03-07T02:35:27.444738 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:35:55.191484 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:36:29.918550 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-07T02:36:29.991585 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-07T02:36:30.093594 | [92mINFO[0m | main:<module>:61 | FastAPI application initialized
+2025-03-07T02:36:30.113976 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:36:55.192982 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:37:25.189812 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:37:55.191767 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:38:25.197454 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:38:55.192213 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:39:25.192586 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:39:55.193021 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:40:25.192894 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:40:55.201261 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:41:25.192745 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:41:55.191935 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:42:25.208286 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:42:55.506426 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:43:25.384327 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:43:55.492573 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:44:55.541259 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:45:55.779694 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T02:46:26.019024 | [92mINFO[0m | run:main:55 | Application shutdown
+2025-03-07T02:59:01.611933 | [92mINFO[0m | image_fetcher:<module>:22 | Using fallback images only (Unsplash API not configured)
+2025-03-07T02:59:01.614437 | [92mINFO[0m | update_blog_images:<module>:89 | Starting blog image update script
+2025-03-07T02:59:02.124508 | [92mINFO[0m | update_blog_images:update_blog_images:44 | Found 16 blogs to check
+2025-03-07T02:59:02.124889 | [92mINFO[0m | image_fetcher:get_image_for_blog:156 | Using fallback image for category: Finance & Technology
+2025-03-07T02:59:02.442304 | [92mINFO[0m | update_blog_images:update_blog_images:73 | Updated blog 5d8fb205-b623-4793-8131-90eb38d1af69 with new image URL: https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=800
+2025-03-07T02:59:02.443338 | [92mINFO[0m | image_fetcher:get_image_for_blog:160 | Using miscellaneous fallback image
+2025-03-07T02:59:02.746598 | [92mINFO[0m | update_blog_images:update_blog_images:73 | Updated blog 232fd4e5-c47d-41ca-8538-c11359b32773 with new image URL: https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=800
+2025-03-07T02:59:02.746769 | [92mINFO[0m | image_fetcher:get_image_for_blog:160 | Using miscellaneous fallback image
+2025-03-07T02:59:02.909235 | [92mINFO[0m | update_blog_images:update_blog_images:73 | Updated blog cd4f3b1f-e48e-43ef-8ca6-faf4c40e4f2f with new image URL: https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=800
+2025-03-07T02:59:02.909545 | [92mINFO[0m | image_fetcher:get_image_for_blog:160 | Using miscellaneous fallback image
+2025-03-07T02:59:03.082150 | [92mINFO[0m | update_blog_images:update_blog_images:73 | Updated blog 66e5223b-c8c8-44d8-98a3-f9f28dcf41ac with new image URL: https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800
+2025-03-07T02:59:03.082576 | [92mINFO[0m | image_fetcher:get_image_for_blog:156 | Using fallback image for category: Technology
+2025-03-07T02:59:03.332812 | [92mINFO[0m | update_blog_images:update_blog_images:73 | Updated blog 5cb5a2e5-6ec0-4295-8123-bd85d89dfae8 with new image URL: https://images.unsplash.com/photo-1518770660439-4636190af475?w=800
+2025-03-07T02:59:03.333149 | [92mINFO[0m | image_fetcher:get_image_for_blog:160 | Using miscellaneous fallback image
+2025-03-07T02:59:03.490424 | [92mINFO[0m | update_blog_images:update_blog_images:73 | Updated blog 3c2e7971-cec4-410b-a041-395e195d29b7 with new image URL: https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=800
+2025-03-07T02:59:03.491166 | [92mINFO[0m | image_fetcher:get_image_for_blog:160 | Using miscellaneous fallback image
+2025-03-07T02:59:03.646652 | [92mINFO[0m | update_blog_images:update_blog_images:73 | Updated blog 9d95dba0-5753-4427-9244-6696d932ca55 with new image URL: https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800
+2025-03-07T02:59:03.648319 | [92mINFO[0m | image_fetcher:get_image_for_blog:160 | Using miscellaneous fallback image
+2025-03-07T02:59:03.868267 | [92mINFO[0m | update_blog_images:update_blog_images:73 | Updated blog 9e4dfe15-aa6f-43d1-a52e-afaa27021f44 with new image URL: https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800
+2025-03-07T02:59:03.868573 | [92mINFO[0m | image_fetcher:get_image_for_blog:160 | Using miscellaneous fallback image
+2025-03-07T02:59:04.001554 | [92mINFO[0m | update_blog_images:update_blog_images:73 | Updated blog d3fd8e6e-86b2-4b7d-b1db-dedf7117e702 with new image URL: https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800
+2025-03-07T02:59:04.001799 | [92mINFO[0m | image_fetcher:get_image_for_blog:160 | Using miscellaneous fallback image
+2025-03-07T02:59:04.144624 | [92mINFO[0m | update_blog_images:update_blog_images:73 | Updated blog cd28c59d-3cb5-41c0-ad7b-0e1bc3625617 with new image URL: https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800
+2025-03-07T02:59:04.161464 | [92mINFO[0m | image_fetcher:get_image_for_blog:156 | Using fallback image for category: Technology
+2025-03-07T02:59:04.382692 | [92mINFO[0m | update_blog_images:update_blog_images:73 | Updated blog 87d89c66-aa9b-4a4b-8dcf-dd68fbe707f1 with new image URL: https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800
+2025-03-07T02:59:04.382865 | [92mINFO[0m | image_fetcher:get_image_for_blog:160 | Using miscellaneous fallback image
+2025-03-07T02:59:04.499452 | [92mINFO[0m | update_blog_images:update_blog_images:73 | Updated blog c9a707ba-6bf7-40c3-8578-958a96660973 with new image URL: https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800
+2025-03-07T02:59:04.499722 | [92mINFO[0m | image_fetcher:get_image_for_blog:160 | Using miscellaneous fallback image
+2025-03-07T02:59:04.646914 | [92mINFO[0m | update_blog_images:update_blog_images:73 | Updated blog 09e7e7f7-a7cc-46c0-8b30-48043db0e435 with new image URL: https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800
+2025-03-07T02:59:04.647546 | [92mINFO[0m | image_fetcher:get_image_for_blog:160 | Using miscellaneous fallback image
+2025-03-07T02:59:04.850375 | [92mINFO[0m | update_blog_images:update_blog_images:73 | Updated blog e49c73bf-c14b-49a4-8596-ee58acd1031c with new image URL: https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=800
+2025-03-07T02:59:04.920602 | [92mINFO[0m | update_blog_images:update_blog_images:53 | Blog df342fa3-04c0-4b1c-9c88-24497bc73715 already has a valid image URL
+2025-03-07T02:59:05.004870 | [92mINFO[0m | update_blog_images:update_blog_images:53 | Blog 195f547d-2223-44bb-a5c8-fa08c510b835 already has a valid image URL
+2025-03-07T02:59:05.005241 | [92mINFO[0m | update_blog_images:update_blog_images:82 | Updated 14 blog posts with new image URLs
+2025-03-07T02:59:05.005410 | [92mINFO[0m | update_blog_images:<module>:91 | Blog image update script completed

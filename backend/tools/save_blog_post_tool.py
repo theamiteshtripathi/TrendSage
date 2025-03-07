@@ -16,6 +16,14 @@ except ImportError:
     logger = setup_logging()
     logger.warning("Vector embedding tool not available, embeddings will not be created")
 
+# Import the image fetcher
+try:
+    from tools.image_fetcher import get_image_for_blog
+except ImportError:
+    logger = setup_logging()
+    logger.warning("Image fetcher not available, using default images")
+    get_image_for_blog = None
+
 logger = setup_logging()
 llm = ChatOpenAI(temperature=0.7)
 memory_store = MemoryStore()
@@ -138,12 +146,21 @@ class CreateBlogPostTool(BaseTool):
                 title = f"{topic if topic else 'Technology'} Trends Analysis"
                 content = final_answer
                 
+                # Get a relevant image URL for the blog post
+                image_url = None
+                if get_image_for_blog:
+                    try:
+                        image_url = get_image_for_blog(title, content, category if category else "Technology")
+                        logger.info(f"Generated image URL: {image_url}")
+                    except Exception as e:
+                        logger.error(f"Error getting image URL: {str(e)}")
+                
                 # Create blog post directly from final answer - without summary field
                 new_blog = {
                     "title": title,
                     "content": content,
                     "category": category if category else "technology",
-                    "image_url": None,
+                    "image_url": image_url,
                     "trend_score": 1.0,
                     "created_at": datetime.now().isoformat()
                 }
@@ -268,12 +285,21 @@ class CreateBlogPostTool(BaseTool):
                     if scores:
                         trend_score = sum(scores) / len(scores)
                 
-                # Prepare blog post data - without summary field
+                # Get a relevant image URL for the blog post
+                image_url = None
+                if get_image_for_blog:
+                    try:
+                        image_url = get_image_for_blog(blog_data.get("title", ""), blog_data.get("content", ""), blog_data.get("category", "Technology"))
+                        logger.info(f"Generated image URL: {image_url}")
+                    except Exception as e:
+                        logger.error(f"Error getting image URL: {str(e)}")
+                
+                # Create the blog post
                 new_blog = {
-                    "title": blog_data.get("title", f"{topic if topic else 'Technology'} Trends Analysis"),
+                    "title": blog_data.get("title"),
                     "content": blog_data.get("content"),
-                    "category": blog_data.get("category", category if category else "technology"),
-                    "image_url": blog_data.get("image_url"),
+                    "category": blog_data.get("category", "technology").lower(),
+                    "image_url": image_url,
                     "trend_score": trend_score,
                     "created_at": datetime.now().isoformat()
                 }

@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { MessageSquare, BookOpen } from 'lucide-react';
 
@@ -226,15 +226,20 @@ export function BlogPost({ title, content, category, image_url, onChatClick, onR
   // Extract first paragraph for description
   const description = truncatedContent.split('\n')[0];
   
-  // Get a category-specific image if no image_url is provided
+  // State for image loading
   const [imageError, setImageError] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
   const fallbackImage = getFallbackImage(category);
   
   // Determine the image to display with validation
   let displayImageUrl = fallbackImage;
+  
+  // Use the provided image_url if it exists and is valid
   if (!imageError && image_url && isValidImageUrl(image_url)) {
     displayImageUrl = image_url;
-  } else if (!imageError && !image_url) {
+  } 
+  // Otherwise use a category-specific image
+  else if (!imageError && !image_url) {
     displayImageUrl = getCategoryImage(category, title, content);
   }
 
@@ -246,6 +251,24 @@ export function BlogPost({ title, content, category, image_url, onChatClick, onR
     }
   };
 
+  // Preload the image to check if it's valid
+  useEffect(() => {
+    if (displayImageUrl) {
+      const img = new Image();
+      img.src = displayImageUrl;
+      
+      img.onload = () => {
+        setImageLoaded(true);
+        setImageError(false);
+      };
+      
+      img.onerror = () => {
+        setImageError(true);
+        setImageLoaded(false);
+      };
+    }
+  }, [displayImageUrl]);
+
   return (
     <div 
       className="glass-effect rounded-xl overflow-hidden transform transition-all duration-300 hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full group cursor-pointer"
@@ -253,16 +276,20 @@ export function BlogPost({ title, content, category, image_url, onChatClick, onR
     >
       {/* Image Section */}
       <div className="aspect-video overflow-hidden relative">
+        {/* Show a loading skeleton while the image is loading */}
+        {!imageLoaded && !imageError && (
+          <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse"></div>
+        )}
+        
         <img
           src={displayImageUrl}
           alt={title}
-          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+          className={`h-full w-full object-cover transition-transform duration-700 group-hover:scale-110 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+          onLoad={() => setImageLoaded(true)}
           onError={(e) => {
-            // If the image fails to load, try the category-specific image
-            if (!imageError) {
-              setImageError(true);
-              (e.target as HTMLImageElement).src = fallbackImage;
-            }
+            // If the image fails to load, try the fallback image
+            setImageError(true);
+            (e.target as HTMLImageElement).src = fallbackImage;
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-70"></div>
@@ -312,38 +339,69 @@ export function BlogPost({ title, content, category, image_url, onChatClick, onR
 }
 
 export function BlogPostFull({ title, content, category, image_url }: Omit<BlogPostProps, 'onChatClick' | 'onReadClick'> & { image_url?: string }) {
-  // Safely handle content
-  const safeContent = content || '';
+  // State for image loading
+  const [imageError, setImageError] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const fallbackImage = getFallbackImage(category);
   
-  // Format content with styled headings
-  const formattedContent = formatContent(safeContent);
+  // Determine the image to display with validation
+  let displayImageUrl = fallbackImage;
   
-  // Get a category-specific image if no image_url is provided
-  const displayImageUrl = image_url || getCategoryImage(category, title, content);
+  // Use the provided image_url if it exists and is valid
+  if (!imageError && image_url && isValidImageUrl(image_url)) {
+    displayImageUrl = image_url;
+  } 
+  // Otherwise use a category-specific image
+  else if (!imageError && !image_url) {
+    displayImageUrl = getCategoryImage(category, title, content);
+  }
+
+  // Preload the image to check if it's valid
+  useEffect(() => {
+    if (displayImageUrl) {
+      const img = new Image();
+      img.src = displayImageUrl;
+      
+      img.onload = () => {
+        setImageLoaded(true);
+        setImageError(false);
+      };
+      
+      img.onerror = () => {
+        setImageError(true);
+        setImageLoaded(false);
+      };
+    }
+  }, [displayImageUrl]);
 
   return (
-    <div className="glass-effect rounded-xl overflow-hidden">
-      {/* Hero Image */}
-      <div className="w-full h-64 md:h-96 overflow-hidden relative">
+    <div className="max-w-4xl mx-auto">
+      <div className="relative h-[300px] md:h-[400px] overflow-hidden rounded-xl mb-8">
+        {/* Show a loading skeleton while the image is loading */}
+        {!imageLoaded && !imageError && (
+          <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse"></div>
+        )}
+        
         <img
           src={displayImageUrl}
           alt={title}
-          className="w-full h-full object-cover"
+          className={`w-full h-full object-cover ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+          onLoad={() => setImageLoaded(true)}
+          onError={(e) => {
+            setImageError(true);
+            (e.target as HTMLImageElement).src = fallbackImage;
+          }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-70"></div>
-        <div className="absolute bottom-0 left-0 w-full p-6 md:p-8">
-          <span className="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-primary/80 text-white backdrop-blur-sm mb-3">
+        <div className="absolute bottom-0 left-0 right-0 p-6">
+          <span className="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-primary/80 text-white backdrop-blur-sm mb-4">
             {category}
           </span>
-          <h1 className="text-3xl md:text-5xl font-bold text-white drop-shadow-lg">{title}</h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-white">{title}</h1>
         </div>
       </div>
       
-      <div className="p-6 md:p-8">
-        <div className="prose dark:prose-invert max-w-none">
-          <div dangerouslySetInnerHTML={{ __html: formattedContent.replace(/\n/g, '<br/>') }} />
-        </div>
-      </div>
+      <div className="prose prose-lg dark:prose-invert max-w-none" dangerouslySetInnerHTML={{ __html: formatContent(content) }} />
     </div>
   );
 } 

@@ -192,8 +192,19 @@ export default function TrendSage() {
 
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <AuthComponent />
+      <div className="min-h-screen bg-background flex items-center justify-center relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-gradient-to-r from-[#1791c8]/20 to-transparent blur-3xl"></div>
+          <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-gradient-to-r from-transparent to-[#1a73e8]/20 blur-3xl"></div>
+          <div className="absolute top-[30%] right-[10%] w-[20%] h-[20%] rounded-full bg-[#1791c8]/10 blur-2xl"></div>
+          <div className="absolute bottom-[30%] left-[10%] w-[20%] h-[20%] rounded-full bg-[#1a73e8]/10 blur-2xl"></div>
+        </div>
+        
+        {/* Authentication component */}
+        <div className="z-10">
+          <AuthComponent />
+        </div>
       </div>
     )
   }
