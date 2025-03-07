@@ -1080,3 +1080,418 @@ postgrest.exceptions.APIError: {'code': '42501', 'details': None, 'hint': None, 
 2025-03-06T23:20:09.157026 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
 2025-03-06T23:20:09.241219 | [92mINFO[0m | main:get_blogs:114 | Fetching blog posts
 2025-03-06T23:20:45.052125 | [92mINFO[0m | run:main:55 | Application shutdown
+2025-03-06T23:28:35.497990 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-06T23:28:35.550013 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-06T23:28:57.540113 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-06T23:28:57.595288 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-06T23:28:57.682116 | [92mINFO[0m | main:<module>:61 | FastAPI application initialized
+2025-03-06T23:28:57.683438 | [92mINFO[0m | run:main:13 | Starting MPCrew application
+2025-03-06T23:28:57.888030 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: news_articles exists
+2025-03-06T23:28:57.970272 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: blogs exists
+2025-03-06T23:28:58.024062 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: user_preferences exists
+2025-03-06T23:28:58.172552 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: workflow_cache exists
+2025-03-06T23:28:58.172751 | [92mINFO[0m | init_db:initialize_database:34 | Database schema validation: All required tables exist
+2025-03-06T23:28:58.172800 | [92mINFO[0m | run:main:22 | Database initialization successful
+2025-03-06T23:28:58.231028 | [92mINFO[0m | init_db:get_table_counts:55 | Table news_articles has 50 records
+2025-03-06T23:28:58.284501 | [92mINFO[0m | init_db:get_table_counts:55 | Table blogs has 10 records
+2025-03-06T23:28:58.348432 | [92mINFO[0m | init_db:get_table_counts:55 | Table user_preferences has 0 records
+2025-03-06T23:28:58.408582 | [92mINFO[0m | init_db:get_table_counts:55 | Table workflow_cache has 1 records
+2025-03-06T23:28:58.408682 | [92mINFO[0m | run:main:26 | Table news_articles has 50 records
+2025-03-06T23:28:58.408710 | [92mINFO[0m | run:main:26 | Table blogs has 10 records
+2025-03-06T23:28:58.408732 | [92mINFO[0m | run:main:26 | Table user_preferences has 0 records
+2025-03-06T23:28:58.408752 | [92mINFO[0m | run:main:26 | Table workflow_cache has 1 records
+2025-03-06T23:28:58.408772 | [92mINFO[0m | run:main:49 | Starting FastAPI server
+2025-03-06T23:29:00.098476 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-06T23:29:00.153343 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-06T23:29:00.230051 | [92mINFO[0m | main:<module>:61 | FastAPI application initialized
+2025-03-06T23:29:03.875302 | [92mINFO[0m | main:root:65 | Root endpoint accessed
+2025-03-06T23:29:10.522509 | [92mINFO[0m | chat:chat_with_blog:29 | Chat request for blog ID: some-blog-id, query: What is this blog about?
+2025-03-06T23:29:10.650760 | [91mERROR[0m | rag_tool:_retrieve_context:113 | Error retrieving context: {'code': '22P02', 'details': None, 'hint': None, 'message': 'invalid input syntax for type uuid: "some-blog-id"'}
+2025-03-06T23:29:10.651719 | [91mERROR[0m | rag_tool:_retrieve_context:114 | Traceback (most recent call last):
+  File "/Users/amiteshtripathi/Library/Mobile Documents/com~apple~CloudDocs/Documents/My Projects/mpcrew/backend/tools/rag_tool.py", line 63, in _retrieve_context
+    blog_result = supabase.table('blogs').select('*').eq('id', blog_id).execute()
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/amiteshtripathi/miniconda3/envs/mpcrew/lib/python3.12/site-packages/postgrest/_sync/request_builder.py", line 78, in execute
+    raise APIError(r.json())
+postgrest.exceptions.APIError: {'code': '22P02', 'details': None, 'hint': None, 'message': 'invalid input syntax for type uuid: "some-blog-id"'}
+
+2025-03-06T23:29:10.651820 | [91mERROR[0m | chat:chat_with_blog:45 | Error in RAG tool: Failed to retrieve context: {'code': '22P02', 'details': None, 'hint': None, 'message': 'invalid input syntax for type uuid: "some-blog-id"'}
+2025-03-06T23:29:10.651870 | [91mERROR[0m | chat:chat_with_blog:54 | Error in chat endpoint: 500: Failed to retrieve context: {'code': '22P02', 'details': None, 'hint': None, 'message': 'invalid input syntax for type uuid: "some-blog-id"'}
+2025-03-06T23:29:18.643053 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:29:27.402029 | [92mINFO[0m | chat:chat_with_blog:29 | Chat request for blog ID: 5d8fb205-b623-4793-8131-90eb38d1af69, query: What is this blog about?
+2025-03-06T23:30:49.264647 | [92mINFO[0m | run:main:55 | Application shutdown
+2025-03-06T23:31:17.096661 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-06T23:31:17.143752 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-06T23:31:17.211023 | [92mINFO[0m | main:<module>:61 | FastAPI application initialized
+2025-03-06T23:31:17.212639 | [92mINFO[0m | run:main:13 | Starting MPCrew application
+2025-03-06T23:31:17.410323 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: news_articles exists
+2025-03-06T23:31:17.476622 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: blogs exists
+2025-03-06T23:31:17.537006 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: user_preferences exists
+2025-03-06T23:31:17.651830 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: workflow_cache exists
+2025-03-06T23:31:17.651979 | [92mINFO[0m | init_db:initialize_database:34 | Database schema validation: All required tables exist
+2025-03-06T23:31:17.652034 | [92mINFO[0m | run:main:22 | Database initialization successful
+2025-03-06T23:31:17.708435 | [92mINFO[0m | init_db:get_table_counts:55 | Table news_articles has 50 records
+2025-03-06T23:31:17.766260 | [92mINFO[0m | init_db:get_table_counts:55 | Table blogs has 10 records
+2025-03-06T23:31:17.823245 | [92mINFO[0m | init_db:get_table_counts:55 | Table user_preferences has 0 records
+2025-03-06T23:31:17.884785 | [92mINFO[0m | init_db:get_table_counts:55 | Table workflow_cache has 1 records
+2025-03-06T23:31:17.885180 | [92mINFO[0m | run:main:26 | Table news_articles has 50 records
+2025-03-06T23:31:17.885285 | [92mINFO[0m | run:main:26 | Table blogs has 10 records
+2025-03-06T23:31:17.885359 | [92mINFO[0m | run:main:26 | Table user_preferences has 0 records
+2025-03-06T23:31:17.885423 | [92mINFO[0m | run:main:26 | Table workflow_cache has 1 records
+2025-03-06T23:31:17.885480 | [92mINFO[0m | run:main:49 | Starting FastAPI server
+2025-03-06T23:31:19.525381 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-06T23:31:19.571619 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-06T23:31:19.633144 | [92mINFO[0m | main:<module>:61 | FastAPI application initialized
+2025-03-06T23:31:39.482226 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:31:39.807577 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:31:39.882048 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:31:39.944633 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:31:50.713163 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:31:50.916689 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:31:57.948389 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:31:58.290016 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:32:08.530190 | [92mINFO[0m | chat:chat_with_blog:29 | Chat request for blog ID: 5d8fb205-b623-4793-8131-90eb38d1af69, query: Tell me what did trump administration said about crypto
+2025-03-06T23:32:20.281430 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:32:20.440086 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:32:33.353987 | [92mINFO[0m | main:analyze_trends:86 | Analyzing trends for topic: Virat Kohli
+2025-03-06T23:32:33.354507 | [92mINFO[0m | crew:execute_workflow:204 | Starting workflow for topic: Virat Kohli, category: None
+2025-03-06T23:32:33.982906 | [92mINFO[0m | crew:create_tasks:102 | Creating tasks for topic: Virat Kohli, category: miscellaneous
+2025-03-06T23:32:33.986447 | [92mINFO[0m | crew:create_tasks:159 | Created tasks for topic: Virat Kohli, category: miscellaneous
+2025-03-06T23:32:33.995376 | [92mINFO[0m | crew:execute_workflow:230 | Kicking off crew with inputs: {'topic': 'Virat Kohli', 'category': 'miscellaneous'}
+2025-03-06T23:32:35.011973 | [92mINFO[0m | news_data_collection_tool:_run:83 | fetch_news received inputs - topic: Virat Kohli, category: any
+2025-03-06T23:32:35.012372 | [92mINFO[0m | news_data_collection_tool:_run:89 | Processing fetch_news for topic: Virat Kohli, category: any
+2025-03-06T23:32:35.012624 | [92mINFO[0m | news_data_collection_tool:_run:96 | Fetching news for topic: Virat Kohli, category: miscellaneous
+2025-03-06T23:32:35.073801 | [92mINFO[0m | news_data_collection_tool:_run:121 | Fetching from NewsAPI (attempt 1/3)
+2025-03-06T23:32:38.572310 | [92mINFO[0m | memory_store:add_article:41 | Added article https://www.bbc.com/sport/cricket/articles/czdn45mynr7o to memory
+2025-03-06T23:32:38.639358 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: Kohli smashes brilliant four to reach century and secure victory for India against Pakistan
+2025-03-06T23:32:41.840003 | [92mINFO[0m | memory_store:add_article:41 | Added article https://www.bbc.com/sport/cricket/videos/c8d4qqgpj98o to memory
+2025-03-06T23:32:41.948430 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: Composed Kohli shines as India beat Pakistan
+2025-03-06T23:32:45.953851 | [92mINFO[0m | memory_store:add_article:41 | Added article https://www.bbc.com/sport/cricket/articles/c9wp1d1gkjeo to memory
+2025-03-06T23:32:46.026120 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: 'Game's best chaser' - Kohli hailed after more ODI heroics
+2025-03-06T23:32:51.269990 | [92mINFO[0m | memory_store:add_article:41 | Added article https://www.bbc.com/sport/cricket/videos/cvgpd4r9mm8o to memory
+2025-03-06T23:32:51.391650 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: Phillips takes 'ridiculous' one-handed catch to remove Kohli
+2025-03-06T23:32:55.527755 | [92mINFO[0m | memory_store:add_article:41 | Added article https://www.aljazeera.com/sports/2025/2/24/indias-kohli-shuts-outside-noise-in-landmark-century-against-pakistan to memory
+2025-03-06T23:32:55.597476 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: India’s Kohli shuts ‘outside noise’ in landmark century against Pakistan
+2025-03-06T23:32:55.599183 | [92mINFO[0m | news_data_collection_tool:_run:199 | Saved 5 new articles
+2025-03-06T23:33:13.199425 | [92mINFO[0m | trend_analyzer_tool:_run:72 | analyze_trends running with topic: Virat Kohli, category: Sports
+2025-03-06T23:33:21.593142 | [92mINFO[0m | save_blog_post_tool:_run:133 | create_blog_post running with topic: Virat Kohli's Dominance in International Cricket, category: Sports Analysis
+2025-03-06T23:33:21.593499 | [92mINFO[0m | save_blog_post_tool:_run:137 | Using final_answer as blog content
+2025-03-06T23:33:21.593596 | [92mINFO[0m | save_blog_post_tool:_run:152 | Saving blog post from final answer: Virat Kohli's Dominance in International Cricket Trends Analysis
+2025-03-06T23:33:21.760483 | [92mINFO[0m | save_blog_post_tool:_run:167 | Blog post saved successfully with ID: d3fd8e6e-86b2-4b7d-b1db-dedf7117e702
+2025-03-06T23:33:22.603030 | [92mINFO[0m | vector_embedding_tool:_create_embeddings:73 | Created embedding for blog ID: d3fd8e6e-86b2-4b7d-b1db-dedf7117e702
+2025-03-06T23:33:22.603566 | [92mINFO[0m | save_blog_post_tool:_run:182 | Created embeddings for blog post: d3fd8e6e-86b2-4b7d-b1db-dedf7117e702
+2025-03-06T23:33:30.030173 | [92mINFO[0m | crew:save_blog_callback:107 | Blog post creation task completed, saving to database
+2025-03-06T23:33:30.030393 | [92mINFO[0m | save_blog_post_tool:_parse_input:356 | create_blog_post received inputs type: <class 'dict'>
+2025-03-06T23:33:30.030441 | [92mINFO[0m | save_blog_post_tool:_parse_input:372 | Input keys: ['final_answer', 'topic', 'category']
+2025-03-06T23:33:30.030471 | [92mINFO[0m | save_blog_post_tool:_parse_input:379 | Found final_answer with topic: Virat Kohli
+2025-03-06T23:33:30.030507 | [92mINFO[0m | save_blog_post_tool:_run:133 | create_blog_post running with topic: Virat Kohli, category: technology
+2025-03-06T23:33:30.030534 | [92mINFO[0m | save_blog_post_tool:_run:137 | Using final_answer as blog content
+2025-03-06T23:33:30.030561 | [92mINFO[0m | save_blog_post_tool:_run:152 | Saving blog post from final answer: Virat Kohli Trends Analysis
+2025-03-06T23:33:30.205598 | [92mINFO[0m | save_blog_post_tool:_run:167 | Blog post saved successfully with ID: cd28c59d-3cb5-41c0-ad7b-0e1bc3625617
+2025-03-06T23:33:31.072477 | [92mINFO[0m | vector_embedding_tool:_create_embeddings:73 | Created embedding for blog ID: cd28c59d-3cb5-41c0-ad7b-0e1bc3625617
+2025-03-06T23:33:31.072778 | [92mINFO[0m | save_blog_post_tool:_run:182 | Created embeddings for blog post: cd28c59d-3cb5-41c0-ad7b-0e1bc3625617
+2025-03-06T23:33:31.072870 | [92mINFO[0m | crew:save_blog_callback:125 | Blog post save result: {'status': 'success', 'message': 'Blog post created successfully from final answer', 'blog': {'id': 'cd28c59d-3cb5-41c0-ad7b-0e1bc3625617', 'title': 'Virat Kohli Trends Analysis', 'content': 'Title: "Virat Kohli\'s Dominance in International Cricket Trends Analysis"\n\nContent: \n\nIn the realm of international cricket, few names resonate with consistent excellence like that of Virat Kohli. The recent trend analysis underscores Kohli\'s unwavering prowess across multiple facets of the game, further solidifying his legacy as one of the sport\'s greats.\n\n**Consistent Performance in Critical Matches**\n\nOne emerging pattern is Kohli\'s indispensable role in India\'s success during pivotal matches. His performance in high-stakes situations, such as against formidable opponents like Pakistan and Australia in the ICC Champions Trophy, showcases his ability to deliver when it matters most. Kohli’s knack for scripting century-laden narratives that guide his team to victory continues to be a defining trait.\n\n**Remarkable Chase Mastery**\n\nLegendary for his chasing abilities, Kohli\'s methodical approach to run chases has earned him acclaim as possibly the greatest chaser in One Day International (ODI) history. His recent performance against Australia, where he played a crucial role despite not seeing through the chase to completion, exemplifies his intrinsic understanding of game mechanics and strategy.\n\n**Milestone Achievement**\n\nAdding a feather to his cap, Kohli has crossed the significant ODI milestone of 14,000 runs, marked by a spectacular century against Pakistan. This milestone is a testament to his enduring excellence and remains a benchmark of his scoring consistency at the top echelons of cricket.\n\n**Mental Resilience**\n\nVirat Kohli’s mental toughness and focus are frequently highlighted as key components of his sustained success. Articles detail his ability to tune out distractions and maintain clarity of purpose, qualities that have been integral during high-pressure matches, as particularly evidenced in his clash against Pakistan. This mental fortitude sets him apart in the intensely competitive world of international sport.\n\n**Recognition and Praise**\n\nA cricketer of Virat Kohli\'s caliber naturally garners recognition and respect from his peers. Esteemed contemporaries like Steve Smith have praised his unparalleled chasing acumen, reflecting his esteemed position not just within the Indian line-up but across the global cricketing fraternity.\n\n**Supporting Evidence**\n\nArticles from reputed sources, including BBC News and Al Jazeera, substantiate these insights, consistently focusing on Kohli\'s performances, accolades, and the respect he commands within the sports community. These pieces effectively corroborate the trend analysis, painting a comprehensive picture of his current standing and achievements.\n\nIn conclusion, Virat Kohli\'s sustained dominance in cricket is a blend of consistent peak performances, a strategic mind adept in finishing matches, and mental resilience. This robust profile, supported by industry-wide recognition, positions him firmly as a cricketing hero poised for future glories.\n\nMeticulously drawn from trend reports, peers\' respect, and his personal milestones, Kohli\'s trajectory continues to inspire upcoming generations while setting lofty standards in international cricket.\n\nCategory: Sports Analysis\nPublished on: 07 March 2025\n\n```', 'created_at': '2025-03-06T23:33:30.030557+00:00', 'updated_at': '2025-03-07T04:33:30.319588+00:00', 'user_id': None, 'category': 'technology', 'trend_score': 1, 'image_url': None, 'source_articles': [], 'author': None, 'published_at': '2025-03-07T04:33:30.319588+00:00', 'status': 'draft', 'metadata': {}}}
+2025-03-06T23:33:31.137699 | [92mINFO[0m | crew:cache_result:351 | Cached workflow result for topic: Virat Kohli
+2025-03-06T23:33:31.137888 | [92mINFO[0m | crew:execute_workflow:251 | Workflow completed successfully
+2025-03-06T23:33:31.156042 | [92mINFO[0m | main:get_trends:134 | Fetching trends
+2025-03-06T23:33:34.151514 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:33:52.055844 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:33:52.429380 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:33:52.522614 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:33:52.850184 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:34:03.220789 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:34:03.960899 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:34:04.102681 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:34:04.658602 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:34:04.725692 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:34:06.160403 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:34:06.228398 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:34:07.008649 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:34:07.078688 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:34:07.495109 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:34:07.589008 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:34:08.327783 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:34:08.388536 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:34:08.668416 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:34:08.731126 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:34:09.121006 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:34:09.203448 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:34:09.479706 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:34:09.669602 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:34:10.167644 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:34:10.232037 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:34:11.126754 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:34:11.276004 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:34:24.151696 | [92mINFO[0m | run:main:55 | Application shutdown
+2025-03-06T23:40:37.451164 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-06T23:40:37.502313 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-06T23:40:37.571997 | [92mINFO[0m | main:<module>:61 | FastAPI application initialized
+2025-03-06T23:40:37.573348 | [92mINFO[0m | run:main:13 | Starting MPCrew application
+2025-03-06T23:40:37.710005 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: news_articles exists
+2025-03-06T23:40:37.758813 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: blogs exists
+2025-03-06T23:40:37.813952 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: user_preferences exists
+2025-03-06T23:40:37.864167 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: workflow_cache exists
+2025-03-06T23:40:37.864358 | [92mINFO[0m | init_db:initialize_database:34 | Database schema validation: All required tables exist
+2025-03-06T23:40:37.864406 | [92mINFO[0m | run:main:22 | Database initialization successful
+2025-03-06T23:40:37.917183 | [92mINFO[0m | init_db:get_table_counts:55 | Table news_articles has 55 records
+2025-03-06T23:40:37.973681 | [92mINFO[0m | init_db:get_table_counts:55 | Table blogs has 12 records
+2025-03-06T23:40:38.029325 | [92mINFO[0m | init_db:get_table_counts:55 | Table user_preferences has 0 records
+2025-03-06T23:40:38.117462 | [92mINFO[0m | init_db:get_table_counts:55 | Table workflow_cache has 2 records
+2025-03-06T23:40:38.117661 | [92mINFO[0m | run:main:26 | Table news_articles has 55 records
+2025-03-06T23:40:38.117708 | [92mINFO[0m | run:main:26 | Table blogs has 12 records
+2025-03-06T23:40:38.117741 | [92mINFO[0m | run:main:26 | Table user_preferences has 0 records
+2025-03-06T23:40:38.117828 | [92mINFO[0m | run:main:26 | Table workflow_cache has 2 records
+2025-03-06T23:40:38.117894 | [92mINFO[0m | run:main:49 | Starting FastAPI server
+2025-03-06T23:40:39.743988 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-06T23:40:39.798254 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-06T23:40:39.874538 | [92mINFO[0m | main:<module>:61 | FastAPI application initialized
+2025-03-06T23:40:48.190635 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:40:48.346996 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:40:48.420443 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:40:48.482710 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:40:58.894546 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:40:59.563431 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:40:59.709743 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:41:00.377873 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:41:00.467276 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:41:15.108925 | [92mINFO[0m | main:analyze_trends:86 | Analyzing trends for topic: DeepSeek R1
+2025-03-06T23:41:15.111014 | [92mINFO[0m | crew:execute_workflow:204 | Starting workflow for topic: DeepSeek R1, category: None
+2025-03-06T23:41:15.355433 | [92mINFO[0m | crew:create_tasks:102 | Creating tasks for topic: DeepSeek R1, category: miscellaneous
+2025-03-06T23:41:15.358495 | [92mINFO[0m | crew:create_tasks:159 | Created tasks for topic: DeepSeek R1, category: miscellaneous
+2025-03-06T23:41:15.365657 | [92mINFO[0m | crew:execute_workflow:230 | Kicking off crew with inputs: {'topic': 'DeepSeek R1', 'category': 'miscellaneous'}
+2025-03-06T23:41:16.213610 | [92mINFO[0m | news_data_collection_tool:_run:83 | fetch_news received inputs - topic: DeepSeek R1, category: any
+2025-03-06T23:41:16.213804 | [92mINFO[0m | news_data_collection_tool:_run:89 | Processing fetch_news for topic: DeepSeek R1, category: any
+2025-03-06T23:41:16.213917 | [92mINFO[0m | news_data_collection_tool:_run:96 | Fetching news for topic: DeepSeek R1, category: miscellaneous
+2025-03-06T23:41:16.272771 | [92mINFO[0m | news_data_collection_tool:_run:121 | Fetching from NewsAPI (attempt 1/3)
+2025-03-06T23:41:20.094602 | [92mINFO[0m | memory_store:add_article:41 | Added article https://www.androidcentral.com/apps-software/honor-teams-up-with-gemini-and-chatgpts-biggest-rival-to-level-up-its-ai-assistant to memory
+2025-03-06T23:41:20.160820 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: Honor teams up with Gemini and ChatGPT’s biggest rival to level up its AI assistant
+2025-03-06T23:41:24.601737 | [92mINFO[0m | memory_store:add_article:41 | Added article https://www.businessinsider.com/mistral-ceo-deepseek-open-source-ai-2025-2 to memory
+2025-03-06T23:41:24.683093 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: Mistral's CEO Arthur Mensch tells BI that DeepSeek is a win for the open-source ecosystem
+2025-03-06T23:41:28.697995 | [92mINFO[0m | memory_store:add_article:41 | Added article https://www.businessinsider.com/deepseek-cost-profit-margin-revenue-inference-financials-paying-users-2025-3 to memory
+2025-03-06T23:41:28.755706 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: DeepSeek says its AI models would have a 545% profit margin — if everyone who uses them pays
+2025-03-06T23:41:33.205662 | [92mINFO[0m | memory_store:add_article:41 | Added article https://venturebeat.com/ai/new-open-source-math-model-light-r1-32b-surpasses-equivalent-deepseek-performance-with-only-1000-in-training-costs/ to memory
+2025-03-06T23:41:33.273254 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: New open-source math model Light-R1-32B surpasses equivalent DeepSeek performance with only $1000 in training costs
+2025-03-06T23:41:36.407761 | [92mINFO[0m | memory_store:add_article:41 | Added article https://venturebeat.com/ai/together-ais-305m-bet-reasoning-models-like-deepseek-r1-are-increasing-not-decreasing-gpu-demand/ to memory
+2025-03-06T23:41:36.479063 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: Together AI’s $305M bet: Reasoning models like DeepSeek-R1 are increasing, not decreasing, GPU demand
+2025-03-06T23:41:36.479190 | [92mINFO[0m | news_data_collection_tool:_run:199 | Saved 5 new articles
+2025-03-06T23:41:57.228141 | [92mINFO[0m | trend_analyzer_tool:_run:72 | analyze_trends running with topic: DeepSeek R1, category: AI and Technology
+2025-03-06T23:42:15.995426 | [92mINFO[0m | save_blog_post_tool:_run:133 | create_blog_post running with topic: DeepSeek R1: Transforming AI with Strategic Partnerships and Open-Source Models, category: Technology
+2025-03-06T23:42:15.995783 | [92mINFO[0m | save_blog_post_tool:_run:137 | Using final_answer as blog content
+2025-03-06T23:42:15.995826 | [92mINFO[0m | save_blog_post_tool:_run:152 | Saving blog post from final answer: DeepSeek R1: Transforming AI with Strategic Partnerships and Open-Source Models Trends Analysis
+2025-03-06T23:42:16.245398 | [92mINFO[0m | save_blog_post_tool:_run:167 | Blog post saved successfully with ID: 87d89c66-aa9b-4a4b-8dcf-dd68fbe707f1
+2025-03-06T23:42:17.040857 | [92mINFO[0m | vector_embedding_tool:_create_embeddings:73 | Created embedding for blog ID: 87d89c66-aa9b-4a4b-8dcf-dd68fbe707f1
+2025-03-06T23:42:17.041010 | [92mINFO[0m | save_blog_post_tool:_run:182 | Created embeddings for blog post: 87d89c66-aa9b-4a4b-8dcf-dd68fbe707f1
+2025-03-06T23:42:23.429499 | [92mINFO[0m | crew:save_blog_callback:107 | Blog post creation task completed, saving to database
+2025-03-06T23:42:23.429781 | [92mINFO[0m | save_blog_post_tool:_parse_input:356 | create_blog_post received inputs type: <class 'dict'>
+2025-03-06T23:42:23.429834 | [92mINFO[0m | save_blog_post_tool:_parse_input:372 | Input keys: ['final_answer', 'topic', 'category']
+2025-03-06T23:42:23.429871 | [92mINFO[0m | save_blog_post_tool:_parse_input:379 | Found final_answer with topic: DeepSeek R1
+2025-03-06T23:42:23.429906 | [92mINFO[0m | save_blog_post_tool:_run:133 | create_blog_post running with topic: DeepSeek R1, category: technology
+2025-03-06T23:42:23.429936 | [92mINFO[0m | save_blog_post_tool:_run:137 | Using final_answer as blog content
+2025-03-06T23:42:23.429968 | [92mINFO[0m | save_blog_post_tool:_run:152 | Saving blog post from final answer: DeepSeek R1 Trends Analysis
+2025-03-06T23:42:23.662361 | [92mINFO[0m | save_blog_post_tool:_run:167 | Blog post saved successfully with ID: c9a707ba-6bf7-40c3-8578-958a96660973
+2025-03-06T23:42:24.625805 | [92mINFO[0m | vector_embedding_tool:_create_embeddings:73 | Created embedding for blog ID: c9a707ba-6bf7-40c3-8578-958a96660973
+2025-03-06T23:42:24.626433 | [92mINFO[0m | save_blog_post_tool:_run:182 | Created embeddings for blog post: c9a707ba-6bf7-40c3-8578-958a96660973
+2025-03-06T23:42:24.626707 | [92mINFO[0m | crew:save_blog_callback:125 | Blog post save result: {'status': 'success', 'message': 'Blog post created successfully from final answer', 'blog': {'id': 'c9a707ba-6bf7-40c3-8578-958a96660973', 'title': 'DeepSeek R1 Trends Analysis', 'content': "### DeepSeek R1: Transforming AI with Strategic Partnerships and Open-Source Models\n\n#### Introduction\nArtificial Intelligence continues to make bold strides, reshaping industries and influencing how we think about technology. Recent developments around the DeepSeek R1 model present a fascinating glimpse into AI’s dynamic evolution. This analysis will explore key trends emerging from its recent news coverage, providing insights into strategic partnerships, the rise of open-source AI, economic viability, and the importance of advanced reasoning capabilities.\n\n#### Partnerships in AI\nOne of the pivotal trends highlighted is the rise of strategic partnerships within the AI sector. In particular, Honor's collaboration with DeepSeek to enhance its AI assistant, YOYO, underscores the importance of alliances. These partnerships are instrumental in pooling resources and expertise, driving innovation, and vastly improving AI capabilities. As companies recognize the potential of combining strengths, we can anticipate even more strategic collaborations, significantly advancing the field of AI.\n\n#### The Rise of Open-source AI Models\nThe open-source movement within AI is gaining traction, with the DeepSeek model lauded as a positive addition to this growing ecosystem. Mistral's CEO has expressed support, indicating an industry-wide acceptance of open-source as a catalyst for transparency and collaboration. Furthermore, the introduction of Light-R1-32B, an open-source model outperforming DeepSeek, exemplifies the rapid advancement and embrace of accessible AI technology. Such improvements are empowering developers, fostering innovation, and leveling the playing field in technological development.\n\n#### Economic Viability of AI Models\nDeepSeek's recent announcement projecting substantial profit margins illustrates the economic considerations integral to AI deployment. The balancing act between cost efficiency and profitability is more crucial than ever as companies navigate the complex landscape of offering valuable AI solutions at sustainable prices. This trend points to a wider industry movement where economic viability is prioritized alongside technological advancement.\n\n#### Emphasis on Reasoning Capabilities\nThe demand for advanced AI models capable of complex reasoning is unmistakably on the rise. Investments in models like DeepSeek R1, driven by the need for high-performance GPUs, highlight the critical importance of reasoning capabilities. These developments not only meet enterprise needs but also push the boundaries of AI, fostering systems that approach human-like decision-making processes.\n\n#### Conclusion\nThe evolving narrative around DeepSeek R1 encapsulates the dynamic and interlinked nature of modern AI development. As companies forge strategic partnerships and embrace open-source principles, they pave the way for unprecedented innovation and economic opportunities. By focusing on advanced reasoning and sustainable business models, the industry is poised to tackle future challenges head-on, ensuring AI continues to be a transformative force in society.\n\nThis blog aims to keep you, the tech enthusiast and professional, informed about these pivotal changes, offering a thorough understanding of how these trends impact the future of AI technology.\n```", 'created_at': '2025-03-06T23:42:23.429963+00:00', 'updated_at': '2025-03-07T04:42:23.782619+00:00', 'user_id': None, 'category': 'technology', 'trend_score': 1, 'image_url': None, 'source_articles': [], 'author': None, 'published_at': '2025-03-07T04:42:23.782619+00:00', 'status': 'draft', 'metadata': {}}}
+2025-03-06T23:42:24.695752 | [92mINFO[0m | crew:cache_result:351 | Cached workflow result for topic: DeepSeek R1
+2025-03-06T23:42:24.696064 | [92mINFO[0m | crew:execute_workflow:251 | Workflow completed successfully
+2025-03-06T23:42:24.708285 | [92mINFO[0m | main:get_trends:134 | Fetching trends
+2025-03-06T23:42:27.707663 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:42:33.201665 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:42:33.562515 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:42:38.253014 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:42:38.323671 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:42:45.140273 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:42:45.539098 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:42:47.033844 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:42:47.187791 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:42:48.476402 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:42:48.550252 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:42:51.279326 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:42:51.376337 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:42:53.642185 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:42:53.713224 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:42:55.087487 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:42:55.155670 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:46:12.873734 | [92mINFO[0m | run:main:55 | Application shutdown
+2025-03-06T23:48:56.383380 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-06T23:48:56.437466 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-06T23:48:56.502061 | [92mINFO[0m | main:<module>:61 | FastAPI application initialized
+2025-03-06T23:48:56.504057 | [92mINFO[0m | run:main:13 | Starting MPCrew application
+2025-03-06T23:48:56.650188 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: news_articles exists
+2025-03-06T23:48:56.766906 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: blogs exists
+2025-03-06T23:48:56.821333 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: user_preferences exists
+2025-03-06T23:48:56.877889 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: workflow_cache exists
+2025-03-06T23:48:56.877981 | [92mINFO[0m | init_db:initialize_database:34 | Database schema validation: All required tables exist
+2025-03-06T23:48:56.878052 | [92mINFO[0m | run:main:22 | Database initialization successful
+2025-03-06T23:48:56.934682 | [92mINFO[0m | init_db:get_table_counts:55 | Table news_articles has 60 records
+2025-03-06T23:48:57.004243 | [92mINFO[0m | init_db:get_table_counts:55 | Table blogs has 14 records
+2025-03-06T23:48:57.059648 | [92mINFO[0m | init_db:get_table_counts:55 | Table user_preferences has 0 records
+2025-03-06T23:48:57.119500 | [92mINFO[0m | init_db:get_table_counts:55 | Table workflow_cache has 3 records
+2025-03-06T23:48:57.119729 | [92mINFO[0m | run:main:26 | Table news_articles has 60 records
+2025-03-06T23:48:57.119816 | [92mINFO[0m | run:main:26 | Table blogs has 14 records
+2025-03-06T23:48:57.119879 | [92mINFO[0m | run:main:26 | Table user_preferences has 0 records
+2025-03-06T23:48:57.119934 | [92mINFO[0m | run:main:26 | Table workflow_cache has 3 records
+2025-03-06T23:48:57.119985 | [92mINFO[0m | run:main:49 | Starting FastAPI server
+2025-03-06T23:48:57.121699 | [92mINFO[0m | run:main:55 | Application shutdown
+2025-03-06T23:49:14.916831 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-06T23:49:14.963112 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-06T23:49:15.031486 | [92mINFO[0m | main:<module>:61 | FastAPI application initialized
+2025-03-06T23:49:15.032754 | [92mINFO[0m | run:main:13 | Starting MPCrew application
+2025-03-06T23:49:15.219623 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: news_articles exists
+2025-03-06T23:49:15.281678 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: blogs exists
+2025-03-06T23:49:15.368771 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: user_preferences exists
+2025-03-06T23:49:15.436665 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: workflow_cache exists
+2025-03-06T23:49:15.437119 | [92mINFO[0m | init_db:initialize_database:34 | Database schema validation: All required tables exist
+2025-03-06T23:49:15.437318 | [92mINFO[0m | run:main:22 | Database initialization successful
+2025-03-06T23:49:15.508193 | [92mINFO[0m | init_db:get_table_counts:55 | Table news_articles has 60 records
+2025-03-06T23:49:15.660928 | [92mINFO[0m | init_db:get_table_counts:55 | Table blogs has 14 records
+2025-03-06T23:49:15.725987 | [92mINFO[0m | init_db:get_table_counts:55 | Table user_preferences has 0 records
+2025-03-06T23:49:15.779415 | [92mINFO[0m | init_db:get_table_counts:55 | Table workflow_cache has 3 records
+2025-03-06T23:49:15.779935 | [92mINFO[0m | run:main:26 | Table news_articles has 60 records
+2025-03-06T23:49:15.780015 | [92mINFO[0m | run:main:26 | Table blogs has 14 records
+2025-03-06T23:49:15.780076 | [92mINFO[0m | run:main:26 | Table user_preferences has 0 records
+2025-03-06T23:49:15.780130 | [92mINFO[0m | run:main:26 | Table workflow_cache has 3 records
+2025-03-06T23:49:15.780182 | [92mINFO[0m | run:main:49 | Starting FastAPI server
+2025-03-06T23:49:17.561350 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-06T23:49:17.616794 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-06T23:49:17.702009 | [92mINFO[0m | main:<module>:61 | FastAPI application initialized
+2025-03-06T23:49:23.764613 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:49:24.040756 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:49:24.131581 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:49:24.213356 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:49:53.756779 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:50:23.759797 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:50:42.086686 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:50:42.420677 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:50:42.682557 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:50:42.761931 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:51:12.050298 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:51:35.242054 | [92mINFO[0m | main:analyze_trends:86 | Analyzing trends for topic: Russia Ukraine war
+2025-03-06T23:51:35.243031 | [92mINFO[0m | crew:execute_workflow:204 | Starting workflow for topic: Russia Ukraine war, category: None
+2025-03-06T23:51:35.418184 | [92mINFO[0m | crew:create_tasks:102 | Creating tasks for topic: Russia Ukraine war, category: miscellaneous
+2025-03-06T23:51:35.419855 | [92mINFO[0m | crew:create_tasks:159 | Created tasks for topic: Russia Ukraine war, category: miscellaneous
+2025-03-06T23:51:35.424890 | [92mINFO[0m | crew:execute_workflow:230 | Kicking off crew with inputs: {'topic': 'Russia Ukraine war', 'category': 'miscellaneous'}
+2025-03-06T23:51:36.809219 | [92mINFO[0m | news_data_collection_tool:_run:83 | fetch_news received inputs - topic: Russia Ukraine war, category: any
+2025-03-06T23:51:36.809421 | [92mINFO[0m | news_data_collection_tool:_run:89 | Processing fetch_news for topic: Russia Ukraine war, category: any
+2025-03-06T23:51:36.809520 | [92mINFO[0m | news_data_collection_tool:_run:96 | Fetching news for topic: Russia Ukraine war, category: technology
+2025-03-06T23:51:36.872250 | [92mINFO[0m | news_data_collection_tool:_run:121 | Fetching from NewsAPI (attempt 1/3)
+2025-03-06T23:51:41.301969 | [92mINFO[0m | memory_store:add_article:41 | Added article https://www.bbc.com/news/articles/c9814k2jlxko to memory
+2025-03-06T23:51:41.398730 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: Fact-checking Trump claims about war in Ukraine
+2025-03-06T23:51:46.934020 | [92mINFO[0m | memory_store:add_article:41 | Added article https://www.bbc.com/news/articles/cvge8dnrge5o to memory
+2025-03-06T23:51:47.046269 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: Briton accused of fighting for Ukraine jailed in Russia for 19 years
+2025-03-06T23:51:50.971805 | [92mINFO[0m | memory_store:add_article:41 | Added article https://www.bbc.com/news/articles/cvgwddmjyvzo to memory
+2025-03-06T23:51:51.034491 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: Trump says Russians 'have the cards' in peace talks
+2025-03-06T23:51:55.559674 | [92mINFO[0m | memory_store:add_article:41 | Added article https://www.bbc.com/news/articles/cwypy119yzno to memory
+2025-03-06T23:51:55.622542 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: What key players want from Ukraine war talks
+2025-03-06T23:51:59.328539 | [92mINFO[0m | memory_store:add_article:41 | Added article https://gizmodo.com/putin-dangles-a-nuclear-arms-treaty-while-accusing-ukraine-of-hysteria-2000566461 to memory
+2025-03-06T23:51:59.411658 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: Putin Dangles a Nuclear Arms Treaty While Accusing Ukraine of ‘Hysteria’
+2025-03-06T23:51:59.411826 | [92mINFO[0m | news_data_collection_tool:_run:199 | Saved 5 new articles
+2025-03-06T23:52:15.719836 | [92mINFO[0m | trend_analyzer_tool:_run:72 | analyze_trends running with topic: Russia Ukraine war, category: news analysis
+2025-03-06T23:52:40.870995 | [92mINFO[0m | save_blog_post_tool:_run:133 | create_blog_post running with topic: Russia-Ukraine War, category: International Politics
+2025-03-06T23:52:45.886690 | [92mINFO[0m | save_blog_post_tool:_run:296 | Saving blog post: Exploring the Latest Technology Trends: Key Insights and Future Implications
+2025-03-06T23:52:45.956968 | [92mINFO[0m | save_blog_post_tool:_run:301 | Blog post saved successfully with ID: 09e7e7f7-a7cc-46c0-8b30-48043db0e435
+2025-03-06T23:52:46.520922 | [92mINFO[0m | vector_embedding_tool:_create_embeddings:73 | Created embedding for blog ID: 09e7e7f7-a7cc-46c0-8b30-48043db0e435
+2025-03-06T23:52:46.521490 | [92mINFO[0m | save_blog_post_tool:_run:316 | Created embeddings for blog post: 09e7e7f7-a7cc-46c0-8b30-48043db0e435
+2025-03-06T23:52:53.888271 | [92mINFO[0m | crew:save_blog_callback:107 | Blog post creation task completed, saving to database
+2025-03-06T23:52:53.888572 | [92mINFO[0m | save_blog_post_tool:_parse_input:356 | create_blog_post received inputs type: <class 'dict'>
+2025-03-06T23:52:53.888619 | [92mINFO[0m | save_blog_post_tool:_parse_input:372 | Input keys: ['final_answer', 'topic', 'category']
+2025-03-06T23:52:53.888650 | [92mINFO[0m | save_blog_post_tool:_parse_input:379 | Found final_answer with topic: Russia Ukraine war
+2025-03-06T23:52:53.888686 | [92mINFO[0m | save_blog_post_tool:_run:133 | create_blog_post running with topic: Russia Ukraine war, category: technology
+2025-03-06T23:52:53.888711 | [92mINFO[0m | save_blog_post_tool:_run:137 | Using final_answer as blog content
+2025-03-06T23:52:53.888735 | [92mINFO[0m | save_blog_post_tool:_run:152 | Saving blog post from final answer: Russia Ukraine war Trends Analysis
+2025-03-06T23:52:54.056634 | [92mINFO[0m | save_blog_post_tool:_run:167 | Blog post saved successfully with ID: e49c73bf-c14b-49a4-8596-ee58acd1031c
+2025-03-06T23:52:54.637193 | [92mINFO[0m | vector_embedding_tool:_create_embeddings:73 | Created embedding for blog ID: e49c73bf-c14b-49a4-8596-ee58acd1031c
+2025-03-06T23:52:54.637757 | [92mINFO[0m | save_blog_post_tool:_run:182 | Created embeddings for blog post: e49c73bf-c14b-49a4-8596-ee58acd1031c
+2025-03-06T23:52:54.638014 | [92mINFO[0m | crew:save_blog_callback:125 | Blog post save result: {'status': 'success', 'message': 'Blog post created successfully from final answer', 'blog': {'id': 'e49c73bf-c14b-49a4-8596-ee58acd1031c', 'title': 'Russia Ukraine war Trends Analysis', 'content': 'Title: Navigating the Complex Landscape of the Russia-Ukraine War: Key Insights and Future Implications\n\n## Introduction\n\nThe Russia-Ukraine war has become a major focal point in global politics, revealing a host of trends and developments with significant implications for international relations and security. This blog post examines the emerging themes, key developments, and significant insights from the ongoing conflict, offering a comprehensive analysis of the intricacies involved.\n\n## Emerging Themes\n\n### War in Ukraine\n\nThe conflict in Ukraine continues to hold international attention, as various nations and leaders have positioned themselves within the complex geopolitical puzzle. The situation remains critical, with potential ripple effects impacting global stability.\n\n### International Relations\n\nControversial statements from key figures, such as former US President Donald Trump, have influenced international perceptions and diplomatic relations regarding the conflict. These interactions underscore the evolving power dynamics shaping the global response to the war.\n\n### Nuclear Arms Control\n\nAmidst the chaos, the topic of nuclear arms control has resurfaced, adding another layer of complexity to the ongoing geopolitical tensions. Discussions surrounding the New START treaty underscore broader security concerns.\n\n## Key Developments\n\n### Trump\'s Accusations Against Ukraine\n\nPresident Trump\'s allegations that Ukraine bears responsibility for the conflict have stirred controversy, echoing narratives associated with Russia. These statements have global repercussions, potentially reshaping Ukraine\'s diplomatic strategies and international image.\n\n### Treatment of Foreign Fighters\n\nThe imprisonment of British national James Scott Rhys Anderson for fighting with Ukrainian forces highlights the legal and moral challenges associated with foreign volunteers and the treatment of prisoners of war.\n\n### Power Dynamics in Peace Talks\n\nTrump\'s assertion that Russia holds significant leverage in peace negotiations due to territorial gains in Ukraine suggests a power dynamic skewed in Russia\'s favor, which may influence future diplomatic endeavors.\n\n### Diplomatic Talks in Paris and Riyadh\n\nHigh-profile diplomatic efforts in Paris and Riyadh highlight the urgency of addressing the conflict through peaceful means. However, Ukraine\'s absence from these talks reflects persisting geopolitical tensions and unresolved challenges.\n\n### Renewed Focus on Nuclear Arms Control\n\nRussian President Vladimir Putin\'s openness to negotiating the extension of the New START treaty points to a potential avenue for dialogue on arms control, offering a critical perspective on future global security dynamics.\n\n## Significant Insights\n\nThe Russia-Ukraine war\'s far-reaching impact is evidenced by the involvement of international leaders and countries, emphasizing its profound geopolitical implications. The conviction of foreign fighters raises complex legal and ethical questions, while the concurrent focus on nuclear arms control reflects the multifaceted nature of international security concerns.\n\n## Supporting Articles\n\n- "Briton accused of fighting for Ukraine jailed in Russia for 19 years" - BBC News\n- "Fact-checking Trump claims about war in Ukraine" - BBC News\n- "Trump says Russians \'have the cards\' in peace talks" - BBC News\n- "What key players want from Ukraine war talks" - BBC News\n- "Putin Dangles a Nuclear Arms Treaty While Accusing Ukraine of ‘Hysteria’" - Gizmodo.com\n\n## Conclusion\n\nThe Russia-Ukraine war embodies a complex web of international relations and security issues, requiring strategic and diplomatic solutions to prevent further escalation. By understanding the key trends and developments, policymakers and stakeholders can navigate this intricate landscape and work towards lasting peace and stability.\n```', 'created_at': '2025-03-06T23:52:53.888731+00:00', 'updated_at': '2025-03-07T04:52:54.124954+00:00', 'user_id': None, 'category': 'technology', 'trend_score': 1, 'image_url': None, 'source_articles': [], 'author': None, 'published_at': '2025-03-07T04:52:54.124954+00:00', 'status': 'draft', 'metadata': {}}}
+2025-03-06T23:52:54.802352 | [92mINFO[0m | crew:cache_result:351 | Cached workflow result for topic: Russia Ukraine war
+2025-03-06T23:52:54.802977 | [92mINFO[0m | crew:execute_workflow:251 | Workflow completed successfully
+2025-03-06T23:52:54.807232 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:52:54.907775 | [92mINFO[0m | main:get_trends:134 | Fetching trends
+2025-03-06T23:52:54.975726 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:52:55.064359 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:52:55.135477 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:52:57.821482 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:53:03.825126 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:53:04.071981 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:53:55.086285 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:53:55.714904 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:54:11.244374 | [92mINFO[0m | chat:chat_with_blog:29 | Chat request for blog ID: e49c73bf-c14b-49a4-8596-ee58acd1031c, query: What did trump administration said recently about the situation
+2025-03-06T23:54:40.689655 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:54:41.023345 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:54:49.361028 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:54:49.539064 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:54:50.912829 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:54:51.011197 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:55:03.722807 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:55:03.943317 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:55:33.708340 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:55:37.292615 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:55:37.536514 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:55:38.334256 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:55:38.642015 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:55:45.234136 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-06T23:55:45.455006 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:14:27.416256 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:14:27.644106 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:14:57.410908 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:15:28.285085 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:15:57.395404 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:16:27.391775 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:16:57.403735 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:17:27.394860 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:17:57.399955 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:18:27.394124 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:18:57.400070 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:19:27.393100 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:19:57.404207 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:20:27.395451 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:20:57.404425 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:21:27.396930 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:21:57.398622 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:22:27.396939 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:22:57.397775 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:23:27.396936 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:23:57.429072 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:24:27.398753 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:24:57.407134 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:25:27.403754 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:25:57.400497 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:26:27.403948 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:26:57.399588 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:27:27.399756 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:27:57.403774 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:28:27.401570 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:28:51.027895 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:28:51.454888 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:28:51.862198 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:28:51.936445 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:28:53.326062 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:28:53.388264 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:28:53.837089 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:28:53.902173 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:28:54.289728 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:28:54.577567 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:28:54.943570 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:28:55.003773 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:28:55.897891 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:28:56.272760 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:29:25.750024 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:29:55.728546 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:30:25.752954 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:30:56.301066 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:31:24.565537 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:31:24.729674 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:31:24.860779 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:31:24.929089 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:31:54.553151 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:32:24.583409 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:32:54.588808 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:33:24.593918 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:33:54.586278 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:34:24.592487 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:34:54.589169 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:35:24.595307 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:35:54.591132 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:36:24.596661 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:36:54.595837 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T00:37:19.703170 | [92mINFO[0m | run:main:55 | Application shutdown

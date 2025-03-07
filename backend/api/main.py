@@ -10,6 +10,7 @@ from tools.supabase_client import supabase
 from config.logging_config import setup_logging
 from crew import execute_workflow  # Only import what we need
 from datetime import datetime
+from api.router import router  # Import the router
 
 # Initialize logger
 logger = setup_logging()
@@ -44,6 +45,9 @@ app = FastAPI(
     description="API for MPCrew News Analysis and Blog Generation",
     version="1.0.0"
 )
+
+# Include the router
+app.include_router(router)
 
 # Configure CORS
 app.add_middleware(

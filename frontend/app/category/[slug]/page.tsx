@@ -66,9 +66,8 @@ export default function CategoryPage() {
     router.push(`/blog/${postId}`)
   }
 
-  const handleChatWithTrends = () => {
-    // This will be implemented later
-    alert("Chat with Trends feature coming soon!")
+  const handleChatWithTrends = (blogId: string) => {
+    router.push(`/chat/${blogId}`);
   }
 
   return (
@@ -116,7 +115,7 @@ export default function CategoryPage() {
                 title={post.title || "Untitled Post"}
                 content={post.content || "No content available"}
                 category={post.category || "Miscellaneous"}
-                onChatClick={handleChatWithTrends}
+                onChatClick={() => handleChatWithTrends(post.id)}
                 onReadClick={() => handleReadAnalysis(post.id)}
               />
             ))}

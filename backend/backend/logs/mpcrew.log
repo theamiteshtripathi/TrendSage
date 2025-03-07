@@ -580,3 +580,51 @@ UnboundLocalError: cannot access local variable 'e' where it is not associated w
 2025-03-06T22:51:41.970247 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
 2025-03-06T22:51:42.031238 | [92mINFO[0m | main:<module>:57 | FastAPI application initialized
 2025-03-06T22:51:42.453792 | [92mINFO[0m | run:main:55 | Application shutdown
+2025-03-06T23:28:16.812608 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-06T23:28:16.862945 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-06T23:40:11.681311 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-06T23:40:11.729998 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-06T23:40:11.795156 | [92mINFO[0m | main:<module>:61 | FastAPI application initialized
+2025-03-06T23:40:11.796980 | [92mINFO[0m | run:main:13 | Starting MPCrew application
+2025-03-06T23:40:12.091111 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: news_articles exists
+2025-03-06T23:40:12.298627 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: blogs exists
+2025-03-06T23:40:12.434268 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: user_preferences exists
+2025-03-06T23:40:12.502183 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: workflow_cache exists
+2025-03-06T23:40:12.502442 | [92mINFO[0m | init_db:initialize_database:34 | Database schema validation: All required tables exist
+2025-03-06T23:40:12.502504 | [92mINFO[0m | run:main:22 | Database initialization successful
+2025-03-06T23:40:12.561839 | [92mINFO[0m | init_db:get_table_counts:55 | Table news_articles has 55 records
+2025-03-06T23:40:12.614420 | [92mINFO[0m | init_db:get_table_counts:55 | Table blogs has 12 records
+2025-03-06T23:40:12.668231 | [92mINFO[0m | init_db:get_table_counts:55 | Table user_preferences has 0 records
+2025-03-06T23:40:12.737716 | [92mINFO[0m | init_db:get_table_counts:55 | Table workflow_cache has 2 records
+2025-03-06T23:40:12.737905 | [92mINFO[0m | run:main:26 | Table news_articles has 55 records
+2025-03-06T23:40:12.737952 | [92mINFO[0m | run:main:26 | Table blogs has 12 records
+2025-03-06T23:40:12.737991 | [92mINFO[0m | run:main:26 | Table user_preferences has 0 records
+2025-03-06T23:40:12.738024 | [92mINFO[0m | run:main:26 | Table workflow_cache has 2 records
+2025-03-06T23:40:12.738055 | [92mINFO[0m | run:main:49 | Starting FastAPI server
+2025-03-06T23:40:14.444716 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-06T23:40:14.492540 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-06T23:40:14.560073 | [92mINFO[0m | main:<module>:61 | FastAPI application initialized
+2025-03-06T23:40:30.982689 | [92mINFO[0m | run:main:55 | Application shutdown
+2025-03-06T23:48:03.976703 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-06T23:48:04.025346 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-06T23:48:04.087834 | [92mINFO[0m | main:<module>:61 | FastAPI application initialized
+2025-03-06T23:48:04.089291 | [92mINFO[0m | run:main:13 | Starting MPCrew application
+2025-03-06T23:48:04.374442 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: news_articles exists
+2025-03-06T23:48:04.426917 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: blogs exists
+2025-03-06T23:48:04.480152 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: user_preferences exists
+2025-03-06T23:48:04.530578 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: workflow_cache exists
+2025-03-06T23:48:04.530838 | [92mINFO[0m | init_db:initialize_database:34 | Database schema validation: All required tables exist
+2025-03-06T23:48:04.530897 | [92mINFO[0m | run:main:22 | Database initialization successful
+2025-03-06T23:48:04.593736 | [92mINFO[0m | init_db:get_table_counts:55 | Table news_articles has 60 records
+2025-03-06T23:48:04.644194 | [92mINFO[0m | init_db:get_table_counts:55 | Table blogs has 14 records
+2025-03-06T23:48:04.697327 | [92mINFO[0m | init_db:get_table_counts:55 | Table user_preferences has 0 records
+2025-03-06T23:48:04.750107 | [92mINFO[0m | init_db:get_table_counts:55 | Table workflow_cache has 3 records
+2025-03-06T23:48:04.750240 | [92mINFO[0m | run:main:26 | Table news_articles has 60 records
+2025-03-06T23:48:04.750281 | [92mINFO[0m | run:main:26 | Table blogs has 14 records
+2025-03-06T23:48:04.750313 | [92mINFO[0m | run:main:26 | Table user_preferences has 0 records
+2025-03-06T23:48:04.750342 | [92mINFO[0m | run:main:26 | Table workflow_cache has 3 records
+2025-03-06T23:48:04.750370 | [92mINFO[0m | run:main:49 | Starting FastAPI server
+2025-03-06T23:48:06.425274 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-06T23:48:06.473218 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-06T23:48:06.537784 | [92mINFO[0m | main:<module>:61 | FastAPI application initialized
+2025-03-06T23:49:05.521777 | [92mINFO[0m | run:main:55 | Application shutdown

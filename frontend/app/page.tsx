@@ -10,6 +10,8 @@ import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
 import { LoadingAnimation, SuccessAnimation } from "@/components/ui/loading-animation"
 import { BlogPost } from "@/components/blog-post"
+import { Button } from "@/components/ui/button"
+import { BookOpen, MessageSquare } from "lucide-react"
 
 // Types
 interface Headline {
@@ -52,6 +54,8 @@ export default function TrendSage() {
   const [error, setError] = useState("")
   const [activeCategory, setActiveCategory] = useState("All")
   const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [currentPage, setCurrentPage] = useState(1)
+  const postsPerPage = 9 // Show 9 posts per page (3x3 grid)
 
   useEffect(() => {
     const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
@@ -61,10 +65,16 @@ export default function TrendSage() {
     // Fetch initial blog posts
     fetchBlogPosts()
 
+    // Set up a refresh interval (every 30 seconds)
+    const refreshInterval = setInterval(() => {
+      fetchBlogPosts(activeCategory !== "All" ? activeCategory : undefined);
+    }, 30000);
+
     return () => {
       authListener?.subscription.unsubscribe()
+      clearInterval(refreshInterval)
     }
-  }, [])
+  }, [activeCategory])
 
   const fetchBlogPosts = async (category?: string) => {
     try {
@@ -100,6 +110,7 @@ export default function TrendSage() {
       const pollInterval = setInterval(async () => {
         attempts++
         try {
+          // Fetch all blog posts to ensure we have the latest data
           const blogsResponse = await apiClient.getBlogs()
           if (blogsResponse && blogsResponse.length > 0) {
             // Check if there's a blog post with a title containing our search query
@@ -107,8 +118,10 @@ export default function TrendSage() {
               blog.title.toLowerCase().includes(topic.toLowerCase())
             )
             
+            // Always update the blog posts list with the latest data
+            setBlogPosts(blogsResponse)
+            
             if (relevantBlog) {
-              setBlogPosts(blogsResponse)
               setCurrentBlogPost(relevantBlog)
               setAnalysisComplete(true)
               clearInterval(pollInterval)
@@ -120,7 +133,18 @@ export default function TrendSage() {
         
         if (attempts >= maxAttempts) {
           clearInterval(pollInterval)
-          setError("Analysis is taking longer than expected. Please check back later.")
+          // Even if we don't find a blog with the exact topic, still show the latest blogs
+          try {
+            const latestBlogs = await apiClient.getBlogs()
+            if (latestBlogs && latestBlogs.length > 0) {
+              setBlogPosts(latestBlogs)
+              setCurrentBlogPost(latestBlogs[0])
+              setAnalysisComplete(true)
+            }
+          } catch (error) {
+            console.error("Error fetching latest blogs:", error)
+          }
+          setError("Analysis is taking longer than expected. Showing the latest blog posts instead.")
         }
       }, 3000)
       
@@ -139,6 +163,8 @@ export default function TrendSage() {
       console.error(err)
     } finally {
       setIsLoading(false)
+      // Refresh blog posts one more time after analysis is complete
+      fetchBlogPosts(activeCategory !== "All" ? activeCategory : undefined)
     }
   }
 
@@ -157,8 +183,13 @@ export default function TrendSage() {
   }
 
   const handleChatWithTrends = () => {
-    // This will be implemented later
-    alert("Chat with Trends feature coming soon!")
+    if (currentBlogPost) {
+      router.push(`/chat/${currentBlogPost.id}`);
+    } else if (blogPosts.length > 0) {
+      router.push(`/chat/${blogPosts[0].id}`);
+    } else {
+      setError("No blog posts available to chat with. Please try analyzing a topic first.");
+    }
   }
 
   if (!isAuthenticated) {
@@ -205,6 +236,24 @@ export default function TrendSage() {
         {analysisComplete && currentBlogPost && (
           <div className="my-12">
             <SuccessAnimation title={searchQuery} />
+            <div className="flex justify-center mt-6 space-x-4">
+              <Button 
+                onClick={() => handleReadAnalysis(currentBlogPost.id)}
+                className="flex items-center justify-center space-x-1"
+              >
+                <BookOpen className="h-4 w-4 mr-2" />
+                <span>Read Analysis</span>
+              </Button>
+              
+              <Button 
+                onClick={() => router.push(`/chat/${currentBlogPost.id}`)}
+                variant="outline"
+                className="flex items-center justify-center space-x-1"
+              >
+                <MessageSquare className="h-4 w-4 mr-2" />
+                <span>Chat with Trends</span>
+              </Button>
+            </div>
           </div>
         )}
 
@@ -217,17 +266,42 @@ export default function TrendSage() {
             </div>
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {blogPosts.slice(0, 6).map((post) => (
+              {blogPosts.map((post) => (
                 <BlogPost
                   key={post.id}
                   title={post.title || "Untitled Post"}
                   content={post.content || "No content available"}
                   category={post.category || "Miscellaneous"}
-                  onChatClick={handleChatWithTrends}
+                  onChatClick={() => router.push(`/chat/${post.id}`)}
                   onReadClick={() => handleReadAnalysis(post.id)}
                 />
               ))}
             </div>
+            
+            {/* Add pagination if needed in the future */}
+            {blogPosts.length > postsPerPage && (
+              <div className="flex justify-center mt-8">
+                <Button 
+                  variant="outline" 
+                  onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                  disabled={currentPage === 1}
+                  className="mr-2"
+                >
+                  Previous
+                </Button>
+                <span className="flex items-center mx-4">
+                  Page {currentPage} of {Math.ceil(blogPosts.length / postsPerPage)}
+                </span>
+                <Button 
+                  variant="outline" 
+                  onClick={() => setCurrentPage(prev => Math.min(prev + 1, Math.ceil(blogPosts.length / postsPerPage)))}
+                  disabled={currentPage === Math.ceil(blogPosts.length / postsPerPage)}
+                  className="ml-2"
+                >
+                  Next
+                </Button>
+              </div>
+            )}
           </section>
         )}
 
