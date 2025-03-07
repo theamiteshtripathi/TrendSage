@@ -2317,3 +2317,145 @@ postgrest.exceptions.APIError: {'code': '22P02', 'details': None, 'hint': None, 
 2025-03-07T03:10:38.899685 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
 2025-03-07T03:11:08.716858 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
 2025-03-07T03:11:24.181723 | [92mINFO[0m | run:main:55 | Application shutdown
+2025-03-07T04:02:30.639127 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-07T04:02:30.641295 | [92mINFO[0m | image_fetcher:<module>:22 | Using fallback images only (Unsplash API not configured)
+2025-03-07T04:02:30.690420 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-07T04:02:30.769956 | [92mINFO[0m | main:<module>:61 | FastAPI application initialized
+2025-03-07T04:02:30.771593 | [92mINFO[0m | run:main:13 | Starting MPCrew application
+2025-03-07T04:02:31.075793 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: news_articles exists
+2025-03-07T04:02:31.140984 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: blogs exists
+2025-03-07T04:02:31.235574 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: user_preferences exists
+2025-03-07T04:02:31.317357 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: workflow_cache exists
+2025-03-07T04:02:31.317663 | [92mINFO[0m | init_db:initialize_database:34 | Database schema validation: All required tables exist
+2025-03-07T04:02:31.317747 | [92mINFO[0m | run:main:22 | Database initialization successful
+2025-03-07T04:02:31.375177 | [92mINFO[0m | init_db:get_table_counts:55 | Table news_articles has 70 records
+2025-03-07T04:02:31.426376 | [92mINFO[0m | init_db:get_table_counts:55 | Table blogs has 16 records
+2025-03-07T04:02:31.478619 | [92mINFO[0m | init_db:get_table_counts:55 | Table user_preferences has 0 records
+2025-03-07T04:02:31.599592 | [92mINFO[0m | init_db:get_table_counts:55 | Table workflow_cache has 5 records
+2025-03-07T04:02:31.599985 | [92mINFO[0m | run:main:26 | Table news_articles has 70 records
+2025-03-07T04:02:31.600297 | [92mINFO[0m | run:main:26 | Table blogs has 16 records
+2025-03-07T04:02:31.600595 | [92mINFO[0m | run:main:26 | Table user_preferences has 0 records
+2025-03-07T04:02:31.600778 | [92mINFO[0m | run:main:26 | Table workflow_cache has 5 records
+2025-03-07T04:02:31.600906 | [92mINFO[0m | run:main:49 | Starting FastAPI server
+2025-03-07T04:02:33.188526 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-07T04:02:33.189463 | [92mINFO[0m | image_fetcher:<module>:22 | Using fallback images only (Unsplash API not configured)
+2025-03-07T04:02:33.237643 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-07T04:02:33.300403 | [92mINFO[0m | main:<module>:61 | FastAPI application initialized
+2025-03-07T04:06:47.121423 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:06:47.378202 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:06:47.512155 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:06:47.575669 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:06:51.711336 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:06:52.100001 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:06:52.792562 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:06:52.943234 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:06:58.625755 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:06:58.762919 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:07:01.925881 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:07:01.998881 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:07:09.485973 | [92mINFO[0m | chat:chat_with_blog:29 | Chat request for blog ID: 5d8fb205-b623-4793-8131-90eb38d1af69, query: Tell me more about cryto trends
+2025-03-07T04:07:18.384695 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:07:18.558452 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:07:20.115447 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:07:20.182064 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:07:32.498309 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:07:32.693862 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:07:33.197933 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:07:33.258643 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:07:33.849752 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:07:33.902399 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:07:35.745959 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:07:35.832111 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:07:40.872207 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:07:40.988907 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:08:10.879962 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:08:26.037627 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:08:26.183399 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:08:26.260523 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:08:26.317334 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:08:56.021384 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:09:26.019128 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:10:44.942862 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-07T04:10:44.944529 | [92mINFO[0m | image_fetcher:<module>:22 | Using fallback images only (Unsplash API not configured)
+2025-03-07T04:10:44.990683 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-07T04:10:45.062211 | [92mINFO[0m | main:<module>:61 | FastAPI application initialized
+2025-03-07T04:10:45.063350 | [92mINFO[0m | run:main:13 | Starting MPCrew application
+2025-03-07T04:10:45.268123 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: news_articles exists
+2025-03-07T04:10:45.326847 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: blogs exists
+2025-03-07T04:10:45.377886 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: user_preferences exists
+2025-03-07T04:10:45.533608 | [92mINFO[0m | init_db:check_table_exists:11 | Table validation: workflow_cache exists
+2025-03-07T04:10:45.533872 | [92mINFO[0m | init_db:initialize_database:34 | Database schema validation: All required tables exist
+2025-03-07T04:10:45.533980 | [92mINFO[0m | run:main:22 | Database initialization successful
+2025-03-07T04:10:45.584202 | [92mINFO[0m | init_db:get_table_counts:55 | Table news_articles has 70 records
+2025-03-07T04:10:45.635396 | [92mINFO[0m | init_db:get_table_counts:55 | Table blogs has 16 records
+2025-03-07T04:10:45.693514 | [92mINFO[0m | init_db:get_table_counts:55 | Table user_preferences has 0 records
+2025-03-07T04:10:45.751643 | [92mINFO[0m | init_db:get_table_counts:55 | Table workflow_cache has 5 records
+2025-03-07T04:10:45.752089 | [92mINFO[0m | run:main:26 | Table news_articles has 70 records
+2025-03-07T04:10:45.752247 | [92mINFO[0m | run:main:26 | Table blogs has 16 records
+2025-03-07T04:10:45.752366 | [92mINFO[0m | run:main:26 | Table user_preferences has 0 records
+2025-03-07T04:10:45.752480 | [92mINFO[0m | run:main:26 | Table workflow_cache has 5 records
+2025-03-07T04:10:45.752593 | [92mINFO[0m | run:main:49 | Starting FastAPI server
+2025-03-07T04:10:47.514497 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-07T04:10:47.515760 | [92mINFO[0m | image_fetcher:<module>:22 | Using fallback images only (Unsplash API not configured)
+2025-03-07T04:10:47.568827 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-07T04:10:47.651481 | [92mINFO[0m | main:<module>:61 | FastAPI application initialized
+2025-03-07T04:11:11.313154 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:11:11.496098 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:11:11.569585 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:11:11.642555 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:11:29.076267 | [92mINFO[0m | main:analyze_trends:86 | Analyzing trends for topic: Entertainment
+2025-03-07T04:11:29.077669 | [92mINFO[0m | crew:execute_workflow:204 | Starting workflow for topic: Entertainment, category: None
+2025-03-07T04:11:29.263667 | [92mINFO[0m | crew:create_tasks:102 | Creating tasks for topic: Entertainment, category: miscellaneous
+2025-03-07T04:11:29.267252 | [92mINFO[0m | crew:create_tasks:159 | Created tasks for topic: Entertainment, category: miscellaneous
+2025-03-07T04:11:29.278315 | [92mINFO[0m | crew:execute_workflow:230 | Kicking off crew with inputs: {'topic': 'Entertainment', 'category': 'miscellaneous'}
+2025-03-07T04:11:30.730968 | [92mINFO[0m | news_data_collection_tool:_run:83 | fetch_news received inputs - topic: Entertainment, category: any
+2025-03-07T04:11:30.731437 | [92mINFO[0m | news_data_collection_tool:_run:89 | Processing fetch_news for topic: Entertainment, category: any
+2025-03-07T04:11:30.731664 | [92mINFO[0m | news_data_collection_tool:_run:96 | Fetching news for topic: Entertainment, category: technology
+2025-03-07T04:11:30.796929 | [92mINFO[0m | news_data_collection_tool:_run:121 | Fetching from NewsAPI (attempt 1/3)
+2025-03-07T04:11:34.151891 | [92mINFO[0m | memory_store:add_article:41 | Added article https://gizmodo.com/disney-trump-dei-executive-orders-advisory-warnings-2000562431 to memory
+2025-03-07T04:11:34.295791 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: Disney Is the Latest Entertainment Company to Comply With Trump’s Anti-DEI Executive Orders
+2025-03-07T04:11:37.577309 | [92mINFO[0m | memory_store:add_article:41 | Added article https://www.theverge.com/news/621454/sec-meme-coin-securities-collectibles-guidance to memory
+2025-03-07T04:11:37.638498 | [92mINFO[0m | news_data_collection_tool:_run:193 | Saved article: Meme coins aren’t subject to securities regulations, says SEC
+2025-03-07T04:11:37.638858 | [92mINFO[0m | news_data_collection_tool:_run:199 | Saved 2 new articles
+2025-03-07T04:11:45.193699 | [92mINFO[0m | trend_analyzer_tool:_run:72 | analyze_trends running with topic: Disney and entertainment industry compliance, category: Entertainment
+2025-03-07T04:11:57.922734 | [92mINFO[0m | save_blog_post_tool:_run:141 | create_blog_post running with topic: Disney and entertainment industry compliance, category: Entertainment
+2025-03-07T04:12:03.487924 | [92mINFO[0m | image_fetcher:get_image_for_blog:160 | Using miscellaneous fallback image
+2025-03-07T04:12:03.489258 | [92mINFO[0m | save_blog_post_tool:_run:293 | Generated image URL: https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800
+2025-03-07T04:12:03.653900 | [92mINFO[0m | save_blog_post_tool:_run:322 | Saving blog post: Exploring the Latest Technology Trends and Developments
+2025-03-07T04:12:03.716021 | [92mINFO[0m | save_blog_post_tool:_run:327 | Blog post saved successfully with ID: 265dce32-fba3-4253-9ad6-23cacdf7efae
+2025-03-07T04:12:04.576395 | [92mINFO[0m | vector_embedding_tool:_create_embeddings:73 | Created embedding for blog ID: 265dce32-fba3-4253-9ad6-23cacdf7efae
+2025-03-07T04:12:04.576833 | [92mINFO[0m | save_blog_post_tool:_run:342 | Created embeddings for blog post: 265dce32-fba3-4253-9ad6-23cacdf7efae
+2025-03-07T04:12:12.275556 | [92mINFO[0m | crew:save_blog_callback:107 | Blog post creation task completed, saving to database
+2025-03-07T04:12:12.276611 | [92mINFO[0m | save_blog_post_tool:_parse_input:382 | create_blog_post received inputs type: <class 'dict'>
+2025-03-07T04:12:12.276735 | [92mINFO[0m | save_blog_post_tool:_parse_input:398 | Input keys: ['final_answer', 'topic', 'category']
+2025-03-07T04:12:12.276766 | [92mINFO[0m | save_blog_post_tool:_parse_input:405 | Found final_answer with topic: Entertainment
+2025-03-07T04:12:12.276795 | [92mINFO[0m | save_blog_post_tool:_run:141 | create_blog_post running with topic: Entertainment, category: technology
+2025-03-07T04:12:12.276821 | [92mINFO[0m | save_blog_post_tool:_run:145 | Using final_answer as blog content
+2025-03-07T04:12:12.276898 | [92mINFO[0m | image_fetcher:get_image_for_blog:160 | Using miscellaneous fallback image
+2025-03-07T04:12:12.276938 | [92mINFO[0m | save_blog_post_tool:_run:154 | Generated image URL: https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800
+2025-03-07T04:12:12.276962 | [92mINFO[0m | save_blog_post_tool:_run:169 | Saving blog post from final answer: Entertainment Trends Analysis
+2025-03-07T04:12:12.439029 | [92mINFO[0m | save_blog_post_tool:_run:184 | Blog post saved successfully with ID: f3c9d747-66e9-4552-a573-027c72f4efa2
+2025-03-07T04:12:13.296409 | [92mINFO[0m | vector_embedding_tool:_create_embeddings:73 | Created embedding for blog ID: f3c9d747-66e9-4552-a573-027c72f4efa2
+2025-03-07T04:12:13.297032 | [92mINFO[0m | save_blog_post_tool:_run:199 | Created embeddings for blog post: f3c9d747-66e9-4552-a573-027c72f4efa2
+2025-03-07T04:12:13.297281 | [92mINFO[0m | crew:save_blog_callback:125 | Blog post save result: {'status': 'success', 'message': 'Blog post created successfully from final answer', 'blog': {'id': 'f3c9d747-66e9-4552-a573-027c72f4efa2', 'title': 'Entertainment Trends Analysis', 'content': "# Navigating the Regulatory Seas: Disney's Compliance Journey in the Entertainment Industry\n\n## Introduction\n\nIn recent years, the entertainment industry has found itself at the intersection of creativity and compliance, navigating complex governmental policies to maintain operational harmony. A key player in this landscape is Disney, whose approach to compliance with government regulations has become a focal point. This blog delves into the nuances of how Disney and the broader entertainment sector are adapting to these regulatory landscapes, particularly concerning diversity, equality, and inclusion (DEI) programs.\n\n## Compliance with Government Regulations\n\nThe entertainment industry is no stranger to adapting content and operations to align with regulatory standards. Disney, as a leading entity in this sector, exemplifies this adaptive strategy. With governmental policies such as President Trump’s executive orders impacting DEI initiatives across the board, Disney’s re-evaluation of these programs marks a significant shift. These policies mandate a reassessment of internal practices to ensure compliance, fostering a landscape where private companies must strategically align with public mandates.\n\n## Key Developments and Adjustments\n\n**Re-Evaluation of DEI Programs:** Disney, alongside other entertainment giants, has begun re-evaluating and scaling back DEI programs in response to federal orders. This shift indicates a broader industry move towards cautious compliance, balancing government directives with corporate social responsibility.\n\n**Content Sensitivity Adjustments:** Another noteworthy development is Disney’s proactive approach to content management. Ahead of show and movie releases, Disney now implements content warnings to address outdated stereotypes and potentially offensive material. This adjustment not only aligns with regulatory expectations but also caters to a more socially conscious audience.\n\n## Emerging Patterns and Trends\n\nA clear pattern is emerging where governmental executive orders are compelling entertainment companies to reassess their internal programs related to social issues. This trend underscores a shift towards greater sensitivity and awareness of diverse audience reactions, fostering a content environment attentive to modern standards.\n\nFurthermore, the increased scrutiny on entertainment content reflects a broader social movement within the industry, pushing for sensitivity in material portrayal and the gradual phasing out of outdated stereotypes.\n\n## Significant Insights\n\n**Government Policymaking Influence:** A critical insight is the visible impact of public policymaking on private company practices. The entertainment industry, including major players like Disney, must strategically navigate these governmental directives to maintain regulatory compliance while advancing their business objectives.\n\n**Importance of DEI in Entertainment:** Despite regulatory pressures, DEI remains a pivotal aspect of the entertainment sector. Companies must carefully navigate these regulatory landscapes to preserve progressive initiatives without compromising on compliance mandates.\n\n**Balancing Compliance and Responsibility:** Entertainment companies face an ongoing challenge in balancing regulatory compliance with social responsibility. This delicate interplay requires adept strategy to foster an environment where both objectives coexist harmoniously.\n\n## Future Implications\n\nAs the entertainment industry continues to evolve under regulatory guidance, companies like Disney will play a crucial role in shaping the future of compliance and creativity. The ongoing tension between policy directives and industry approaches to societal issues will persist, demanding a nuanced balance between adherence and innovation.\n\nIn conclusion, Disney's journey through compliance is indicative of a broader industry trend, where proactive strategies and sensitivity to regulatory landscapes will dictate the future direction of entertainment companies in aligning with both public policies and audience expectations.\n```", 'created_at': '2025-03-07T04:12:12.276959+00:00', 'updated_at': '2025-03-07T09:12:12.506268+00:00', 'user_id': None, 'category': 'technology', 'trend_score': 1, 'image_url': 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800', 'source_articles': [], 'author': None, 'published_at': '2025-03-07T09:12:12.506268+00:00', 'status': 'draft', 'metadata': {}}}
+2025-03-07T04:12:13.364800 | [92mINFO[0m | crew:cache_result:351 | Cached workflow result for topic: Entertainment
+2025-03-07T04:12:13.365443 | [92mINFO[0m | crew:execute_workflow:251 | Workflow completed successfully
+2025-03-07T04:12:13.368817 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:12:13.438546 | [92mINFO[0m | main:get_trends:134 | Fetching trends
+2025-03-07T04:12:13.491806 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:12:13.620062 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:12:16.374041 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:12:21.688285 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:12:21.882220 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:12:32.030230 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:12:32.232629 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:12:51.717687 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:12:51.985304 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:13:07.062619 | [92mINFO[0m | chat:chat_with_blog:29 | Chat request for blog ID: f3c9d747-66e9-4552-a573-027c72f4efa2, query: whats going on in the trends
+2025-03-07T04:13:13.339879 | [92mINFO[0m | supabase_admin_client:<module>:20 | Supabase admin client initialized with service role
+2025-03-07T04:13:13.341117 | [92mINFO[0m | image_fetcher:<module>:22 | Using fallback images only (Unsplash API not configured)
+2025-03-07T04:13:13.389185 | [92mINFO[0m | crew:<module>:23 | Initializing CrewAI components
+2025-03-07T04:13:13.462303 | [92mINFO[0m | main:<module>:61 | FastAPI application initialized
+2025-03-07T04:13:41.601574 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:13:41.900392 | [92mINFO[0m | main:get_blogs:118 | Fetching blog posts
+2025-03-07T04:14:06.203854 | [92mINFO[0m | run:main:55 | Application shutdown
